@@ -1,0 +1,12 @@
+.content{background:#eeedec;padding-bottom:47px;}
+.about_menu{width:185px;padding-top:35px;}
+.about_menu_ul{border:1px #dfdede solid;border-right:none;}
+.about_menu_ul>li{width:185px;height:40px;text-indent:64px;line-height:40px;}
+.about_menu_ul>li~li{border-top:1px #f6f5f5 solid;}
+.about_menu_ul>.li_first{font-weight:bold;}
+.about_menu_ul>.ab_li2{border-top-color:#fff;}
+.about_menu_ul>li a{display:block;text-decoration:none;}
+.about_menu_ul>li.abcurr a,.about_menu_ul>li a:hover{background:#ea5413;color:#fff;}
+.about_r,.c_nav{width:915px;}
+.about_r_box{background:#fff;border:1px #dfdede solid;}
+.about_h5{text-indent:24px;font-size:22px;font-family:Arial,"微软雅黑";color:#050505;padding-top:17px;}

@@ -1,0 +1,67 @@
+<include file="Public:header" />
+<form id="roleForm" class="definewidth m20">
+  <table class="table table-bordered table-hover definewidth m10">
+    <tr>
+      <td width="10%" class="tableleft">角色名称</td>
+      <td><input type="text" name="title" jschecktitle="角色名称" jscheckrule="null=0" value="{$role['title']}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">状态</td>
+      <td><input type="radio" name="status" value="1" <eq name="role['status']" value="1">checked="checked"</eq>/> 启用 
+      <input type="radio" name="status" value="0" <eq name="role['status']" value="0">checked="checked"</eq>/> 禁用 </td>
+    </tr>
+    <tr>
+      <td class="tableleft">权限</td>
+      <td>
+      <ul>
+          <foreach name="list" item="vo">
+          <li>
+          	<label class='checkbox inline'><input type='checkbox' disabled="disabled" />{$vo['title']}</label>
+            <ul>
+            <foreach name="vo['child']" item="v">
+                <li><label class='checkbox inline'><input type='checkbox'  name='node[]' value="{$v['id']}" <in name="v['id']" value="$role['rules']">checked="checked" </in>/>{$v['title']}</label></li>
+            </foreach>
+            </ul>
+          </li>
+          </foreach>
+      </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button">保存</button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+var rid = "{$role['id']}";
+$(function(){
+	$('button.btn-primary').click(function(){
+		var data={},check=[];
+		var p = check_form('#roleForm');
+		if(p){
+			$("input[name='node[]']").each(function(){
+				if( $(this).is(':checked') ){
+					check.push($(this).val());
+				}
+			});
+		}
+		$(data).attr('rid',rid);
+		$(data).attr('title',$("input[name='title']").val());
+		$(data).attr('status',$("input[name='status']:checked").val());
+		$(data).attr('rules',check.join(','));
+		top.jdbox.alert(2);
+		$.post('/Role/dataToDb.html',data,function(F){
+			top.jdbox.alert(F.status,F.info);
+			if(F.status){
+				window.location.reload();
+			}
+		},'json');
+	})
+	$('button#backid').click(function(){
+		window.location.href= "{:U('Role/index')}";
+	})
+})
+</script> 
+<include file="Public:footer" />

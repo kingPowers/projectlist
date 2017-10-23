@@ -1,0 +1,46 @@
+/*.maxconDiv{margin:0;padding:0;width:100%;background-size:100%;}
+.headerDiv{width:100%;height:680px;margin:0 auto;}
+.headerDiv img{width:100%;height:680px;}
+.centerDiv{width:100%;height:2993px;position:relative;background:url(../image/newyears/bg.jpg) no-repeat;}
+.centerDiv img{width:100%;height:2993px;}
+.houseDiv{width:100%;height:498px;top:350px;}
+.houseDiv_content{width:650px;height:498px;margin:0 auto;background:url(../image/newyears/table.jpg) no-repeat;}*/
+
+/*.headerDiv img{width:100%;height:680px;}
+.centerDiv{width:100%;height:2993px;position:relative;margin:0 auto;z-index:5;background:url(../image/newyears/bg.jpg) no-repeat;}
+.centerDiv img{width:1820px;height:2993px;}
+.houseDiv{width:1100px;height:498px;position:absolute;z-index:10;top:430px;left:0px;border:1px solid red;margin-left:370px;}
+.houseDiv_content{width:650px;height:485px;background:red;margin:0 auto;}*/
+/*
+.leftTree{width:420px;height:310px;border:2px solid red;position:absolute;top:1420px;left:280px;}
+.rightTree{width:420px;height:310px;border:2px solid red;float:right;position:absolute;top:1080px;right:180px;}*/
+
+
+.maxconDiv{margin:0;padding:0;min-width:1100px; }
+.headerDiv{width:100%;height:678px;margin:0 auto;min-width:1100px;background:url(../image/newyears/banner.jpg);background-position:center 0; }
+.headerDiv img{width:100%;height:678px;}
+.centerDiv{height:2995px;background:url(../image/newyears/bg.jpg);background-position:center 0;min-width:1100px;}
+.houseDiv{width:1100px;height:498px;margin:0 auto;position:relative; }
+.houseDiv_content{width:631px;height:480px;position:absolute;top:420px;left:238px;background:url(../image/newyears/table.png) no-repeat;}
+
+/*#houseDiv_content #tab {display:block;width:620px;padding:0;margin:0;list-style:none;font-size:37px;font-family:经典综艺体简}
+#tab li {float:left;width:310px; }
+#tab li a {display:block;line-height:27px;text-decoration:none;padding:0 0 0 5px; text-align:center;color:white;text-align:center;height:70px;line-height:70px;}
+#houseDiv_content #tab li a:hover {width:308px;height:70px;background-color:white;color:#7934de;}*/
+
+#tab {overflow:hidden;zoom:1;}
+#tab li {float:left;width:310px;height:70px;margin-left:1px;color:#fff;height:70px;cursor:pointer;line-height:70px;text-align:center;font-size:37px;font-family:Adobe 黑体 Std;font-weight:bold;}
+#tab li.current {color:white;background:white;color:#7934de;height:72px;}
+#content {border-top-width:0;height:400px;width:622px;}
+#content ul {width:622px;display:none;}
+#content ul li{height:65px;width:204px;float:left;text-align:center;line-height:72px;font-size:30px;color:white;}
+
+.pageDiv{width:220px;height:50px;font-size:20px;color:white;line-height:50px;float:right;font-family:Adobe 黑体 Std;}
+.pageDiv a{margin-left:30px;cursor:pointer;color:black;font-weight:bold;float:left;}
+.pageDiv a:hover{color:red;}
+
+.footDiv{width:1100px;height:129px;margin:0 auto;position:relative;top:1820px;}
+.leftIconImg{margin-left:80px;}
+.rightIconImg{margin-left:200px;}
+/*.iconDiv{width:1100px;height:129px;position:absolute;top:3100px;left:328px;border:1px solid red;}*/
+/*#content ul {line-height:25px;display:none;margin:0 30px;padding:10px 0;border:1px solid red;}*/

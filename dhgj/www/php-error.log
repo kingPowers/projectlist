@@ -1,0 +1,108 @@
+[10-Mar-2017 13:24:56 Asia/Shanghai] PHP Notice:  Constant APP_DEBUG already defined in E:\project\www.dhgj.com\www\index.php on line 3
+[10-Mar-2017 13:24:56 Asia/Shanghai] PHP Notice:  Constant APP_DEBUG already defined in E:\project\www.dhgj.com\www\index.php on line 3
+[10-Mar-2017 14:07:20 Asia/Shanghai] PHP Parse error:  syntax error, unexpected 'session' (T_STRING) in E:\project\www.dhgj.com\www\config.inc.php on line 34
+[10-Mar-2017 14:07:20 Asia/Shanghai] PHP Parse error:  syntax error, unexpected 'session' (T_STRING) in E:\project\www.dhgj.com\www\config.inc.php on line 34
+[10-Mar-2017 14:33:37 PRC] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 19
+[10-Mar-2017 14:33:52 PRC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 22
+[10-Mar-2017 14:33:53 PRC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 22
+[10-Mar-2017 14:33:54 PRC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 22
+[10-Mar-2017 14:33:54 PRC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 22
+[10-Mar-2017 15:32:34 PRC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 48
+[10-Mar-2017 15:45:54 PRC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 26
+[10-Mar-2017 16:14:04 PRC] PHP Fatal error:  Call to a member function get() on a non-object in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 28
+[10-Mar-2017 16:54:24 PRC] PHP Fatal error:  Call to undefined method Redis::key() in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 28
+[14-Mar-2017 10:17:49 PRC] PHP Parse error:  syntax error, unexpected '=' in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 6
+[14-Mar-2017 14:37:09 PRC] PHP Parse error:  syntax error, unexpected 'UPLOADPATH' (T_STRING) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 15
+[14-Mar-2017 14:37:24 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 17
+[29-Mar-2017 14:13:08 PRC] PHP Parse error:  syntax error, unexpected '$service_res' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 83
+[29-Mar-2017 16:51:37 PRC] PHP Parse error:  syntax error, unexpected 'try' (T_TRY), expecting identifier (T_STRING) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 77
+[30-Mar-2017 11:43:10 PRC] PHP Parse error:  syntax error, unexpected '$res' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 17
+[30-Mar-2017 17:27:26 PRC] PHP Parse error:  syntax error, unexpected '{' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 41
+[31-Mar-2017 11:14:55 PRC] PHP Parse error:  syntax error, unexpected ';' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 15
+[31-Mar-2017 13:32:46 PRC] PHP Fatal error:  Class 'Order' not found in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 14
+[31-Mar-2017 13:34:56 PRC] PHP Fatal error:  Class 'Order' not found in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 14
+[31-Mar-2017 13:35:01 PRC] PHP Fatal error:  Class 'Order' not found in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 14
+[31-Mar-2017 13:36:05 PRC] PHP Fatal error:  Class 'Order' not found in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 14
+[31-Mar-2017 13:36:53 PRC] PHP Fatal error:  Class 'Order' not found in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 14
+[31-Mar-2017 13:37:28 PRC] PHP Fatal error:  Class 'Order' not found in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 14
+[31-Mar-2017 13:41:48 PRC] PHP Parse error:  syntax error, unexpected '{' in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 78
+[31-Mar-2017 17:06:42 PRC] PHP Parse error:  syntax error, unexpected ';' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 66
+[31-Mar-2017 17:07:15 PRC] PHP Parse error:  syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php(66) : runtime-created function on line 1
+[31-Mar-2017 17:07:15 PRC] PHP Parse error:  syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php(66) : runtime-created function on line 1
+[31-Mar-2017 17:07:15 PRC] PHP Parse error:  syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php(66) : runtime-created function on line 1
+[31-Mar-2017 17:07:15 PRC] PHP Parse error:  syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php(66) : runtime-created function on line 1
+[31-Mar-2017 17:07:15 PRC] PHP Parse error:  syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php(66) : runtime-created function on line 1
+[31-Mar-2017 17:07:15 PRC] PHP Parse error:  syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php(66) : runtime-created function on line 1
+[31-Mar-2017 17:07:15 PRC] PHP Parse error:  syntax error, unexpected '''' (T_CONSTANT_ENCAPSED_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php(66) : runtime-created function on line 1
+[01-Apr-2017 09:36:49 PRC] PHP Parse error:  syntax error, unexpected '$filename' (T_VARIABLE), expecting function (T_FUNCTION) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 34
+[01-Apr-2017 13:46:36 PRC] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 37
+[01-Apr-2017 14:29:13 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 128
+[01-Apr-2017 15:10:42 PRC] PHP Parse error:  syntax error, unexpected '{' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 20
+[01-Apr-2017 15:11:29 PRC] PHP Parse error:  syntax error, unexpected '=' in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 140
+[01-Apr-2017 15:12:25 PRC] PHP Fatal error:  Call to undefined method Order::getError() in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 25
+[01-Apr-2017 15:16:11 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 135
+[01-Apr-2017 15:19:45 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 31
+[01-Apr-2017 15:48:45 PRC] PHP Fatal error:  Call to private method UploadFile::dealFiles() from context 'Order' in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 136
+[01-Apr-2017 15:52:21 PRC] PHP Fatal error:  Call to a member function addImg() on a non-object in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 24
+[01-Apr-2017 15:52:51 PRC] PHP Fatal error:  Call to undefined method Order::countFiles() in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 134
+[01-Apr-2017 16:50:29 PRC] PHP Parse error:  syntax error, unexpected 'if' (T_IF), expecting ',' or ';' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 46
+[05-Apr-2017 09:26:43 PRC] PHP Parse error:  syntax error, unexpected '$order_info' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 37
+[05-Apr-2017 09:27:31 PRC] PHP Parse error:  syntax error, unexpected '$order_info' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 37
+[05-Apr-2017 09:27:31 PRC] PHP Parse error:  syntax error, unexpected '$order_info' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 37
+[05-Apr-2017 09:27:32 PRC] PHP Parse error:  syntax error, unexpected '$order_info' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 37
+[05-Apr-2017 14:24:45 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 187
+[05-Apr-2017 14:25:28 PRC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 416
+[05-Apr-2017 14:25:49 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 514
+[05-Apr-2017 14:26:05 PRC] PHP Fatal error:  Cannot redeclare Order::getError() in E:\project\www.dhgj.com\ThinkPHP\Lib\ORG\Util\Order.class.php on line 565
+[05-Apr-2017 15:03:33 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 20
+[06-Apr-2017 10:26:59 PRC] PHP Parse error:  syntax error, unexpected ';' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 11
+[06-Apr-2017 16:14:03 PRC] PHP Parse error:  syntax error, unexpected 'curl_close' (T_STRING) in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 213
+[06-Apr-2017 16:53:04 PRC] PHP Parse error:  syntax error, unexpected '{' in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 6
+[25-Apr-2017 14:03:39 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 20
+[25-Apr-2017 14:48:06 PRC] PHP Parse error:  syntax error, unexpected 'curl_close' (T_STRING) in E:\project\www.dhgj.com\www\Lib\Action\CommonAction.class.php on line 118
+[25-Apr-2017 16:37:29 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 43
+[26-Apr-2017 10:42:43 PRC] PHP Parse error:  syntax error, unexpected ',' in E:\project\www.dhgj.com\www\Runtime\Cache\437a381df164cbe999865ba9a4574874.php on line 176
+[26-Apr-2017 10:43:34 PRC] PHP Parse error:  syntax error, unexpected ',' in E:\project\www.dhgj.com\www\Runtime\Cache\437a381df164cbe999865ba9a4574874.php on line 176
+[26-Apr-2017 13:44:00 PRC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 12
+[26-Apr-2017 15:13:16 PRC] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in E:\project\www.dhgj.com\www\Runtime\Cache\d364933e734d2e597e5802786cc3285e.php on line 225
+[26-Apr-2017 17:00:18 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\www.dhgj.com\www\Lib\Action\MemberAction.class.php on line 142
+[27-Apr-2017 09:33:36 PRC] PHP Parse error:  syntax error, unexpected '[' in E:\project\www.dhgj.com\www\Runtime\Cache\d364933e734d2e597e5802786cc3285e.php on line 166
+[02-May-2017 09:40:34 PRC] PHP Fatal error:  Call to undefined function dunp() in E:\project\www.dhgj.com\www\Lib\Action\OrderAction.class.php on line 66
+[02-May-2017 10:35:35 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\www.dhgj.com\www\Lib\Action\OrderAction.class.php on line 68
+[02-May-2017 13:13:13 PRC] PHP Parse error:  syntax error, unexpected ';' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 27
+[02-May-2017 16:16:00 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\www.dhgj.com\www\Lib\Action\OrderAction.class.php on line 57
+[02-May-2017 17:20:10 PRC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in E:\project\www.dhgj.com\www\Lib\Action\OrderAction.class.php on line 70
+[02-May-2017 17:20:36 PRC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in E:\project\www.dhgj.com\www\Lib\Action\OrderAction.class.php on line 70
+[03-May-2017 15:16:50 PRC] PHP Parse error:  syntax error, unexpected '[' in E:\project\www.dhgj.com\www\Runtime\Cache\1a1b36df83bba1a83eb6afc4c935be6d.php on line 190
+[04-May-2017 09:20:59 PRC] PHP Parse error:  syntax error, unexpected '$params' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\IndexAction.class.php on line 14
+[08-May-2017 13:01:49 PRC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in E:\project\www.dhgj.com\www\Lib\Action\MemberAction.class.php on line 203
+[08-May-2017 14:25:47 PRC] PHP Parse error:  syntax error, unexpected '}' in E:\project\www.dhgj.com\www\Runtime\Cache\d550dbaabcf2618a44ad2c94cec5b77b.php on line 4
+[08-May-2017 15:36:04 PRC] PHP Fatal error:  Class 'Newpage' not found in E:\project\www.dhgj.com\www\Lib\Action\CommonAction.class.php on line 100
+[08-May-2017 15:42:28 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 26
+[08-May-2017 15:42:37 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 26
+[08-May-2017 17:02:53 PRC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 21
+[09-May-2017 10:46:16 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 26
+[09-May-2017 11:03:16 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 26
+[09-May-2017 11:03:22 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 26
+[09-May-2017 11:03:23 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 26
+[09-May-2017 11:04:02 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 26
+[09-May-2017 11:05:19 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:19 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:20 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:20 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:20 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:20 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:20 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:20 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:21 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:22 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[09-May-2017 11:05:33 PRC] PHP Fatal error:  Cannot unset string offsets in E:\project\www.dhgj.com\www\Lib\Action\MediaAction.class.php on line 28
+[11-May-2017 15:08:40 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 13
+[12-May-2017 10:58:54 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74
+[12-May-2017 10:59:07 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74
+[12-May-2017 10:59:08 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74
+[12-May-2017 10:59:08 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74
+[12-May-2017 10:59:08 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74
+[12-May-2017 10:59:09 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74
+[12-May-2017 10:59:09 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74
+[12-May-2017 10:59:09 PRC] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.dhgj.com\www\Lib\Action\TextAction.class.php on line 74

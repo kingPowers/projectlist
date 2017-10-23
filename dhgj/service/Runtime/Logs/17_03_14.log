@@ -1,0 +1,2 @@
+[ 2017-03-14T16:54:32+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-14T16:57:11+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico

@@ -1,0 +1,97 @@
+<include file="Public:header" />
+<form class="form-inline definewidth m20" action="/Member/receiveMember/" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="download_data" class="btn btn-primary" onclick="export_data(this);">导出接单用户数据</a>
+    <a class="btn btn-primary" href="{:U('Member/add_receive')}"" >添加新的接单用户</a>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>用户ＩＤ</th>
+        <th>用户名</th>
+        <th>手机号码</th>
+        <th>接单次数</th>
+        <th>状态</th>
+        <th>注册时间</th>
+        <th>上次登录时间</th>
+        <th>操作</th>
+        <!--<th>详细信息</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']} （{$vo['mobile_location']}）</td>
+            <td>{$vo['coNum']}</td>
+            <td>
+              <if condition="$vo['status'] eq 1">
+                正常
+              <else/>
+                禁止接单
+              </if> 
+            </td>
+            <td>{$vo['timeadd']}</td>
+			<td>{$vo['lasttime']}</td>
+            <td>
+               <if condition="$vo['status'] eq 1">
+                <a href="javascript:void(0)" onclick="ban_receive({$vo['id']})">禁止接单</a>
+               <else/>
+                <a href="javascript:void(0)" onclick="allow_receive({$vo['id']})">允许接单</a>
+               </if>
+            </td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<script type="text/javascript">
+function export_data (_this)
+{
+	 $(_this).attr('href',"/Member/export_recrive_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val());
+}
+function ban_receive($id)
+{
+    if(false == confirm("是否禁止该用户接单")) return false;
+    if(!$id)
+    {
+        return top.jdbox.alert(0,'用户ID错误');
+    }
+    $.post("{:U('/Member/ban_receive')}",{"memberid":$id,"is_ajax":1},function(F){
+        console.log(F);
+        top.jdbox.alert(F.status,F.info);
+        if(F.status == 1)
+        {
+            window.location.reload();
+        }
+    },'json')
+}
+function allow_receive($id)
+{
+    if(false == confirm("是否允许该用户接单")) return false;
+    if(!$id)
+    {
+       return top.jdbox.alert(0,'用户ID错误');
+    }
+    $.post("{:U('/Member/allow_receive')}",{"memberid":$id,"is_ajax":1},function(F){
+        console.log(F);
+        top.jdbox.alert(F.status,F.info);
+        if(F.status == 1)
+        {
+            window.location.reload();
+        }
+    },'json')
+}
+</script>
+<include file="Public:footer" />

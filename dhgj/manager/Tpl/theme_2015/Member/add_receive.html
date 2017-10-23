@@ -1,0 +1,48 @@
+<include file="Public:header" />
+<form class="definewidth m20" id="editForm">
+  <table class="table table-bordered table-hover m10">
+    <tr>
+      <td width="10%" class="tableleft">用户名：</td>
+      <td><input type="text" name="username" jschecktitle="用户姓名" jscheckrule="null=0"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">电话号码：</td>
+      <td><input type="text" name="mobile" jschecktitle="电话号码" jscheckrule="null=0"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">密码：</td>
+      <td><input type="password" name="password" jschecktitle="用户密码" jscheckrule="null=0" ></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">确认密码：</td>
+      <td><input type="password" name="repassword" jschecktitle="确认密码" jscheckrule="null=0" ></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button" onclick="add();"> 添加 </button>
+        <button type="button" class="btn btn-success" name="backid" onclick="javascript:window.location.href='/Member/receiveMember'">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script type="text/javascript">
+function add ()
+{
+   var P = check_form('#editForm');
+   if(P)
+   {
+     var data = {};
+     $(data).attr("username",$("input[name='username']").val());
+     $(data).attr("mobile",$("input[name='mobile']").val());
+     $(data).attr("password",$("input[name='password']").val());
+     $(data).attr("repassword",$("input[name='repassword']").val());
+     $.post("/Member/receiveToDb.html",data,function(F){
+        console.log(F);
+        top.jdbox.alert(F.status,F.info);
+         if(F.status == 1){
+                window.location.href = "/Member/receiveMember";
+          }
+     },'json')
+   }
+}
+</script>
+<include file="Public:footer" />

@@ -1,0 +1,105 @@
+<include file="Public:header" />
+<form class="form-inline definewidth m20" action="/Order/receiveOrderList/" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <select name="key" class="short" id="key">
+        <option>全部</option>
+        <foreach name="keys1" item="vo">
+            <option value='{$key}' <?php if($_GET['key']!='' && $_GET['key'] == $key): echo 'selected="selected"'; endif;?>>{$vo}</option>
+        </foreach>
+    </select>&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="download_data" class="btn btn-primary" onclick="export_data(this);">导出已分发订单数据</a>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>接单用户名</th>
+        <th>接单用户手机</th>    
+        <th>申请用户名</th>
+        <th>申请人手机</th>
+        <th>客户姓名</th>
+        <th>性别</th>
+        <th>身份证号</th>
+        <th>借款城市</th>
+        <th>借款公司</th>
+        <th>借款金额</th>
+        <th>抵押公司</th>
+        <th>返还期数</th>
+        <th>车辆型号</th>
+        <th>车牌号</th>
+        <th>车架号</th>
+        <th>GPS信息</th>
+        <th>拖车价格</th>
+        <th>查看图片</th>
+        <th>发单时间</th>
+        <th>接单时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['applyUser']}</td>
+            <td>{$vo['applyMobile']}</td>
+            <td>{$vo['names']}</td>
+            <td>
+               <if condition="$vo['sex'] eq 0">
+                 男
+               <else/>
+                 女
+               </if>
+            </td>
+            <td>{$vo['certiNumber']}</td>
+            <td>{$vo['loan_city']}</td>
+			<td>{$vo['loan_company']}</td>
+			<td>{$vo['loan_money']}</td>
+			<td>{$vo['mort_company']}</td>
+			<td>{$vo['return_num']}</td>
+			<td>{$vo['car_brand']}</td>
+			<td>{$vo['plate_num']}</td>
+			<td>{$vo['frame_num']}</td>
+			<td><a href="javascript:void(0)" onclick="GPS_info({$vo['id']})">查看</a></td>
+			<td>{$vo['trail_price']}</td>
+			<td><a href="javascript:void(0)" onclick="pic_info({$vo['id']})">查看图片</a></td>
+			<td>{$vo['distribute_time']}</td>
+			<td>{$vo['receive_time']}</td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<script type="text/javascript">
+function export_data (_this)
+{
+	 $(_this).attr('href',"/Order/export_receiveOrder_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&key="+$('#key').val());
+}
+function GPS_info(id)
+{
+	if(!id)
+	{
+		return top.jdbox.alert(0,'订单ID错误');
+	}
+	var url = "{:U('Order/GPS_info')}?id=";
+	return top.jdbox.iframe(url+id);
+}
+function pic_info(id)
+{
+	var url = "{:U('Order/pic_info')}?id=";
+	if(!id)
+	{
+		return top.jdbox.alert(0,'订单ID错误');
+	}
+    return top.jdbox.iframe(url+id);
+}
+</script>
+<include file="Public:footer" />

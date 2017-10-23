@@ -1,0 +1,64 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/myfocus-2.0.1.min.js"></script>
+<style>
+	#content{width:800px;height:auto;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;min-height:200px;margin: 10px auto;}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+	.enlarge{height: 550px;width: 600px;}
+	b{display: inline-block;width: 100px;height: 40px;line-height: 40px;color:#FFF;border: 1px solid #ccc;text-align: center;background:#322C2C;cursor: pointer;border-radius: 5px; }
+	#name_li{margin:10px 30px;}
+	#contentBody{margin:20px 50px;max-height: 600px;width: auto;}
+	.imgContent{overflow: hidden;margin:0;padding: 0;float: left;margin-bottom: 20px;text-align: center;position: relative;}
+	.imgBody{position: absolute;}
+	.Img{position:relative;}
+</style>
+<script type="text/javascript">
+   $(function(){
+		$(".pic_name").click(function(){
+			$("div[name='contentBody']").css("display","none");
+			$className = $(this).attr("name");//alert($className);
+			$("."+$className).css("display","inline-block");
+		})	
+   })
+   var pic_key1 = "{$pic_key}";
+   var pic_keys = pic_key1.split("|");
+   for(var i=0;i<pic_keys.length;i++){
+   	myFocus.set({
+	    id:pic_keys[i],
+	    pattern:'mF_pithy_tb',//'mF_games_tb',
+        width:600,
+        height:600,
+        auto:false,
+        //autoZoom:true
+        //txtHeight:20,
+     });
+   }
+
+</script>
+<div><span>图片详情</span></div>
+<div id="content">
+	<div id="name_li">
+	  <foreach name="pic_info['pic_name']" key="key" item="vo">
+	    <b class="pic_name" name="{$key}">{$vo}</b>
+	  </foreach>
+	</div>
+	<foreach name="pic_info['pic_url']" item="v" key="k1">
+		 <if condition="$k1 eq 'user_pic'">
+		 <div id="contentBody" name="contentBody" class="{$k1}"  style="display: inline-block;">
+		 <else/>
+		 <div id="contentBody" name="contentBody" class="{$k1}"  style="display: none;">
+		 </if>    
+	         <div id="{$k1}">
+			    <div class="loading"><img src="_STATIC_/2015/image/loading.gif" alt="请稍候..." /></div>
+				<div class="pic">
+					<ul>
+					    <foreach name="v" item="vo" key="k2">
+						<li><a href=""><img class="enlarge" alt="第<php>echo $k2+1;</php>张" src="{$vo}"></a></li>
+						</foreach>
+					</ul>
+				</div>
+		    </div>
+        </div>
+	</foreach>
+</div>
+<include file="Public:footer" />

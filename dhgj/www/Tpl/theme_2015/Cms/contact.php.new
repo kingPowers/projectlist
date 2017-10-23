@@ -1,0 +1,310 @@
+<!--container-->
+<style>
+.contact-detail{width:810px;height:100px;margin-top:20px;border-bottom:1px dashed #DADADA;}
+.contact-detail-div{width:400px;height:50px;line-height:50px;float:left;}
+.contact-detail-div i{width:17px;height:14px;display:inline-block;vertical-align:middle;margin-right:5px;}
+.about-bg{background:url('_STATIC_/2015/about/img/about_bg.png') no-repeat;}
+.about-phone-icon{background-position:0 0;}
+.about-email-icon{background-position:-18px 0;}
+.about-address-icon{background-position:-38px 0;}
+/* .contact-ul{width:100%;border-bottom:1px dotted #DADADA;}
+.contact-ul li{display:block;width:350px;height:120px;float:left;border-bottom:1px dotted #DADADA;padding:10px 0;}
+.contact-ul li.long{width:450px;}
+.contact-ul li p{line-height:33px;margin-bottom:0;font-size:13px;color:#B5B5B5;}
+.contact-ul li p:first-child{color:#676767;}
+*/
+#contact-div h3{margin:40px 0 20px 0}
+
+.contatc-ul {
+  float: right;
+  margin-top: -37px;
+}
+.contatc-ul li {
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  float: left;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.contatc-ul li ~ li {
+  margin-left: 6px;
+}
+.contatc-ul .now {
+  background: #c29540;
+}
+.contatc-div {
+  width: 818px;
+  overflow: hidden;
+}
+.contatc-div .contatc-ul2 {
+  position: relative;
+  text-align: center;
+  line-height: 80px;
+  width: 2000px;
+  font-size: 20px;
+  height: 80px;
+  z-index: 10;
+}
+.contatc-div .contatc-ul2 li {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  background: #ccc;
+  float: left;
+  border-radius: 100%;
+}
+.contatc-div .contatc-ul2 li ~ li {
+  margin-left: 67px;
+}
+.contatc-div .contatc-ul2 .now {
+  background: #c29540;
+  color: #fff;
+}
+.contatc-ul3 {
+  position: relative;
+  width: 2000px;
+  height: 20px;
+  top: -45px;
+}
+.contatc-ul3 li {
+  float: left;
+  width: 67px;
+  height: 20px;
+  background: url(_STATIC_/2015/img/img.png) no-repeat 12px 0;
+  margin-left: 80px;
+}
+.contatc-content {
+  width: 818px;
+}
+.contatc-content .number {
+  display: none;
+}
+.contatc-content .number .content-header {
+  width: 818px;
+  height: 36px;
+  background: url(_STATIC_/2015/img/nav.jpg);
+  border-radius: 5px;
+  border: 1px #e1e1e1 solid;
+  text-align: center;
+}
+.contatc-content .number .content-header li {
+  float: left;
+  height: 34px;
+  line-height: 33px;
+  margin-left: 2px;
+  cursor: pointer;
+  padding: 0  26px;
+}
+.contatc-content .number .content-header .nowe {
+  background: url(_STATIC_/2015/img/nowe.jpg);
+}
+.contatc-content .number .content-header .nowe i {
+  width: 0;
+  height: 0;
+  border-color: #c49742 transparent transparent;
+  border-style: solid;
+  border-width: 8px;
+  margin: 0 auto;
+  display: block;
+}
+.contatc-content .number .content-about {
+  display: none;
+  margin-top: 30px;
+}
+.contatc-content .number .content-about .about-top {
+  background: #cfb684;
+}
+.contatc-content .number .content-about .about-top img {
+  display: inline-block;
+}
+.contatc-content .number .content-about .about-top .about-right {
+  color: #fff;
+  display: inline-block;
+  width: 290px;
+  margin: 0 0 130px 20px;
+}
+.contatc-content .number .content-about .about-top .about-right h4 {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 2px #fff solid;
+}
+.contatc-content .number .content-about .about-top .about-right p {
+  margin: 0;
+}
+.contatc-content .number .content-about .about-bottom {
+  margin: 15px auto;
+}
+.contatc-content .number .content-about .about-bottom img {
+  width: 269px;
+  height: 176px;
+}
+.contatc-content .number .content-about .about-top #img1{
+  width: 484px;
+  height: 330px;
+}
+.contatc-content .number .content-about .about-bottom iframe {
+  width: 269px;
+  height: 176px;
+  position: relative;
+  top: 4px;
+
+}
+
+</style>
+<script type="text/javascript">
+$(function(){
+	
+	var arr1 = ['上海','南京','昆山','江阴','常州','南通','苏州','无锡','合肥','张家港','宜兴'];
+	var arr2 = [['上海营业部','一部','二部','理财三部'],
+	        	['南京总部','理财三部'],
+	        	['昆山'],
+	        	['江阴'],
+	        	['常州'],
+	        	['南通总部','南通理财'],
+	        	['理财一部'],
+	        	['理财'],
+	        	['合肥'],
+	        	['张家港'],
+	        	['宜兴营业部']];
+	var arr3 = [ 
+	        	[['上海总部','021-6155 9002','上海市殷高西路101号高景国际大厦1F、2F、3F','_STATIC_/2015/img/contact/SHY_01.jpg','_STATIC_/2015/img/contact/SHY_02.jpg','_STATIC_/2015/img/contact/SHY_03.jpg',121.49082,31.327448],
+		         ['智富汇银财富（上海）管理中心 一部','021-6333 7709','上海市黄埔区汉口路300号解放日报大厦22层','_STATIC_/2015/img/contact/SH1_01.jpg','_STATIC_/2015/img/contact/SH1_02.jpg','_STATIC_/2015/img/contact/SH1_03.jpg',121.49082,31.327448],
+		         ['智富汇银财富（上海）管理中心 二部','021-6131 7985','上海市黄埔区汉口路300号解放日报大厦24层','_STATIC_/2015/img/contact/SH_01.jpg','_STATIC_/2015/img/contact/SH_02.jpg','_STATIC_/2015/img/contact/SH_03.jpg',121.49082,31.327448],
+		         ['智富汇银财富（上海）管理中心 三部','021-8766 0766','上海市奉贤区南桥镇育秀西路1438号','_STATIC_/2015/img/contact/SH3_01.jpg','_STATIC_/2015/img/contact/SH3_02.jpg','_STATIC_/2015/img/contact/SH3_03.jpg',121.49082,31.327448]] ,
+				[['智富汇银财富（南京）管理中心 理财一部','025-8657 3310','南京市秦淮区太平路450号斯亚财富中心A幢602室','_STATIC_/2015/img/contact/N_01.jpg','_STATIC_/2015/img/contact/N_02.jpg','_STATIC_/2015/img/contact/N_03.jpg',121.49082,31.327448],
+				 ['智富汇银财富（南京）管理中心 理财二部','025-6981 3068','南京市秦淮区（原白下区）太平南路1号新世纪广场A座2401室','_STATIC_/2015/img/contact/NJ_01.jpg','_STATIC_/2015/img/contact/NJ_02.jpg','_STATIC_/2015/img/contact/NJ_03.jpg',121.49082,31.327448]],
+				[['智富汇普（昆山）信息服务中心','0512-3690 1001','昆山市黄河南路555号森隆大厦807室1903','_STATIC_/2015/img/contact/K_01.jpg','_STATIC_/2015/img/contact/K_02.jpg','_STATIC_/2015/img/contact/K_03.jpg',121.49082,31.327448]],
+				[['智富汇普信息咨询（北京）有限公司 江阴服务中心','0510-86599003','江阴市环城北路27号凯悦国际金融中心904室','_STATIC_/2015/img/contact/J_01.jpg','_STATIC_/2015/img/contact/J_02.jpg','_STATIC_/2015/img/contact/J_03.jpg',121.49082,31.327448]],
+				[['智富360常州服务中心','4008636086','常州市武进区吾悦广场1幢2708室','_STATIC_/2015/img/contact/C_01.jpg','_STATIC_/2015/img/contact/C_02.jpg','_STATIC_/2015/img/contact/C_03.jpg',121.49082,31.327448]],
+				[['智富360南通服务中心 ','4008636086','南通市崇川区中南世纪城27幢中南百货（北区）2010','_STATIC_/2015/img/contact/NT_01.jpg','_STATIC_/2015/img/contact/NT_02.jpg','_STATIC_/2015/img/contact/NT_03.jpg',121.49082,31.327448],
+				 ['智富汇普信息咨询（北京）有限公司 南通服务中心','0513-68716298','南通市崇川区桃坞路1号浦发大厦11楼','_STATIC_/2015/img/contact/NTL_01.jpg','_STATIC_/2015/img/contact/NTL_02.jpg','_STATIC_/2015/img/contact/NTL_03.jpg',121.49082,31.327448]],
+				[['智富汇普（苏州）信息服务中心','0512-6818 5673','苏州市高新区狮山路88号金河国际中心16层','_STATIC_/2015/img/contact/SZ1_01.jpg','_STATIC_/2015/img/contact/SZ1_02.jpg','_STATIC_/2015/img/contact/SZ1_03.jpg',121.49082,31.327448]],
+				[['智富汇普（无锡）信息服务中心','0510-81181880','无锡市兴源北路600号凤凰大厦1903','_STATIC_/2015/img/contact/WX_01.jpg','_STATIC_/2015/img/contact/WX_02.jpg','_STATIC_/2015/img/contact/WX_03.jpg',121.49082,31.327448]],
+				[['智富汇普（合肥）信息服务中心','0551—65882239','合肥市政府新区天鹅湖万达广场A座1101室','_STATIC_/2015/img/contact/H_01.jpg','_STATIC_/2015/img/contact/H_02.jpg','_STATIC_/2015/img/contact/H_03.jpg',121.49082,31.327448]],
+				[['智富汇普信息咨询（北京）有限公司 张家港服务中心','','张家港人民东路9号国泰东方广场402室','_STATIC_/2015/img/contact/ZJG_01.jpg','_STATIC_/2015/img/contact/ZJG_02.jpg','_STATIC_/2015/img/contact/ZJG_03.jpg',121.49082,31.327448]],
+				[['智富汇普信息咨询（北京）有限公司 宜兴服务中心','0510-81728088','宜兴市绿园路东来国际大厦10楼','_STATIC_/2015/img/contact/YX_01.jpg','_STATIC_/2015/img/contact/YX_02.jpg','_STATIC_/2015/img/contact/YX_03.jpg',121.49082,31.327448]]
+				];	
+
+	for(var item in arr1) {
+		var $li = new $( "<li id='"+item+"'/>" );
+		$li.text(arr1[item]);
+		if (item==0) $li.addClass("now");
+		$(".contatc-ul2").append($li);
+	}
+	
+	for(var j=0;j<arr1.length-1;j++) {
+		$(".contatc-ul3").append("<li></li>");
+	}
+	
+
+	
+	$(".contatc-ul2>li").click(function(){
+	var index=$(this).attr('id');	$(this).addClass("now").siblings().removeClass("now");
+		//$(".number").eq(index).css({display:"block"}).siblings().css({display:"none"});
+		
+		$(".content-header").empty();
+		
+		if (arr1.length>6 && $(this).index()>0){
+			$(".contatc-ul2").animate({left:-147},function(){
+				$(".contatc-ul2>li").eq(0).appendTo($(".contatc-ul2"));
+				$(".contatc-ul2").css({left:0});
+			})
+			$(".contatc-ul3").animate({left:-147},function(){
+				$(".contatc-ul3").css({left:0});
+				});
+		}
+		
+		for(var i in  arr2[index]){
+			var $li = new $( "<li></li>" );
+			$li.html(arr2[index][i]+"<i></i>");
+			if (i==0) $li.addClass("nowe");
+			$(".content-header").append($li);
+		}
+		
+		$(".content-header>li").off('click').on('click',function(){
+				$(this).addClass("nowe").siblings().removeClass("nowe");
+				$("#img1").attr('src',arr3[index][$(this).index()][3]);
+				$("#name").text(arr3[index][$(this).index()][0]);
+				$("#phone").text('总机：'+arr3[index][$(this).index()][1]);
+				$("#address").text('地址：'+arr3[index][$(this).index()][2]);
+				$("#img2").attr('src',arr3[index][$(this).index()][4]);
+				$("#img3").attr('src',arr3[index][$(this).index()][5]);
+				$("#map").attr('src','/map.html?addControl=false&width=269&height=176&lng='+arr3[index][$(this).index()][6]+'&lat='+arr3[index][$(this).index()][7]+'&content='+arr3[index][$(this).index()][2]+'&title='+arr3[index][$(this).index()][0]);
+		});
+		$(".content-header>li").eq(0).click();
+		
+	
+		
+	});
+	
+	
+		$(".contatc-ul2>li").eq(0).click();
+})
+</script>
+
+<div class="ui-container">
+	<include file="Cms:left" />
+	<div class="ui-grid9 ui-right">
+		<div class="ui-panel" id="contact-div">
+			<h1 class="ui-text-brown">联系我们</h1><hr>
+			<iframe width="810" height="450" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="/map.html"></iframe>
+			<div class="contact-detail ui-text-bold">
+				<div class="contact-detail-div">
+					<i class="about-bg about-phone-icon"></i>
+					<label class="ui-text-brown">客服热线：</label>
+					<span><?php echo C('SERVICE_TELEPHONE'); ?></span>
+				</div>
+				<div class="contact-detail-div">
+					<i class="about-bg about-email-icon"></i>
+					<label class="ui-text-brown">意见反馈邮箱：</label>
+					<span>web@zhifu360.com</span>
+				</div>
+				<div class="contact-detail-div">
+					<i class="about-bg about-email-icon"></i>
+					<label class="ui-text-brown">人力资源招聘：</label>
+					<span>zhaopin@zhifu360.com</span>
+				</div>
+				<div class="contact-detail-div">
+					<i class="about-bg about-address-icon"></i>
+					<label class="ui-text-brown">地址：</label>
+					<span>上海市殷高西路101号高景国际大厦1F、2F、3F</span>
+				</div>
+			</div>
+			<h3 class="ui-text-big ui-text-brown ui-text-bold">媒体采访</h3>
+			<p>如果有媒体采访需求，请将您的媒体名称、采访提纲、联系方式发至：pr@zhifu360.com，我们会尽快与您联系。</p>
+			<h3 class="ui-text-big ui-text-brown ui-text-bold">商务合作</h3>
+			<p>如果贵公司希望与我们建立商务合作关系，形成优势互补，请将合作意向进行简要描述并发送邮件至：bd@zhifu360.com，我们会尽快与您联系。</p>
+			<h3 class="ui-text-big ui-text-brown ui-text-bold">服务网络</h3>
+			<div class="contatc-div">
+	<ul class="contatc-ul2">
+	</ul>
+	<ul class="contatc-ul3">
+	</ul>
+	<ul class="contatc-content">
+		<li style="display:block" class="number">
+			<ul class="content-header">
+			</ul>
+			<div class="content-about" style="display:block">
+				<div class="about-top">
+				<img src="" alt="" id="img1">
+					<div class="about-right">
+					<h4><img src="_STATIC_/2015/img/imgs.png" alt=""><span id="name"></span></h4>
+					<p id='phone'></p>
+					<p id='address'></p>
+					</div>
+					</div>
+				<div class="about-bottom">
+					<img src="" alt="" id="img2">
+					<img src="" alt="" id="img3">
+					<iframe  frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="map">
+				</div>
+				</div>
+			</li>
+		</ul>
+	
+</div>
+			
+		</div>
+	</div>
+</div>

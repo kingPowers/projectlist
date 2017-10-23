@@ -1,0 +1,14 @@
+.content{background:#eeeeec;padding-bottom:45px;}
+.account_l{width:248px;background:#fff;box-sizing:border-box; border: 1px solid #ddd;}
+.account_l>.acc_now1{background: #fafafa;}
+.account_l li{text-indent:30px;font-size:12px;line-height:30px; padding-left: 22px; font-family: '微软雅黑';}
+.account_l .acc_first{line-height:46px; height: 46px;font-size:16px;margin-left: 18px;background-position:left center;background-repeat:no-repeat;}
+.choose_a{font-family: '微软雅黑'; display:block; font-size:16px; padding-left: 70px; height: 46px; line-height: 46px; outline: none; text-decoration: none; }
+.account_l li>a.user_curr{color:#b3b3b3;text-decoration:none;}
+.acc_first1{background:url(../image/ico_man.png)}
+.acc_first2{background:url(../image/ico_member.png)}
+.account_r{width:930px;min-height:375px;background:#fff;box-sizing:border-box; border: 1px solid #ddd;}
+.account_r_padd{padding:29px 6px 0 27px;}
+.rec_t,.rec_b{width:841px;}
+.acc_cho li a:active{color: #0094d0;}
+.blue_line{color: #0094d0; border-left: 2px solid #0094d0;}

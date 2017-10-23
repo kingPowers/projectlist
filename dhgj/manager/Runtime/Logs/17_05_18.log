@@ -1,0 +1,120 @@
+[ 2017-05-18T09:07:00+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-05-18T09:07:04+08:00 ] 127.0.0.1 /Public/dologin.html
+[ 2017-05-18T09:07:04+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `user` [ RunTime:0.009027s ]
+[ 2017-05-18T09:07:04+08:00 ] /Public/dologin.html | SQL: SELECT * FROM `user` WHERE username='qjx' LIMIT 1   [ RunTime:0.007009s ]
+[ 2017-05-18T09:07:04+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.006558s ]
+[ 2017-05-18T09:07:04+08:00 ] /Public/dologin.html | SQL: UPDATE `user` SET `login_count`=login_count+1,`timeupdate`='2017-05-18 09:07:04',`lastip`='127.0.0.1' WHERE id=1 [ RunTime:0.010294s ]
+
+[ 2017-05-18T09:07:04+08:00 ] 127.0.0.1 /
+[ 2017-05-18T09:07:04+08:00 ] / | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005272s ]
+[ 2017-05-18T09:07:04+08:00 ] / | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006521s ]
+
+[ 2017-05-18T09:07:04+08:00 ] 127.0.0.1 /Public/getJsMenu.html
+[ 2017-05-18T09:07:04+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.006234s ]
+[ 2017-05-18T09:07:04+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `auth_rule` [ RunTime:0.006602s ]
+[ 2017-05-18T09:07:04+08:00 ] /Public/getJsMenu.html | SQL: SELECT * FROM `auth_rule` WHERE ( `type` = 1 ) AND ( `status` = 1 ) ORDER BY pid ASC, sort ASC  [ RunTime:0.006099s ]
+
+[ 2017-05-18T09:07:04+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-05-18T09:07:04+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-05-18T09:07:04+08:00 ] 127.0.0.1 /Index/system.html
+[ 2017-05-18T09:07:04+08:00 ] /Index/system.html | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006648s ]
+[ 2017-05-18T09:07:04+08:00 ] /Index/system.html | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007942s ]
+[ 2017-05-18T09:07:04+08:00 ] /Index/system.html | SQL: SHOW COLUMNS FROM `member` [ RunTime:0.008127s ]
+[ 2017-05-18T09:07:04+08:00 ] /Index/system.html | SQL: SELECT COUNT(*) AS tp_count FROM `member` WHERE (  (`timeadd` BETWEEN '2017-05-18' AND '2017-05-18 23:59:59' ) ) LIMIT 1   [ RunTime:0.006707s ]
+
+[ 2017-05-18T09:07:08+08:00 ] 127.0.0.1 /Index/get_stat_data_cashout
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_cashout | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005881s ]
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_cashout | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006188s ]
+
+[ 2017-05-18T09:07:08+08:00 ] 127.0.0.1 /Index/get_stat_data_login
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_login | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.004805s ]
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_login | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007080s ]
+
+[ 2017-05-18T09:07:08+08:00 ] 127.0.0.1 /Index/get_stat_data_recharge
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_recharge | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005934s ]
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_recharge | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006510s ]
+
+[ 2017-05-18T09:07:08+08:00 ] 127.0.0.1 /Index/get_stat_data_credit
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_credit | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.004959s ]
+[ 2017-05-18T09:07:08+08:00 ] /Index/get_stat_data_credit | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006196s ]
+
+[ 2017-05-18T09:07:15+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:07:15+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005938s ]
+[ 2017-05-18T09:07:15+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006657s ]
+
+[ 2017-05-18T09:07:25+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:07:25+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006664s ]
+[ 2017-05-18T09:07:25+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006914s ]
+
+[ 2017-05-18T09:07:35+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:07:35+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006417s ]
+[ 2017-05-18T09:07:35+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006177s ]
+
+[ 2017-05-18T09:07:45+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:07:45+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005946s ]
+[ 2017-05-18T09:07:45+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006274s ]
+
+[ 2017-05-18T09:07:55+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:07:55+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005552s ]
+[ 2017-05-18T09:07:55+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006258s ]
+
+[ 2017-05-18T09:08:05+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:08:05+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005889s ]
+[ 2017-05-18T09:08:05+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006530s ]
+
+[ 2017-05-18T09:08:15+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:08:15+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.007373s ]
+[ 2017-05-18T09:08:15+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007718s ]
+
+[ 2017-05-18T09:08:32+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:08:26+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.621105s ]
+[ 2017-05-18T09:08:32+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:5.803128s ]
+
+[ 2017-05-18T09:08:35+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:08:35+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005478s ]
+[ 2017-05-18T09:08:35+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007224s ]
+
+[ 2017-05-18T09:08:45+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:08:45+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006769s ]
+[ 2017-05-18T09:08:45+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007310s ]
+
+[ 2017-05-18T09:08:55+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:08:55+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005396s ]
+[ 2017-05-18T09:08:55+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006634s ]
+
+[ 2017-05-18T09:09:05+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:09:05+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006233s ]
+[ 2017-05-18T09:09:05+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006832s ]
+
+[ 2017-05-18T09:09:15+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:09:15+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005059s ]
+[ 2017-05-18T09:09:15+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006053s ]
+
+[ 2017-05-18T09:09:25+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:09:25+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.008645s ]
+[ 2017-05-18T09:09:25+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007918s ]
+
+[ 2017-05-18T09:09:35+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:09:35+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.007348s ]
+[ 2017-05-18T09:09:35+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.008564s ]
+
+[ 2017-05-18T09:09:45+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:09:45+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006643s ]
+[ 2017-05-18T09:09:45+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006733s ]
+
+[ 2017-05-18T09:09:55+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:09:55+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006846s ]
+[ 2017-05-18T09:09:55+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007442s ]
+
+[ 2017-05-18T09:10:05+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:10:05+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.006117s ]
+[ 2017-05-18T09:10:05+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.007420s ]
+
+[ 2017-05-18T09:10:21+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:10:15+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.624228s ]
+[ 2017-05-18T09:10:21+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:5.802937s ]
+
+[ 2017-05-18T09:10:25+08:00 ] 127.0.0.1 /Index/index
+[ 2017-05-18T09:10:25+08:00 ] /Index/index | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.005376s ]
+[ 2017-05-18T09:10:25+08:00 ] /Index/index | SQL: SELECT * FROM `auth_rule` WHERE ( `id` IN ('2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','42','41','40','39','38','37','32','36','45','44','43','46','24','19','20','21','22','23','30','28','27','29','35','34','33','26') ) AND ( `status` = 1 )  [ RunTime:0.006105s ]
+

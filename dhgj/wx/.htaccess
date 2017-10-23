@@ -1,0 +1,8 @@
+RewriteEngine on 
+RewriteRule http-bind/ http://182.50.8.80:7070/http-bind/ [P]
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+
+RewriteCond %{http_host} ^lingqianzaixian.com [NC]
+RewriteRule ^(.*)$ http://www.lingqianzaixian.com/$1 [R=301,L]

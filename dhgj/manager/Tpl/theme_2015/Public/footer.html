@@ -1,0 +1,45 @@
+<script type="text/javascript">
+	$(function(){
+		
+		 $('input#starttime').focus(function(){
+	        	var endtime_val = $('#endtime').val();
+	        	if(''!=endtime_val){
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:endtime_val});
+	        	}else{
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+	        	}
+	        });
+	        
+	        $('input#endtime').focus(function(){
+	        	var starttime_val = $('#starttime').val();
+	        	if(''!=starttime_val){
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:starttime_val});
+	        	}else{
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+	        	}
+	        });
+	        
+	        $('input#start_time').focus(function(){
+	        	var endtime_val = $('#end_time').val();
+	        	if(''!=endtime_val){
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:endtime_val});
+	        	}else{
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+	        	}
+	        });
+	        
+	        $('input#end_time').focus(function(){
+	        	var starttime_val = $('#start_time').val();
+	        	if(''!=starttime_val){
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:starttime_val});
+	        	}else{
+	        		WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+	        	}
+	        });
+	        
+	});
+</script>
+<input type="hidden" name="reloadurl" value="__SELF__"/>
+<div style="height:20px;width:100%;"></div>
+</body>
+</html>

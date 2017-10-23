@@ -1,0 +1,12 @@
+[ 2017-03-09T09:00:14+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T09:03:35+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T13:33:01+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T13:33:08+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T13:34:16+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T13:48:19+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T13:49:41+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T14:34:19+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T15:10:52+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T15:12:48+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T16:26:32+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico
+[ 2017-03-09T16:26:38+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块Favicon.ico

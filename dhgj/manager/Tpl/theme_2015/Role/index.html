@@ -1,0 +1,34 @@
+<include file="Public:header" />
+
+<form class="form-inline definewidth m20">  
+
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增角色</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+        <tr>
+            <th>角色ID</th>
+            <th>角色名称</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['title']}</td>
+            <td>{$vo['status']}</td>
+            <td><a href="{:U('Role/edit',array('id'=>$vo['id']))}">编辑</a></td>
+        </tr>
+     </foreach>
+     </tbody>
+ </table>
+<script language="javascript">
+$(function(){
+	$('#addnew').click(function(){
+		window.location.href="{:U('Role/add')}";
+	});
+})
+</script>
+<include file="Public:footer" />

@@ -1,0 +1,23 @@
+.ba_min_nav{height:40px;box-sizing:border-box;border-bottom:1px #c9c9c9 solid;}
+.ba_min_nav>li{float:left;width:99px;height:38px;line-height:38px;border-top:2px #fff solid;text-align:center;cursor:pointer;position:relative;+bottom:-1px;}
+.ba_min_nav>li>a{text-decoration:none;display:block;color:#0f0e0e;}
+.ba_min_nav>li~li{margin-left:0;}
+.ba_min_nav>li.now{border-top-color:#ea5413;font-weight:bold;border-left:1px #c9c9c9 solid;border-right:1px #c9c9c9 solid;background:#fff;}
+.tender_div{margin-top:20px;}
+.tender_table{width:841px;}
+.tender_table th,.tender_table td{border:1px #e5e4e4 solid;height:40px;text-align:center;font-size:12px;}
+.tender_table th{background:#919191;color:#fff;font-size:14px;}
+.tender_table a{color:#4062d1;}
+.tender_tip{width:485px;height:auto;border:1px #999 solid;border-radius:7px;position:absolute;background:#fff;font-size:12px;display:none;z-index:5;}
+.tender_tip .tip_sp{position:absolute;width:11px;height:11px;display:block;top:-11px;right:26px;z-index:9;background:url(../image/tip_s.png) no-repeat;}
+.tip_box{;padding:0 5px;}
+.tip_ul{overflow:hidden;line-height:30px;font-weight:bold;padding-top:7px;border-bottom:1px #cdcdce solid;}
+.tip_ul>li,.tip_ul_each>li{float:left;text-align:center;}
+/*.tip_b_scroll{max-height:180px;overflow-y:scroll;}*/
+.tip_ul_each{overflow:hidden;line-height:30px;border-bottom:1px #ebebec dashed;}
+.tip_last{width:92px;}
+.tip_li_money{width:113px;}
+.tip_b_scroll .tip_li_money{text-align:left;text-indent:30px;}
+
+.bank_explain{margin-top:18px;padding:25px 0 20px 30px;border-top:1px #dadada solid;}
+.bank_explain>p{font-size:12px;}

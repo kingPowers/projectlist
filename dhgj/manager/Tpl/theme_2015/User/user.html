@@ -1,0 +1,71 @@
+<include file="Public:header" />
+<script language="javascript">var uid = "{$uid}";</script>
+<form id="userForm" class="definewidth m20">
+  <table class="table table-bordered table-hover definewidth m10">
+    <tr>
+      <td width="10%" class="tableleft">登录名</td>
+      <td><input type="text" name="username"  jschecktitle="登录名" jscheckrule="null=0" value="{$user['username']}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">密码</td>
+      <td>
+      <empty name="uid">
+      	<input type="password" name="password"  jschecktitle="密码" jscheckrule="null=0;minlencn=6;maxlencn=15" />
+      <else/>
+        <input type="password" name="password"  jschecktitle="密码" jscheckrule="minlencn=6;maxlencn=15" />
+        <font color="#FF0000">留空不修改密码</font>
+      </empty>
+      </td>
+    </tr>
+    <tr>
+      <td class="tableleft">手机号</td>
+      <td><input type="text" name="mobile" value="{$user['mobile']}"  jschecktitle="手机号" jscheckrule="null=0;regexp=^1[3|4|5|8][0-9]{9}$" /></td>
+    </tr>
+    <tr>
+      <td class="tableleft">状态</td>
+      <td><input type="radio" name="status" value="1" <eq name="user['status']" value="1">checked="checked"</eq>/>启用
+        <input type="radio" name="status" value="0" <eq name="user['status']" value="0">checked="checked"</eq>/>禁用 </td>
+    </tr>
+    <tr>
+      <td class="tableleft">角色</td>
+      <td><select name="groupid">
+      <foreach name="roleList" item="vo">
+      <option value="{$vo['id']}"  <eq name="vo['id']" value="$user['groupid']">selected="selected"</eq> >{$vo['title']}</option>
+      </foreach>
+      </select></td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button">保存</button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+$(function(){
+	$('button.btn-primary').click(function(){
+		var P = check_form('#userForm');
+		if(P){
+			var data={};
+			$(data).attr('uid',uid);
+			$(data).attr('username',$("input[name='username']").val());
+			$(data).attr('password',$("input[name='password']").val());
+			$(data).attr('mobile',$("input[name='mobile']").val());
+			$(data).attr('type',$("input[name='type']:checked").val());
+			$(data).attr('groupid',$("select[name='groupid']").val());
+			$(data).attr('status',$("input[name='status']:checked").val());
+			top.jdbox.alert(2);
+			$.post('/User/dataToDb.html',data,function(F){
+				top.jdbox.alert(F.status,F.info);
+				if(F.status){
+					window.location.reload();
+				}
+			},'json');
+		}
+	});
+	$('button#backid').click(function(){
+		window.location.href= "{:U('User/index')}";
+	})
+})
+</script>
+<include file="Public:footer" />

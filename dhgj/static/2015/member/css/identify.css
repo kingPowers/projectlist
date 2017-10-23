@@ -1,0 +1,64 @@
+.input{width:240px;height:30px; +height:29px;border:1px #c9c9c9 solid;text-indent:8px;line-height:30px;}
+.id_btn{display:block;width:115px;height:33px;line-height:33px;text-align:center;background:#a97502;color:#fff;border:none;border-radius:3px}
+.id_btn:hover{background:#ba8613;}
+
+
+.user_info{width:846px;height:148px;margin-top:30px;border:1px #c8c8c8 solid;}
+.user_blank{width:100px;height:100px;position:relative;top:-34px;background:#fff;margin-left:38px;}
+.user_blank>img{width:100px;height:100px;}
+.id_mess{width:670px;height:108px;margin:20px 0 0 35px;overflow:hidden;}
+.id_mess ul{width:780px;overflow:hidden;}
+.id_mess ul>li{float:left;font-size:12px;width:225px;line-height:36px;height:36px;margin-right:120px;}
+.id_mess ul>li.id_li_r{width:260px;}
+.id_mess ul>li .id_label{float:left;}
+.id_mess ul>li p{width:120px;float:left;}
+.id_mess ul>li a{float:right;color:#ea5413;}
+.id_b{margin-top:25px;padding-bottom:40px;}
+.id_list{height:auto;}
+.id_list .id_h3{height:58px;line-height:58px;border-bottom:1px #eee solid;overflow:hidden;}
+.id_list .id_h3>span{width:210px;height:58px;display:block;float:left;font-weight:bold;text-indent:50px;background:url(../image/id_no.png) no-repeat 13px center;}
+.id_list .id_h3>span.id_ok{background:url(../image/id_ok.png) no-repeat 13px center;}
+.id_list .id_h3>p{font-size:12px;float:left;width:320px;}
+.id_list .id_h3>a{float:right;color:#ea5413;font-size:12px;margin-right:80px;width:65px;}
+.id_list .id_h3>a span{float:left;}
+.id_list .id_h3>a .id_r_up{display:block;width:8px;height:58px;background:url(../image/id_r_up.png) no-repeat 0 center;float:right;margin-left:5px;}
+
+
+.id_div{display:none;}
+.id_divshow{display:block;}
+
+.id_infom{padding:25px 0 46px 0;border-bottom:1px #eee solid;}
+.id_infom p{font-size:12px;height:32px;line-height:32px;}
+.id_infom p .id_sp_l{padding-left:50px;}
+.id_infom .id_btn{margin:50px 0 0 98px;}
+
+.id_name{padding-top:15px;}
+.name_ok{width:297px;height:182px;margin:0 0 17px 213px;background:url(../image/name_ok.png) no-repeat;font-size:12px;}
+.name_ok .name_ok_p{height:57px;line-height:58px;background:url(../image/id_ok.png) no-repeat 56px center;text-indent:91px;}
+.name_ok>ul.name_ok_ul{padding:10px 0 0 85px;}
+.name_ok>ul.name_ok_ul .name_sp_l{display:block;float:left;width:65px;text-align:left;margin-right:10px;}
+.name_bind{font-size:12px;}
+.name_bind_ul>li{height:32px;line-height:32px;overflow:hidden;margin-bottom:8px;}
+.name_bind_ul>li .bind_sp_l{display:block;width:98px;float:left;text-align:right;}
+.name_bind_ul>li .bind_sp_l em{color:#e7441e;}
+.inp_rad{width:15px;height:15px;cursor:pointer;vertical-align:middle;}
+.name_bind_ul>li.name_last{padding:20px 0 0 98px;height:33px;margin-bottom:28px;}
+.name_hint{border-top:1px #eee solid;padding:20px 0;}
+.name_hint>p{padding-left:30px;}
+
+.id_email{padding:22px 0 33px;}
+.email_ok{width:230px;margin:0 auto;}
+.email_ok_t{height:26px;background:url(../image/id_ok.png) no-repeat 0 center;text-indent:33px;font:18px/26px "微软雅黑";margin-bottom:8px;}
+.email_ok_b{font-family:Arial;text-align:center;font-weight:100;}
+.email_ok .id_btn{width:93px;height:34px;line-height:34px;margin:15px auto 0;}
+.email_revise{width:260px;margin:0 auto;}
+.email_revise_ul>li{height:23px;line-height:23px;font-size:12px;margin-bottom:10px;color:#878787;}
+.email_revise_ul>li .input{width:159px;height:21px;line-height:21px;vertical-align:middle;}
+.email_revise .id_btn{width:93px;height:34px;line-height:34px;margin:15px 0 0 95px;}
+.imgcode{width:56px;height:23px;vertical-align:middle;margin-left:6px;}
+.imgcodebtn{display:inline-block;width:20px;height:23px;line-height:28px;vertical-align:bottom;background:url(../image/rech_re.png) no-repeat center center;}
+.email_no{width:232px;margin:0 auto;}
+.email_no_t{height:26px;background:url(../image/id_no.png) no-repeat 0 center;text-indent:33px;font:18px/26px "微软雅黑";margin-bottom:8px;}
+.email_no .email_no_b{font-size:12px;line-height:23px;color:#878787;}
+.email_no .input{width:159px;height:21px;line-height:21px;vertical-align:middle;}
+.email_no .id_btn{width:220px;height:32px;line-height:32px;font-size:18px;margin-top:21px;}

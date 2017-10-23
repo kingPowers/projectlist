@@ -1,0 +1,139 @@
+<include file="Public:header" />
+<style type="text/css">
+.m_pic{position: absolute;top:0px;left:200px;display: none;max-width: 500px;}
+</style>
+<form class="form-inline definewidth m20" action="/Media/index/" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="download_data" class="btn btn-primary" onclick="export_data(this);">导出新闻信息</a>
+</form>
+<div class="excel_div form-inline definewidth" style="margin-top:5px;">
+    <a href="javascript:window.location.href='/Media/edit_news'" type="button" class="btn btn-success" >添加新闻</a>
+    <b>注：修改审核通过后 前台才会显示</b>
+</div>
+<table class="table table-bordered table-hover definewidth m10" style="overflow: visible;">
+    <thead>
+    <tr>
+        <th>新闻ID</th>
+        <th>新闻标题</th>
+        <th>新闻关键字</th>
+        <th style="max-width: 200px;">新闻简介</th>
+        <th>新闻图片</th>          
+        <th>添加时间</th>
+        <th>修改时间</th>
+        <th>排序</th>
+        <th>是否是精华</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['title']}</td>
+            <td>{$vo['keys']}</td>
+            <td style='max-width: 200px;'>{$vo['intro']}</td>
+            <td  style="position: relative;"><img class="s_pic" src="{$vo['s_pic_urls']}"><img class="m_pic" src="{$vo['m_pic_urls']}"></td>
+			<td>{$vo['timeadd']}</td>
+			<td>{$vo['lasttime']}</td>
+			<td>{$vo['sort']}</td>
+			<td>         
+                <select name="is_cream" nid="{$vo['id']}" class="short">
+                   <foreach name="cream_status" item="vi" key="ki">
+                     <option value="{$ki}" <if condition="$ki eq $vo['is_cream']">selected='selected'</if>>{$vi}</option>
+                   </foreach> 
+                </select>
+			</td>
+			<td>
+			  <select name="status" nid="{$vo['id']}" class="short">
+                   <foreach name="status" item="v" key="k">
+                     <option value="{$k}" <if condition="$k eq $vo['status']">selected='selected'</if>>{$v}</option>
+                   </foreach> 
+              </select>
+            </td>
+            <td>
+              <a href="javascript:void(0)" onclick="edit_info({$vo['id']})">编辑</a> | 
+              <a href="javascript:void(0)" onclick="news_info({$vo['id']})">查看</a>
+            </td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<script type="text/javascript">
+function export_data (_this)
+{
+     $(_this).attr('href',"/Media/export_news_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val());
+}
+$(function(){
+    $("select[name='is_cream']").change(function(){
+        $cream_status = $(this).find("option:selected").val();
+        $news_id = $(this).attr("nid");
+        if(!$news_id)
+        {
+            return top.jdbox.alert(0,"新闻ID错误");
+        }
+        $.post("{:U('Media/is_cream')}",{"is_cream":$cream_status,"is_ajax":1,"news_id":$news_id},function(F){
+            top.jdbox.alert(F.status,F.info);
+            if(F.status == 1)
+            {
+                window.location.reload();
+            }
+        },'json')
+    })
+    $("select[name='status']").change(function(){
+        $status = $(this).find("option:selected").val();
+        $news_id = $(this).attr("nid");
+        if(!$news_id)
+        {
+            return top.jdbox.alert(0,"新闻ID错误");
+        }
+        $.post("{:U('Media/changeStatus')}",{"status":$status,"is_ajax":1,"news_id":$news_id},function(F){
+            top.jdbox.alert(F.status,F.info);
+            if(F.status == 1)
+            {
+                window.location.reload();
+            }
+        },'json')
+    })
+    $(".s_pic").hover(
+        function()
+        {
+           $m_pic = $(this).attr("name");
+           $(this).next(".m_pic").css("display","inline-block");
+        },
+        function()
+        {
+           $(".m_pic").css("display","none");
+        }
+    )
+})
+function edit_info(id)
+{
+    if(!id)
+    {
+        return top.jdbox.alert(0,"新闻ID错误");
+    }
+    window.location.href = "{:U('Media/edit_news')}?id='"+id+"'";
+}
+function news_info(id)
+{
+    if(!id)
+    {
+        return top.jdbox.alert(0,"新闻ID错误");
+    }
+    $url = "{:U('Media/news_info')}?id=";
+    return top.jdbox.iframe($url+id);
+}
+</script>
+<include file="Public:footer" />

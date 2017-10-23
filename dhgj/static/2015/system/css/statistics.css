@@ -1,0 +1,70 @@
+.pro_search_btn{border:1px solid #ccc; background-color:#F0F0F0; padding:2px 2px; cursor:pointer;}
+.left{float:left}
+.right{float:right}
+.clear{clear:both}
+table{width:1064px;border:1px solid #ccc;border-collapse:collapse;font-size:12px;background-color:#fff;text-align:center;}
+table td{border-right:1px solid #ccc;border-bottom:1px solid #ccc;color:#666;font-size:13px;padding:5px;line-height: 25px;word-break:break-all; word-wrap:break-word;padding-left:14px;}
+table td input{border: 1px solid #ccc;height: 25px;color:#666;}
+table th{border-right:1px solid #ccc;border-bottom:1px solid #ccc;background-color:#f5f5f5;padding:8px;color:#4D4D4D;font-size:14px;font-weight: normal;}
+table .dakuan_btn{background-color:#060;padding: 4px 3px;border:1px solid #ccc;color:#ff5400;}
+table td span.a{display:block; text-align:left; padding-left:5px;}
+
+.int{font-weight:bold;color:#0099CC}
+.plot_div{width:480px;height:200px;float:left;margin:0 20px;}
+.plot{width:480px;height:200px;float:left;}
+.highlight{color:#CC3300}
+.select_time{width:480px;height:100px;float:left;margin:30px 0 0 30px}
+.select_time div{float:left;width:100px;height:50px;font-size:16px;color:#333333}
+.username{width:100px}
+.sub{width:100px;height:30px;float:left;margin:30px 0 0 30px}
+.white{color:#FFFFFF}
+body{font-family:"微软雅黑"}
+.bg{background:url(../img/statistics.png) no-repeat;}
+.table_div{width:1050px height:600px;margin:30px;text-align:left}
+.tr_div{float:left;margin:5px 0}
+.visit_left{width:55px;height:61px;background-position:-67px -174px;float:left}
+.visit_mid{width:1000px;height:61px;background:#EBF3DF;float:left}
+.visit_mid div{padding-left:10px}
+.visit_today{width:170px;height:61px;border-right:1px solid #CCCCCC;line-height:61px;font-size:14px;color:#439600;float:left}
+.visit_other{height:61px;border-left:1px solid #FFFFFF;border-right:1px solid #CCCCCC;line-height:61px;font-size:14px;color:#434343;float:left}
+.visit_right{width:9px;height:61px;background-position:-470px -174px;float:left}
+
+.small_int{font-size:20px;color:#696969}
+
+.reg_left{width:55px;height:61px;background-position:-131px -174px;float:left}
+.reg_mid{width:1000px;height:61px;background:#E2EDF5;float:left}
+.reg_mid div{padding-left:10px}
+.reg_today{width:170px;height:61px;border-right:1px solid #CCCCCC;line-height:61px;font-size:14px;color:#2299EC;float:left}
+.reg_other{height:61px;line-height:61px;font-size:14px;color:#434343;float:left}
+.reg_right{width:9px;height:61px;background-position:-433px -174px;float:left}
+
+.amount_left{width:55px;height:61px;background-position:-195px -174px;float:left}
+.amount_mid{width:1000px;height:61px;background:#F2EADF;float:left}
+.amount_mid div{padding-left:10px;padding-left:10px}
+.amount_today{width:372px;height:61px;border-right:1px solid #CCCCCC;line-height:61px;font-size:14px;color:#D78A1D;float:left}
+.amount_other{height:61px;line-height:61px;font-size:14px;color:#434343;float:left}
+.amount_right{width:9px;height:61px;background-position:-510px -174px;float:left}
+.amount{font-size:28px;color:D78A1D}
+.amount_sum{width:372px;height:61px;line-height:61px;font-size:14px;color:#D78A1D;float:left}
+
+.inc{width:18px;height:18px;background-position:-532px -205px;display:block;margin-top:21px;}
+.dec{width:18px;height:18px;background-position:-591px -205px;display:block;margin-top:21px;}
+.red{font-size:20px;color:#E50000}
+.green{font-size:20px;color:#54BB00}
+.blueinc{width:18px;height:18px;background-position:-561px -205px;display:block;margin-top:21px;}
+.bluedec{width:18px;height:18px;background-position:-618px -205px;display:block;margin-top:21px;}
+
+.t_num i{width:18px;height:36px;display:inline-block;vertical-align:-10%}
+#visit_num i{background:url(../img/green.png) no-repeat;}
+#online_num i{background:url(../img/grey.png) no-repeat;}
+#today_login i{background:url(../img/blue.png) no-repeat;}
+#login_num i{background:url(../img/green.png) no-repeat;}
+#login_num_red i{background:url(../img/red.png) no-repeat;}
+#recharge_count i{background:url(../img/yellow.png) no-repeat;}
+#recharge_amount i{background:url(../img/yellow.png) no-repeat;}
+#tender_count i{background:url(../img/yellow.png) no-repeat;}
+#tender_amount i{background:url(../img/yellow.png) no-repeat;}
+#tender_sum i{background:url(../img/yellow.png) no-repeat;}
+#today_login_count i{background:url(../img/grey_small.png) no-repeat;width:13px}
+#today_login_amount i{background:url(../img/yellow_small.png) no-repeat;width:13px}
+#member_avai_amount i{background:url(../img/yellow_small.png) no-repeat;width:14px}

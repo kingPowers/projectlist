@@ -1,0 +1,77 @@
+<include file="Public:header" />
+<style>
+	#content{width:500px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;min-height:200px;}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+	input[name='selectMember']{width: 20px;height: 10px;line-height: 10px;display: inline-block;}
+	ul{list-style: none;}
+	li{float: left;height: 30px;width: 120px;border: 2px solid #fff;line-height: 30px;background: #E9E9E9;border-radius: 5px;color: #000;cursor: pointer;}
+</style>
+<script type="text/javascript">
+$(function(){
+	$(".memberLi").click(function(){
+		$(".memberLi").css("color","#000");
+		$(this).css("color","#FF0000").find("input").attr("checked","checked");
+	})
+})
+</script>
+<div><span>发单</span></div>
+<div id="content">
+<form>
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td valign="middle" align="center">选择接单人</td>
+            <td class="value" align="center" valign="middle">
+               <ul>	
+	             <foreach name="receiveMember" item="vo">
+	               <li class="memberLi"><input type="radio" name="selectMember" value="{$vo['id']}">{$vo['username']}</li>
+	             </foreach>
+	           </ul>
+            </td>
+		</tr>
+		tr>
+			<td valign="middle" align="center">接单报价</td>
+            <td class="value" align="center" valign="middle">
+              <input type="text" name="dis_price" style="margin:5px 0 0 50px;">元
+            </td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center"></td>
+            <td class="value" align="center" valign="middle"><input type="hidden" name="order_id" value="{$order_id}"><a href="javascript:void(0);" class="btn" onclick="operate();">确定</a><a style="margin-left: 10px;" href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">取消</a></td>
+		</tr>
+	</table>
+</form>
+</div>
+<script type="text/javascript">
+function operate()
+{
+	var memberid = $("input[name='selectMember']:checked").val();
+	var order_id = $("input[name='order_id']").val();
+	var dis_price = $("input[name='dis_price']").val();
+	if(!memberid)
+	{
+		return top.jdbox.alert(0,'请选择接单人');
+	}
+	if(!order_id)
+	{
+		return top.jdbox.alert(0,'订单id错误');
+	}
+	if(!dis_price)
+	{
+		return top.jdbox.alert(0,'请填写接单报价');
+	}
+	if(!confirm("接单报价"+dis_price+"元,是否确认"))return false;
+	$.post("{:U('Order/distribute')}",{"memberid":memberid,"is_ajax":1,"order_id":order_id,"dis_price":dis_price},function(F){
+        console.log(F);
+        if(F.status==1)
+        {
+        	parent.window.reload();
+    		return top.jdbox.alert(1,F.info);
+    		return top.jdbox.close();
+        }else{
+        	return top.jdbox.alert(0,F.info);
+        }
+	},'json')
+}
+</script>
+<include file="Public:footer" />

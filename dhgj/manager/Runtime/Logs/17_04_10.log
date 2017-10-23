@@ -1,0 +1,61 @@
+[ 2017-04-10T16:22:25+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T16:22:31+08:00 ] 127.0.0.1 /Public/dologin.html
+[ 2017-04-10T16:22:31+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006439s ]
+[ 2017-04-10T16:22:31+08:00 ] /Public/dologin.html | SQL: SELECT * FROM `user` WHERE username='qjx' LIMIT 1   [ RunTime:0.005496s ]
+
+[ 2017-04-10T16:24:28+08:00 ] 127.0.0.1 /Public/dologin.html
+[ 2017-04-10T16:24:28+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007226s ]
+[ 2017-04-10T16:24:28+08:00 ] /Public/dologin.html | SQL: SELECT * FROM `user` WHERE username='qjx' LIMIT 1   [ RunTime:0.006102s ]
+
+[ 2017-04-10T17:00:54+08:00 ] 127.0.0.1 /Public/dologin.html
+[ 2017-04-10T17:00:54+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `user` [ RunTime:0.006521s ]
+[ 2017-04-10T17:00:54+08:00 ] /Public/dologin.html | SQL: SELECT * FROM `user` WHERE username='qjx' LIMIT 1   [ RunTime:0.006469s ]
+[ 2017-04-10T17:00:54+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.006013s ]
+
+[ 2017-04-10T17:01:39+08:00 ] 127.0.0.1 /Public/dologin.html
+[ 2017-04-10T17:01:39+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `user` [ RunTime:0.011197s ]
+[ 2017-04-10T17:01:39+08:00 ] /Public/dologin.html | SQL: SELECT * FROM `user` WHERE username='qjx' LIMIT 1   [ RunTime:0.007085s ]
+
+[ 2017-04-10T17:01:53+08:00 ] 127.0.0.1 /Public/dologin.html
+[ 2017-04-10T17:01:53+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007165s ]
+[ 2017-04-10T17:01:53+08:00 ] /Public/dologin.html | SQL: SELECT * FROM `user` WHERE username='qjx' LIMIT 1   [ RunTime:0.006525s ]
+[ 2017-04-10T17:01:53+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.006288s ]
+[ 2017-04-10T17:01:53+08:00 ] /Public/dologin.html | SQL: UPDATE `user` SET `login_count`=login_count+1,`timeupdate`='2017-04-10 17:01:53',`lastip`='127.0.0.1' WHERE id=1 [ RunTime:0.019632s ]
+
+[ 2017-04-10T17:03:35+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:03:42+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:03:47+08:00 ] 127.0.0.1 /Public/dologin.html
+[ 2017-04-10T17:03:47+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `user` [ RunTime:0.007526s ]
+[ 2017-04-10T17:03:47+08:00 ] /Public/dologin.html | SQL: SELECT * FROM `user` WHERE username='qjx' LIMIT 1   [ RunTime:0.006861s ]
+[ 2017-04-10T17:03:47+08:00 ] /Public/dologin.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.006484s ]
+[ 2017-04-10T17:03:47+08:00 ] /Public/dologin.html | SQL: UPDATE `user` SET `login_count`=login_count+1,`timeupdate`='2017-04-10 17:03:47',`lastip`='127.0.0.1' WHERE id=1 [ RunTime:0.009543s ]
+
+[ 2017-04-10T17:03:47+08:00 ]  127.0.0.1 /index/system | ERR: (ThinkException) 无法加载模块index
+[ 2017-04-10T17:03:47+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:05:35+08:00 ]  127.0.0.1 /index/system.html | ERR: (ThinkException) 无法加载模块index
+[ 2017-04-10T17:05:35+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:07:29+08:00 ] 127.0.0.1 /
+[ 2017-04-10T17:07:29+08:00 ] / | SQL: SELECT * FROM auth_group_access a LEFT JOIN auth_group g on a.group_id=g.id WHERE a.uid='1' and g.status='1'  [ RunTime:0.011041s ]
+
+[ 2017-04-10T17:07:29+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:08:02+08:00 ] 127.0.0.1 /Public/getJsMenu.html
+[ 2017-04-10T17:08:02+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.009515s ]
+[ 2017-04-10T17:08:02+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `auth_rule` [ RunTime:0.006399s ]
+[ 2017-04-10T17:08:02+08:00 ] /Public/getJsMenu.html | SQL: SELECT * FROM `auth_rule` WHERE ( `type` = 1 ) AND ( `status` = 1 ) ORDER BY pid ASC, sort ASC  [ RunTime:0.008424s ]
+
+[ 2017-04-10T17:08:02+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:08:02+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:08:26+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:16:18+08:00 ] 127.0.0.1 /Public/getJsMenu.html
+[ 2017-04-10T17:16:18+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.006451s ]
+[ 2017-04-10T17:16:18+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `auth_rule` [ RunTime:0.007285s ]
+[ 2017-04-10T17:16:18+08:00 ] /Public/getJsMenu.html | SQL: SELECT * FROM `auth_rule` WHERE ( `type` = 1 ) AND ( `status` = 1 ) ORDER BY pid ASC, sort ASC  [ RunTime:0.012228s ]
+
+[ 2017-04-10T17:16:18+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:16:18+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
+[ 2017-04-10T17:28:32+08:00 ] 127.0.0.1 /Public/getJsMenu.html
+[ 2017-04-10T17:28:32+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `common` [ RunTime:0.011283s ]
+[ 2017-04-10T17:28:32+08:00 ] /Public/getJsMenu.html | SQL: SHOW COLUMNS FROM `auth_rule` [ RunTime:0.010640s ]
+[ 2017-04-10T17:28:32+08:00 ] /Public/getJsMenu.html | SQL: SELECT * FROM `auth_rule` WHERE ( `type` = 1 ) AND ( `status` = 1 ) ORDER BY pid ASC, sort ASC  [ RunTime:0.009302s ]
+
+[ 2017-04-10T17:28:33+08:00 ]  127.0.0.1 /favicon.ico | ERR: (ThinkException) 无法加载模块favicon.ico
