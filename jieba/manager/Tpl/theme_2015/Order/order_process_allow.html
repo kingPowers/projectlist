@@ -1,0 +1,375 @@
+<include file="Public:header" />
+<style>
+	#content{width:520px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+	table.table input.middle{float:left;width:180px;}
+	table.table input.short{float:left;width:60px;}
+	table.table a.small,table.table .modify_bank_btn{padding:1px 12px;margin-left:5px;}
+</style>
+<div><span>接单</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<eq name='order.order_type' value='2'>
+			<!-- 买车贷 --客服-->
+			<eq name='_SESSION["user"]["groupid"]' value="$_ids['customer']">
+				<tr>
+					<td>贷款城市</td>
+					<td class="value"><input type="text" value="{$order.city}" class="middle" name="city"/></td>
+				</tr>
+				<tr>
+					<td>经销商</td>
+					<td class="value">
+						<select name='dealer'>
+							<foreach name="dealer" item="vo">
+								<option value='{$vo.name}' <eq name='order.dealer' value='$vo.name'>selected='selected'</eq>>{$vo.name}</option>
+							</foreach>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>分发到门店</td>
+					<td class="value">
+						<select name='store_id'>
+							<foreach name="store" item="vo">
+								<option value='{$vo.id}'>{$vo.name}</option>
+							</foreach>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>接单</td>
+					<td class="value">
+						<input name='customer_status' checked='checked' type="radio" value='1'/>接单
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="javascript:void(0);" class="btn" onclick="add_buy_customer();">提交</a>
+						<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+					</td>
+				</tr>
+			
+			</eq>
+			
+			<eq name='_SESSION["user"]["groupid"]' value="$_ids['store']">
+				<!-- 买车贷-门店 -->
+				<tr>
+					<td>客户真实姓名</td>
+					<td class="value"><input type="text" value="" class="middle" name="names"/></td>
+				</tr>
+				<tr>
+					<td>客户身份证号</td>
+					<td class="value"><input type="text" value="" class="middle" name="certiNumber"/></td>
+				</tr>
+				<tr>
+					<td>合同编号</td>
+					<td class="value"><input type="text" value="" class="middle" name="applyCode"/></td>
+				</tr>
+				<tr>
+					<td>实际贷款金额</td>
+					<td class="value"><input type="text" value="<notempty name='order.backtotalmoney'>{$order.backtotalmoney}<else/>{$order.loanmoney}</notempty>" class="middle" name="backtotalmoney"/>元</td>
+				</tr>
+				<tr>
+					<td>经销商</td>
+					<td class="value">
+						<select name='dealer'>
+							<foreach name="dealer" item="vo">
+								<option value='{$vo.name}' <eq name='vo.name' value='$order.dealer'>selected='selected'</eq> >{$vo.name}</option>
+							</foreach>
+						</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>借款期限</td>
+					<td class="value">
+						<input name='loanmonth' type="radio" <eq name='order.loanmonth' value='12'>checked='checked'</eq> value='12'/>12个月
+						<input name='loanmonth' type="radio" <eq name='order.loanmonth' value='18'>checked='checked'</eq>  value='18'/>18个月
+						<input name='loanmonth' type="radio" <eq name='order.loanmonth' value='24'>checked='checked'</eq>  value='24'/>24个月
+					</td>
+				</tr>
+				
+				<tr>
+					<td>业务员姓名</td>
+					<td class="value"><input type="text" value="" class="middle" name="store_manager"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="javascript:void(0);" class="btn" onclick="add_buy_store();">提交</a>
+						<!--<a href="javascript:void(0);" class="btn" onclick="order_process_refuse('{$order.o_id}');">拒单</a>-->
+						<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+					</td>
+				</tr>
+				
+			</eq>
+		</eq>
+		
+		<!-- 车抵贷 -->
+		<eq name='order.order_type' value='1'>
+			<!-- 客服 -->
+			<eq name='_SESSION["user"]["groupid"]' value="$_ids['customer']">
+				<tr>
+					<td>贷款城市</td>
+					<td class="value"><input type="text" value="{$order.city}" class="middle" name="city"/></td>
+				</tr>
+				
+				<tr>
+					<td>分发到门店</td>
+					<td class="value">
+						<select name='store_id'>
+							<foreach name="store" item="vo">
+								<option value='{$vo.id}'>{$vo.name}</option>
+							</foreach>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>接单</td>
+					<td class="value">
+						<input name='customer_status' checked='checked' type="radio" value='1'/>接单
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="javascript:void(0);" class="btn" onclick="add_borrow_customer();">提交</a>
+						<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+					</td>
+				</tr>
+				
+			</eq>
+			
+			<!-- 门店 -->
+			<eq name='_SESSION["user"]["groupid"]' value="$_ids['store']">
+				<tr>
+					<td>客户真实姓名</td>
+					<td class="value"><input type="text" value="" class="middle" name="names"/></td>
+				</tr>
+				<tr>
+					<td>客户身份证号</td>
+					<td class="value"><input type="text" value="" class="middle" name="certiNumber"/></td>
+				</tr>
+				<!-- <tr>
+					<td>实际贷款金额</td>
+					<td class="value"><input type="text" value="<notempty name='order.backtotalmoney'>{$order.backtotalmoney}<else/>{$order.loanmoney}</notempty>" class="middle" name="backtotalmoney"/>元</td>
+				</tr> -->
+				<tr>
+					<td>合同编号</td>
+					<td class="value"><input type="text" value="" class="middle" name="applyCode"/></td>
+				</tr>
+				<tr>
+					<td>业务员姓名</td>
+					<td class="value"><input type="text" value="" class="middle" name="store_manager"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<a href="javascript:void(0);" class="btn" onclick="add_borrow_store();">提交</a>
+						<!--<a href="javascript:void(0);" class="btn" onclick="order_process_refuse('{$order.o_id}');">拒单</a>-->
+						<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+					</td>
+				</tr>
+			</eq>
+		</eq>
+		
+		
+		
+		<eq name='_SESSION["user"]["groupid"]' value="$_ids['admin']">
+			
+			<tr>
+				<td colspan="2">
+					请登录客服账号或门店经理账号处理订单,谢谢！
+				</td>
+			</tr>
+		</eq>
+	</table>
+</div>
+<script language="javascript">
+var buy_id = "{$order.o_id}";
+var memberid= "{$order.memberid}";
+//买车贷，客服人员
+function add_buy_customer(){
+	var data = {};
+	var input_name = {
+		'city':'贷款城市'
+	};
+	var is_check = 1;
+	$.each(input_name,function(i,val){
+		$(data).attr(i,$('input[name="'+i+'"]').val());
+		if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+			alert(val+"不能为空");
+			is_check = 0;
+			return false;
+		}
+	});
+	if(is_check==0)return false;
+	$(data).attr('dealer',$('select[name="dealer"]').find("option:selected").val());
+	$(data).attr('store_id',$('select[name="store_id"]').find("option:selected").val());
+	$(data).attr('customer_status',$('input[name="customer_status"]:checked').val());
+	$(data).attr('buy_id',buy_id);
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/order_process_allow",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+
+//买车贷，门店
+function add_buy_store(){
+	var data = {};
+	var input_name = {
+		'names':'真实姓名',
+		'certiNumber':'身份证号',
+		'applyCode':'合同编号',
+		'backtotalmoney':'实际贷款金额',
+		'store_manager':'业务员姓名'
+	};
+	var is_check = 1;
+	$.each(input_name,function(i,val){
+		$(data).attr(i,$('input[name="'+i+'"]').val());
+		if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+			alert(val+"不能为空");
+			is_check = 0;
+			return false;
+		}
+	});
+	if(is_check==0)return false;
+	$(data).attr('dealer',$('select[name="dealer"]').find("option:selected").val());
+	$(data).attr('loanmonth',$('input[name="loanmonth"]:checked').val());
+	$(data).attr('buy_id',buy_id);
+	$(data).attr('memberid',memberid);
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/order_process_allow",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+
+//车抵贷，客服人员
+function add_borrow_customer(){
+	var data = {};
+	var input_name = {
+		'city':'贷款城市'
+	};
+	var is_check = 1;
+	$.each(input_name,function(i,val){
+		$(data).attr(i,$('input[name="'+i+'"]').val());
+		if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+			alert(val+"不能为空");
+			is_check = 0;
+			return false;
+		}
+	});
+	if(is_check==0)return false;
+	$(data).attr('store_id',$('select[name="store_id"]').find("option:selected").val());
+	$(data).attr('borrow_id',buy_id);
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/order_process_allow",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+
+//车抵贷，门店
+function add_borrow_store(){
+	var data = {};
+	var input_name = {
+		'names':'真实姓名',
+		'certiNumber':'身份证号',
+		//'backtotalmoney':'实际贷款金额'
+		'applyCode':'合同编号',
+		'store_manager':'业务员姓名'
+	};
+	var is_check = 1;
+	$.each(input_name,function(i,val){
+		$(data).attr(i,$('input[name="'+i+'"]').val());
+		if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+			alert(val+"不能为空");
+			is_check = 0;
+			return false;
+		}
+	});
+	if(is_check==0)return false;
+	$(data).attr('borrow_id',buy_id);
+	$(data).attr('memberid',memberid);
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/order_process_allow",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+
+//拒单
+var order_process_refuse = function(order_id){
+	var data = {};
+	if(order_id=='')alert("订单编号为空");
+	if(!confirm('您确定要拒单吗？')){return false;}
+	$(data).attr('order_id',order_id);
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/order_process_refuse",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+</script>
+<include file="Public:footer" />

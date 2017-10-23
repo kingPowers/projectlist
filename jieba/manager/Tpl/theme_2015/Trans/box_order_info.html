@@ -1,0 +1,102 @@
+<include file="Public:header" />
+<style>
+	#content{width:450px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+</style>
+<div><span>添加订单</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td>转出账户</td>
+			<td class="value"><input type='input' name='out_cust_no'/><span id='out_cust_no'></span></td>
+		</tr>
+		<tr>
+			<td>转入账户</td>
+			<td class="value"><input type='input' name='in_cust_no'/><span id='in_cust_no'></span></td>
+		</tr>
+		<tr>
+			<td>转账金额</td>
+			<td class="value"><input type='input' name='money'/></td>
+		</tr>
+		<tr>
+			<td>预设秘钥</td>
+			<td class="value"><input type='input' name='pwd'/></td>
+		</tr>
+		<tr>
+			<td>操作人</td>
+			<td class="value">汤潮沛</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<a href="javascript:void(0);" class="btn" onclick="add();">确定</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$("input[name='out_cust_no']").blur(function(){
+			if(''==$(this).val())return '';
+			$('#out_cust_no').html("请稍后……");
+			$.post("{:U('Trans/boxOrderInfo')}",{'type':"ajax_search",'cust_no':$(this).val()},function(result){
+				if(result.status){
+					$('#out_cust_no').html(result.data.names);
+				}else{
+					$('#out_cust_no').html("未查询到账户姓名");
+				}
+			},'json');
+		});
+		$("input[name='in_cust_no']").blur(function(){
+			if(''==$(this).val())return '';
+			$('#in_cust_no').html("请稍后……");
+			$.post("{:U('Trans/boxOrderInfo')}",{'type':"ajax_search",'cust_no':$(this).val()},function(result){
+				if(result.status){
+					$('#in_cust_no').html(result.data.names);
+				}else{
+					$('#in_cust_no').html("未查询到账户姓名");
+				}
+			},'json');
+		});
+		
+	});
+	
+	function add(){
+		var data = {};
+		var input_name = {
+			'out_cust_no':'转出账户',
+			'in_cust_no':'转入账户',
+			'pwd':'秘钥',
+			'money':'转账金额',
+		};
+		var is_false = 0;
+		$.each(input_name,function(i,val){
+			$(data).attr(i,$('input[name="'+i+'"]').val());
+			if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+				alert(val+"不能为空");
+				is_false = 1;
+				return false;
+			}
+		});
+		if(is_false==1)return false;
+		$(data).attr('type',"submit_trans");
+		$.ajax({
+			'type':'post',
+			'dataType':'json',
+			'url':"/Trans/boxOrderInfo",
+			"data":{'data':data},
+			success:function(json){
+				if(json.status==1){
+					alert(json.info);
+					top.jdbox.close();
+					parent.window.reload();
+				}else{
+					alert(json.info);
+				}
+				
+			},
+			
+		});
+	}
+</script>
+<include file="Public:footer" />

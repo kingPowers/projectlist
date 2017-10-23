@@ -1,0 +1,27 @@
+@charset "utf-8";
+body,div,img,input{margin:0 auto;padding: 0;}
+body{text-align: center;}
+input:focus {outline:none;}
+input:focus {color:black;}
+input{color:#dbdbdb;}
+
+.headers{width:100%;height:6.8%;position:fixed;left:0;top:0;background-color:#5495e6;z-index: 10;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;}
+.headers .fhwz{width:auto;height:auto;position:absolute;left:7%;top:0%;color:white;}
+.headers .zxwx{width:auto;height:auto;position:absolute;left:41.3%;top:0%;color:white;}
+
+.noneDiv{width:100%; height:auto;position:relative;left:0%;top:0%;}
+
+.centerDiv{width:100%;height:25.7%;position:absolute;z-index:50;top:9.5%;background:#fff;}
+.cxNamespan{width:100%;height:27%;position:relative;top:0%;left:0%;}
+.wzInfo{width:97%;height:100%;position:absolute;top:0%;left:3%;line-height:100%;text-align:left;top:32%;font-weight:bold;font-family:宋体;}
+
+.centerContent{width:97%;height:64.2%;position:relative;top:0%;left:3%;float:left;}
+.CarImgDiv{width:49.37%;height:100%;position:relative;border:1px solid #ececec;float:left;}
+.carsImg{width:88%;height:46%;position:absolute;left:0%;top:27%;left:6%;}
+.spTime{width:auto;height:auto;position:absolute;left:54%;top:0%;font-family:宋体;}
+.citySpan{width:auto;height:auto;position:absolute;left:54%;top:28%;font-family:宋体;text-align:left;}
+.lcSpan{width:auto;height:auto;position:absolute;left:54%;top:55%;font-family:宋体;text-align:left;}
+.ygjSpan{width:auto;height:auto;position:absolute;left:54%;top:84%;font-family:宋体;text-align:left;}
+
+.jkanImg{width:94%;height:auto;position:relative;margin-top:10%;left:3%;float:left;}

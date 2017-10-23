@@ -1,0 +1,108 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="/Assed/index" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <select name="order_status" class="short" id="order_status">
+        <option value=''>评论状态</option>
+        <foreach name="status" item="sta" >
+            <option value='{$key}' <?php if($_GET['order_status']!='' && $_GET['order_status'] == $key): echo 'selected="selected"'; endif;?>>{$sta}</option>
+        </foreach>
+    </select>
+    <span>订单id：</span>
+    <input type="text" name="order_id" id="order_id" value="{$_GET['order_id']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>用户ID</th>
+            <th>用户名称</th>
+            <th>订单id</th>
+            <th>订单评论内容</th>
+            <th>订单评论位置</th>
+            <th>是否是精华</th>
+            <th>评论添加时间</th>
+            <th>状态</th>
+            <th>排序</th>
+            <th>图片</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['memberid']}</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['order_id']}</td>
+            <td>{$vo['content']}</td>
+            <td>{$vo['location']}</td>
+            <td>
+                <select name="cream_status" nid="{$vo['id']}" class="short">
+                    <foreach name="cream_status" key="k" item="v">
+                        <option value="{$k}"<eq name="k" value="$vo['is_cream']">selected="selected"</eq>>{$v}</option>
+                    </foreach>
+                </select>
+            </td>
+            <td>{$vo['timeadd']|date='Y-m-d H:i:s',###}</td>
+            <td>
+                <select name="status" nid="{$vo['id']}" class="short">
+                    <foreach name="status" key="k" item="v">
+                        <option value="{$k}"<eq name="k" value="$vo['status']">selected="selected"</eq>>{$v}</option>
+                    </foreach>
+                </select>
+            </td>
+            <td>
+                <input type="text" value="{$vo['order']}" class="order_cream" nid="{$vo['id']}">
+            </td>
+            <td>
+                <?php
+                    list($img0,$img1,$img2,$img3) = explode('|',$vo['images']);
+                ?>
+                <a href="_STATIC_/Upload/assed/<?php echo $img1;?>" alt="" class="lifes1Img" target="view_window">1</a>
+                <a href="_STATIC_/Upload/assed/<?php echo $img2;?>" alt="" class="lifes2Img" target="view_window">2</a>
+                <a href="_STATIC_/Upload/assed/<?php echo $img3;?>" alt="" class="lifes3Img" target="view_window">3</a>
+            </td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+<div>{$page}</div>
+<script language="javascript">
+$(function(){
+    $(".order_cream").change(function(){
+       var new_value = $(this).val();
+        var data = {};
+        $(data).attr('order',new_value);
+        $(data).attr('id',$(this).attr('nid'));
+        $.post('/Assed/changeOrder.html',data,function(F){
+            return top.jdbox.alert(F.status,F.info);
+        },'json');
+    });
+    $("select[name='status']").change(function(){
+        var data = {};
+        $(data).attr('id',$(this).attr('nid'));
+        $(data).attr('status',$(this).val());
+        $.post('/Assed/changeStatus.html',data,function(F){
+            return top.jdbox.alert(F.status,F.info);
+        },'json');
+    });
+    $("select[name='cream_status']").change(function(){
+        var data = {};
+        $(data).attr('id',$(this).attr('nid'));
+        $(data).attr('status',$(this).val());
+        $.post('/Assed/changeCreamStatus.html',data,function(F){
+            return top.jdbox.alert(F.status,F.info);
+        },'json');
+    });
+})
+</script>
+<include file="Public:footer" />

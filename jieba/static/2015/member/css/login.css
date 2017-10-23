@@ -1,0 +1,21 @@
+@charset "utf-8";
+/*.maxDiv{width:100%;height:auto;background:url(../image/login/bg.jpg) repeat-x;}*/
+.maxDiv{width:100%;height:auto;position:relative;left:0%;top:0%;}
+.bgImg{width:100%;height:auto;position:absolute;left:0%;top:0%;}
+.headers{width:100%;height:6.8%;position:relative;left:0%;top:0%;z-index:2;}
+/*.rd{}*/
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;z-index:2;}
+.fhwz{position:absolute;left:8.5%;top:30%;color:white;font-family:宋体;line-height:100%;}
+.centerDiv{width:100%;height:63.4%;position:relative;top:0%;left:0%;z-index:2;}
+.chelogoImg{width:26%;height:12.7%;position:absolute;top:8.5%;left:36.3%;}
+/*.phoneDiv{width:83.1%;height:11.5%;position:absolute;top:27.6%;left:8.5%;border:1px solid red;}*/
+.phoneiconImg{width:6.13%;height:8.29%;position:absolute;left:11.7%;top:32.4%;}
+.srsjnum{width:68.5%;position: absolute;top:34.5%;left:23.3%;height:6.39%;border:0px;background:none; outline: 0; color: #fff;}
+.lineImg{width:82.9%;height:0.16%;position:absolute;top:41.7%;left:8.5%;border-top:1px solid #fff;}
+.passiconImg{width:6%;height:6.6%;position:absolute;left:11.7%;top:49%;}
+.srmmnum{width:68.5%;position:absolute;top:49.5%;left:23.3%;height:6.39%;border:0px;background: none; outline: 0; color: #fff;}
+.linexImg{width:82.9%;height:0.16%;position:absolute;top:56.2%;left:8.5%;border-top:1px solid #fff;}
+/*.passDiv{width:83.1%;height:11.5%;position:absolute;top:42%;left:8.5%;border:1px solid red;}*/
+.loginsbutImg{width:93.9%;height:11%;position:absolute;top:68.7%;left:3.2%;}
+.registerbtnImg{width:93.9%;height:11%;position:absolute;top:82.8%;left:3.2%;}
+.wjmmImg{width:14.3%;height:2.8%;position:absolute;top:97.2%;left:77.1%;}

@@ -1,0 +1,33 @@
+@charset "utf-8";
+/*.maxDiv{width:100%;height:auto;background:url(../image/login/bg.jpg) repeat-x;}*/
+.maxDiv{width:100%;height:auto;float:left;}
+
+.headers{width:100%;height:6.8%;position:relative;left:0%;top:0%;overflow: hidden;background-color:#5495e6;}
+
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+
+.fhwz{position:absolute;left:8.5%;top:30%;color:white; font-family:宋体;line-height:100%;}
+.zxwx{position:absolute;left:41.3%;top:30%;color:white; font-family:宋体;line-height:100%;}
+
+.centerDiv{width:100%; height:32%; position:relative;top:0%;left:0%; overflow: hidden;background-color:#efefef}
+
+.center1{width:100%; height:4.8%;  overflow: hidden;background-color:#efefef}
+
+.center2{width:100%;  height:48%;  overflow: hidden;background-color:#FFF;position:relative;left:0%;top:0%;}
+.phone{position:absolute; left:2%; top:16.9%; color:black; font-family:宋体;line-height:100%;}
+.phone2{position:absolute; left:2%; top:65.7%; color:black; font-family:宋体;line-height:100%;}
+.solidImg{width:96.8%; height:2%; position:absolute;left:2%;top:49.8%;}
+.input{position:absolute; left:28%; top:16%; width:45%;height:24%; font-family:宋体;color:#b7b7b7; border:0px; filter:alpha(opacity=0); background-color: rgba(0, 0, 0, 0);}
+.input2{position:absolute; left:28%; top:65%; width:45%; height:24%; font-family:宋体; color:#b7b7b7; border:0px; filter:alpha(opacity=0); background-color: rgba(0, 0, 0, 0);}
+
+
+.center3{width:100%; height:46.5%;position:relative;left:0%;top:0%;}
+.center3 .confirmImg{width:93.6%; height:46.7%; position:absolute; left:3.2%; top:52.9%;}
+
+.hbgDiv{width:100%;height:100%;background:#777777;position:absolute;z-index:1000;opacity:0.3;display: none;}
+.centerinfomatinDiv{width:86.4%;height:23.3%;position:absolute;z-index:10001;top:19.3%;left:0%;display: none;left:7.3%;}
+.tresetImg{width:100%;height:100%;position:absolute;z-index:10001;top:0%;left:0%;}
+.tswzinfo{position:absolute;left:44.6%;top:14.3%;font-weight:bold;z-index:10003;text-align:center;}
+.infoconter{width:100%;height:auto;position:absolute;top:35.7%;z-index:10003;text-align:center;}
+.surebtn{position:absolute;left:0%;top:63.6%;width:100%;height:36%;background:none;border:none;color:#63abe8;border-top:1px solid #cacace;z-index:10003;}
+

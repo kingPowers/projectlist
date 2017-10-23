@@ -1,0 +1,161 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m10 order_form" action="{:U('Order/index')}" method="get">
+    <select name="k" class="short"><foreach name="keys" item="v"><option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option></foreach></select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <neq name='_SESSION["user"]["groupid"]' value='$_ids["store"]'><select name="status_k" class="short"><foreach name="_status" item="v"><option value='{$key}' <?php if($_GET['status_k']!='' && $_GET['status_k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option></foreach></select>&nbsp;</neq>    
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="button" class="btn btn-primary order_submit">查询</button>
+    <a id="ordertoexcel" class="btn btn-primary">导出</a>
+	<?php $_inids = $_ids["admin"].",".$_ids["customer"]; ?>
+    <in name='_SESSION["user"]["groupid"]' value='$_inids'><a onclick="add_buy_order();" class="btn btn-primary">添加买车贷订单</a></in>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+	
+		<!-- 管理员 -->
+		<thead>
+			<tr>
+			<foreach name='list.column' item='_column'>
+				<neq name='_column.3' value='0'>
+					<th>{$_column.0}</th>
+				</neq>
+			</foreach>
+			</tr>
+	    </thead>
+	    <?php
+	    	if(count($list['data'])<1){
+				echo "<tr><td colspan='".count($list['column'])."' style='text-align:center;'>暂无订单</td></tr>";
+			}	
+	     ?>
+    <tbody>
+    <foreach name="list.data" item="vo">
+        <tr>
+        	<foreach name='list.column' key='_k' item='_column'>
+        		<neq name='_column.3' value='0'>
+        			<neq name='_column.0' value='操作'>
+        				<td>{$vo[$_column[1]]}</td>
+        			</neq>
+        		</neq>
+        	</foreach>
+            
+            	
+            	<eq name='_SESSION["user"]["groupid"]' value="$_ids['customer']">
+            		<!-- 客服 -->
+            		<eq name='vo.customer_status' value='0'>
+            			<td><a href="javascript:void(0)" onclick="order_process_allow('{$vo['id']}')">接单</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="javascript:void(0)" onclick="order_process_refuse('{$vo['id']}')">拒单</a></td>
+            		</eq>
+            		<eq name='vo.customer_status' value='1'>
+            			<td><a href="javascript:void(0)">已分发</a></td>
+            		</eq>
+            		<eq name='vo.customer_status' value='2'>
+            			<td><a href="javascript:void(0)">已拒单</a></td>
+            		</eq>
+            	</eq>
+            	
+            	
+            	<eq name='_SESSION["user"]["groupid"]' value="$_ids.store">
+            		<!-- 门店 -->
+            		<eq name='vo.store_status' value='0'>
+            			<td><a href="javascript:void(0)" onclick="order_process_allow_first('{$vo['id']}')">接单</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="javascript:void(0)" onclick="order_process_refuse('{$vo['id']}')">拒单</a></td>
+            		</eq>
+            		<eq name='vo.store_status' value='1'>
+            			<td><a href="javascript:void(0)" onclick="order_process_allow('{$vo['id']}')">处理订单</a>&nbsp;&nbsp;&nbsp;&nbsp;
+						 	<a href="javascript:void(0)" onclick="order_process_refuse('{$vo['id']}')">拒单</a> 
+						</td>
+            		</eq>
+            		<eq name='vo.store_status' value='2'>
+            			<td><a href="javascript:void(0)">已接单</a>&nbsp;&nbsp;
+            				<a href='javascript:void(0)' onclick="order_process_edit('{$vo['id']}')">修改</a>
+            			</td>
+            			
+            		</eq>
+            		<in name='vo.store_status' value='3,4'>
+            			<td><a href="javascript:void(0)">已拒单</a></td>
+            		</in>
+            	</eq>
+            	
+			
+        </tr>
+     </foreach>
+     </tbody>
+	
+	
+	
+</table>
+{$page}
+<script language="javascript">
+var detail = function(id)
+{
+	var url = "{:U('Order/boxMemberInfo')}?id=";
+	if(!id) return false;
+	top.jdbox.iframe(url+id);
+}
+
+var add_buy_order = function()
+{
+	var url = "{:U('Order/add_buy_order')}";
+	top.jdbox.iframe(url);
+}
+
+var add_borrow_order = function()
+{
+	var url = "{:U('Order/add_borrow_order')}";
+	top.jdbox.iframe(url);
+}
+//接单第一步
+var order_process_allow_first = function(order_id)
+{
+	var data = {};
+	if(order_id=='')alert("订单编号为空");
+	if(!confirm('您确定要接单吗？')){return false;}
+	$(data).attr('buy_id',order_id);
+	$(data).attr('first',1);
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/order_process_allow",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+//接单第二步
+var order_process_allow = function(id)
+{
+	var url = "{:U('Order/order_process_allow')}?id="+id;
+	top.jdbox.iframe(url);
+}
+
+$('.order_submit').click(function(){
+	$('.order_form').attr('action',"/Order/index/status/{$_REQUEST['status']}").submit();
+});
+$('#ordertoexcel').click(function(){
+    $('.order_form').attr('action',"/Order/export_buy/status/{$_REQUEST['status']}").submit();
+})
+
+var order_process_refuse = function(order_id){
+	var url = "{:U('Order/order_process_refuse')}?id="+order_id;
+	top.jdbox.iframe(url);
+}
+
+var order_process_edit = function(order_id){
+	var url = "{:U('Order/editOrder')}?id="+order_id;
+	top.jdbox.iframe(url);
+}
+</script>
+<include file="Public:footer" />

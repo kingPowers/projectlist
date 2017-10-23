@@ -1,0 +1,73 @@
+</div>
+<script language="javascript">
+//设置菜单
+$.getJSON("{:U('Public/getJsMenu')}",function( R ){
+	var config = [], topmenu = '',B = true;
+	for(var i in R ){
+		var M={},N={},O=[],I=[];
+		for(var j in R[i]['child']){
+			var T={};
+			$(T).attr('id',R[i]['child'][j]['id']);
+			$(T).attr('text',R[i]['child'][j]['title']);
+			$(T).attr('href','/'+R[i]['child'][j]['name'].replace('-','/')+'.html');
+			I.push(T);
+		}
+		$(N).attr('text',R[i]['title']);
+		$(N).attr('items',I);
+		O.push(N);
+		$(M).attr('menu',O);
+		$(M).attr('id',R[i]['id']);
+		if(I.length > 0){
+			$(M).attr('homePage',I[0]['id']);
+		}
+		config.push(M);
+		topmenu += '<li class="nav-item dl-selected">';
+		topmenu += '<div class="nav-item-inner ';
+		topmenu += B ? 'nav-home' : 'nav-order'; 
+		topmenu += '">' + R[i]['title'] + '</div></li>';
+	}
+	$('ul#J_Nav').html( topmenu );
+	BUI.use('common/main',function(){
+		new PageUtil.MainPage({'modulesConfig':config});
+	});
+});
+
+var resize = (function(){
+	$(window).resize(function(){
+		var w_h = $(window).height();
+		var h_h = $('div#header').height();
+		var n_h = $('div.dl-main-nav').height();
+		var b_h = $('div.bui-nav-tab div.tab-nav-bar').height();
+		$('li.dl-tab-item div.dl-second-nav').css('height',w_h-h_h-n_h+'px');
+		$('div#J_28Tab div.bui-nav-tab').css('height',w_h-h_h-n_h+'px');
+		$('div.bui-nav-tab div.tab-content-container').css('height',w_h-h_h-n_h-b_h+'px');
+	})
+}());
+
+var reload = function()
+{
+	$('ul#J_NavContent > li.dl-tab-item').each(function(){
+	var _self = $(this);
+		if(!_self.hasClass('ks-hidden'))
+		{
+			_self.find('div.tab-content').each(function(){
+				if( $(this).is(':visible') )
+				{
+					var reloadurl = $(this).find('iframe').contents().find("input[name='reloadurl']").val();
+					$(this).find('iframe').attr('src',reloadurl);
+				}
+			})
+		}
+	})
+}
+
+var logout = function()
+{
+	jdbox.alert(2,'退出中');
+	$.post("{:U('Public/logout')}",'',function(){
+		window.location.href = '/login.html';
+	})
+}
+</script>
+</body>
+</html>

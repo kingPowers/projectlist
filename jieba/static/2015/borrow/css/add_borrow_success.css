@@ -1,0 +1,45 @@
+@charset "utf-8";
+body,div,img,input{margin:0 auto;padding: 0;}
+body{text-align: center;}
+input:focus {outline:none;}
+input:focus {color:black;}
+input{color:#dbdbdb;}
+
+.headers{width:100%;height:6.8%;position:fixed;left:0;top:0;background-color:#5495e6;z-index: 10;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:6%;top:25%;}
+.headers .fhwz{width:auto;height:auto;position:absolute;left:9.5%;top:28%;color:white;}
+.headers .zxwx{width:auto;height:auto;position:absolute;left:41.3%;top:34%;color:white;}
+
+.topDiv{width:100%; height:21.63%;position:absolute;left:0%;background: #fff;top:8.3%;}
+.succWz{width:100%;text-align:center;height:auto;top:26%;position: absolute;font-weight:800;color:#5495e6;}
+.desinfo{width:100%;text-align:center;height:auto;top:60.7%;position: absolute;font-weight:500;}
+
+.contentDiv{width:100%; height:54.4%;position:absolute;left:0%;background: #fff;top:31.3%;}
+.oneDiv{width:100%;height:14%;position: relative;}
+.leftwords{width:30%;height:100%;top:30%;position:absolute;left:6%;text-align:left;}
+.rightwords{width:55%;height:100%;top:30%;position:absolute;left:35%;text-align:right;}
+.colornum{color:#5495e6;font-weight:500;}
+.desinfos{width:100%;text-align:center;height:auto;top:40%;position: absolute;font-weight:500;}
+
+.footDiv{width:100%;height:14%;position:absolute;top:86%;left:0;}
+.wordsWz{width:100%;text-align:center;height:auto;top:29%;left:0;position: absolute;font-weight:500;}
+.wordsCWz{width:100%;text-align:center;height:auto;top:55%;left:0;position: absolute;font-weight:500;color:#5495e6;}
+a{color:#5495e6;}
+
+
+/*.noneDiv{width:100%; height:auto;position:relative;left:0%;top:0%;}
+
+.infosetDiv{width:100%;height:auto;left:0%;margin-top:4%;background: #fff;position:relative;}
+.infosetDiv .bt{width:30%;height:auto;text-align: left;position:absolute;left: 3%;font-weight: 500;}
+.infosetDiv .ipt{width:60%;height:auto;text-align: left;position:absolute;right: 3%;border:0;}
+.yf{width:25%;position:absolute;font-weight:500;z-index:5;left:75%;color:#018be7;font-weight: 800;}
+.applybtn{width:100%;height:auto;position:absolute;}
+.surebtnImg{width:94%;height:auto;position:absolute;left:2.6%;top:14%;}
+
+.applyconditionDiv{width:100%;height:auto;left:0%;background: #fff;position:relative;top:35.5%;}
+.sqtjImg{width:100%;height:auto;}
+.needconditionDiv{width:100%;height:auto;left:0%;top:37%;position: relative;background: #fff;}
+.needImg{width:100%;height:auto;}
+
+.dyexperDiv{width:100%;height:auto;left:0%;background: #fff;position:relative;top:38%;}*/
+

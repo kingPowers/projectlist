@@ -1,0 +1,13 @@
+
+.bgImg{background:url("../image/invite/bg.png") no-repeat center 0; width:100%!important; height:3163px;}
+.ativeImg{background:url("../image/invite/huodongneirong.png") no-repeat center 0; width: 100%; height:450px; position: absolute;z-index:3;top:695px;}
+.fs1Img{background:url("../image/invite/fs1.png") no-repeat center 0; width: 100%; height:310px; position: absolute;z-index:3;top:1152px;left:-324px;}
+.computer1Img{background:url("../image/invite/computer1.png") no-repeat center 0; width:100%; margin: 0 auto; height:430px; position: absolute;z-index:3;right:-280px;top:1320px; }
+.people1Img{background:url("../image/invite/people3.jpg") no-repeat center 0; width:100%; margin: 0 auto; height:300px; position: absolute;z-index:3;left:-330px;top:1505px;}
+.fs2Img{background:url("../image/invite/fs2.png") no-repeat center 0; width: 100%; margin: 0 auto; height:295px; position: absolute;z-index:3;right:280px;top:1770px;}
+.computer2Img{background:url("../image/invite/computer2.png") no-repeat center 0; width:100%; margin: 0 auto; height:430px; position: absolute;z-index:3;left:-315px;top:1920px; }
+.people2Img{background:url("../image/invite/people1.jpg") no-repeat center 0; width:100%; margin: 0 auto; height:300px; position: absolute;z-index:3;righ:224px;top:2062px;}
+.fs3Img{background:url("../image/invite/fs3.png") no-repeat center 0; width:100%; margin: 0 auto; height:310px; position: absolute;z-index:3;left:-305px;top:2380px;}
+.computer3Img{background:url("../image/invite/computer3.png") no-repeat center 0; width:100%; margin: 0 auto; height:430px; position: absolute;z-index:3;right:245px;top:2520px; }
+.people3Img{background:url("../image/invite/people2.jpg") no-repeat center 0; width:100%; margin: 0 auto; height:375px; position: absolute;z-index:3;left:-260px;top:2680px;}
+.erWeiMa{background:url("../image/invite/er.png") no-repeat center 0; width:100%; margin: 0 auto; height:154px; position: absolute;z-index:4;right:325px;top:2634px;}

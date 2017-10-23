@@ -1,0 +1,163 @@
+html{font-family:"w/u5FAE/u8F6F/u96C5/u9ED1", "sans-serif"}
+img{border:0 none;}
+a{padding:0; margin:0;}
+.tk_bd{position:fixed; top:0; z-index: 9; background:#000; opacity: 0.8; width:100%; height:100%; display:none;}
+.tk_photo{position:absolute; z-index:11; left:50%; width:92%; margin: 10% 0 0 -46%; display:none;}
+.bigfont{font-size:0.3rem;}
+.smallfont{font-size:0.2rem;}
+.bgf{background: #fff;}
+.bgb{background: #6699ff; color:#fff; display: flex; flex-direction: column; padding:0.8rem 0;}
+.mt40{margin-top:40px;}
+#font-blue{color:#5495e6;}
+.proh{position:relative; overflow: hidden;}
+.u_none{display:none;}
+.u_show{display:block;}
+.top-banner{width: 100%; margin-top: 40px; text-align: center;}
+.middle-div{background:#efefef; padding: 0.3rem 0.6rem; }
+.button-div{display:-webkit-box; -webkit-box-orient: horizontal;}
+.button-div a{display: block; width:47%; height:0.7rem;  background:#ccc; font-size:0.3rem; color: #999; border-radius: 5px; text-align:center; line-height: 0.7rem;}
+.button-div a:nth-child(2){margin-left: 6%;}
+#blue-bg{background:#5495e6; color:#fff;}
+.proh li{position:relative; border-bottom: 1px #e3e3e3 solid; padding: 0.3rem; display:-webkit-flex; -webkit-box-align: center; text-align:left;}
+.proh li font{font-size:0.3rem; display:block; width:1.5rem; }
+.proh li input[type="text"]{display:block; border: 0; outline: none; font-size:0.2rem; -webkit-appearance：none; background-color: transparent; }
+.proh li a{display: block; width:28%; height:0.6rem; background:#5495e6; font-size:0.2rem; color: #fff; border-radius: 5px; text-align:center; line-height: 0.6rem; position:absolute; right: 0.3rem; bottom: 0.2rem}
+.in_class{border-bottom: 1px #e3e3e3 solid; padding: 0.3rem;}
+.in_class font{font-size:0.3rem; display:block; width:1.5rem; }
+.in_class p{font-size:0.3rem; display:block; width:100%; margin-top:0.3rem; border:1px dashed #666;}
+.in_class label{margin: 0.1rem;  display:inline-block;}
+.in_class label input{vertical-align: middle;}
+#bg_sfz{align-items:center; display:flex;}
+.img_up{position:absolute; opacity: 0; left:1.8rem; width:2rem; height:2rem; display:flex;}
+.btn_up{width:2rem; height:2rem; display:flex;}
+.case{width:3rem; margin-left:0.5rem; text-align:center;}
+.case img{width:2rem; height1.7rem; margin:0 auto;}
+.case p{font-size:0.2rem; color: #999; margin-top: 0.2rem;}
+.order-head font{width:1.2rem; display:block; overflow:hidden;}
+.remarks{font-size:0.2rem; color:#5495e6; margin:0 auto; width:96%; height:0.8rem;}
+#btn_stop{background:#999;}
+.btn_sub{display: block; width:96%; height:1rem; background:#5495e6; font-size:0.3rem; color: #fff; border-radius: 5px; text-align:center; line-height: 1rem; margin:0.3rem auto; -webkit-appearance：none; border:0; letter-spacing: 5px;}
+.add_list{font-size:0.3rem; padding:0.3rem; border-bottom: 1px #e3e3e3 solid;}
+.add_list font{font-size:0.3rem; display:inline-block; width:1.5rem; }
+.add_list input{width:17%; display:inline-block; border: 1px solid #fff; outline: none; font-size:0.2rem; -webkit-appearance：none;background-color: transparent; margin-left:0.1rem;}
+.add_list textarea{margin-top: 0.1rem; width:100%; resize:none;}
+
+/*billmonth*/
+.month_tit{padding:10px 2%; font-size:0.3rem; color:#666;}
+
+/*我的车险*/
+nav{margin-top:40px; font-size:0.3rem; overflow:hidden;}
+.nav li{float: left; list-style: none; width:20%; text-align:center; }
+.nav li a{color:#ccc; height:40px; line-height:40px;  display:inline-block;}
+#blue-line{color:#5495e6; border-bottom: 2px #5495e6 solid;}
+.order-one{position:relative; overflow:hidden; width:98%; margin:0.2rem auto 0.3rem; border-radius:10px; box-shadow: 0px 1px 3px #5495e6;}
+.order-one h2{background:#669aff; color:#fff; height:40px; line-height:40px; padding:0 0.2rem;}
+.order-one b{font-weight: normal; float:left;}
+.order-one a{float:right; color:#fff;}
+.order-tit {height:40px; overflow:hidden; line-height:40px; border-bottom:1px solid #ddd;}
+.order-tit font{color:#ccc;}
+.order-con{width:96%; margin:0 auto; }
+.ico_car{width:1.2rem; height:1.2rem;}
+.bot_box{overflow: hidden; display:flex; -webkit-box-align: center; padding: 0.3rem 0; flex-direction: row}
+.box_left{font-size:0.3rem; margin-left:0.1rem;}
+.box_left p{overflow:hidden; margin:0.1rem 0;}
+.box_left img{width:0.3rem; height:0.3rem; display:inline-block; vertical-align:middle; margin-left:0.1rem;}
+.box_left label{color:#666; font-size:0.2rem;}
+.box_left time{font-size: 0.2rem;}
+.look_btn{ display: block; width: 22%;  height: 0.6rem;  background: #5495e6;  font-size: 0.2rem; border-radius: 5px; text-align: center; line-height: 0.6rem;  position: absolute;  right: 0.3rem; bottom: 0.2rem;}
+
+/*info*/
+.bot_box span{display:block; text-align:center; overflow:hidden;}
+.order-tit h2{padding:0.1rem 2%; font-weight:normal;}
+.part li{margin-left:10%; padding:0.2rem 0; font-size:0.3rem; border-bottom:1px solid #ddd;}
+.part li b{font-size:0.5rem; position: absolute; margin-left:-7%; color:#999; display:inline-block; bottom:5%;}
+.btn_div{width:96%; margin:40px auto; overflow: hidden;}
+.btn_div a{color:#fff; font-size: 0.3rem; text-align: center; padding:0.2rem 0; background:#999; width:50%; display:inline-block; float:left;}
+.btn_div a:nth-child(1){ margin-right: 1px; border-top-left-radius: 5px; border-bottom-left-radius: 5px;}
+.btn_div a:nth-child(2){ width:49%; margin-right: 1px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-left:1px solid #fff; }
+#look{background:#0066cc;}
+#cancel{background:#63abe8;}
+.bd_pic{border:1px solid #ddd; padding: 2%; width: 40%; margin:6% auto;}
+
+/*allot*/
+.bgb span{font-size:0.3rem; text-align:center; margin:0.3rem 0;}
+.bgb h1{font-weight:normal; font-size: 0.8rem; text-align:center}
+.bill_box{display:flex;  flex-direction: row;}
+.bill_sbox{width: 50%; border-right: 1px #ddd solid; display:flex; flex-direction: column ; padding:0.2rem 0.6rem;}
+.bill_sbox h3{font-weight:normal; font-size:0.3rem; color:#333;}
+.bill_sbox font{font-size:0.2rem; color: #666;  gmargin:0.1rem 0;}
+.bill_sbox span{font-size: 0.4rem; color: #5495e6;}
+.banner_box img{margin-bottom:10px;}
+
+/*pay*/
+.order-head{width:1.8rem; height:1.8rem;}
+.ico_policy{width:1.8rem; height:1.8rem; display:inline-block; background:#b2b2b2;}
+.s_total{float:right;}
+.s_total font{color: #5495e6; }
+.s_total b{font-weight:normal; font-size: 0.2rem; color:#999;}
+.ico_look{width: 5%; display:block; position: absolute; left:1.5rem; margin-top: 1.4rem;}
+.payment{font-size:0.3rem;}
+.payment input{vertical-align:middle;}
+.payment font{font-size:0.2rem; color:#999;}
+#stages_box{font-size: 0.2rem; color:#999; display:none;}
+#stages_tit{font-size: 0.3rem; color:#5495e6; border-top:1px solid #ddd; border-bottom:1px solid #ddd;}
+#stages_tit b{font-weight:normal; font-size: 0.2rem; color:#999;}
+.order-con ul{overflow:hidden;}
+#stages_box ul li{line-height:0.6rem; height:0.6rem;}
+#stages_box ul li font:nth-child(1){float:left;}
+#stages_box ul li font:nth-child(2){float:right;}
+.df{display:flex;}
+.inp_box{border-radius:5px; height:1rem; line-height:1rem; -webkit-appearance：none; border:0;}
+.stages_yzm{width: 55%; background:#fff; text-align:center; display:inline-block;}
+.s_btn_yzm{width: 38%; background:#5495e6; text-align:center; color: #fff; font-size:0.3rem; display:inline-block; margin-left:7%;}
+.pay_back{width: 76%; z-index:11; left:50%;  margin: 10% 0 0 -43%; display:none; position:fixed; border-radius: 10px; padding:10% 5%;}
+.pay_back img{width: 40%; margin: 0 auto 5%;}
+.pay_back h1{font-size:0.8rem; text-align: center;}
+.tk_xy{width: 76%; z-index:11; left:50%;  margin: 10% 0 0 -43%; position:fixed; border-radius: 10px; padding:10% 5%; display:none;}
+.tk_xy h1{font-size:0.4rem; text-align: center;}
+.xy_con{border:1px dashed #ddd; font-size:0.2rem; width:98%; height:270px; overflow-y:scroll; padding:1%;}
+.fq{display:none;}
+.xy_con p{line-height:0.4rem;}
+.btn_blue{width:50%; height:1rem; line-height:1rem; color:#fff; border:0 none; -webkit-appearance：none;}
+.agree{background:#0066cc; border-top-left-radius:5px; border-bottom-left-radius:5px;}
+.no{background:#63abe8; border-top-right-radius:5px; border-bottom-right-radius:5px;}
+
+
+.btn_bb{width: 62%; background:#5495e6; text-align:center; color: #fff; font-size:0.3rem; display:block; margin:5% auto;}
+.btn_wl{width: 60%; background:#fff; text-align:center; color: #000; font-size:0.3rem; display:block; border:2px #5495e6 solid; margin:5% auto;}
+.xy_box{color:#999; font-size:0.2rem; width:96%; margin: 0.2rem auto;}
+.xy_box input{vertical-align:middle;}
+/*nobill*/
+.bill_nav li{float: left; list-style: none; width:50%; text-align:center;}
+.bill_nav li a{color:#333; height:40px; line-height:40px;  display:inline-block;}
+.bill_tit{text-align: center; padding: 0.5rem 0;}
+.bill_tit h4{font-size:0.3rem; margin: 0 auto;}
+.bill_tit img{width: 20%; margin:0.5rem auto 0;}
+.center_d{padding:15px 0; text-align:center; font-size:0.3rem;}
+#bill_box{text-align:center; display:flex; flex-direction:column; padding:0.4rem 0;}
+#bill_box span{font-size:0.3rem;}
+#bill_box h1{font-size:0.8rem; color:#5495e6; }
+#bill_box font{color:#e76b53; font-size:0.2rem; margin: 0.1rem 0;}
+
+/*billDetail*/
+.bill-d-list li{display:flex; flex-direction:row; justify-content:space-between; padding: 2%; border-bottom: 1px #ddd solid; align-items:center;}
+.bg_sli{background:#ebebeb;}
+.detail_con{display:flex; flex-direction:column; padding:2% 0;}
+.bill-d-list li p{font-size:0.3rem; color:#4c4c4c; margin:0.1rem 0;}
+.bill-d-list li font{font-size:0.2rem; color:#666;}
+.bill-d-list li time{font-size:0.2rem; color:#666;}
+.bill-d-list li font:nth-child(2){text-align:right;}
+
+/*beginrepayment*/
+.repay_tit{display:flex; flex-direction: column ; padding:0.2rem 0 0 0.3rem; line-height:1rem;}
+.repay_tit span{font-size:0.4rem; color:#333;}
+.repay_tit h1{font-size:0.6rem; color:#5495e6;}
+.repay_tit font{font-size:0.3rem; color:#666; border-top:1px #e3e3e3 solid;}
+
+/*totalbill*/
+.totalbox{display: flex; flex-direction: column; text-align:center; border-bottom: 1px #e3e3e3 solid; padding:0.8rem 0;}
+.totalbox span{font-size:0.3rem; margin:0.3rem 0; }
+.totalbox h1{font-weight:normal; font-size: 0.8rem; color:#5495e6;}
+.totalbot{display: flex; flex-direction: column; text-align:center; padding:0.4rem 0;}
+.totalbot span{font-size:0.3rem; margin:0.1rem 0; }
+.remarks{margin-top:0.3rem; color:#5495e6; font-size:0.3rem; text-align:center;}

@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<script type="text/javascript" src="_STATIC_/2015/index/js/jquery-1.10.2.min.js"></script>
+<style type="text/css">
+	html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
+	body { font-family: "微软雅黑"; font-size: 12px; color: #000000; word-wrap: break-word;}
+	ul, li { list-style: none; margin: 0; padding: 0; }
+	h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+	img { border: none;  vertical-align: middle; display: block;}
+	a { text-decoration: none; outline: none; }
+	p { margin: 0; padding: 0; }
+	input, select, textarea { vertical-align: middle; *font-size:100%;}
+	.download_bg{width: 100%; height: auto; overflow: hidden;}
+	.download_div{position: absolute; width: 60%; left: 50%; margin-left: -30%; top: 88%;}
+	.tkLayBg{background:url(/download/img/bg_ts.png) repeat-y; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 19;}
+	.tkdiv_bg{width:96%; background:#fff; position:fixed; z-index:20; left:50%; margin:40% -48% 0; border-radius:8px;}
+</style>
+<script type="text/javascript">
+$(function(){            
+    if(isWeixin()) {
+      $(".tkdiv_bg,.tkLayBg").show();
+	  $(".tkLayBg").height($(document).height());
+    }
+})
+function isWeixin() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+function download(){	
+	var ua = navigator.userAgent.toLowerCase();	
+	if (/iphone|ipad|ipod/.test(ua)) {
+		window.location.href="https://itunes.apple.com/cn/app/jie-ba/id1179727160?mt=8";		
+	}else if (/android/.test(ua)) {
+		window.location.href="/download/借吧.apk";	
+	}else{
+		window.location.href="/download/借吧.apk";
+	}
+}	
+</script>
+<body>
+	<section class="tkLayBg" style="display:none;">
+ 		<section class="tkdiv_bg">
+        	<img src="/download/img/ico_tishi.png">            
+        </section>
+    </section>
+	<img src="/download/img/bg_app.jpg" class="download_bg">
+	<img src="/download/img/btn_down.png" class="download_div" onclick="download()">
+</body>
+</html>

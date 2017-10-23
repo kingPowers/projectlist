@@ -1,0 +1,17 @@
+@charset "utf-8";
+.maxDiv{width:100%;height:100%; bgcolor:#efefef}
+.headers{width:100%;height:6.4%;position:relative;left:0%;top:0%;overflow: hidden;background-color:#5495e6;}
+
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+
+.fhwz{position:absolute;left:8.5%;top:30%;color:white; font-family:宋体;line-height:100%;}
+.zxwx{position:absolute;left:41.3%;top:30%;color:white; font-family:宋体;line-height:100%;}
+
+.centerDiv{width:100%; height:93.2%; position:relative;top:0%;left:0%; overflow: hidden;background-color:#efefef;}
+.groundImg{width:46.5%;height:28.3%;position:absolute;left:26.7%;top:25.7%;}
+
+
+
+
+
+

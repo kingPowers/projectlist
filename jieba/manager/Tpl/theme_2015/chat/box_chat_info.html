@@ -1,0 +1,127 @@
+<style>
+    .leftd {
+        clear: both;
+        float: left;
+        width:100%;
+        color:red
+    }
+    .rightd {
+        clear: both;
+        float: right;
+        width:100%;
+    }
+</style>
+<input type="hidden" value="{$id}" id="hiddenid">
+<input type="hidden" value="{$mobile}" id="hiddenmobile">
+<input type="hidden" value="{$names}" id="hiddennames">
+<div id="content" style="overflow:scroll;height:500px;width: 1000px;">
+    <h1 style="width:100%;text-align:center;" id="historycont">查看历史聊天记录</h1>
+    <div style="width:100%;height:100%;position:relative;float:left;" id="table_form">
+        <foreach name="list" item="vo">
+            <if condition="$vo['type'] eq 1">
+                <div class="leftd">
+                    <p style="width:50%;height:auto;">{$vo['created']}</p>
+                    <div style="width:50%;height:auto;">{$vo['msg']}</div>
+                </div>
+            <else/>
+                <div class="rightd">
+                    <p style="width:50%;height:auto;">{$names}({$mobile}){$vo['created']}</p>
+                    <div style="width:50%;height:auto;">{$vo['msg']}</div>
+                </div>
+            </if>
+        </foreach>
+    </div>
+</div>
+<div>
+    <textarea   value="" id="anser" style="width:90%;height:5%;"></textarea>
+    <input id="commit" type="button" value="发送">
+</div>
+
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.min.js"></script>
+<script>
+    $('#commit').click(function(){
+        var str='';
+        cont = $('#anser').val();
+        if(cont==''){
+            alert('请输入内容');
+            return false;
+        }
+        var mydate = new Date();
+        //var mytime=mydate.toLocaleTimeString(); //获取当前时间]
+        var mytime = formatDate(mydate)
+        //str = "<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td style='color: #ff0000'>"+cont+"</td><td>"+mytime+"</td></tr>";
+        str += "<div class='leftd'><p style='width:50%;height:auto;'>"+mytime+"</p><div style='width:50%;height:auto;'>"+cont+"</div></div>";
+        $('#table_form').append(str);
+        var data = {};
+        $(data).attr('content',cont);
+        $(data).attr('id',$('#hiddenid').val());
+        $.post('/chat/writeMessage.html',data,function(F){
+            if(F.status==0){
+                return top.jdbox.alert(F.status,F.info);
+            }else{
+            }
+
+        },'json');
+        $('#anser').val("")
+    });
+    function getData(){
+        var data = {};
+        $(data).attr('id',$('#hiddenid').val());
+        var mobile = $('#hiddenmobile').val();
+        var names = $('#hiddennames').val();
+        $.post('/chat/getMessageJson.html',data,function(F){
+            if(F.status==0){
+            }else{
+                str = '';
+                arr=eval(F.data);
+                for(var k in arr){
+                    //str += "<tr><td>"+arr[k].msg+"</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>"+arr[k].created+"</td></tr>";
+                    str += "<div class='rightd'><p style='width:50%;height:auto;'>"+names+'('+mobile+')'+'   '+arr[k].created+"</p><div style='width:50%;height:auto;'>"+arr[k].msg+"</div></div>";
+                }
+                $('#table_form').append(str);
+            }
+        },'json');
+    }
+    $(function(){
+        window.setInterval(getData,5000);
+    });
+    $('#historycont').click(function(){
+        count = $('#table_form').find('div').length;
+        console.log('count',count);
+        var data = {};
+        $(data).attr('id',$('#hiddenid').val());
+        $(data).attr('count',count);
+        var mobile = $('#hiddenmobile').val();
+        var names = $('#hiddennames').val();
+
+        $.post('/chat/historyMessage.html',data,function(F){
+            console.log(F.data);
+            if(F.status==0){
+            }else{
+                str = '';
+                arr=eval(F.data);
+                for(var k in arr){
+                    if(arr[k]['type']==1){
+                        str += "<div class='leftd'><p style='width:50%;height:auto;'>"+arr[k].created+"</p><div style='width:50%;height:auto;'>"+arr[k].msg+"</div></div>";
+                    }else{
+                        str += "<div class='rightd'><p style='width:50%;height:auto;'>"+names+'('+mobile+')'+'  '+arr[k].created+"</p><div style='width:50%;height:auto;'>"+arr[k].msg+"</div></div>";
+                    }
+                }
+                $('#table_form').prepend(str);
+            }
+        },'json');
+    });
+    var formatDate = function (date) {
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        var h = date.getHours();
+        var minute = date.getMinutes();
+        minute = minute < 10 ? ('0' + minute) : minute;
+        var secod = date.getSeconds();
+        return y + '-' + m + '-' + d+' '+h+':'+minute+':'+secod;
+    };
+</script>
+

@@ -1,0 +1,33 @@
+<include file="Public:header" />
+<style>
+	#content{width:450px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+</style>
+<div><span>充值订单信息</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td>用户名</td>
+			<td class="value">{$member['username']}</td>
+		</tr>
+		<tr>
+			<td>手机号码</td>
+			<td class="value">{$member['mobile']}</td>
+		</tr>
+		<tr>
+			<td>手机号码归属</td>
+			<td class="value">{$member['mobile_location']}</td>
+		</tr>
+		<tr>
+			<td>姓名</td>
+			<td class="value">{$member['names']}</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">确定</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<include file="Public:footer" />

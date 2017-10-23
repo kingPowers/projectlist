@@ -1,0 +1,6 @@
+.main_red{width:100%;height:auto;margin:0 auto;padding:0;background:url(./_STATIC_/2015/activity/image/red_packet/bg.png) center no_repeat 0;}
+.main_red .bgImg{width:100%;height:auto;}
+.main_red .gzImg{width:60%;height:auto;position:absolute;z-index:5;}
+ .main_red .icon1Img{width:11.1%;height:auto;position:absolute;z-index:4;cursor:pointer;}
+.main_red .hbImg{width:18%;height:auto;position:absolute;z-index:6;}
+.main_red .icon2Img{width:17%;height:auto;position:absolute;z-index:6;cursor:pointer;}

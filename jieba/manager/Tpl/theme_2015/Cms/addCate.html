@@ -1,0 +1,49 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/public.js"></script>
+<form id='cateForm' class="definewidth m20">
+    <table class="table table-bordered table-hover m10">
+        <tr>
+            <td class="tableleft">分类名称</td>
+            <td><input type="text" name="name" value="{$staff['name']}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">CODE</td>
+            <td><input type="text" name="code" value="{$staff['code']}"/></td>
+        </tr>
+        <tr>
+            <td class="tableleft"></td>
+            <td><button class="btn btn-primary" type="button"> 保存 </button>
+                <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+        </tr>
+    </table>
+</form>
+
+<script language="javascript">
+
+    $('button#backid').click(function(){
+        window.location.href= "{:U('Cms/system_cate')}";
+    })
+    $('button.btn-primary').click(function(){
+        var data={};
+        $(data).attr('name',$("input[name='name']").val());
+        $(data).attr('code',$("input[name='code']").val());
+        if(!$(data).attr('name')){
+            return top.jdbox.alert(0,'请输入消息类型');
+        }
+        if(!$(data).attr('code')){
+            return top.jdbox.alert(0,'请输入CODE值');
+        }
+        top.jdbox.alert(2);
+        $.post('/Cms/saveCate.html',data,function(results){
+            if(!results.status){
+                top.jdbox.alert(0,results.info);
+                return;
+            }
+            top.jdbox.alert(1,'操作成功');
+            window.location.href = '/Cms/system_cate/id/'+results.info+'.html';
+        },'json');
+    });
+</script>
+<include file="Public:footer" />

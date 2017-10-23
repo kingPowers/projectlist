@@ -1,0 +1,98 @@
+<include file="Public:header" />
+<style>
+	#content{width:450px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+</style>
+<div><span>添加订单</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td>转账类型<span style="color:red;">*</span></td>
+			<td class="value">
+				<input name="trans_type" value="2" checked='checked' type="radio" autocomplete="off"><span style="color:red;font-weight:bold;">从用户账户扣款</span>&nbsp;&nbsp;
+				<input name="trans_type"  value="1" type="radio" autocomplete="off">转账给用户
+			</td>
+		</tr>
+		
+		<tr>
+			<td>客户手机号<span style="color:red;">*</span></td>
+			<td class="value"><input type='input' name='mobile'/><span id='member_mobile'></span></td>
+		</tr>
+		
+		<tr>
+			<td>转账金额<span style="color:red;">*</span></td>
+			<td class="value"><input type='input' name='money'/></td>
+		</tr>
+		<tr>
+			<td>预设秘钥<span style="color:red;">*</span></td>
+			<td class="value"><input type='password' name='pwd' /></td>
+		</tr>
+		<tr>
+			<td>订单备注</td>
+			<td class="value"><input type='input' name='remark'/></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<a href="javascript:void(0);" class="btn" onclick="add();">确定</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$("input[name='mobile']").blur(function(){
+			var mobile = $(this).val();
+			if(''==mobile)return '';
+			$('#member_mobile').html("请稍后……");
+			$.post("{:U('Trans/baofu_add_trans')}",{"data":{'type':"ajax_search",'mobile':mobile}},function(result){
+				if(result.status){
+					$('#member_mobile').html(result.data.names);
+				}else{
+					$('#member_mobile').html("未查询到账户姓名");
+				}
+			},'json');
+		});
+	});
+
+	function add(){
+		var data = {};
+		var input_name = {			
+			'mobile':'客户身份证号不能为空',
+			'pwd':'秘钥不能为空',
+			'money':'转账金额不能为空',
+		};
+		var is_false = 0;
+		$.each(input_name,function(i,val){
+			$(data).attr(i,$('input[name="'+i+'"]').val());
+			if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+				alert(val);
+				is_false = 1;
+				return false;
+			}
+		});
+		if(is_false==1)return false;
+		$(data).attr('trans_type',$('input[name="trans_type"]:checked').val());
+		$(data).attr('remark',$('input[name="remark"]').val());
+		$(data).attr('type',"submit_trans");
+		//top.jdbox.alert(2,"正在处理转账  请稍等...");
+		$.ajax({
+			'type':'post',
+			'dataType':'json',
+			'url':"/Trans/baofu_add_trans",
+			"data":{'data':data},
+			success:function(json){
+				top.jdbox.close();
+				if(json.status==1){
+					alert(json.info);
+					parent.window.reload();
+				}else{
+					alert(json.info);
+				}
+				
+			},
+			
+		});
+	}
+</script>
+<include file="Public:footer" />

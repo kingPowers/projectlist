@@ -1,0 +1,89 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form id='staffForm' class="definewidth m20">
+  <table class="table table-bordered table-hover m10">
+    <tr>
+      <td width="10%" class="tableleft">员工姓名</td>
+      <td><input type="text" name="staff_name" jschecktitle="员工姓名" jscheckrule="null=0" value="{$info.staff_name}"></td>
+    </tr>
+    <tr>
+      <td class="tableleft">员工职位</td>
+      <td><input type="text" name="staff_jobs" jschecktitle="员工职位" jscheckrule="null=0" value="{$info.staff_jobs}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">身份证号</td>
+      <td><input type="text" name="certiNumber" jschecktitle="身份证号" jscheckrule="maxlen=18;minlen=15;null=0"  value="{$info.certiNumber}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">手机号码</td>
+      <td><input type="text" name="staff_mobile" jschecktitle="手机号码" jscheckrule="len=11;charset=num;null=0"  value="{$info.staff_mobile}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">贷款最大限额</td>
+      <td><input type="text" name="maxMoney" jschecktitle="贷款最大限额" jscheckrule="charset=num,fl;null=0" value="{$info.maxMoney}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">状态</td>
+      <td><input type="radio" name="status" value="0" <empty name="info['status']">checked="checked"<else/><eq name="info['status']" value="0">checked="checked"</eq></empty> />未离职
+        <input type="radio" name="status" value="1" <eq name="info['status']" value="1">checked="checked"</eq> />已离职</td>
+    </tr> 
+   <tr>
+      <td class="tableleft" >离职时间</td>
+      <td><input type="text" name="leave_time" id="leave_time" jschecktitle="离职时间" jscheckrule="1"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$info.leave_time}">&nbsp;&nbsp; </td>
+    </tr>   
+    <tr>
+      <td class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button"> 保存 </button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+var mid = "{$info['id']}";
+$(function(){
+    if ($("input[name='status']:checked").val()==0) {    
+			$("input[name='leave_time']").attr('disabled','disabled');
+			$("input[name='leave_time']").attr('value',' ');
+	}
+	$("input[name='status']").click(function(){
+		if ($(this).val()==0) {		
+			$("input[name='leave_time']").attr('disabled','disabled');
+			$("input[name='leave_time']").attr('value','');
+		}else{
+			$("input[name='leave_time']").attr('value','');
+			$("input[name='leave_time']").removeAttr('disabled');
+		}
+	})
+	$('button.btn-primary').click(function(){
+		
+        if ($("input[name='status']:checked").val()==1) {            
+        	$("input[name='leave_time']").attr('jscheckrule','null=0');
+        }else{
+        	$("input[name='leave_time']").attr('jscheckrule','1');
+        }
+		var P = check_form('#staffForm');
+		if(P){
+			var data={};
+			$(data).attr('mid',mid);
+			$(data).attr('staff_name',$("input[name='staff_name']").val());
+			$(data).attr('staff_jobs',$("input[name='staff_jobs']").val());
+			$(data).attr('certiNumber',$("input[name='certiNumber']").val());
+			$(data).attr('staff_mobile',$("input[name='staff_mobile']").val());
+			$(data).attr('maxMoney',$("input[name='maxMoney']").val());
+			$(data).attr('leave_time',$("input[name='leave_time']").val());
+			$(data).attr('status',$("input[name='status']:checked").val());
+			top.jdbox.alert(2);
+			$.post('/Member/saveStaff.html',data,function(F){
+				top.jdbox.alert(F.status,F.info);
+				if(F.status){
+					window.location.href="/Member/staffList.html";
+				}
+			},'json');
+		}
+	});
+	$('button#backid').click(function(){
+		window.location.href= "{:U('Member/staffList')}";
+	})
+})
+</script> 
+<include file="Public:footer" />

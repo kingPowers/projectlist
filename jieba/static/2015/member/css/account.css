@@ -1,0 +1,140 @@
+﻿@charset "utf-8";
+body{background: #efefef;}
+.maxDiv{width:100%;background:#efefef;position:relative; font-family:'微软雅黑';height:100%; overflow: hidden;}
+.bannerDiv{width:100%;position: relative; overflow: hidden; top:0;left:0;z-index:2;}
+.bannerImg{width:100%;height:100%;top:0;left:0;z-index:2; position: relative;}
+.messageiconImg{width:6.6%;height:auto;position:absolute;z-index:3;top:8.15%;left:90.1%;z-index:2;}
+.diconImg{width:4.5%;height:auto;position:absolute;z-index:4;top:5.2%;left:94.2%;z-index:2;}
+.dwz{width:3.6%;position:absolute;z-index:4;top:6.2%;left:94.8%;color:white;font-size:0.8em;text-align: center;line-height: 100%;z-index:2;}
+.photoname{position:absolute; width: 100%; overflow: hidden; top:20%;}
+.headdiv{width:64px; position: relative; height: 64px; float: left; margin:5% 0 5% 4%;}
+.headsImg{ position:relative; width: 100%; height: 100%; z-index:5; display: inline-block;  border-radius: 50%;}
+.phonenum{position:absolute; width:51%; color:white;float:left;z-index:5;font-family:"微软雅黑"; margin: 9% 0 0 27%; text-align: left; line-height: 20px;}
+.phonenum font{width: 100%; display: block;}
+.phonenum p{width: 35%; display: inline-block;}
+.phonenum img{width: 10%; display: inline-block; position: absolute; padding-top: 1%;}
+.ewmiconImg{position:absolute; width:6%;z-index:5; vertical-align: middle; top:42%; right: 4%;}
+.bluedImg{width:100%; z-index:4; position: absolute; bottom: 0; left: 0; display: block;}
+.qDiv{width:50%;position:absolute;z-index:4;height:20.8%;top:79%;}
+.qdiconImg{width:14.5%;position: absolute;z-index:6;height:57.5%;left:33.6%;top:25%;}
+.qdspan{position: absolute;z-index:6;left:50.5%;top:40%;color:white;}
+.yqDiv{width:50%;position:absolute;z-index:4;height:20.8%;top:79%;left:50%;}
+.yqiconImg{width:14.5%;position: absolute;z-index:6;height:57.5%;left:33.6%;top:25%;}
+.yqspan{position: absolute;z-index:6;left:50.5%;top:40%;color:white;}
+.moneydiv-view{position:relative; background:#fff;}
+.moneydiv-view-cell{ position:relative; border-bottom:1px #e3e3e3 solid; padding:10px 10px; overflow: hidden;}
+.moneydiv-view-cell img{width: 5.9%; float: left; display: inline-block;}
+.moneydiv-view-cell font{font-size: 14px; float: left; display: inline-block; margin-left: 7%; line-height: 20px;}
+.moneydiv-view-cell span{font-size: 14px; float: right; display: inline-block; margin-right: 0; line-height: 20px;}
+.cztx-view-cell{ position:relative; height: 40px; line-height: 40px; overflow: hidden; font-size: 14px;}
+.cztx-view-cell a{width: 50%; float: left; text-align: center; border-right: 1px solid #e3e3e3; color:#333;}
+.cztx-view-cell a:nth-child(2){border-right: 0;}
+
+.ddDiv{width:100%;overflow:hidden; position: relative; margin-top:10px;left:0%;background: white;z-index: 5;}
+.myorderDiv{width:100%; height:40px; border-bottom: 1px solid #e7e7e7; position: relative; padding: 10px 10px;}
+.ssfu{position: absolute; color: #b7b7b7; line-height: 20px;}
+.myodeiconImg{width:6%; float: left; display: inline-block;}
+.myorderwz{color:#4c4c4c; font-size: 14px; float: left; display: inline-block; margin-left: 7%; line-height: 20px;}
+.jtImg{width:2.13%;position: absolute;left:94.7%;top:36.7%;}
+
+.dpjDiv{position:relative; height: 40px; line-height: 40px; overflow: hidden; font-size: 14px;}
+.dpjDiv a{width: 50%; float: left; text-align: center; border-right: 1px solid #e3e3e3; overflow: hidden; color: #333;}
+.dpjDiv font{color: #fa4c4c;}
+.dpjDiv a:nth-child(2){border-right: 0;}
+
+.accountDiv{width:100%;height:21.6%;position: absolute;background: white;left:0;top:41.8%;z-index: 5; font-size: 14px;}
+.accountCount{width:96.8%;height:33.3%;position: absolute;left:3.2%;top:0%;border-bottom: 1px  solid #e7e7e7;}
+.zhzxiconImg{width:5.9%;position:absolute;top:32%;left:0.26%;}
+.zhzxwz{color:#4c4c4c;position:absolute;left:12.3%;top:35%;}
+
+.yqjldiv{width:96.8%;height:33.3%;position: absolute;left:3.2%;top:33.3%;border-bottom: 1px  solid #e7e7e7;}
+.yqjliconImg{width:5.9%;position:absolute;top:32%;left:0.26%;}
+.yqjlwz{color:#4c4c4c;position:absolute;left:12.3%;top:35%;}
+
+.hdzqdiv{width:96.8%;height:33.3%;position: absolute;left:3.2%;top:66.7%;border-bottom: 1px  solid #e7e7e7;}
+.hdzqiconImg{width:5.9%;position:absolute;top:32%;left:0.26%;}
+.hdzqxwz{color:#4c4c4c;position:absolute;left:12.3%;top:35%;}
+
+.kfDiv{width:100%;height:14.4%;position:absolute;left:0%;top:64.3%;background:white;z-index: 5; font-size: 14px;}
+.zxkfdiv{width:96.8%;height:50%;position: absolute;left:3.2%;top:0%;border-bottom: 1px  solid #e7e7e7;}
+.zxkfImg{width:5.9%;position:absolute;top:32%;left:0.26%;}
+.zxkfwz{color:#4c4c4c;position:absolute;left:12.3%;top:35%;}
+
+.morediv{width:96.8%;height:50%;position: absolute;left:3.2%;top:50%;}
+.moreiconImg{width:5.9%;position:absolute; top:32%;left:0.26%;}
+.morewz{color:#4c4c4c;position:absolute;left:12.3%;top:35%;}
+
+.kfdhdiv{width:100%;height:7.2%;position:absolute;left:0%;top:79.6%;border-bottom: 1px  solid #e7e7e7;background: white;z-index:5;}
+.kfdhwz{position:absolute;top:33%;color:#46abef;left:23.1%;}
+
+.futime{width:100%; position:relative; z-index:5;}
+.futimewz{color:#868686;text-align: center; height: 40px; line-height: 40px; display: block;}
+/*我的 首页部分样式结束*/
+
+.fxDiv{width:100%;height:100%;position:fixed;z-index:100;display: none;}
+/*弹出层  黑色 */
+.hbgDiv{width:100%;height:100%;background:#314052;position:fixed;opacity:0.3;display: none;overflow:hidden;top: 0;left: 0;z-index:99;}
+/*分享层*/
+.shareDiv{width:100%;height:64%;position:fixed;background:#ebe7e9;top:39%;left:0;display:none;bottom:0;z-index:102;}
+
+.shareupDiv{width:100%;position:relative;height:40%;border-bottom:1px solid #d5d5d5;z-index:103;}
+.sharewz{position: absolute;top:12.5%;left:45.7%;z-index:103;}
+/*.copyImg{width:14%;position: absolute;height:36.4%;left:7.8%;top:33%;z-index:97;}*/
+/*.ewmImg{width:14%;position: absolute;height:36.4%;left:31.7%;top:33%;z-index:103;}*/
+.ewmImg{width:14%;position: absolute;height:33.5%;left:7.8%;top:33%;z-index:103;}
+/*.copywz{position: absolute;left:8%;top:80%;color:black;font-family:宋体;z-index:103;}*/
+.rwmwz{position: absolute;left:9.5%;top:75%;color:black;font-family:宋体;z-index:103;}
+
+.shareDiv .sharecenterDiv{width:100%;position:relative;height:45%;z-index:103;}
+.wxImg{width:13.3%;position: absolute;height:29.5%;left:8.8%;top:20%;z-index:103;}
+.wxwz{position: absolute;left:11.5%;top:55.6%;color:black;font-family:宋体;z-index:103;}
+.pyqImg{width:13.3%;position: absolute;height:29.5%;left:32%;top:20%;z-index:103;}
+.pyqwz{position: absolute;left:31.5%;top:55.6%;color:black;font-family:宋体;z-index:103;}
+.qqImg{width:13.3%;position: absolute;height:29.5%;left:55.3%;top:20%;z-index:103;}
+.qqwz{position: absolute;left:59.5%;top:55.6%;color:black;font-family:宋体;z-index:103;}
+.kjImg{width:13.3%;position: absolute;height:29.5%;left:79%;top:20%;z-index:103;}
+.kjwz{position: absolute;left:80.5%;top:55.6%;color:black;font-family:宋体;z-index:103;}
+.wbImg{width:13.3%;position: absolute;height:24.5%;left:7.8%;top:50%;z-index:103;}
+.wbwz{position: absolute;left:10.5%;top:75.8%;color:black;font-family:宋体;z-index:103;}
+.xxImg{width:13.3%;position: absolute;height:24.5%;left:32%;top:50%;z-index:103;}
+.xxwz{position: absolute;left:35%;top:75.8%;color:black;font-family:宋体;z-index:103;}
+
+.calcDiv{width:100%;position:absolute;height:13%;top:83%;background:white;color:black;bottom: 0;}
+.calcwz{position:absolute;left:46%;top:33%;color:black;font-family:宋体;}
+
+/*复制成功*/
+.copySuccful{width:23.1%;height:14.7%;background:#ffffff;position:absolute;z-index:120;top:41%;left:38.4%;border-radius:15%;display:none;}
+.copyyesimg{width:35%;height:25%;position:absolute;z-index:121;left:38.5%;top:22%;}
+.copyyeswz{position:absolute;z-index:121;left:24%;top:58%;}
+
+/*二维码 层*/
+.QRcodeDiv{width:78%;height:70%;position:fixed;z-index:140;top:10%;left:50%;margin-left:-39%;display: none;}
+.infodiv{width:100%;position:absolute;border-radius:1.8%;z-index:130;display:none;}
+.ewmheadsImg{width:24%;height:17%;top:9.2%;left:12.7%;position:absolute;border-radius:100%;}
+.nameRegion{position:absolute;left:38.4%;top:14.5%;}
+.myewmImg{width:55%;height:37%;top:32.3%;left:24.2%;position:absolute;}
+.jsRegion{position:absolute;left:18.5%;top:78.2%;}
+
+.savediv{width:100%;height:8.9%;position:absolute;top:91.7%;z-index:130;display:none;}
+.savebtnImg{width:45%;height:69.2%;position:absolute;top:27.6%;left:30%;}
+
+/*修改头像*/
+.deDiv{width:100%;height:100%;position:fixed;z-index:999;display: none; top: 0; left: 0;}
+.secondDiv{width:100%;height:100%;background:#777777;position:absolute;z-index:1000;opacity:0.3;display: none;}
+.thirdDiv{width:100%;height:17.6%;position:fixed;z-index:1001;background-color:white;top:82.7%;left:0%;display: none;}
+.notice{position:absolute;top:15.6%;color:#000000;text-align:center;z-index:1001;}
+.surebtn{position:absolute;left:0%;top:45%;width:100%;height:55%;background:none;border:none;font-color:#000000;z-index:1001;border-top:7px solid #efeff4;}
+
+/*金牌经济人介绍*/
+.js_div{position: fixed; width: 90%; left: 50%; margin:10% 0 0 -45%; background: #fff; z-index: 101; display: none;}
+.jsimg_div{overflow-y: scroll; width: 100%; height: 370px;}
+.jsimg_div img{display: block; width: 100%;}
+.ready_div{width: 100%; height: 50px; line-height: 50px; color: #fff; font-size: 12px; background: #5495e6;}
+.ready_div a{ color: #ffff00; }
+.ready_div input{ display: inline-block; width: 20px; height: 20px; vertical-align: middle;}
+.tof_div a{width: 49%; font-size: 14px; color:#4c4c4c; text-align: center; height: 50px; line-height: 50px; display: inline-block; font-family:"微软雅黑"; }
+.tof_div a:nth-child(2){color:#5495e6; border-left: 1px #ddd solid; }
+.tkjin_bg{display: none; font-family:"微软雅黑"; width: 80%; background: #fff;  position: fixed;  z-index: 20;  left: 50%;  margin: 75% -40% 0;  border-radius: 8px; color: #000; text-align: center;}
+.tkjin_bg h2{font-size: 16px; margin: 20px 0 10px;}
+.tkjin_bg p{font-size: 14px;  width: 94%; margin:0 auto 20px; text-align: center; line-height: 20px;}
+.btn_tkjin{width: 50%; border-top: 1px solid #ccc;  display: inline-block; padding: 10px 0; color: #63abe8; float: left; font-size: 14px;}

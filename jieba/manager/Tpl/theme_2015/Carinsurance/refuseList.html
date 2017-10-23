@@ -1,0 +1,57 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/carinsurance/managerinsurance.js"></script>
+<form class="form-inline definewidth m20" action="/Carinsurance/refuseList" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+</form>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <foreach name="list_title" item="vt">
+        	<th>{$vt}</th>
+        </foreach>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 订单列表 -->
+    <foreach name="list" item="vo">
+    	<tr> <!-- 订单详情 -->
+    	<foreach name="vo" item='order_vo' key='order_key'>
+	  		<if condition="$order_key neq 'other'">
+				<if condition="$order_key eq 'identity_card'">
+					<td>
+					<img style="max-height: 50px;max-width: 200px;" src="{$order_vo}" onmouseover="mouseFun(this)" onmouseout="mouseFunout()">
+					<div class="imgDiv" style="background:red;position:absolute;z-index:5;top:-10px;display:none;max-width:800px;">
+						<img src="{$order_vo}" class="imgDivs" style="max-width:500px;"/>
+					</div>
+					</td>
+				<elseif condition="$order_key eq 'drive_license_pic'"/>
+					<td>
+					<img style="max-height: 50px;max-width: 200px;" src="{$order_vo}" onmouseover="mouseFun(this)" onmouseout="mouseFunout()">
+					<div class="imgDiv" style="background:red;position:absolute;z-index:5;top:-10px;display:none;max-width:800px;">
+						<img src="{$order_vo}" class="imgDivs" style="max-width:500px;"/>
+					</div>
+					</td>
+	  			<else/>
+	  				<td>{$order_vo}</td>
+	  			</if>
+	  			
+	  		</if>
+    	</foreach>
+    	</tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<include file="Public:footer" />

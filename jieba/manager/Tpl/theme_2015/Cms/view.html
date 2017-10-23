@@ -1,0 +1,48 @@
+<include file="Public:header" />
+<meta charset="utf-8" />
+<script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script>
+<form class="form-inline definewidth m20"  action="{:U('Cms/view')}" method="get">
+    <span>反馈人手机号：</span>
+    <input type="text" name="mobile"   value="{$_GET['mobile']}">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+</form>
+<form id="userForm" class="definewidth m20">
+    <table class="table table-bordered table-hover definewidth m10">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>反馈人手机号</th>
+            <th>反馈内容</th>
+            <th>添加时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <foreach name="list" item="vo" key="k" class="short">
+            <tr>
+                <td>{$k+1}</td>
+                <td>{$vo.mobile}</td>
+                <td>{$vo.content| mb_substr = 0,52}.....</td>
+                <td>{$vo.timeadd}</td>
+                <td><a href="javascript:void(0);" onclick="return detail('{$vo.id}');">查看</a></td>
+            </tr>
+        </foreach>
+        </tbody>
+    </table>
+</form>
+{$page}
+<script language="javascript">
+   //查看详情
+   var detail = function(id)
+   {
+       var url = "{:U('Cms/viewInfo')}?id=";
+       if(!id)
+       {
+           return top.jdbox.alert(0,'获取ID错误');
+       }
+       return top.jdbox.iframe(url+id);
+   }
+</script>
+
+<include file="Public:footer" />

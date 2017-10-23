@@ -1,0 +1,42 @@
+.ba_min_nav{height:40px;box-sizing:border-box;border-bottom:1px #c9c9c9 solid;}
+.ba_min_nav>li{float:left;width:99px;height:38px;line-height:38px;border-top:2px #fff solid;text-align:center;cursor:pointer;position:relative;+bottom:-1px;}
+.ba_min_nav>li>a{text-decoration:none;display:block;color:#0f0e0e;}
+.ba_min_nav>li~li{margin-left:0;}
+.ba_min_nav>li.now{border-top-color:#ea5413;font-weight:bold;border-left:1px #c9c9c9 solid;border-right:1px #c9c9c9 solid;background:#fff;}
+.rech_na_r,.rech_na_r>a{color:#ea5413;font-size:12px;}
+.rech_na_r{margin-top:-28px;}
+.hint{height:40px;line-height:40px;margin-top:18px;overflow:hidden;padding-right:6px;}
+.hint>span>i{display:block;float:left;width:34px;height:40px;background:url(../image/rech_i.png) no-repeat center center;}
+.hint>span>b{color:#ea5413;font-size:16px;}
+.rec_b{padding-bottom:26px;}
+.rec_b_curr>li{width:133px;}
+.ba_b_con{display:none;}
+.ba_min_show{display:block;}
+.fast_pay{padding-top:30px;}
+.pay_ul>li{margin-bottom:16px;height:32px;line-height:32px;}
+.pay_ul>li>span{display:inline-block;}
+.pay_sp_l{width:110px;text-align:right;}
+.pay_ul>li input{border:1px #c9c9c9 solid;height:30px;line-height:30px;text-indent:10px;width:240px; +position:relative;top:9px;}
+.pay_ul>li .pay_code{width:124px;margin-right:10px;}
+.pay_ul>li .imgcode{width:70px;height:32px;vertical-align:bottom;}
+.pay_ul>li .imgcodebtn{display:inline-block;width:20px;height:32px;line-height:28px;vertical-align:bottom;background:url(../image/rech_re.png) no-repeat center center;}
+.pay_ul>li .sina_btn{width:110px;height:32px;color:#fff;text-align:center;line-height:32px;margin-left:11px;background:#236ac9;border:none;}
+.pay_ul>li .sina_btn:hover{background:#2a7bc9;}
+.ul_last{margin-top:8px;margin-top:24px;height:33px;line-height:33px;}
+.ul_last .pay_button{width:105px;height:33px;text-align:center;line-height:33px;border-radius:3px;border:none;color:#fff;background:#ea5413;}
+.ul_last .pay_button:hover{background:#dd632f;}
+.bank_pay .inputrow{line-height:30px;margin-top:12px;overflow:hidden;}
+.bank_pay .inputrow .pay_sp_l{width:120px;padding-right:5px;}
+.rec_radio{vertical-align:middle;cursor:pointer;width:15px;height:15px;}
+.wrap{margin-bottom:30px;}
+.pay_banks{width:730px;margin-top:7px;display:none;}
+.pay_banks>ul{overflow:hidden;}
+.pay_banks>ul>li{float:left;height:38px;margin:9px 9px 0 0;}
+.pay_banks>ul>li img{vertical-align:middle;width:142px;height:38px;}
+
+.bank_explain{margin-top:18px;padding:25px 0 20px 30px;border-top:1px #dadada solid;}
+.bank_explain>p{font-size:12px;}
+
+.bank_box{margin:15px 0;}
+.bank_table{width:841px;margin-top:18px}
+.bank_table th,.bank_table td{border:1px #d3d3d3 solid;height:43px;font-size:12px;text-align:center;min-width:74px;line-height:16px;}

@@ -1,0 +1,31 @@
+.ba_min_nav{height:40px;box-sizing:border-box;border-bottom:1px #c9c9c9 solid;}
+.ba_min_nav>li{float:left;width:99px;height:38px;line-height:38px;border-top:2px #fff solid;text-align:center;cursor:pointer;position:relative;+bottom:-1px;color:#0f0e0e;}
+.ba_min_nav>li.now{border-top-color:#ea5413;font-weight:bold;border-left:1px #c9c9c9 solid;border-right:1px #c9c9c9 solid;background:#fff;}
+.rech_na_r,.rech_na_r>a{color:#ea5413;font-size:12px;}
+.rech_na_r{margin-top:-28px;}
+.hint{height:40px;line-height:40px;margin-top:18px;overflow:hidden;padding-right:6px;}
+.hint>span>i{display:block;float:left;width:34px;height:40px;background:url(../image/rech_i.png) no-repeat center center;}
+.hint>span>b{color:#ea5413;font-size:16px;}
+.bank_ul{margin:30px 0 58px;padding-left:22px;}
+.bank_ul>li{height:32px;line-height:32px;margin-bottom:16px;}
+.bank_ul>li .bank_sp_l{width:130px;height:32px;float:left;text-align:right;display:block;}
+.bank_ul>li .bank_sp_l>em{color:#cf4040;}
+.bank_ul>li input{width:240px;height:30px;border:1px #c9c9c9 solid;text-indent:8px;vertical-align:middle;font-size:12px;}
+.bank_ul>li select{height:32px;border:1px #c9c9c9 solid;text-indent:8px;color:#666;}
+.bank_ul>li .bank_rad{width:15px;height:15px;cursor:pointer;vertical-align:middle;}
+.bank_ul>li .sp_r{color:#a9a7a7;font-size:12px;}
+.bank_ul>li.bank_last{margin:30px 0 0;height:33px;line-height:33px;}
+.bank_ul>li .button{width:115px;height:33px;line-height:33px;text-align:center;color:#fff;background:#a97502;border:none;border-radius:3px;}
+.bank_ul>li .button:hover{background:#ba8613;}
+.bank_ul>li .sina_btn{width:100px;vertical-align:middle;height:32px;line-height:32px;margin-left:7px;}
+.user_bank{overflow:hidden;margin:35px 0 28px;}
+.user_ul{font-size:12px;width:355px;line-height:30px;}
+.user_ul .user_sp_l{color:#afadad;text-align:right;display:block;width:100px;height:30px;float:left;margin-right:5px;}
+.user_bank_m{margin-bottom:39px;}
+.user_btn{width:303px;height:33px;margin:0 auto;}
+.user_btn .button{width:127px;height:33px;line-height:33px;text-align:center;color:#fff;background:#e86127;border:none;border-radius:3px;margin:0 10px;}
+.user_btn .button:hover{background:#ea5413;}
+.re_bank_b{height:64px;background:#e6eaea;display:none;}
+.re_bank_b>p{padding:10px 0 0 33px;font-size:12px;margin-top:1px;}
+.bank_b{border-top:1px #d3d3d3 solid;padding:33px 0 40px 22px;}
+.bank_b>p{font-size:12px;color:#a9a7a7;line-height:20px;}

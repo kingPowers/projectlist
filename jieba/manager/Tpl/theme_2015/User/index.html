@@ -1,0 +1,40 @@
+<include file="Public:header" />
+
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+    用户名称：
+    <input type="text" name="username" id="username"class="abc input-default" placeholder="" value="{$username}">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增用户</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>用户ID</th>
+            <th>用户名称</th>
+			 <th>用户角色</th>
+            <th>手机号码</th>
+            <th>最后登录时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['username']}</td>
+			<td>{$vo['title']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['timeupdate']}</td>
+            <td><a href="{:U('User/edit',array('id'=>$vo['id']))}">编辑</a></td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+<div>{$page}</div>
+<script language="javascript">
+$(function(){
+	$('#addnew').click(function(){
+		window.location.href="{:U('User/add')}";
+	});
+})
+</script>
+<include file="Public:footer" />

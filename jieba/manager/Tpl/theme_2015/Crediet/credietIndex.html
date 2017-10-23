@@ -1,0 +1,181 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="/Crediet/credietIndex/is_staff/{$_REQUEST['is_staff']}" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <select name="order_status" class="short" id="order_status">
+        <option value=''>状态</option>
+        <foreach name="status" item="sta" >
+            <option value='{$key}' <?php if($_GET['order_status']!='' && $_GET['order_status'] == $key): echo 'selected="selected"'; endif;?>>{$sta}</option>
+        </foreach>
+    </select>
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="download_data" class="btn btn-primary">导出车友贷申请中数据</a>
+</form>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>门店</th>
+        <th>手机号码</th>
+        <th>真实姓名</th>
+        <th>身份证号</th>
+		<th>车友贷逾期次数</th>
+		<th>拒单次数</th>
+        <th>推荐人</th>
+        <th>贷款金额</th>
+        <th>提额详情</th>
+        <th>期限</th>
+        <th>抵贷记录</th>
+        <th>已还款期数</th>
+        <th>已逾期期数</th>
+        <th>每期还款</th>
+        <th>积分</th>
+        <th>申请次数</th>
+        <th>申请时间</th>
+        <th>申请来源</th>
+        <th>状态</th>
+        <th>操作</th>
+        <!--<th>详细信息</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['department']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['certiNumber']}</td>
+			  <td>{$vo['late_count']}</td>
+			   <td>{$vo['refuse_count']}</td>
+            <td>{$vo['recintcode']}</td>
+            <td>{$vo['backtotalmoney']}</td>
+            <td>{$vo['activityName']}</td>
+            <td>{$vo['loanmonth']}</td>
+            <td>{$vo['product']}</td>
+            <td>{$vo['return_num']}</td>
+            <td>{$vo['delay_num']}</td>
+            <td>{$vo['pay_money']}</td>
+            <td>{$vo['score']}</td>
+            <td>{$vo['num']}</td>
+            <td>{$vo['timeadd']}</td>
+            <td><php>echo $resource[strtolower($vo['resource'])];</php></td>
+            <td>
+                <if condition="$vo['customer_status'] eq 0">
+                    未处理
+                <elseif condition="$vo['customer_status'] eq 1"/>
+                    已接单，待签约
+                <elseif condition="$vo['customer_status'] eq 2"/>
+                    已拒单
+                <elseif condition="$vo['customer_status'] eq 3"/>
+                    接单后拒单
+                <elseif condition="$vo['customer_status'] eq 4"/>
+                    已打款
+				<elseif condition="$vo['customer_status'] eq 5"/>
+					已还款
+				<elseif condition="$vo['customer_status'] eq 6"/>
+					已签约,待打款
+                </if>
+				
+            </td>
+            <td>
+                <if condition="$vo['customer_status'] eq 0">
+                    <a href="javascript:void(0)" onclick="order_process_allow({$vo['id']})">接单</a>
+                </if>
+                <if condition="$vo['customer_status'] eq 1">
+                    <a href="javascript:void(0)" onclick="order_process_refuse({$vo['id']},3)">拒单</a>
+                <elseif condition="$vo['customer_status'] eq 0" />
+                    <a href="javascript:void(0)" onclick="order_process_refuse({$vo['id']},2)">拒单</a>
+				 <elseif condition="$vo['customer_status'] eq 6" />
+					<a href="javascript:void(0)" onclick="order_process_refuse({$vo['id']},3)">拒单</a>
+                </if>
+                <if condition="$vo['customer_status'] eq 6">
+                    <a href="javascript:void(0)" onclick="order_process_money({$vo['id']})">放款</a>
+                </if>
+            </td>
+            <!--<td><a href="javascript:void(0)" onclick="return detail('{$vo['memberid']}','{$vo['id']}')">查看</a></td>-->
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<script>
+    var order_process_refuse = function(order_id,status){
+        if(!confirm('您确定要拒单吗？')){return false;}
+        var url = "{:U('Order/order_process_refuse')}?id="+order_id+"&statuss="+status;
+        top.jdbox.iframe(url);
+    }
+    var order_process_allow = function(order_id)
+    {
+        var data = {};
+        if(order_id=='')alert("订单编号为空");
+        if(!confirm('您确定要接单吗？')){return false;}
+        $(data).attr('recint_id',order_id);
+		top.jdbox.alert(2,"正在处理接单  请稍等...");
+        $.ajax({
+            'type':'post',
+            'dataType':'json',
+            'url':"/Order/order_process_allow",
+            "data":{'data':data},
+            success:function(json){
+				top.jdbox.close();
+                if(json.status==1){
+                    alert(json.info);
+                    parent.window.reload();
+                }else{
+                    alert(json.info);
+                }
+            }
+        });
+    }
+    var isLoading = false;
+    var order_process_money = function(order_id)
+    {
+        var data = {};
+        if(order_id=='')alert("订单编号为空");
+        if(!confirm('您确定要打款吗？')){return false;}
+        $(data).attr('recint_id',order_id);
+		top.jdbox.alert(2,"正在处理打款  请稍等...");
+        if(isLoading){
+            alert('正在处理打款  请稍等...');
+            return;
+        }
+        isLoading = true;
+        $.ajax({
+            'type':'post',
+            'dataType':'json',
+            'url':"/Crediet/order_process_money",
+            "data":data,
+            success:function(json){
+                isLoading = false;
+				top.jdbox.close();
+                if(json.status==1){
+                    alert(json.info);
+                    parent.window.reload();
+                }else{
+                    alert(json.info);
+                }
+            }
+        });
+    }
+    $('#download_data').click(function(){
+        $(this).attr('href',"/Crediet/export_crediet_list.html?is_staff={$_REQUEST['is_staff']}&k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&order_status="+$('#order_status').val());
+    })
+    var detail = function(memberid,order_id)
+    {
+        var url = "{:U('Crediet/boxInfo')}?memberid=";
+        if(!memberid || !order_id) return false;
+        top.jdbox.iframe(url+memberid+"&order_id="+order_id);
+    }
+
+</script>
+<include file="Public:footer" />

@@ -1,0 +1,56 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form class="form-inline definewidth m10 sup_form" action="{:U('/Activity/proActivity')}" method="get">
+    活动名称：&nbsp;
+    <input type="text" name="title" id="v" class="abc input-default" placeholder="" value="{$_GET['title']}">&nbsp;&nbsp;
+    状态：
+    <select name="status">
+        <foreach name="status" item="v">
+            <option value="{$key}" <eq name="key" value="$_GET['status']">selected=''</eq>>{$v}</option>
+        </foreach>
+    </select>
+    <span>活动开始时间：</span>
+    <span>起始：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+   
+    <input type="submit" class="btn btn-primary sup_submit" value="查询"/>
+	<a href="{:U('/Activity/activityAdd')}" class="btn btn-primary">新增</a>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+	<thead>
+		<tr>
+        <th>活动ＩＤ</th>
+        <th>名称</th>
+        <th>关键字</th>
+        <th>banner</th>
+        <th>提额百分比</th>
+        <th>状态</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th>创建时间</th>
+		<th>操作</th>
+		</tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+    <tr>
+        <td>{$vo['id']}</td>
+        <td>{$vo['title']}</td>
+        <td>{$vo['keyword']}</td>
+        <td><notempty name='vo.banner_url'><img style="max-width: 200px;" src="_STATIC_/Upload/activity/{$vo['banner_url']}"><else/>暂无图片</notempty></td>
+        <td>{$vo['pro_percent']}%</td>
+        <td><if condition="$vo['status'] eq 1">已启用<else/>已禁用</if></td>
+        <td>{$vo['starttime']}</td>
+        <td>{$vo['endtime']}</td>
+        <td>{$vo['timeadd']}</td>
+        <td><a href="{:U('/Activity/activityEdit',['aid'=>$vo['id']])}">编辑</a></td>
+    </tr>
+    </foreach>
+    </tbody>		
+</table>
+{$page}
+<script language="javascript">
+</script>
+<include file="Public:footer" />

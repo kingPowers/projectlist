@@ -1,0 +1,705 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"e",
+				"eSignOpenAPI"
+			],
+			[
+				"a",
+				"eSignOpenAPI"
+			],
+			[
+				"sign",
+				"signResult"
+			],
+			[
+				"json",
+				"json_decode"
+			],
+			[
+				"jso",
+				"json_decode"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"true",
+				"TRUE"
+			],
+			[
+				"show",
+				"showError"
+			],
+			[
+				"recoder",
+				"recorder"
+			],
+			[
+				"url",
+				"urlUtils"
+			],
+			[
+				"sig",
+				"signerType"
+			],
+			[
+				"signer",
+				"signer"
+			],
+			[
+				"rec",
+				"Recorder"
+			],
+			[
+				"key",
+				"keysArr"
+			],
+			[
+				"s",
+				"signer"
+			],
+			[
+				"in",
+				"in_array"
+			],
+			[
+				"file",
+				"filePath"
+			],
+			[
+				"post",
+				"postType"
+			],
+			[
+				"Ke",
+				"keysArr"
+			],
+			[
+				"pri",
+				"print_r"
+			],
+			[
+				"文档上传至",
+				"文档转换并上传至e签宝（本地非PDF文件）"
+			],
+			[
+				"p",
+				"phpinfo"
+			],
+			[
+				"ti",
+				"title	Tag"
+			],
+			[
+				"algin",
+				"vertical-align"
+			],
+			[
+				"w",
+				"width"
+			],
+			[
+				"Php",
+				"phpinfo"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "eSign.class.php",
+			"settings":
+			{
+				"buffer_size": 25285,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WWW/demo-standard-php/API/class/ErrorConstant.class.php",
+			"settings":
+			{
+				"buffer_size": 20289,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WWW/demo-standard-php/example/account.php",
+			"settings":
+			{
+				"buffer_size": 1970,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WWW/demo-standard-php/example/test.php",
+			"settings":
+			{
+				"buffer_size": 1402,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/WWW/demo-standard-php/API/class/MyErrorException.class.php",
+			"settings":
+			{
+				"buffer_size": 608,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"xdebug:",
+				"Xdebug: Clear All Breakpoints"
+			],
+			[
+				"xdebug: start d",
+				"Xdebug: Start Debugging"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"addPersonAccount",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os;pf = 'Package Control.sublime-package';ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib2,os; pf='Package Control.sublime-package';ipp=sublime.installed_packages_path(); os.makedirs(ipp)if not os.path.exists(ipp)else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler()));open(os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print('Pleaserestart Sublime Text to finish installation')",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Administrator/Desktop/Test",
+		"/D/WWW/demo-standard-php"
+	],
+	"file_history":
+	[
+		"/D/Program Files/Sublime Text Build 3103 x64/Data/Packages/User/Preferences.sublime-settings",
+		"/D/WWW/demo-tech-php/example/test.php",
+		"/D/WWW/demo-tech-php/example/index.html",
+		"/D/WWW/demo-standard-php/example/account.php",
+		"/D/WWW/demo-standard-php/example/file.php",
+		"/D/WWW/demo-tech-php/API/comm/inc.dat",
+		"/D/WWW/demo-standard-php/API/class/javaComm.class.php",
+		"/D/WWW/demo-standard-php/example/filesign.php",
+		"/D/WWW/demo-standard-php/example/filesign.html",
+		"/D/WWW/demo-standard-php/example/index.php",
+		"/D/WWW/demo-standard-php/example/seal.php",
+		"/D/WWW/demo-standard-php/API/comm/inc.dat",
+		"/D/WWW/demo-standard-php/API/class/eSign.class.php",
+		"/D/WWW/demo-standard-php/example/account.html",
+		"/D/WWW/demo-standard-php/example/index.html",
+		"/D/WWW/demo-standard-php/example/sign.php",
+		"/D/WWW/demo-standard-php/example/test.php",
+		"/D/WWW/demo-standard-php/example/test.html",
+		"/D/WWW/demo-tech-php/example/account.php",
+		"/D/WWW/demo-tech-php/API/class/eSign.class.php",
+		"/D/WWW/demo-tech-php/example/1.html",
+		"/D/WWW/demo-php/API/class/javaComm.class.php",
+		"/D/WWW/demo-tech-php/API/class/javaComm.class.php",
+		"/D/WWW/demo-tech-php/API/class/Recorder.class.php",
+		"/D/WWW/demo-php/API/class/eSign.class.php",
+		"/D/WWW/demo-tech-php/example/sign.php",
+		"/D/WWW/demo-tech-php/example/seal.php",
+		"/D/WWW/demo-php/API/comm/inc.dat",
+		"/D/WWW/demo-php/example/account.php",
+		"/D/Program Files/Sublime Text Build 3103 x64/Data/Packages/User/Xdebug.sublime-settings",
+		"/D/WWW/demo-tech-php/example/selfsign.php",
+		"/D/WWW/demo-php/example/account.html",
+		"/D/WWW/demo-tech-php/example/sign_hash_tech/selfHashSign.php",
+		"/D/WWW/demo-tech-php/API/class/project.sublime-project",
+		"/D/WWW/demo-standard-php/index.php",
+		"/D/WWW/demo-tech-php/example/sign_hash_tech/sign_hash.php",
+		"/D/WWW/demo-php/example/selfsign.php",
+		"/D/WWW/demo-php/example/index.html",
+		"/D/WWW/demo-php/example/sign.php",
+		"/D/WWW/demo-php/example/sign_hash_tech/sign_hash.php",
+		"/D/WWW/demo-php/example/sign_hash_tech/sign_hash.html",
+		"/D/WWW/demo-php/example/sign_hash_tech/selfHashSign.html",
+		"/D/WWW/demo-php/example/sign_hash_tech/selfHashSign.php",
+		"/D/WWW/demo-php/example/showfile/file.php",
+		"/D/WWW/demo-php/example/sign_hash_tech/verifyText.php",
+		"/D/WWW/demo-php/example/noshowfile/showSealPage.html",
+		"/D/WWW/demo-php/example/Test.php",
+		"/F/星星知我心/本月工作/对接资料/快捷签对接资料/demo/php/demo-tech-php/API/class/javaComm.class.php",
+		"/F/星星知我心/本月工作/对接资料/快捷签对接资料/demo/php/demo-tech-php/example/selfsign.php",
+		"/D/WWW/demo-php/example/showfile/addfile.html",
+		"/F/星星知我心/本月工作/对接资料/快捷签对接资料/demo/php/demo-tech-php/API/class/eSign.class.php",
+		"/F/星星知我心/本月工作/对接资料/快捷签对接资料/demo/php/demo-tech-php/example/Test.php",
+		"/F/星星知我心/本月工作/对接资料/标准版对接资料/demo/php/demo-tech-php/example/file.php",
+		"/D/Program Files/Sublime Text Build 3103 x64/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/Program Files/Sublime Text Build 3103 x64/Data/Packages/User/Side Bar.sublime-settings",
+		"/F/星星知我心/本月工作/对接资料/快捷签对接资料/demo/php/demo-tech-php/index.php"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" if()\n  	      new MyErrorException(0, \"成功\");\n\n  	      static $test = null;  ",
+			"ErrorException",
+			"$this",
+			"project_id",
+			"$token",
+			"recorder",
+			"login",
+			"121.41.118.95",
+			"addFile",
+			"conv2pdf",
+			"addFileByOssKey",
+			"addfile",
+			"addfile\\",
+			"addfile",
+			"addFile",
+			"addfile",
+			"addReceiver",
+			"addfile",
+			"javaSign",
+			"localSignPDF",
+			"addfile",
+			"userSignPDF",
+			"http_post_json",
+			"saveReceiverInfoUrl",
+			"addReceiver",
+			"json_encode($keysArr)",
+			"updateDocInfoUrl",
+			"sendEmailUrl",
+			"addTemplateSeal",
+			"addPersonAccount",
+			"addPerson",
+			"addp",
+			"inti",
+			"updateDocInfoUrl",
+			"sendEmailUrl",
+			"saveReceiverInfoUrl",
+			"localSignPDF",
+			"closeFile",
+			"sendSignMsg",
+			"sendSignMsg ",
+			"addReceiver",
+			"addFile",
+			"addFileByOssKey",
+			"conv2pdf",
+			"addPersonAccount",
+			"login",
+			"stringaa",
+			"init",
+			"file_get_contents",
+			"json_decode",
+			"userSignPDF",
+			"init",
+			"userHashSignStream",
+			"userSignPDF",
+			"userHashSignUrl",
+			"userSignPDF",
+			"selfSignPDF",
+			"ITSM_GETAPIINFO_URL",
+			"getUrlListFromSrv",
+			"init",
+			"getSealPage",
+			"quickSignPDFPage",
+			"localSignPDF",
+			"saveSignedFile",
+			"saveSignedFile ",
+			"selfSignPDFStream",
+			"userSignPDF",
+			"selfSignPDF",
+			"selfSignPDFStream",
+			"selfSignPDF",
+			"ITSM_GETAPIINFO_URL",
+			"init",
+			"userSignPDF",
+			"addPersonAccount",
+			"show",
+			"localVerifyText",
+			"saveSignedFile",
+			"selfSignPDFStream",
+			"selfHashSignStream",
+			"@",
+			"selfSignPDFStream",
+			"selfTextSign",
+			"techSignHashUrl",
+			"selfTextSignUrl",
+			"selfTextSign",
+			"localVerifyText",
+			"selfTextSignUrl",
+			"selfTextSign",
+			"signDataHash",
+			"selfHashSignUrl",
+			"signDataHash",
+			"accountId",
+			"devId",
+			"techSignHashUrl",
+			"//echo '平台自身签署传参：';\n		//print_r($keysArr);\n		//echo '<br><br>';",
+			"\"signType\" => $signType,\n			\"fileName\" => $fileName,\n			\"posType\" => $posType,\n			\"posPage\" => $posPage,\n			\"posX\" => $posX,\n			\"posY\" => $posY,\n			\"key\" => $key",
+			"selfFileSign",
+			"selfTextSign",
+			"userFileSign",
+			"selfFileSign",
+			"verifyPdfUrl",
+			"selfSignPDF",
+			"localSelfSignPDF",
+			"token",
+			"addFile",
+			"addFileByOssKey"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "eSign.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 25285,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 5553.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/WWW/demo-standard-php/API/class/ErrorConstant.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 20289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								155,
+								155
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/D/WWW/demo-standard-php/example/account.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1970,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								99,
+								59
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/D/WWW/demo-standard-php/example/test.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1402,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/D/WWW/demo-standard-php/API/class/MyErrorException.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 608,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								423,
+								423
+							]
+						],
+						"settings":
+						{
+							"is_xml": false,
+							"open_with_edit": true,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 130.0
+	},
+	"pinned_build_system": "",
+	"project": "project.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"46":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"47":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"49":
+				{
+					"group": 0,
+					"index": 1
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 296.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

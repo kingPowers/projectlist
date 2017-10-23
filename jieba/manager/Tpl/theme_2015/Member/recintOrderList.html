@@ -1,0 +1,63 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m10" action="{:U('Member/recintOrderList')}" method="get">
+    <select name="k" class="short" id="k"><foreach name="key" item="v"><option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option></foreach></select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" style="width:150px;" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <select name="recint_k" class="short" id="recint_k"><foreach name="keys" item="recint_v"><option value='{$key}' <?php if($_GET['recint_k']!='' && $_GET['recint_k'] == $key): echo 'selected="selected"'; endif;?>>{$recint_v}</option></foreach></select>&nbsp;
+    <input type="text" name="recint_v" style="width:150px;" id="recint_v" class="abc input-default" placeholder="" value="{$_GET['recint_v']}">&nbsp;&nbsp;
+
+    <select name="proid" class="short" id="proid">
+        <option value=''>借款项目</option>
+        <foreach name="proids" item="vo">
+            <option value='{$key}' <?php if($_GET['proid']!='' && $_GET['proid'] == $key): echo 'selected="selected"'; endif;?>>{$vo}</option>
+        </foreach>
+    </select>&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" style="width:120px;" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" style="width:120px;" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+</form>
+<a id="download_data" class="btn btn-primary">导出Excel</a>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>手机</th>
+        <th>业务员姓名</th>
+        <th>项目</th>
+        <th>期限</th>
+        <th>金额</th>
+        <th>提成金额</th>
+        <th>门店</th>
+        <th>成单时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['names']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['store_manager']}</td>
+            <td>
+                {$vo['order_type_name']}
+            </td>
+            <td>{$vo['loanmonth']}</td>
+            <td>{$vo['money']}</td>
+            <td>{$vo['roay_money']}</td>
+            <td>{$vo['name']}</td>
+            <td>{$vo['store_time']}</td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+{$page}
+<script>
+    $(function(){
+        $('#download_data').click(function(){
+            $(this).attr('href',"/Member/recintOrderListExport.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&proid="+$('#proid').val()+"&order_status="+$('#order_status').val()+"&recint_k="+$('#recint_k').val()+"&recint_v="+$('#recint_v').val());
+        })
+    })
+</script>
+<include file="Public:footer" />

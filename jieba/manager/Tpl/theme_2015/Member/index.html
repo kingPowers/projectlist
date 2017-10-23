@@ -1,0 +1,80 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form class="form-inline definewidth m10" action="{:U('Member/index')}" method="get">
+    <select name="k" class="short"><foreach name="keys" item="v"><option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option></foreach></select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <select name="is_cernum" class="short" id="is_cernum">
+        <option value=''>是否身份证号码</option>
+        <foreach name="cernums" item="vo">
+            <option value='{$key}' <?php if($_GET['is_cernum']!='' && $_GET['is_cernum'] == $key): echo 'selected="selected"'; endif;?>>{$vo}</option>
+        </foreach>
+    </select>&nbsp;&nbsp;
+    <select name="is_cint" class="short" id="is_cint">
+        <option value=''>是否被邀请</option>
+        <foreach name="cints" item="vo">
+            <option value='{$key}' <?php if($_GET['is_cint']!='' && $_GET['is_cint'] == $key): echo 'selected="selected"'; endif;?>>{$vo}</option>
+        </foreach>
+    </select>&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+</form>
+<a id="download_data" class="btn btn-primary">导出用户数据</a>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>用户ID</th>
+            <th>用户名称</th>
+            <th>手机号码</th>
+            <th>姓名</th>
+            <th>身份证号码</th>
+			<th>账户余额</th>
+			<th>开户银行</th>
+			<th>银行卡号</th>
+            <th>是否被邀请</th>
+            <th>车友贷成单次数</th>
+            <th>积分</th>
+            <th>注册时间</th>
+            <th>最后登录时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']}（{$vo['mobile_location']}）</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['certiNumber']}</td>
+			 <td>{$vo['ca_balance']}</td>
+			<td>{$vo['bank_name']}</td>
+			<td>{$vo['capAcntNo']}</td>
+            <td>{$vo['recintcode']}</td>
+            <td>
+               <empty name="vo['countNum']">
+                0
+               <else/>
+               {$vo['countNum']}
+               </empty>
+            </td>
+            <td>{$vo.score}</td>
+            <!--<td><a href="javascript:void(0)" onclick="return detail('{$vo['id']}')">查看</a></td>-->
+            <td>{$vo['timeadd']}</td>
+            <td>{$vo['lasttime']}</td>
+            <td><a href="{:U('Member/edit_index',array('id'=>$vo['id']))}">编辑</a></td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+{$page}
+<script>
+    $(function(){
+        $('#download_data').click(function(){
+            $(this).attr('href',"/Member/export_index_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&is_cernum="+$('#is_cernum').val()+"&is_cint="+$('#is_cint').val());
+        })
+    })
+</script>
+<include file="Public:footer" />

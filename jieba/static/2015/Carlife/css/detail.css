@@ -1,0 +1,81 @@
+@charset "utf-8";
+body,div,img,input{margin:0 auto;padding: 0;}
+body{text-align: center;}
+input:focus {outline:none;}
+input:focus {color:black;}
+input{color:#dbdbdb;}
+
+.headers{width:100%;height:6.8%;position:fixed;left:0;top:0;background-color:#5495e6;z-index: 100;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;}
+.headers .fhwz{width:auto;height:auto;position:absolute;left:7%;top:0%;color:white;}
+.headers .zxwx{width:auto;height:auto;position:absolute;left:41.3%;top:0%;color:white;}
+
+.noneDiv{width:100%; height:auto;position:relative;left:0%;top:0%;}
+
+.chooseDiv{width:100%;height:auto;position:relative;left:0%;top:0%;background:#fff;text-align:center;}
+.jxChoose{width:50%;height:100%;position:absolute;top:0%;left:0%;line-height:250%;}
+.allChoose{width:50%;height:100%;position:absolute;left:50%;top:0%;line-height:250%;}
+.chooseWz{width:auto;height:100%;position:absolute;left:35%;}
+.chooseWzall{width:auto;height:100%;position:absolute;left:35%;}
+.line-wz{border-bottom:2px solid #5495e6;}
+
+.centerDiv{width:100%;height:auto;position:relative;z-index:50;}
+.centerDiv .infoDiv{width:100%;height:auto;position:relative;top:0%;left:0%;margin-top:3%;background:#fff;float:left;z-index:10;}
+.centerDiv .namesDiv{width:100%;height:auto;position:relative;left:0%;}
+.leftDiv{width:70%;height:auto;position:absolute;left:0%;top:0%;}
+.nameSapn{width:auto;height:auto;position:absolute;left:25%;top:20%;color:#4c4c4c;}
+.timeSpan{width:auto;height:auto;position:absolute;left:25%;top:60%;color:#7b7b7b;}
+.leftDiv .carlifeheadsImg{width:43px;height:60%;position:absolute;z-index:15;top:10%;left:4%;height:80%;border-radius:100%;}
+.rightDiv{width:30%;height:100%;position:absolute;left:70%;top:0%;}
+.lookwz{width:auto;height:auto;position:absolute;left:60%;top:36%;color:#5495e6;font-weight:540;}
+
+
+
+/*.centerDiv .contentDiv{width:100%;height:auto;position:relative;left:0%;top:0%;float:left;z-index:10;}
+.wzContent{width:94%;height:auto;position:relative;margin-left:3.5%;top:0%;text-align:left;line-height:160%;float:left;margin-bottom:2%;color:#4c4c4c;}
+.mysay{width:100%;height:auto;position: relative;top:10%;color:#4c4c4c;}
+.imgDiv{width:94%;height:auto;position:relative;top:0%;left:0%;margin-top:4%;}
+.lifes1Img{width:32%;height:80%;position:relative;left:0%;top:0%;border:1px solid red;float:left;}
+.lifes2Img{width:32%;height:80%;position:relative;left:1%;top:0%;border:1px solid red;float:left;}
+.lifes3Img{width:32%;height:80%;position:relative;left:2%;top:0%;border:1px solid red;float:left;}*/
+.centerDiv .contentDiv{width:100%;height:auto;position:relative;left:0%;top:0%;float:left;z-index:10;}
+.wzContent{width:94%;height:auto;position:relative;margin-left:3.5%;top:0%;text-align:left;line-height:160%;float:left;margin-bottom:2%;color:#4c4c4c;}
+.mysay{width:100%;height:auto;position: relative;top:10%;color:#4c4c4c;}
+.imgDiv{width:94%;height:auto;position:relative;top:0%;left:0%;margin-top:4%;}
+.lifes1Img{width:32%;height:80%;position:relative;left:0%;top:0%;float:left;}
+.lifes2Img{width:32%;height:80%;position:relative;left:2%;top:0%;float:left;}
+.lifes3Img{width:32%;height:80%;position:relative;left:4%;top:0%;float:left;}
+.bottomsDiv{width:100%;height:auto;position:relative;left:0%;top:0%;margin-bottom:4%;float:left;}
+.placeWz{width:auto;height:auto;position:relative;margin-top:3.4%;margin-left:3.3%;float: left;color:#4c4c4c;}
+.clickDiv{width:20%;height:auto;position:relative;margin-top:3%;left:45%;float: left;color:#4c4c4c;}
+.lovesImg{width:22%;height:auto;position:relative;left:0%;margin-top:1%;}
+.clicknum{width:auto;height:auto;position:relative;left:2%;color:#4c4c4c;}
+.messageDiv{width:20%;height:auto;position:relative;left:46%;margin-top:3.5%;float: left;color:#4c4c4c;}
+.messageImg{width:23%;height:auto;position:relative;left:0%;top:0%;}
+.messagenum{width:auto;height:auto;position:relative;left:0%;top:0%;color:#4c4c4c;}
+
+.commentInfo{width:100%;height:auto;margin-top:3%;position:relative;left:0%;z-index:10;float:left;}
+.infoDetail{width:100%;height:auto;position:relative;top:0%;left:0%;z-index:2;background:#fff;float:left;}
+.nameandtime{width:85%;height:auto;position: relative;float:left;margin-top:2%;left:0%;margin-bottom:1%;}
+.cusHead{width:36px;height:36px;position:absolute;z-index:3;margin-top:1%;left:0%;float:left;border-radius:100%;}
+.DetailnameSapn{width:50%;height:auto;position:relative;left:13%;margin-top:4%;text-align:left;color:#5495e6;float:left;overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;}
+.rightDivlookwz{width:auto;height:auto;position:relative;left:31%;margin-top:0%;color:#737373;float:left;text-align:left;}
+
+.DetailtimeSpan{width:70%;height:auto;position:relative;left:2%;margin-top:2.5%;color:#4c4c4c;float:left;text-align:left;line-height:140%;}
+.delteWz{width:auto;height:auto;position:relative;left:18%;color:#4c4c4c;float:left;margin-top:1%;text-align:left;float:left;}
+.borderDiv{width:97%;height:auto;position:relative;float:left;margin-left:3%;}
+
+.answerSpan{width:auto;height:auto;position: relative;float:left;}
+.othername{width:auto;height:auto;position:relative;left:0%;float:left;margin-top:0%;color:#5495e6;overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;}
+
+
+.deleteDiv{width:100%;height:auto;position: relative;z-index:550;margin-top:-9%;left:0%;float:left;display: none;}
+.delteImg{width:14.4%;height:auto;position: absolute;z-index:552;float:left;left:60%;}
+
+.bigbgDiv{width:100%;height:100%;position:absolute;z-index:400;float:left;display:none;}
+
+.footerDiv{width:100%;height:auto;position: fixed;bottom: 0;border:1px solid red;z-index:350;background:#fafafa;border:2px solid #a5a5a5;display:none;border:none;}
+.commentS{width:80%;height:65%;border-radius:2%;margin-top:1.5%;border:1px solid #d4d4d4;left:2%;position:absolute;color:black;-webkit-appearance: none;padding-top:1%;padding-left:2%;}
+.seeds{width:20%;height:auto;position: absolute;top:36%;left:80%;}
+
+.bg2Div{width:100%;height:100%;position:absolute;z-index:300;display:none;}

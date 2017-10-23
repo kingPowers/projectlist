@@ -1,0 +1,95 @@
+<include file="Public:header" />
+<style>
+    input.name {
+        width:100px;
+    }
+    textarea.comment {
+        margin:0;
+        height:25px;
+        width:930px;
+    }
+</style>
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form class="form-inline definewidth m20">
+    <select name="cateid" id="cateid">
+        <option value=''>消息分类</option>
+        <foreach name="cate" item="v">
+            <option value="{$v['code']}" <?php if($_GET['cateid']!='' && $_GET['cateid'] == $v['code']): echo 'selected="selected"'; endif;?>>{$v['name']}</option>
+        </foreach>
+    </select>
+    标题：
+    <input type="text" name="title" id="title" class="abc input-default" placeholder="" value="{$_GET['title']}">&nbsp;&nbsp;
+    <select name="status_one" class="short" id="status_one">
+        <option value="">状态</option>
+        <foreach name="status" item="vo">
+            <option value="{$key}" <if condition="($_GET['status_one'] neq '') AND ($key eq $_GET['status_one'])">selected=selected</if>>{$vo}
+            </option>
+        </foreach>
+    </select>
+    <span>开始时间：</span>
+    <input type="text" id="starttime" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}" >
+    <span>结束时间：</span>
+    <input type="text" id="endtime" name="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}" >&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="cmstoexcel" class="btn btn-primary">导出消息内容数据</a>
+</form>
+<div class="excel_div form-inline definewidth" style="margin-top:5px;">
+    <button type="button" class="btn btn-success" id="addnew">新增消息</button>
+    <b>注：修改审核通过后 前台才会显示</b>
+</div>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>分类</th>
+        <th>标题</th>
+        <th>添加时间</th>
+        <th>状态</th>
+        <th>排序</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['name']}</td>
+            <td><div style="max-width: 700px;overflow: hidden;">{$vo['title']}</div></td>
+            <td>{$vo['timeadd']} </td>
+            <td><select name="status" nid="{$vo['id']}" class="short">
+                <foreach name="status" key="k" item="v">
+                    <option value="{$k}"<eq name="k" value="$vo['status']">selected="selected"</eq>>{$v}</option>
+                </foreach>
+            </select></td>
+            <td>{$vo['sort']}</td>
+            <td><a href="{:U('Cms/editSystem',array('id'=>$vo['id']))}"> 编辑 </a></td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+{$page}
+
+<script language="javascript">
+    $(function(){
+        $('#cmstoexcel').click(function(){
+            $(this).attr('href',"/Cms/export_system.html?starttime="+$('#starttime').val()+
+                    "&endtime="+$('#endtime').val()+"&title="+$('#title').val()
+                    +"&status_one="+$('#status_one').val()+"&cateid="+$('#cateid').val());
+        })
+    })
+    $(function(){
+        $('#addnew').click(function(){
+            window.location.href="{:U('Cms/addSystem')}";
+        });
+        $("select[name='status']").change(function(){
+            var data = {};
+            $(data).attr('id',$(this).attr('nid'));
+            $(data).attr('status',$(this).val());
+            $.post('/Cms/systemAudo.html',data,function(F){
+                return top.jdbox.alert(F.status,F.info);
+            },'json');
+        });
+    })
+</script>
+<include file="Public:footer" />

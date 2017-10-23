@@ -1,0 +1,57 @@
+<include file="Public:header" />
+
+<div id="chat_content">
+    <table class="table table-bordered table-hover definewidth m10">
+        <thead>
+            <tr>
+                <th>用户id</th>
+                <th>用户名</th>
+                <th>用户手机号</th>
+                <th>最后消息时间</th>
+            </tr>
+            <foreach name="messages" item="vo">
+                <tr>
+                    <td>
+                        <a href="javascript:void(0)" onclick="return detail('{$vo['id']}','{$vo['mobile']}')">
+                            {$vo['id']}
+                        </a><span style="color: red" id="message_num">({$vo['num']})</span>
+                    </td>
+                    <td><notempty name="vo.names">{$vo['names']}<else/>{$vo['username']}</notempty></td>
+                    <td>{$vo['mobile']}</td>
+                    <td>{$vo['max_created']}</td>
+                </tr>
+            </foreach>
+			
+        </thead>
+    </table>
+</div>
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.min.js"></script>
+<script>
+    var detail = function(id,mobile)
+    {
+        var url = "{:U('chat/getMessage')}?id=";
+        if(!id) return false;
+        top.jdbox.iframe(url+id+'&mobile='+mobile);
+    }
+    function getData(){
+        var data = {};
+        //$(data).attr('id',$('#hiddenid').val());
+        $.post('/chat/refresh_index.html',data,function(F){
+            if(F.status==0){
+            }else{
+                $("#chat_content").val("");
+                str = "<table class='table table-bordered table-hover definewidth m10'><thead><tr><th>用户id</th><th>用户名</th><th>用户手机号</th><th>最后消息时间</th></tr>";
+                arr=eval(F.data);
+                for(var k in arr){
+                    var detail = 'return detail('+arr[k].id+')';
+                    str += "<tr><td><a href='javascript:void(0)' onclick='return detail("+arr[k].id+")'>"+arr[k].id+"</a><span style='color: red' id='message_num'>("+arr[k].num+")</span></td><td>"+arr[k].username+"</td><td>"+arr[k].mobile+"</td><td>"+arr[k].max_created+"</td></tr>";
+                }
+                $('#chat_content').html(str);
+            }
+        },'json');
+    }
+    $(function(){
+       // window.setInterval(getData,10000);
+
+    });
+</script>

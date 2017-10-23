@@ -1,0 +1,41 @@
+a{text-decoration:none;}
+img {border: 0;}
+nav{margin: 0 auto; width: 96%;}
+nav a{float: left; width: 25%; display: inline-block;}
+nav img{width: 80%; margin: 0 auto;}
+nav i{position: absolute; font-size: 12px; color: #fff; bottom: 1px; margin-left: 19%;}
+.clear{clear: both;}
+.mt_50{margin-top: 50px;}
+.center{position: relative; overflow: hidden;}	
+.main{width: 100%; position: relative; padding: 10% 0; top: 0; left: 0; overflow: hidden;}
+.radius{background: #ffcc00; height: 30px; line-height: 30px; font-size: 14px; text-align: center; color: #000;}
+.top_div{font-family: "微软雅黑"; width: 80%; margin:50px 0 10% -40%; left: 50%; position: relative; overflow: hidden; } 
+.top_div span{width: 60%; display: block;  border-radius: 50px; margin: 0 auto;}
+.top_div h1{ position: relative; overflow: hidden; margin-top:10px; width: 100%; display: block;  text-align: center; background: url(../image/card/bg_top.png)no-repeat center center;background-size: 100%; }
+.top_div h1 font{font-size: 20px; position: absolute; width: 64%; margin:0 0 0 -32%; left: 50%; display: block;}
+.top_div h1 p{font-size: 14px; margin-top: 38px; font-weight: normal;}
+.top_div b{font-weight: bold; color: #ffcc00;}
+.bg_card{display: block; width: 100%;}
+.card{width: 100%; margin:-89% 0 -6% -50%; left: 50%; position:relative; overflow: hidden;}
+.card img {width: 58%; margin: 10% auto;}
+.content{width: 88%; background: #fff; padding:10px 1%; margin: 10% auto;}
+.show{display: block; position: relative; animation: imgmove 500ms; -webkit-animation:imgmove 500ms; /* Safari and Chrome */}
+@keyframes imgmove
+{
+	0%   {left:-200px; top:0px;}		
+	100% {left:0px; top:0px;}
+}
+@-webkit-keyframes imgmove 
+{
+	0%   {left:-200px; top:0px;}		
+	100% {left:0px; top:0px;}
+}
+.none{opacity: 0.3;}
+.hide{display: none;}
+.look{display: block; text-decoration: none; width: 70%; margin: 5% auto 2%;  border-radius: 5px;}
+.w50{width: 50%; position: relative; color: #333; font-size: 14px; text-align: center; margin:0 auto; display: block; font-weight: bold;}
+.w50 font{width: 30px; height: 20px; border-radius: 3px; background: #ffcc00; display: inline-block; font-size: 12px}
+.rule{width: 96%; margin: 10px 0 10px -48%; left: 50%; position: absolute;}
+.rule font{font-size: 16px; font-weight: bold;}
+.rule li{font-size: 12px; line-height: 20px; list-style-type:disc ;}
+.ico_bottom {width:50%; margin-left: -25%; left: 50%; position: absolute; bottom: 5%; z-index: 2;}

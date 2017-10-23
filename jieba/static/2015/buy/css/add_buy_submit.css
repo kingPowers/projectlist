@@ -1,0 +1,29 @@
+@charset "utf-8";
+body,div,img,input{margin:0 auto;padding: 0;}
+body{text-align: center;}
+input:focus {outline:none;}
+
+
+.headers{width:100%;height:6.8%;position:fixed;left:0;top:0;background-color:#5495e6;z-index: 10;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;}
+.headers .fhwz{width:auto;height:auto;position:absolute;left:7%;top:0%;color:white;}
+.headers .zxwx{width:auto;height:auto;position:absolute;left:41.3%;top:0%;color:white;}
+
+.noneDiv{width:100%; height:auto;position:relative;left:0%;top:0%;}
+
+.infosetDiv{width:100%;height:auto;left:0%;margin-top:4%;background: #fff;position:relative;}
+.infosetDiv .bt{width:30%;height:auto;text-align: left;position:absolute;left: 3%;font-weight: 500;}
+.infosetDiv .ipt{width:60%;height:auto;text-align: left;position:absolute;right: 3%;border:0;}
+.yf{width:25%;position:absolute;font-weight:500;z-index:5;left:75%;color:#018be7;font-weight: 800;}
+.applybtn{width:100%;height:auto;position:absolute;}
+.surebtnImg{width:94%;height:auto;position:absolute;left:2.6%;top:14%;}
+
+.applyconditionDiv{width:100%;height:auto;left:0%;background: #fff;position:relative;top:35.5%;}
+.sqtjImg{width:100%;height:auto;}
+.needconditionDiv{width:100%;height:auto;left:0%;top:36%;position: relative;background: #fff;}
+.needImg{width:100%;height:auto;}
+
+.dyexperDiv{width:100%;height:auto;left:0%;background: #fff;position:relative;top:37%;}
+
+.getpassImg{width:26.5%; height:16%;border:1px solid red; position:absolute;left:73%;top:51%;border-radius:2%;border:none;color:#3880e7;filter:alpha(opacity=0); background-color: rgba(0, 0, 0, 0);}
+

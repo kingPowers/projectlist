@@ -1,0 +1,60 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script>
+<form class="form-inline definewidth m20"  action="{:U('Store/index')}" method="get">
+    <span>门店名称：</span>
+    <input type="text" name="name"   value="{$_GET['name']}">&nbsp;&nbsp;
+        <input type="hidden" name='status' value='{$_REQUEST["status"]}'/>
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success" id="addDealer">门店添加</button>
+</form>
+<form id="userForm" class="definewidth m20">
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>序号</th>
+		<th>门店经理账号</th>
+        <th>门店名称</th>
+        <th>排序</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <foreach name="list" item="vo" key="k" class="short">
+        <tr>
+            <td>{$k+1}</td>
+            <td>{$vo['manager']}</td>
+            <td>{$vo['name']}</td>
+            <td>{$vo['sort']}</td>
+            <td>
+                    <eq name="vo.status" value="1">启用</eq>
+                    <eq name="vo.status" value="2">禁用</eq>
+            </td>
+            <td><a href="/Store/edit_store/id/{$vo['id']}/status/{$_REQUEST['status']}"> 修改 </a></td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+</form>
+{$page}
+<script language="javascript">
+    $(function() {
+        $('#addDealer').click(function() {
+            window.location.href = "/Store/add_store/status/{$_REQUEST['status']}";
+        });
+    })
+    $(function(){
+        $("select[name='status']").change(function(){
+            var data = {};
+            $(data).attr('id',$(this).attr('nid'));
+            $(data).attr('status',$(this).val());
+            //console.log($(this).val(),$(this).attr('nid'));
+            $.post('/Index/storeAudo.html',data,function(F){
+                return top.jdbox.alert(F.status,F.info);
+            },'json');
+        });
+    })
+</script>
+
+<include file="Public:footer" />

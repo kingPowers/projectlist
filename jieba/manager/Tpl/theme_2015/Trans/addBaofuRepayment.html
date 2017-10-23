@@ -1,0 +1,126 @@
+<include file="Public:header" />
+<style>
+	#content{width:450px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+</style>
+<div><span>添加订单</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		
+		
+		<tr>
+			<td>付款人手机号<span style="color:red;">*</span></td>
+			<td class="value"><input type='input' name='pay_mobile'/><span id='pay_mobile'></span></td>
+		</tr>
+		<tr>
+			<td>还款订单手机号<span style="color:red;">*</span></td>
+			<td class="value"><input type='input' name='repayment_mobile'/><span id='repayment_mobile'></span></td>
+		</tr>
+		<tr>
+			<td>还款金额<span style="color:red;">*</span></td>
+			<td class="value"><span id="repayment_money"></span></td>
+		</tr>
+		<tr>
+			<td>逾期天数<span style="color:red;">*</span></td>
+			<td class="value"><span id="repayment_late_days"></span></td>
+		</tr>
+		<tr>
+			<td>预设秘钥<span style="color:red;">*</span></td>
+			<td class="value"><input type='password' name='pwd' /></td>
+		</tr>
+		<tr>
+			<td>订单备注</td>
+			<td class="value"><input type='input' name='remark'/><br/><span style="font-size:10px;">默认备注：【借吧-车友贷-客服干预还款】</span></td>
+		</tr>
+		<tr>
+			<td>是否扣款</td>
+			<td class="value">
+				<input name="trans_type" value="1" checked='checked' type="radio" autocomplete="off"><span style="color:red;font-weight:bold;">是</span>&nbsp;&nbsp;
+				<input name="trans_type"  value="2" type="radio" autocomplete="off">否
+				<span style="font-size:10px;">选择【否】不会扣除客户银行卡内余额</span></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<a href="javascript:void(0);" class="btn" onclick="add();">确定</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+	$(function(){
+		
+		$("input[name='pay_mobile']").blur(function(){
+			var mobile = $(this).val();
+			if(''==mobile)return '';
+			$('#pay_mobile').html("请稍后……");
+			$.post("{:U('Trans/addBaofuRepayment')}",{"data":{'type':"ajax_search",'pay_mobile':mobile}},function(result){
+				if(result.status){
+					$('#pay_mobile').html(result.data.names);
+				}else{
+					$('#pay_mobile').html("未查询到账户姓名");
+				}
+			},'json');
+		});
+		
+		
+		$("input[name='repayment_mobile']").blur(function(){
+			var mobile = $(this).val();
+			if(''==mobile)return '';
+			$("#repayment_money").html("");
+			$("#repayment_late_days").html("");
+			$('#repayment_mobile').html("请稍后……");
+			$.post("{:U('Trans/addBaofuRepayment')}",{"data":{'type':"ajax_search",'repayment_mobile':mobile}},function(result){
+				if(result.status){
+					$('#repayment_mobile').html(result.data.names);
+					$("#repayment_money").html(result.data.back_money);
+					$("#repayment_late_days").html(result.data.late_days+"("+result.data.remark+")");
+				}else{
+					$('#repayment_mobile').html("未查询到账户姓名");
+				}
+			},'json');
+		});
+	});
+
+	function add(){
+		var data = {};
+		var input_name = {			
+			'pay_mobile':'付款人手机号不能为空',
+			'repayment_mobile':'还款订单手机号不能为空',
+			'pwd':'秘钥不能为空',
+		};
+		var is_false = 0;
+		$.each(input_name,function(i,val){
+			$(data).attr(i,$('input[name="'+i+'"]').val());
+			if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+				alert(val);
+				is_false = 1;
+				return false;
+			}
+		});
+		if(is_false==1)return false;
+		$(data).attr('remark',$('input[name="remark"]').val());
+		$(data).attr('trans_type',$('input[name="trans_type"]:checked').val());
+		$(data).attr('type',"submit_trans");
+		//top.jdbox.alert(2,"正在处理转账  请稍等...");
+		$.ajax({
+			'type':'post',
+			'dataType':'json',
+			'url':"/Trans/addBaofuRepayment",
+			"data":{'data':data},
+			success:function(json){
+				
+				if(json.status==1){
+					top.jdbox.close();
+					alert(json.info);
+					parent.window.reload();
+				}else{
+					alert(json.info);
+				}
+				
+			},
+			
+		});
+	}
+</script>
+<include file="Public:footer" />

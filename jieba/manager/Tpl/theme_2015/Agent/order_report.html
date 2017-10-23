@@ -1,0 +1,78 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="/Agent/order_report/" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="download_data" class="btn btn-primary">导出举报中订单数据</a>
+</form>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>用户名</th>
+        <th>手机号码</th>
+        <th>身份证号</th>
+        <th>姓名</th>
+        <th>举报内容</th>
+        <th>举报图片</th>
+        <th>举报时间</th>
+        <th>操作</th>
+        <th>订单详情</th>
+        <!--<th>详细信息</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="report_lists" item="vo">
+        <tr>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['certiNumber']}</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['content']}</td>
+            <td>
+              <foreach name="vo.pic_urls" item="pic"> 
+                 <img style="max-height: 50px;margin-left: 20px;" src="_STATIC_/Upload/report/{$pic}">
+              </foreach>
+            </td>
+            <td>{$vo['timeadd']}</td>
+            <td><a href="javascript:void(0);" onclick="return operate('{$vo.id}');">处理订单</a></td>
+            <td><a href="javascript:void(0);" onclick="return orderInfo('{$vo.id}');">查看订单</a></td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<script>
+$(function(){
+    $('#download_data').click(function(){
+        $(this).attr('href',"/Agent/export_report_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val());
+    })
+})
+function operate(id){
+    var url = "{:U('Agent/haddle_inter')}?id="; 
+    if(!id)
+    {
+        return top.jdbox.alert(0,'获取ID错误');
+    }
+    return top.jdbox.iframe(url+id);
+}
+function orderInfo(id){
+    var url = "{:U('Agent/order_info')}?id="; 
+    if(!id)
+    {
+        return top.jdbox.alert(0,'获取ID错误');
+    }
+    return top.jdbox.iframe(url+id);
+}
+</script>
+<include file="Public:footer" />

@@ -1,0 +1,16 @@
+@charset "utf-8";
+body,div,img,input{margin:0 auto;padding: 0;}
+body{text-align: center;}
+input:focus {outline:none;}
+input:focus {color:black;}
+input{color:#dbdbdb;}
+
+.headers{width:100%;height:6.8%;position:fixed;left:0;top:0;background-color:#5495e6;z-index: 10;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:6%;top:25%;}
+.headers .fhwz{width:auto;height:auto;position:absolute;left:9.5%;top:33%;color:white;}
+.headers .zxwx{width:auto;height:auto;position:absolute;left:41.3%;top:34%;color:white;}
+
+.contentDiv{width:100%;height:auto;position:absolute;z-index:40;top:6.8%;background-color:white;}
+.ptitle{width:100%;height:auto;position:relative;text-align:center;padding-top:2%;font-family:宋体;}
+.oneTitle{width:100%;height:auto;text-align:left;position:relative;font-family:宋体;padding-top:4%;}
+.oneContent{width:100%;height:auto;position:relative;font-family:宋体;text-align:left;text-indent:2em;line-height:140%;padding-top:2%;}

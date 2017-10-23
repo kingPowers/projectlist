@@ -1,0 +1,22 @@
+﻿@charset "utf-8";
+.maxDiv{width:100%;height:auto;position: relative;background-color:#ffffff; font-family:'微软雅黑';}
+.headers{width:100%;height:40px;position:fixed;left:0%;top:0%;overflow: hidden;background-color:#5495e6;z-index:101;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+.fhwz{position:absolute;left:7.5%;top:33%;color:white; }
+.orderwx{position:absolute;left:41%;top:34%;color:white; }
+
+.d2{width:100%;height:40px;position:fixed;background-color:#ffffff;top:40px;left:0%;z-index:100;overflow:hidden;}
+.new{width:50%;height:40px;position:absolute; font-size: 14px;}
+.any{width:50%;height:100%;position:absolute;left:71%; font-size: 14px;}
+.d2 span:hover{color:#5495e6;}
+.news{top:25%;position: absolute;left:25%;bottom: 0;color:#5495e6; line-height: 20px; }
+.anys{top:25%;position: absolute;left:0%;bottom: 0;color:#5495e6; line-height: 20px; }
+
+.d3{width:100%;height:15.4%;position:relative;top:15.5%;left:0%;background-color:#ffffff;overflow:hidden;}
+.phone{position:absolute; left:7.8%; top:9.1%; color:black; line-height:100%;text-align:left;float: left;}
+.phone1{position:absolute; left:76.1%; top:9.1%; color:#c9c9c9; line-height:100%;text-align:left;float: left;}
+.phone2{position:absolute; left:3.2%; top:52%; color:#c9c9c9; line-height:100%;text-align:left;float: left;}
+.phone3{position:absolute; left:3.2%; top:52%; color:#c9c9c9; line-height:100%;text-align:left;float: left;}
+.squerImg{width:2.5%; height:10.4%; position:absolute;left:3.2%;top:10.2%;float: left;}
+.solidImg{width:97.6%; height:1.2%; position:absolute;left:3.2%;margin-top:20%;float: left;}
+/*.solidImg{width:96.8%; height:0.5%; position:absolute;left:3.2%;top:89%;}*/

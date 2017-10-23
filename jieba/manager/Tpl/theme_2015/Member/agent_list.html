@@ -1,0 +1,88 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="{:U('Member/agent_list')}" method="get">
+<select name="k" class="short" id="k">
+  <foreach name='keys' item='v'>
+     <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+  </foreach>
+</select>
+<input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">
+<span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button> 
+    <a id="download_data" class="btn btn-primary">导出经纪人信息</a>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>经纪人ID</th>
+            <th>用户ID</th>
+            <th>姓名</th>
+            <th>会员姓名</th>
+            <th>手机号码</th>
+            <th>身份证号</th>
+            <th>公司简称</th>
+            <th>公司全称</th>
+            <th>是否为V</th>
+			<th>状态</th>
+			<th>是否支付费用</th>
+            <th>支付金额</th>
+            <th>添加时间</th>
+            <th>最后一次更新时间</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="lists" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['memberid']}</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['certiNumber']}</td>
+            <td>{$vo['company_name']}</td>
+            <td>{$vo['company_full_name']}</td>
+            <td><if condition="$vo['is_vip'] eq 1">
+                    否
+                <elseif condition="$vo['is_vip'] eq 2"/>
+                   是
+                <elseif condition="$vo['is_vip'] eq 3"/>
+                  申请中
+                 </if>
+			<td>
+			  <select name="status" nid="{$vo['id']}" class="short">
+                <foreach name="status" key="k" item="v">
+                    <option value="{$k}"<eq name="k" value="$vo['status']">selected="selected"</eq>>{$v}</option>
+                </foreach>   
+			  </select>
+			</td>
+			<td><eq name="vo['is_pay']" value='1'>否<else/>是</eq></td>
+            <td>{$vo['pay_money']}</td>
+            <td>{$vo['timeadd']}</td>
+            <td>{$vo['lasttime']}</td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+{$page}
+<script type="text/javascript">
+$(function(){
+	$("select[name='status']").change(function(){
+		var data = {};
+		$(data).attr('id',$(this).attr('nid'));
+		$(data).attr('status',$(this).val());
+		//alert(data.status);
+		$.post('/Member/agent_status.html',data,function(F){
+            return top.jdbox.alert(F.status,F.info);
+		},'json');
+
+	})
+	$('#download_data').click(function(){
+		$(this).attr('href',"/Member/export_agent.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val());
+	})
+})
+</script>
+<include file="Public:footer" />

@@ -1,0 +1,70 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="/Agent/agent_order_lose/" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="download_data" class="btn btn-primary">导出甩单申请中数据</a>
+</form>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>客户姓名</th>
+        <th>手机号码</th>
+        <th>身份证号</th>
+        <th>合同编号</th>
+        <th>年龄</th>
+		<th>省份-城市</th>
+		<th>职业</th>
+        <th>车辆品牌型号</th>
+        <th>购车时间</th>
+        <th>裸车价格</th>
+        <th>行驶里程</th>
+        <th>车架号</th>
+        <th>是否全款</th>
+        <th>抵押单位</th>
+        <th>贷款金额</th>
+        <th>修改时间</th>
+        <!--<th>详细信息</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="order_lists" item="vo">
+        <tr>
+            <td>{$vo['names']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['certiNumber']}</td>
+            <td>{$vo['contract_num']}</td>
+            <td>{$vo['age']}</td>
+			<td>{$vo['province']}-{$vo['city']}</td>
+			<td>{$vo['jobs']}</td>
+            <td>{$vo['brands']}</td>
+            <td>{$vo['buy_time']}</td>
+            <td>{$vo['car_price']}</td>
+            <td>{$vo['car_drive']}</td>
+            <td>{$vo['car_frame_number']}</td>
+            <td><eq name="vo['is_fullmoney']" value="1">是<else/>否</eq></td>
+            <td>{$vo['mort_company']}</td>
+            <td>{$vo['loan_money']}</td>
+            <td>{$vo['last_time']}</td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<script>
+    $('#download_data').click(function(){
+        $(this).attr('href',"/Agent/export_lose_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val());
+    })
+</script>
+<include file="Public:footer" />

@@ -1,0 +1,127 @@
+<include file="Public:header" />
+<style>
+#content {
+	width:450px;
+	padding:10px 0;
+	padding-right:20px;
+	font-size:12px;
+	color:#ccc;
+}
+table.table td {
+	color:#666;
+}
+table.table tr.bg {
+	background:#f5f5f5;
+}
+table.table td.value {
+	color:#0081A1;
+}
+table.table td b {
+	color:#0081A1;
+	padding:0 5px;
+}
+input.input {
+	margin:0;
+	padding:0
+}
+</style>
+<div><span>提现订单信息</span></div>
+<div id="content">
+  <table class="table table-bordered table-hover definewidth m10">
+    <tr>
+      <td>用户名</td>
+      <td class="value">{$member['username']}</td>
+    </tr>
+    <tr>
+      <td>手机号码</td>
+      <td class="value">{$member['mobile']}</td>
+    </tr>
+    <tr>
+      <td>手机号码归属</td>
+      <td class="value">{$member['mobile_location']}</td>
+    </tr>
+    <tr>
+      <td>注册时间</td>
+      <td class="value">{$member['timeadd']}</td>
+    </tr>
+    <tr class="bg">
+      <td colspan="2">实名认证信息</td>
+    </tr>
+    <tr>
+      <td>姓名</td>
+      <td><input type="text" class="input" value="{$memberinfo['names']}"/></td>
+    </tr>
+    <tr>
+      <td>开户地</td>
+      <td><input type="text" class="input" value="{$memberinfo['bindBankCity']}"/></td>
+    </tr>
+    <tr>
+      <td>开户行</td>
+      <td><input type="text" class="input" value="{$memberinfo['bindBank']}"/></td>
+    </tr>
+    <tr>
+      <td>开户支行</td>
+      <td><input type="text" class="input" value="{$memberinfo['bindBankSubbranch']}"/></td>
+    </tr>
+    <tr>
+      <td>开户卡号</td>
+      <td><input type="text" class="input" value="{$memberinfo['bindBankNum']}"/></td>
+    </tr>
+    <tr class="bg">
+      <td colspan="2">提现资金来源</td>
+    </tr>
+    <foreach name="moneyList" item="vo">
+      <tr>
+        <td colspan="2"><span>{$vo['name']}</span><b>{$vo['amount']}</b>元，发送提现请求成功后会自动设成已打款.</td>
+      </tr>
+    </foreach>
+    <tr>
+      <td colspan="2">
+
+      <eq name="order['status']" value="0">
+      	<a href="javascript:void(0);" class="btn btn-primary" onclick="return order_hander(1);">通过</a>
+      <else/>
+      	<a href="javascript:void(0);" class="btn">通过</a>
+      </eq>
+
+      <in name="order['status']" value="0,1">
+      	<a href="javascript:void(0);" class="btn btn-success" onclick="return order_hander(2);">拒绝</a>
+      <else/>
+      	<a href="javascript:void(0);" class="btn">拒绝</a>
+      </in>
+
+
+      <in name="order['status']" value="1,5">
+          <a href="javascript:void(0);" class="btn btn-primary" onclick="return order_hander(5);">发请求</a>
+      <else/>
+          <a href="javascript:void(0);" class="btn">发请求</a>
+      </in>
+
+      <if condition="$order['status'] eq 5">
+          <a href="javascript:void(0);" class="btn btn-primary" onclick="return order_hander(3);">已打款</a>
+      <else/>
+          <a href="javascript:void(0);" class="btn">先请求</a>
+      </if>
+
+
+      	<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+      </td>
+    </tr>
+  </table>
+</div>
+<include file="Public:footer" /> 
+<script language="javascript">
+var id = "{:trim($_GET['id'])}";
+var order_hander = function(status){
+	if(!status || !id){
+		return top.jdbox.alert(0,'缺少参数');
+	}
+    //top.jdbox.alert(2);
+	$.post("/Cash/manageCashOutOrder",{'id':id,'status':status},function(result){
+		if(!result.status){
+			return alert(result.info);
+		}
+		return top.jdbox.alert(1,result.info,'window.location.reload()');
+	},'json');
+}
+</script>

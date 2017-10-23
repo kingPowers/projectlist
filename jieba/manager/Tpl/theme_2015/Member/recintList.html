@@ -1,0 +1,89 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m10" action="{:U('Member/recintList')}" method="get">
+    <select name="k" class="short" id="k"><foreach name="key" item="v"><option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option></foreach></select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <select name="recint_k" class="short" id="recint_k"><foreach name="keys" item="recint_v"><option value='{$key}' <?php if($_GET['recint_k']!='' && $_GET['recint_k'] == $key): echo 'selected="selected"'; endif;?>>{$recint_v}</option></foreach></select>&nbsp;
+    <input type="text" name="recint_v" id="recint_v" class="abc input-default" placeholder="" value="{$_GET['recint_v']}">&nbsp;&nbsp;
+
+    <select name="proid" class="short" id="proid">
+        <option value=''>投资项目</option>
+        <foreach name="proids" item="vo">
+            <option value='{$key}' <?php if($_GET['proid']!='' && $_GET['proid'] == $key): echo 'selected="selected"'; endif;?>>{$vo}</option>
+        </foreach>
+    </select>&nbsp;&nbsp;
+    <select name="order_status" class="short" id="order_status">
+        <option value=''>投资状态</option>
+        <foreach name="order_status" item="status" >
+            <option value='{$key}' <?php if($_GET['order_status']!='' && $_GET['order_status'] == $key): echo 'selected="selected"'; endif;?>>{$status}</option>
+        </foreach>
+    </select>&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+
+</form>
+<a id="download_data" class="btn btn-primary">导出推荐数据</a>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>邀请人会员名</th>
+        <th>邀请人手机</th>
+        <th>被邀请人会员名</th>
+        <th>被邀请人手机</th>
+        <th>被邀请人真实姓名</th>
+        <th>申请状态</th>
+        <th>申请时间</th>
+        <th>项目</th>
+        <th>借款时间(月)</th>
+        <th>借款金额</th>
+        <th>提成金额</th>
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['username_p']}</td>
+            <td>{$vo['mobile_p']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['names']}</td>
+            <td>
+                <if condition="$vo['status'] eq 1">
+                    审核中
+                <elseif condition="$vo['status'] eq 2"/>
+                    交易成功
+                <elseif condition="$vo['status'] eq 3"/>
+                    交易失败
+                <else/>
+
+                </if>
+            </td>
+            <td>{$vo['timeadd']}</td>
+            <td>
+                <if condition="$vo['order_type'] eq 1">
+                    车贷宝
+                <elseif condition="$vo['order_type'] eq 2"/>
+                    车租宝
+                </if>
+            </td>
+            <!--<td><a href="javascript:void(0)" onclick="return detail('{$vo['id']}')">查看</a></td>-->
+            <td>{$vo['loanmonth']}</td>
+            <td>{$vo['backtotalmoney']}</td>
+            <td>{$vo['lasttime']}</td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+{$page}
+<script>
+    $(function(){
+        $('#download_data').click(function(){
+            $(this).attr('href',"/Member/export_recint_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&proid="+$('#proid').val()+"&order_status="+$('#order_status').val()+"&recint_k="+$('#recint_k').val()+"&recint_v="+$('#recint_v').val());
+        })
+    })
+</script>
+<include file="Public:footer" />

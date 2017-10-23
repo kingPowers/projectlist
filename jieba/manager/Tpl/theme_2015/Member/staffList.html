@@ -1,0 +1,76 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form class="form-inline definewidth m20" action="{:U('Member/staffList')}" method="get"> 
+    <select name="k" class="short" id="k">
+       <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select> 
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}"> 
+    <button type="submit" class="btn btn-primary">查询</button>
+    <a id="add" class="btn btn-primary">添加员工</a>
+    <a id="statoexcel" class="btn btn-primary">导出员工信息</a>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>员工姓名</th>
+            <th>员工职位</th>
+            <th>身份证号</th>
+            <th>电话</th>
+            <th>贷款最大限额</th>
+            <th>状态</th>
+            <th>离职日期</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <foreach name="insuranceInfo" item="vo" key="k">
+          <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['staff_name']}</td>
+            <td>{$vo['staff_jobs']}</td>
+            <td>{$vo['certiNumber']}</td>
+            <td>{$vo['staff_mobile']}</td>
+            <td>{$vo['maxMoney']}</td>
+            <td>
+                <if condition="$vo['status'] eq 0">
+                    未离职
+                  <else/>
+                    已离职
+                </if>
+            </td>
+            <td>{$vo['leave_time']}</td>
+            <td>
+                <a href="{:U('Member/editStaff',array('id'=>$vo['id']))}"> 编辑 | </a>
+                <a href="javascript:void(0);" class="delete" name="{$vo['id']}"> 删除 </a>
+            </td>
+        </tr>
+       </foreach>
+     </tbody>
+</table>
+{$page}
+<script type="text/javascript">
+$(function(){
+    $('#add').click(function(){
+        $(this).attr('href',"/Member/editStaff.html");
+    })
+    $('a.delete').live('click',function(){
+    	$id = $(this).attr('name');
+        var data={};
+        $(data).attr('mid',$id);
+        $.post('/Member/deleteStaff.html',data,function(F){
+            top.jdbox.alert(F.status,F.info);
+              if(F.status){
+                window.location.reload();
+              }
+            },'json');
+
+    })
+    $('#statoexcel').click(function(){
+        $(this).attr('href',"/Member/export_staffInfo.html?k="+$('#k').val()+"&v="+$('#v').val());
+    })
+})
+</script>
+<include file="Public:footer" />

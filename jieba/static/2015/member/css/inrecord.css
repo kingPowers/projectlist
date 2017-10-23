@@ -1,0 +1,26 @@
+@charset "utf-8";
+.maxDiv{width:100%;height:auto;position: absolute;top: 0%;left: 0%; font-family:'微软雅黑';}
+.headers{width:100%;height:40px;position:fixed;left:0%;top:0%;overflow: hidden;background-color:#5495e6;z-index:101;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+.fhwz{position:absolute;left:8.5%;top:30%;color:white; line-height:100%;}
+.zxwx{position:absolute;left:39.2%;top:30%;color:white;line-height:100%;}
+
+
+.center1{width:100%; height:50px; overflow: hidden;background-color:#efefef;position:fixed;left:0%;top:40px;z-index:100; font-size: 14px;}
+.phone{position:absolute;  left:11.5%; top:45.8%; color:black; line-height:100%;}
+.ideaImg{width:5.3%; height:31.7%; position:absolute;left:3.2%;top:40.8%;}
+
+.center2{width:100%;  height:40px;  overflow: hidden; background-color:#f7f7f7;position:fixed;left:0%;top:90px;z-index:99; font-size: 14px; line-height: 40px;}
+.phone2{position:absolute; left:8.7%;  color:black; line-height:40px;}
+.phone3{position:absolute; left:41%;  color:black; line-height:40px;}
+.phone7{position:absolute; left:74.7%;  color:black; line-height:40px;}
+
+.center3{width:100%; height:8.2%;position:relative;left:0%;top:23.8%; overflow: hidden;background-color:#ffffff;}
+.phone4{position:absolute;text-align:left;width:33.3%; left:4%; top:40%; color:black; line-height:100%;overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;}
+.phone5{position:absolute;text-align:left;width:33.3%;  left:40%; top:40%; color:black;line-height:100%;overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;}
+.phone6{position:absolute;text-align:left; width:28%; left:73%; top:40%; color:black; line-height:100%;overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;}
+.solidImg{width:96.8%; height:3%; position:absolute;left:3.2%;top:98%;}
+
+
+
+

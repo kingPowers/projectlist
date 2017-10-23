@@ -1,0 +1,86 @@
+<include file="Public:header" />
+<style>
+	#content{width:600px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+	.tableleft{min-width: 150px;}
+</style>
+<script type="text/javascript">
+var changeImg = function (fromid,toclass)
+{
+	var file = document.getElementById(fromid)
+    var src = window.URL.createObjectURL(file.files[0]); 
+    $("." + toclass).attr("src",src);   
+}
+$(function () {
+	$("#sub").click(function () {
+		var form_data = new FormData($("#billForm")[0]);
+		form_data.append("is_upload",1);
+		//console.log(form_data);//return false;
+		$.ajax({
+			url:"{:U('/Carinsurance/guarantee')}",
+			type:'post',
+			data:form_data,
+			cache:false,
+			async:false,
+			dataType:'json',
+			contentType:false,
+			processData:false,
+			success:function (F) {
+				//console.log(F);
+				if (F.status) {
+					parent.window.reload();
+					return top.jdbox.alert(1,F.info);
+				} else {
+					alert(F.info);
+				}
+			},
+			error:function (F) {
+				//console.log(F);
+				alert(F.responseText);
+			}
+		})
+	})
+})
+</script>
+<div><span>上传保单：</span></div>
+<div id="content">
+	<form id="billForm">
+	<input type="hidden" name="orderid" value="{$_GET['id']}">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td valign="middle" align="center" class='tableleft'>选择强制险保单图片：</td>
+			<td class="value" align="center" valign="middle"><input type="file" onchange="changeImg('force_bill_pic','display_force_pic')" name="force_bill_pic" id="force_bill_pic"></td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center" class='tableleft'>强制险保单编号：</td>
+			<td class="value" align="center" valign="middle"><input type="text" name="force_bill_sn" ></td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center" class='tableleft'>强制险保单预览：</td>
+			<td valign="middle" align="center" style="height: 120px;max-width: 200px;">
+				<img src="{$info['force_bill_pic']}" class="display_force_pic" style="max-width: 200px;max-height: 100px;">
+			</td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center" class='tableleft'>选择商业险保单图片：</td>
+			<td class="value" align="center" valign="middle"><input type="file" onchange="changeImg('business_bill_pic','display_business_pic')" name="business_bill_pic" id="business_bill_pic"></td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center" class='tableleft'>商业险保单编号：</td>
+			<td class="value" align="center" valign="middle"><input type="text" name="business_bill_sn"></td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center" class='tableleft'>商业险保单预览：</td>
+			<td valign="middle" align="center" style="height: 120px;">
+				<img src="{$info['business_bill_pic']}" class="display_business_pic" style="max-width: 200px;max-height: 100px;">
+			</td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center" colspan="2"><a style="margin: 0 20px 0 120px;"  class="btn btn-success" id="sub">上传</a><input type="button" name="" class="btn btn-error" onclick="javascript:return top.jdbox.close();" value="取消"></td>
+		</tr>
+	</table>
+	</form>
+</div>
+
+<include file="Public:footer" />

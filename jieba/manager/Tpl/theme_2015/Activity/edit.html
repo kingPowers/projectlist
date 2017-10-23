@@ -1,0 +1,87 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<style type="text/css">
+.banner_img{max-width: 200px;}
+</style>
+<script type="text/javascript">
+$(function(){
+	$("#save").click(function () {
+		var check_input = ['title','keyword','percent','starttime','endtime'];
+		for (var i = 0;i < check_input.length;i ++) {
+			if ($("input[name='" + check_input[i] + "']").val() == '') {
+				return top.jdbox.alert(0,$("input[name='" + check_input[i] + "']").attr('remind') + "不能为空");
+			}
+		}
+		var formData = new FormData($( "#editForm" )[0]);
+		formData.append('is_save','1');
+         $.ajax({  
+              url: '/Activity/activityEdit' ,  
+              type: 'POST',  
+              data: formData,
+              dataType:'json',   
+              async: false,  
+              cache: false,  
+              contentType: false,  
+              processData: false,  
+              success: function (F) { 
+              	top.jdbox.alert(F.status,F.info);
+              	if (F.status) {
+              		window.location.href = "/Activity/proActivity";
+              	}
+              },  
+              error: function (F) {  
+              }  
+        });  
+	})
+	$("input[name='banner']").change(function(event){
+            var file=document.getElementById("banner")
+                var src = window.URL.createObjectURL(file.files[0]);                                    
+                $(".banner_img").attr("src",src);
+                //window.URL.revokeObjectURL(src);
+        });              
+})
+</script>
+<form id='editForm' class="definewidth m20">
+<table class="table table-bordered table-hover m10">
+    <tr>
+      <td width="10%" class="tableleft">活动名称：</td>
+      <td><input type="text" name="title" remind="活动名称" jscheckrule="null=0" value="{$info['title']}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">关键字：</td>
+      <td><input type="text" name="keyword" remind="关键字" jscheckrule="null=0" value="{$info['keyword']}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">提额百分比：</td>
+      <td><input type="text" name="percent" remind="提额百分比" jscheckrule="null=0" value="{$info['pro_percent']}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">banner:</td>
+      <td><input type="file" name="banner" id="banner"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">banner预览：</td>
+      <td><img class="banner_img" <notempty name="info['banner_url']"> src="_STATIC_/Upload/activity/{$info['banner_url']}"</notempty>></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">开始时间：</td>
+      <td><input type="text" name="starttime" remind="开始时间" jscheckrule="null=0" value="{$info['starttime']}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">截止时间：</td>
+      <td><input type="text" name="endtime" remind="截止时间" jscheckrule="null=0" value="{$info['endtime']}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">活动状态：</td>
+      <td><label><input type="radio" name="status" value="1" <eq name="info['status']" value='1'>checked=""</eq>>启用</label><label><input type="radio" name="status" value="0" <eq name="info['status']" value='0'>checked=""</eq>>禁用</label></td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td>
+      <input type="hidden" name="aid" value="{$_GET['aid']}">
+      <button class="btn btn-primary" type="button" id="save"> 保存 </button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+</table>
+</form>
+<include file="Public:footer" />

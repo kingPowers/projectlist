@@ -1,0 +1,38 @@
+.tt{
+	animation:  tt 1s linear both infinite;
+	-webkit-animation:  tt 1s linear both infinite;
+}
+@keyframes  tt{
+	0%{transform: translate3d(0,0%,0);}
+	25%{transform: translate3d(0,-20%,0);}
+	50%{transform: translate3d(0,0%,0);}
+	75%{transform: translate3d(0,-10%,0);}
+	100%{transform: translate3d(0,0%,0);}
+}
+@-webkit-keyframes  tt{
+	0%{-webkit-transform: translate3d(0,0%,0);}
+	25%{-webkit-transform: translate3d(0,-20%,0);}
+	50%{-webkit-transform: translate3d(0,0%,0);}
+	75%{-webkit-transform: translate3d(0,-10%,0);}
+	100%{-webkit-transform: translate3d(0,0%,0);}
+}
+
+.in{
+	transition: opacity 1.2s;
+	animation-timing-function: linear;
+	animation-fill-mode:both;
+
+	-webkit-transition: opacity 1.2s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode:both;
+}
+
+.out{
+	transition: opacity 1s;
+	animation-timing-function: linear;
+	animation-fill-mode:both;
+
+	-webkit-transition: opacity 1s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode:both;
+}

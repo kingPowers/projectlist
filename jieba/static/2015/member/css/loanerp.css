@@ -1,0 +1,24 @@
+@charset "utf-8";
+body,div,img,input{margin:0 auto;padding: 0;}
+body{text-align: center;}
+input:focus {outline:none;}
+input:focus {color:black;}
+input{color:#dbdbdb;}
+
+.headers{width:100%;height:6.8%;position:fixed;left:0;top:0;background-color:#5495e6;z-index: 10;}
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+.headers .fhwz{width:auto;height:auto;position:absolute;left:8.5%;top:33%;color:white;}
+.headers .zxwx{width:auto;height:auto;position:absolute;left:41.7%;top:34%;color:white;}
+.hqwx{width:auto;height:auto;position:absolute;left:78%;top:34%;color:white;}
+
+.centerDiv{width:100%;height:70%;position:absolute;top:8%;left:0%;background-color:#fff;}
+.wordDiv{width:100%;height:10.8%;position: relative;}
+.leftwordsDiv{width:35%;height:auto;top:0%;position:absolute;left:3%;line-height:280%;text-align:left;}
+.rightwordsDiv{width:58%;height:auto;position:absolute;top:0%;left:42%;line-height:280%;text-align:left;overflow:hidden;text-overflow:ellipsis; -o-text-overflow:ellipsis;white-space:nowrap;}
+
+.secondDiv{width:100%;height:100%;background:#777777;position:absolute;z-index:1000;opacity:0.3;display: none;}
+.borderImg{width:100%;height:100%;postion:absolute;top:0%;left:0%;z-index:10001;}
+.thirdDiv{width:72.5%;height:21%;position:absolute;z-index:10001;top:32.5%;left:14.5%;display: none;}
+.info{width:100%;height:auto;position:absolute;top:30%;z-index:10003;text-align:center;font-weight:bold;}
+.surebtn{position:absolute;left:0%;top:63.6%;width:100%;height:36%;background:none;border:none;color:#007aff;border-top:1px solid #cacace;font-weight:bold;text-align:center;}
+

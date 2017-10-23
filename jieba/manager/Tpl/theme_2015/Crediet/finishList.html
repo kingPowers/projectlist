@@ -1,0 +1,101 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="/Crediet/finishList/is_staff/{$_REQUEST['is_staff']}" method="get">
+    <if condition="$status neq '' ">
+        <input type="hidden" name="menu" value="1" id="menu">
+    <else/>
+        <input type="hidden" name="menu" value="0" id="menu">
+    </if>
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <if condition="$status neq '' ">
+        <select name="order_status" class="short" id="order_status">
+            <option value=''>状态</option>
+            <foreach name="status" item="sta" >
+                <option value='{$key}' <?php if($_GET['order_status']!='' && $_GET['order_status'] == $key): echo 'selected="selected"'; endif;?>>{$sta}</option>
+            </foreach>
+        </select>
+    <else/>
+        <input type="hidden" id="order_status" value=" ">
+    </if>
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+    <a id="download_data" class="btn btn-primary">导出成单列表数据</a>
+    <br/>
+    <span>放款总人数：{$total['total_num']}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>放款总金额：{$total['total_money']}</span>
+</form>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>门店</th>
+        <th>手机号码</th>
+        <th>真实姓名</th>
+        <th>身份证号</th>
+        <th>贷款金额</th>
+        <th>提额详情</th>
+        <th>利息</th>
+        <th>手续费</th>
+        <th>平台管理费</th>
+        <th>总额</th>
+        <th>放款金额</th>
+        <th>每期还款</th>
+        <th>积分</th>
+        <if condition="$status neq '' ">
+            <th>滞纳金</th>
+            <th>还款状态</th>
+            <th>还款时间</th>
+        <else/>
+            <th>成单时间</th>
+        </if>
+
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['department']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['certiNumber']}</td>
+            <td>{$vo['backtotalmoney']}</td>
+            <td>{$vo['activityName']}</td>
+            <td>{$vo['ratemoney']}</td>
+            <td>{$vo['fee']}</td>
+            <td>{$vo['plat_fee']}</td>
+            <td>{$vo['backtotalmoney']+$vo['ratemoney']+$vo['fee']+$vo['late_fee']+$vo['plat_fee']}</td>
+            <td>{$vo['pay_money']}</td>
+            <td>{$vo['p']}</td>
+            <td><empty name="vo['score']">0<else />{$vo['score']}</empty></td>
+            <if condition="$status neq '' ">
+                <td>{$vo['late_fee']}</td>
+                <td>
+                    <if condition="$vo['return_status'] eq 0">
+                        未还款
+                        <else/>
+                        已还款
+                    </if>
+                </td>
+                <td>{$vo['back_real_time']}</td>
+            <else/>
+                <td>{$vo['pay_time']}</td>
+            </if>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<include file="Public:footer" />
+<script>
+    $('#download_data').click(function(){
+        $(this).attr('href',"/Crediet/export_finish_list.html?is_staff={$_REQUEST['is_staff']}&k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&order_status="+$('#order_status').val()+"&menu="+$('#menu').val());
+    })
+</script>

@@ -1,0 +1,44 @@
+.bodysDiv{height:auto;}
+.bannerDiv{width:100%;height:664px;}
+.bannerImg{width:100%;height:664px;}
+.maxCenterDiv{width:100%;height:auto;}
+.stepOneDiv{width:100%;height:1000px;background:#eff0f2}
+.step1TopDiv{width:1100px;height:300px;margin:0 auto;}
+.s1Img{width:176px;height:190px;float:left;}
+.s1bdImg{width:712px;height:147px;margin-top:88px;margin-left:15px;}
+.step1ButDiv{width:1100px;height:700px;margin:0 auto;}
+.s1ClsImg{width:1028px;height:700px;}
+.stepTwoDiv{width:100%;height:1000px;}
+.step2TopDiv{width:1100px;height:300px;margin:0 auto;}
+.s2bdImg{width:712px;height:106px;margin-top:110px;margin-left:180px;}
+.s2Img{float:right;width:177px;height:191px;}
+.step1ButDiv{height:700px;}
+.s2nrImg{width:1055px;height:685px;}
+.stepThreeDiv{width:100%;height:1000px;background: #fdfaeb;}
+.step3TopDiv{width:1100px;margin:0 auto;height:300px;}
+.step3ButDiv{width:1100px;height:700px;margin:0 auto;}
+.s3Img{width:176px;height:190px;float:left;}
+.s3bdImg{width:712px;height:147px;margin-top:88px;margin-left:15px;}
+.stepFourDiv{width:100%;height:1900px;}
+.step4CenterDiv{width:1100px;height:1900px;margin: 0 auto;}
+.step4-1TopDiv{width:1100px;height:300px;}
+.s4bdImg{width:712px;height:106px;margin-top:110px;margin-left:180px;}
+.s4Img{float:right;width:177px;height:191px;}
+.step4-1ButDiv{width:1100px;height:700px;}
+.step4-2TopDiv{width:820px;height:180px;}
+.s42bdImg{width:466px;;height:78px;float:right;margin-top:50px;}
+.step4-2ButDiv{width:1100px;height:700px;}
+.s4-2Img{width:1034px;height:685px;}
+.stepFiveDiv{width:100%;background: #eff0f2;}
+.step5TopDiv{width:1100px;margin: 0 auto;height:300px;}
+.s5Img{width:176px;height:190px;float:left;}
+.s5bdImg{width:712px;height:106px;margin-top:120px;margin-left:15px;}
+.step5ButDiv{width:1034px;height:733px;margin: 0 auto;}
+.stepSixDiv{width:1100px;margin:0 auto;}
+.step6TopDiv{width:1100px;height:300px;}
+.s6bdImg{width:712px;height:106px;margin-top:110px;margin-left:180px;}
+.s6Img{float:right;width:177px;height:191px;}
+.step6ButDiv{width:1100px;height:700px;margin:0 auto;}
+.zcAnDiv{width:710px;height:200px;margin:0 auto;}
+.registImg{width:708px;height:147px;margin-top:20px;cursor:pointer;} 
+.zcDiv{background:#eef0f1;width:100%;height:187px;}

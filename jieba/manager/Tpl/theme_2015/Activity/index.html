@@ -1,0 +1,109 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m10 sup_form" action="{:U('Activity/index')}" method="get">
+    <select name="k" class="short"><foreach name="keys" item="v"><option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option></foreach></select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+   
+    <button type="button" class="btn btn-primary sup_submit">查询</button>
+    <a id="suptoexcel" class="btn btn-primary">导出Excel</a>
+	<a onclick="add_quan();" class="btn btn-primary">添加</a>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+		<thead>
+			<tr>
+			<foreach name='list.column' item='_column'>
+					<th>{$_column.1}</th>
+			</foreach>
+			<th>操作</th>
+			</tr>
+	    </thead>
+	    <?php
+	    	if(count($list['data'])<1){
+				echo "<tr><td colspan='".count($list['column'])."' style='text-align:center;'>暂无活动券</td></tr>";
+			}	
+	     ?>
+    <tbody>
+    <foreach name="list.data" item="vo">
+        <tr>
+        	<foreach name='list.column' key='_k' item='_column'>
+        		<neq name='_column.1' value='0'>
+					
+        			<neq name='_column[0]' value='status_name'>
+        				<td>{$vo[$_column[0]]}</td>
+						<else/>
+						<td>
+							<eq name='vo[$_column[0]]' value='已过期'>
+								{$vo[$_column[0]]}
+								<else/>
+								<select name="status_name" nid="{$vo['id']}" class="short_status" style='width:80px;'>
+									<option value="0"<eq name="vo[$_column[0]]" value="未使用">selected="selected"</eq>>未使用</option>
+									<option value="1"<eq name="vo[$_column[0]]" value="已使用">selected="selected"</eq>>已使用</option>
+								</select>
+							</eq>
+							
+						</td>
+						<td><a href="{:U('Activity/edit_activity',array('id'=>$vo['id']))}"> 编辑 | </a>
+                        <a href="javascript:void(0);" class="delete" name="{$vo['id']}"> 删除 </a></td>
+        			</neq>
+        		</neq>
+        	</foreach>
+            
+            	
+            	
+            	
+			
+        </tr>
+     </foreach>
+     </tbody>
+	
+	
+	
+</table>
+{$page}
+<script language="javascript">
+ $('a.delete').live('click',function(){
+     $s = confirm('确定将此记录删除?');
+    	  if($s){
+            $id = $(this).attr('name');
+            var data={};
+            $(data).attr('aid',$id);
+            $.post('/Activity/delete_activity.html',data,function(F){
+               top.jdbox.alert(F.status,F.info);
+                 if(F.status){
+                   window.location.reload();
+                 }
+               },'json');
+           }else{
+              return false;
+           }
+ })
+
+var add_quan = function()
+{
+	var url = "{:U('Activity/add_quan')}";
+	top.jdbox.iframe(url);
+}
+
+$("select[name='status_name']").change(function(){
+        var data = {};
+        $(data).attr('id',$(this).attr('nid'));
+        $(data).attr('status',$(this).val());
+        $.post('/Activity/changeStatus.html',data,function(F){
+            return top.jdbox.alert(F.status,F.info);
+        },'json');
+    });
+//查询
+$('.sup_submit').click(function(){
+	$('.sup_form').submit();
+});
+//导出Excel
+$('#suptoexcel').click(function(){
+    $('.sup_form').attr('action',"/Activity/export_index_info/").submit();
+})
+</script>
+<include file="Public:footer" />

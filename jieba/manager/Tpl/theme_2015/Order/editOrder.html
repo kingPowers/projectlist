@@ -1,0 +1,134 @@
+<include file="Public:header" />
+<style>
+	#content{width:520px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+	table.table input.middle{float:left;width:180px;}
+	table.table input.short{float:left;width:60px;}
+	table.table a.small,table.table .modify_bank_btn{padding:1px 12px;margin-left:5px;}
+</style>
+<div><span>修改订单</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<in name='_SESSION["user"]["groupid"]' value='$config.allow_role_edit'>
+			<!-- 是否允许编辑 -->
+			<eq name='is_allow_edit' value='1'>
+				<!-- 是否首单 -->
+				<eq name='is_first' value='1'>
+					<tr>
+						<td>客户真实姓名</td>
+						<td class="value"><input type="text" value="{$order_info.names}" class="middle" name="names"/></td>
+					</tr>
+					<tr>
+						<td>客户身份证号</td>
+						<td class="value"><input type="text" value="{$order_info.certiNumber}" class="middle" name="certiNumber"/></td>
+					</tr>
+					<else/>
+					<td colspan="2">
+						非首单，不能更改姓名、身份证号！						
+					</td>
+					<tr>
+						<td>客户真实姓名</td>
+						<td class="value">{$order_info.names}</td>
+					</tr>
+					<tr>
+						<td>客户身份证号</td>
+						<td class="value">{$order_info.certiNumber}</td>
+					</tr>
+				</eq>
+				
+				<tr>
+					<td>合同编号</td>
+					<td class="value"><input type="text" value="{$order_info.applyCode}" class="middle" name="applyCode"/></td>
+				</tr>
+				<eq name='order_info.order_type' value='2'>
+					<tr>
+						<td>实际贷款金额</td>
+						<td class="value"><input type="text" value="<notempty name='order_info.backtotalmoney'>{$order_info.backtotalmoney}<else/>{$order_info.loanmoney}</notempty>" class="middle" name="backtotalmoney"/>元</td>
+					</tr>
+				</eq>
+				<tr>
+					<td colspan="2">
+						<a href="javascript:void(0);" class="btn" onclick="_process_edit();">提交</a>
+						<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+					</td>
+				</tr>
+			<else/>
+				<tr>
+					<td colspan="2">
+						<eq name='allow_edit_num' value='1'>
+							<?php $days = $is_first==1?$config['first_max_days']:$config['other_max_days'];  ?>
+								您订单处理时间已超过{$days}天，不可再修改订单！
+							<else/>
+								您已修改过订单，不可再次修改！ 
+						</eq> 
+						
+					</td>
+				</tr>
+				<tr>
+					<td>客户真实姓名</td>
+					<td class="value">{$order_info.names}</td>
+				</tr>
+				<tr>
+					<td>客户身份证号</td>
+					<td class="value">{$order_info.certiNumber}</td>
+				</tr>
+				<tr>
+					<td>合同编号</td>
+					<td class="value">{$order_info.applyCode}</td>
+				</tr>
+				<eq name='order_info.order_type' value='2'>
+				<tr>
+					<td>实际贷款金额</td>
+					<td class="value"><notempty name='order_info.backtotalmoney'>{$order_info.backtotalmoney}<else/>{$order_info.loanmoney}</notempty>元</td>
+				</tr>
+				</eq>
+				<tr>
+					<td colspan="2">
+						<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+					</td>
+				</tr>
+			</eq>
+			
+			<else/>
+				<tr>
+					<td colspan="2">
+						对不起，您没有权限修改！
+					</td>
+				</tr>
+		</in>
+	</table>
+</div>
+<script language="javascript">
+var order_id = "{$_REQUEST['id']}";
+//修改订单
+var _process_edit = function(){
+	var data = {};
+	if(order_id=='')alert("订单编号为空");
+	
+	$(data).attr('order_id',order_id);
+	$(data).attr('names',$("input[name='names']").val());
+	$(data).attr('certiNumber',$("input[name='certiNumber']").val());
+	$(data).attr('applyCode',$("input[name='applyCode']").val());
+	$(data).attr('backtotalmoney',$("input[name='backtotalmoney']").val());
+	
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/editOrder",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+</script>
+<include file="Public:footer" />

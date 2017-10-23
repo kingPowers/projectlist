@@ -1,0 +1,123 @@
+<include file="Public:header" />
+<style type="text/css">
+    input[type='text']{width:300px;}
+    textarea{width:700px;height:80px;}
+    #content{height:500px;}
+</style>
+<form id='newsForm' class="definewidth m20">
+</form>
+<table class="table table-bordered table-hover m10">
+    <tr>
+        <td class="tableleft">标题</td>
+        <td><input type="text" name="title" value="{$news['title']}"/></td>
+    </tr>
+    <tr>
+        <td width="10%" class="tableleft">分类</td>
+        <td>
+            <select name="cateid" id="cateid">
+                <option value=''>消息分类</option>
+                <foreach name="cate" item="v">
+                    <option value="{$v['code']}" <?php if($_GET['cateid']!='' && $_GET['cateid'] == $v['code']): echo 'selected="selected"'; endif;?>>{$v['name']}</option>
+                </foreach>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">关键字 (活动主题)</td>
+        <td>
+            <textarea name="keywords">{$news['keywords']}</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">描述 (活动简要)</td>
+        <td>
+            <textarea name="summary">{$news['summary']}</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">排序</td>
+        <td>
+            <input type="text" name="sort" value="{$news['sort']}" /> （<span style="color:#A90000;">为数字，按从大到小排序</span>）
+        </td>
+    </tr>
+    <tr>
+        <td class="tableleft">内容</td>
+        <td><textarea name="content" id="content" style="width:845px;">{$news['content']}</textarea></td>
+    </tr>
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button class="btn btn-primary" type="button"> 保存 </button>
+            <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+</table>
+
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/public.js"></script>
+
+
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<!--编辑器-->
+<link rel="stylesheet" href="_STATIC_/2015/js/editor/themes/default/default.css" />
+<link rel="stylesheet" href="_STATIC_/2015/js/editor/plugins/code/prettify.css" />
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/kindeditor.js"></script>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/plugins/code/prettify.js"></script>
+
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+<script language="javascript">
+    var id = "<?php echo $news['id']; ?>",cateid = "<?php echo $news['cateid']; ?>";
+    var editor;
+    KindEditor.ready(function(K) {
+        var options = {
+            uploadJson : OS+'/Public/imageUpload.html',
+            allowFileManager : false
+        };
+        editor = K.create('#content', options);
+    });
+    $(function(){
+        if(cateid > 0){
+            $("select[name='cateid']").find('option').each(function(i,n){
+                if($(this).attr('value') == cateid){
+                    $(this).attr('selected','selected');
+                }
+            })
+        }
+        $('button.btn-primary').click(function(){
+            var data={};
+            $(data).attr('id',id);
+            $(data).attr('title',$("input[name='title']").val());
+            $(data).attr('code',$("input[name='code']").val());
+            $(data).attr('sort',$("input[name='sort']").val());
+            $(data).attr('cateid',$("select[name='cateid']").val());
+            $(data).attr('keywords',$("textarea[name='keywords']").val());
+            $(data).attr('summary',$("textarea[name='summary']").val());
+            $(data).attr('content',encodeURIComponent(editor.html()));
+            if(!$(data).attr('title')){
+                return top.jdbox.alert(0,'请输入标题');
+            }
+            if(!$(data).attr('keywords')){
+                return top.jdbox.alert(0,'请输入关键字');
+            }
+            if(!$(data).attr('summary')){
+                return top.jdbox.alert(0,'请输入描述');
+            }
+            if(!$(data).attr('content')){
+                return top.jdbox.alert(0,'请输入内容');
+            }
+            top.jdbox.alert(2);
+            $.post('/Cms/saveSystem.html',data,function(F){
+                if(!F.status){
+                    top.jdbox.alert(0,F.info);
+                    return;
+                }
+                top.jdbox.alert(1,'操作成功');
+                window.location.href = '/Cms/system/id/'+F.info+'.html';
+            },'json');
+        });
+        $('button#backid').click(function(){
+            window.location.href= "{:U('Cms/system')}";
+        })
+    })
+</script>
+<include file="Public:footer" />

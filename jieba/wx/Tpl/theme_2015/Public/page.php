@@ -1,0 +1,34 @@
+<div class="ui-pagination">
+    <ul class="ui-pagination-container">
+    <?php
+        
+        $first = $page_vars['no']> 1 ? '<li><a href="' . str_replace('*', 1, $page_url) . '">首页</a></li>' : '<li class="disabled"><a href="javascript:;" class="ng-binding">首页</a></li>';
+        $prev = $page_vars['no'] > 1 ? '<li><a href="' . str_replace('*', $page_vars['no'] - 1, $page_url) . '">上一页</a></li>' : '<li class="disabled"><a href="javascript:;" class="ng-binding">上一页</a></li>';
+        
+        $left = '';
+        $now = '';
+        $right = '';
+        
+        if ($page_vars['no'] < 4) {
+            for ($i = 1; $i < 4; $i++) {
+                if ($i <= $page_vars['total']) {
+                    $left.= $page_vars['no'] != $i ? '<li><a href="' . str_replace('*', $i, $page_url) . '">' . $i . '</a></li>' : '<li class="active"><a href="javascript:;" class="ng-binding">' . $i . '</a></li>';
+                }
+            }
+            if ($page_vars['total'] > 4) {
+                $right = '<li class="disabled"><a href="javascript:;" class="ng-binding">---</a></li>';
+            }
+        } else {
+            $left = '<li><a href="' . str_replace('*', $page_vars['no'] - 1, $page_url) . '">' . ($page_vars['no'] - 1) . '</a></li>';
+            $now = '<li class="active"><a href="javascript:;" class="ng-binding">' . $page_vars['no'] . '</a></li>';
+            $right = $page_vars['no'] + 1 < $page_vars['total'] ? '<li><a href="' . str_replace('*', $page_vars['no'] + 1, $page_url) . '">' . ($page_vars['no'] + 1) . '</a></li><li class="disabled"><a href="javascript:;" class="ng-binding">---</a></li>' : '';
+        }
+
+        $next = $page_vars['no'] < $page_vars['total'] ? '<li><a href="' . str_replace('*', $page_vars['no'] + 1, $page_url) . '">下一页</a></li>' : '<li class="disabled"><a href="javascript:;" class="ng-binding">下一页</a></li>';
+        $last = ($page_vars['no'] < $page_vars['total']) ? '<li><a href="' . str_replace('*', $page_vars['total'], $page_url) . '">尾页</a></li>' : '<li class="disabled"><a href="javascript:;" class="ng-binding">尾页</a></li>';
+        
+        echo $first . $prev . $left . $now . $right . $next . $last;
+    ?>
+    </ul>
+</div>
+{__NOLAYOUT__}

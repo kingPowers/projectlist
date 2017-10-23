@@ -1,0 +1,28 @@
+@charset "utf-8";
+.maxDiv{width:100%;height:100%; bgcolor:#efefef}
+.headers{width:100%;height:6.8%;position:relative;left:0%;top:0%;overflow: hidden;background-color:#5495e6;}
+
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+
+.fhwz{position:absolute;left:8.5%;top:30%;color:white; font-family:??;line-height:100%;}
+.zxwx{position:absolute;left:41.3%;top:30%;color:white; font-family:??;line-height:100%;}
+
+.centerDiv{width:100%; height:40.2%; position:relative;top:0%;left:0%; overflow: hidden;background-color:#efefef}
+
+
+.center1{width:93.6%;height:45.4%;overflow: hidden;background-color:#efefef; position:absolute;left:3.2%;top:3.8%;bottom:0%;}
+
+
+/*.message{width:93.6%;height:49.2%;overflow:hidden;background-color:#ffffff;color:#c2c2c2; text-indent:0.5em;position:absolute;left:3.2%;top:5.5%;text-align:left;}*/
+
+
+
+.message2{width:92.6%;height:16.5%;overflow:hidden;background-color:#ffffff;color:#c2c2c2; text-indent:0.5em;position:absolute;left:3.2%;top:44.2%;text-align:left;}
+.view_submit{width:100%;height:100%;overflow: hidden;background-color:#efefef; position:absolute;left:0%;top:0%;}
+.center3{width:100%;height:30.4%;overflow: hidden;background-color:#efefef; position:absolute;left:0%;top:70.4%;}
+.iconImg{width:93.6%; height:58.9%; position:absolute;left:3.2%;top:0%;}
+.font1{position:absolute;left:15.6%;top:76.6%;color:black; font-family:??;line-height:100%;}
+.font2{position:absolute;left:57.3%;top:76.6%;color:#63abe8; font-family:??;line-height:100%;}
+
+
+

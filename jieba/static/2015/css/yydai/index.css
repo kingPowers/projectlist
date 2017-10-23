@@ -1,0 +1,127 @@
+﻿.bgf{background: #fff;}
+.get_money{width: 94%; position: absolute; background: #63abe8; border-radius: 5px; text-align: center; letter-spacing: 1px; font-size: 18px; display: block; height: 40px; line-height: 40px; left: 50%; margin: 25% 0 0 -47%; color: #fff; border:0; -webkit-appearance:none;  font-family:'微软雅黑';}
+.get_sh{width: 94%; position: absolute; background: #ccc; border-radius: 5px; text-align: center; letter-spacing: 1px; font-size: 18px; display: block; height: 40px; line-height: 40px; left: 50%; margin: 25% 0 0 -47%; color: #fff; border:0; -webkit-appearance:none;  font-family:'微软雅黑';}
+.bottom_question{width: 40%; position: absolute; border-radius: 5%; left: 50%; margin-left: -20%; text-align: center; bottom: 2%; font-size: 14px; color: #666;}
+.bottom_question a{color: #5495e6;}
+/*apply*/
+.commend_div{position: relative; margin-top: 40px; background: #fff; overflow: hidden;}
+.commend_div .table{width: 96%; float: right; overflow: hidden;}
+.commend_div .table .tr{width: 100%; border-bottom: 1px #ddd solid; height: 50px; line-height: 50px;}
+.commend_div .table .tr font{ display: inline-block;}
+.commend_div .table .tr span{float: right; margin-right: 4%; color: #afafaf;}
+.commend_div .table .tr span b{color: #5397ea; font-weight: normal; display: inline-block; font-size: 24px; position:absolute; right: 10%;}
+.commend_div .table .tr span h2{color: #5397ea;  font-size: 16px;}
+.text_money{width: 48%; float: right; border:0; outline: none; font-size: 14px; display: inline-block; line-height: 50px; text-align: right; margin-right: 4%;}
+.w94{width: 94%; margin:0 auto; padding: 15px 0;font-size: 14px; color:#afafaf;}
+.w94 a{color: #5397ea;}
+.w94 p{text-align: center; color: #b4b4b4;}
+.w94 font{color: #63abe8;}
+.btn_sub{width: 94%; position: absolute; background: #63abe8; border-radius: 5px; text-align: center; letter-spacing: 1px; font-size: 18px; display: block; height: 40px; line-height: 40px; left: 50%; margin: 0 0 0 -47%; color: #fff; border:0; -webkit-appearance:none;  font-family:'微软雅黑';}
+
+/*orderlist*/
+.mui-table-view{ position:relative; background:#fff; margin-top: 40px; }  
+.mui-table-view-cell{ color: #4c4c4c; position:relative; border-bottom:1px #e3e3e3 solid; padding:15px 10px; background:url(../../member/image/account/right.jpg) no-repeat center right; background-origin:content-box; background-size: 10px 15px;}
+.mui-table-view-cell1{ color: #4c4c4c; position:relative; border-bottom:1px #e3e3e3 solid; padding:15px 10px;}
+.mui-table-view-cell1 font{ color: #4c4c4c;  display: inline-block; width: 100%}
+.mui-table-view-cell1 span{ font-size: 14px; color: #b7b7b7; position: absolute; right: 8%; margin-top: -10px;}
+.mui-table-view-cell1 p{font-size: 12px; color: #afafaf; display: inline-block;}
+.mui-table-view-cell font{ color: #4c4c4c;  display: inline-block; width: 100%}
+.mui-table-view-cell span{ font-size: 14px; color: #b7b7b7; position: absolute; right: 8%; margin-top: -10px;}
+.mui-table-view-cell p{font-size: 12px; color: #afafaf; display: inline-block;}
+.mui-table-view-no{ position:relative; border-bottom:1px #e3e3e3 solid; padding:15px 10px;}
+.mui-table-view-no font{ color: #4c4c4c;  display: inline-block; width: 100%}
+.mui-table-view-no span{font-size: 14px; color: #b7b7b7; position: absolute; right: 8%; margin-top: -10px;}
+.mui-table-view-no p{font-size: 12px; color: #afafaf; display: inline-block;}
+
+/*realname*/
+.mui-list-li{ position:relative;  padding:15px 10px; overflow: hidden;}
+.mui-list-li font{ color: #4c4c4c;  display: inline-block; width: 30%;}
+.mui-list-li input{ border:0; outline: none; font-size: 14px; display: inline-block; text-align: left; }
+.mui-list-li span{width: 60%; color: #a5a5a5; font-size: 14px;}	
+
+/*bindfuyou*/
+.input_yzm{width: 40%;border:0; outline: none; border-radius: 5px; display: inline-block; height: 40px; text-align: center;}
+.btn_yzm{margin-left: 2%; width: 30%; background: #63abe8; border-radius: 5px; text-align: center; letter-spacing: 1px; font-size: 14px; display: inline-block; height: 30px; line-height: 30px;color: #fff; border:0; -webkit-appearance:none;  font-family:'微软雅黑';}
+.input_yzmb{width: 56%;border:0; outline: none; border-radius: 5px; display: inline-block; height: 40px; text-align: center;}
+.btn_yzmb{margin-left: 4%; width: 40%; background: #63abe8; border-radius: 5px; text-align: center; letter-spacing: 1px; font-size: 14px; display: inline-block; height: 40px; line-height: 40px;color: #fff; border:0; -webkit-appearance:none;  font-family:'微软雅黑';}
+.btn_div{width:100%; top:10px; position:relative; overflow: hidden;}
+
+/*apply_success*/
+.con_success{width: 100%; text-align: center; overflow: hidden; padding-bottom: 6%;}
+.con_success img{width:20%; margin:10% auto 2%;}
+.con_success p{color: #5495e6; font-size: 18px;}
+.con_success h2{font-weight: normal; font-size: 24px; letter-spacing: 2px;}
+.con_success span{font-size: 14px; color: #b4b4b4;}
+
+/*repayment*/
+.mui-repay-view{ position:relative; background:#fff; margin-top: 50px;}  
+.mui-repay-view-cell{ position:relative; border-bottom:1px #e3e3e3 solid; padding:15px 10px;color: #5495e6; display: block;}
+.mui-repay-view-cell font{color: #4c4c4c;  display: inline-block; width: 45%;}
+.mui-repay-view-cell span{color: #5495e6;}
+.mui-repay-view-cell b{color: #4c4c4c; margin-left: 1%; font-weight: normal;}
+.mui-gray-view-cell{ position:relative;  padding:5px 10px; color: #a5a5a5; font-size:14px;}
+.mui-yzm-div{position:relative; background:#fff; margin-top: 10px; display: -webkit-box;}
+.mui-yzm-view-cell{ position:relative; border-bottom:1px #e3e3e3 solid; padding:5px 10px; color: #5495e6; display: block;}
+.text_yzm{ color:#4c4c4c; width: 24%; display: inline-block;}
+
+/*oraderlistdetail*/
+.forder_div{width: 70%; margin: 5% auto; text-align: center; line-height: 40px;}
+.forder_div b{font-weight:normal; font-size: 18px; width: 100%; display: block;}
+.forder_div h2{font-weight:normal; color: #4e96e8; font-size:32px; letter-spacing: 3px; width: 100%;}
+.forder_div p{font-size: 14px; color: #b6b6b6; width: 100%;}
+.bottom_div{position: absolute; bottom: 20px; width: 40%; left: 50%; margin-left: -20%; text-align: center;}
+.bottom_div a{width: 100%; color: #46abef; display: block;}
+.bottom_div font{color: #979797;}
+.forder_details{background: #fdfdfd; padding: 15px 10px; color: #b6b6b6; margin-top: 50px; position: relative;}
+.forder-view-cell{font-size:14px; line-height: 25px;}
+.forder-view-cell font{float: right;}
+.forder-view-cell a{float: right; color: #4e96e8;}
+.pic_waiting{position: fixed; width: 24%; margin-left: -12%; left: 50%; top: 40%; z-index: 5;}
+
+/*bindcar*/
+.card-list-li{position:relative; border-bottom:1px #e3e3e3 solid; padding:15px 10px; }
+.card-list-li font{ color: #4c4c4c;  display: inline-block; width: 30%;}
+.card-list-li span{ color: #b7b7b7; font-size: 14px; display: block; float: right; width: 70%;}
+
+/*carry*/
+.input_carry{width: 100%; border:0; text-align: center; outline: none; height: 40px; line-height: 40px; font-size: 14px; letter-spacing: 2px;}
+
+/*cashout*/
+.mui-cashout-cell{position:relative; border-bottom:1px #e3e3e3 solid; padding:15px 10px;}
+.mui-cashout-cell font{color: #4c4c4c;  display: inline-block; width: 45%}
+.mui-cashout-cell span{float: right; display: inline-block;}
+.mui-cashout-cell b{float: right; display: inline-block; color: #5495e6; font-weight: normal;}
+.txmiddlegray{width: 100%; line-height: 35px; height: auto;}
+.input_cashout{ float: left;  position: relative; height: 40px; line-height: 25px;  width: 60%; border: 0; color: #000; border-radius: 5px; margin:0 2%; padding-left: 10px; display: inline-block;}
+.btn_all{width: 22%; background: #63abe8; border-radius: 5px; text-align: center; letter-spacing: 1px; font-size: 18px; display:inline-block; height: 30px; line-height: 30px;  color: #fff; border:0; -webkit-appearance:none;  font-family:'微软雅黑'; margin: 5px 2% 0 0;}
+.quren{padding: 5% 2%; font-size: 14px; color: #b6b6b6;}
+.wz { display:inline-block; width:40%; }
+.sz { display:inline-block; width:50%; text-align:right; padding-right:5px;}
+.scroll_text{width: 90%; height: 250px; overflow-x: hidden;  overflow-y: auto;  margin: 60px auto 20px;  background-color: #fff;}
+.scroll_text div { width:88%; height:400px; text-align:justify; padding:5% 6%; }
+@media (min-width:320px) { #scroll-1 div { padding-bottom:36%; } }
+@media (min-width:375px) { #scroll-1 div { padding-bottom:0%; } }
+@media (min-width:414px) { #scroll-1 div { padding-bottom:0%; } }
+.scroll_text h2 { font-weight:normal;font-size:14px;line-height:40px; color:#101010; }
+.scroll_text p { font-size:12px;line-height:20px;color:#333;}   
+.scroll_text::-webkit-scrollbar { width:5px;  height:8px; }
+.scroll_text::-webkit-scrollbar-track { background:#ddd; }
+.scroll_text::-webkit-scrollbar-thumb { background:#666; border-radius:8px; }
+
+/*help*/
+.mui-help-view-cell{position:relative; border-bottom:1px #e3e3e3 solid; padding:15px 10px; background:url(../../image/yydai/index/ico_book.png) no-repeat center left; background-origin:content-box; background-size: 20px 23px;}
+.mui-help-view-cell font{color: #000;  display: inline-block; width: 45%; padding-left: 35px;}
+.mui-help-view-cell img{float: right; vertical-align: middle; width: 15px; padding: 5px 0;}
+.j_question{width: 100%; margin:0 auto; position: relative;  display: none;}
+.j_question li{border-bottom: 1px solid #ddd; padding: 10px 2%;} 
+.j_question li h2{font-size: 16px; color: #000; width: 100%; font-weight: normal;}
+.j_question li p{color: #666; font-size: 12px; padding: 10px 0;}
+
+/*stagelist*/
+.mui-fen-view{ position:relative; background:#fff; margin-top: 50px;}  
+.mui-fen-view h2{font-size: 20px; font-weight: normal; color: #4c4c4c; margin:0 auto; width: 100%; text-align: center; padding-top: 10%;}
+.mui-fen-view h1{font-size: 24px; font-weight: normal; color: #4c4c4c; margin:0 auto; width: 100%; text-align: center; line-height: 40px; padding-bottom: 10%;}
+.mui-fen-view h1 font{color: #4e96e8; letter-spacing: 1px; border: 0; }
+.s_table_list{width: 100%; background: #fff; position: relative; margin-top: 10px;}
+.s_table_list th{background:#f7f7f7; font-size: 14px; color: #000; font-weight: normal; padding: 5% 0; border-bottom: 1px #efefef solid;}
+.s_table_list td{font-size: 12px; color: #000; text-align: center; padding: 5% 0; border-bottom: 1px #efefef solid;}

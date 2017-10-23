@@ -1,0 +1,81 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form id='uploadForm' class="definewidth m20">
+  <input type="hidden" name="uploadid" value="{$info.id}">
+  <table class="table table-bordered table-hover m10">
+    <tr>
+      <td width="10%" class="tableleft">真实姓名：</td>
+      <td><input type="text" name="names" jschecktitle="真实姓名" jscheckrule="null=0" value="{$info.name}"></td>
+      <td width="10%" class="tableleft">门店：</td>
+      <td><input type="text" name="store" jschecktitle="门店" jscheckrule="null=0" value="{$info.department}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">手机号码：</td>
+      <td><input type="text" name="mobile" jschecktitle="手机号码" jscheckrule="null=0" value="{$info.mobile}"></td>
+      <td width="10%" class="tableleft">身份证号</td>
+      <td><input type="text" name="certi_num" jschecktitle="身份证号" jscheckrule="null=0" value="{$info.cer_card}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">借款总期数：</td>
+      <td><input type="text" name="total" jschecktitle="借款总期数" jscheckrule="null=0" value="{$info.total_num}"></td>
+      <td width="10%" class="tableleft">已还期数：</td>
+      <td><input type="text" name="return" jschecktitle="已还期数" jscheckrule="null=0" value="{$info.return_num}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">逾期期数：</td>
+      <td><input type="text" name="delay" jschecktitle="逾期期数" jscheckrule="null=0" value="{$info.delay_num}"></td>
+      <td width="10%" class="tableleft">每期还款：</td>
+      <td><input type="text" name="pay_money" jschecktitle="每期还款" jscheckrule="null=0" value="{$info.pay_money}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">借款合同：</td>
+      <td><input type="text" name="contract_num" jschecktitle="借款合同" jscheckrule="null=0" value="{$info.contract_num}"></td>
+      <td width="10%" class="tableleft">产品：</td>
+      <td><input type="text" name="product" jschecktitle="产品" jscheckrule="null=0" value="<php> echo explode(',',$info['product'])[0];</php>"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">车牌号：</td>
+      <td><input type="text" name="car_plate" jschecktitle="车牌号" jscheckrule="null=0" value="<php> echo explode(',',$info['product'])[1];</php>"></td>
+      <td width="10%" class="tableleft">用户状态：</td>
+      <td><input type="text" name="status" jschecktitle="用户状态" jscheckrule="null=0" value="{$info.member_status}"></td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td colspan="3"><button class="btn btn-primary" type="button" id="save"> 保存 </button>
+        <a href="{:U('/Member/uploadMember')}" class="btn btn-success" name="backid" id="backid">返回列表</a></td>
+    </tr>
+  </table>
+ </form>
+ <script type="text/javascript">
+$(function(){
+  $("#save").click(function(){
+      var P = check_form('#staffForm');
+      if (P) {
+        var data = {};
+        data.uid = $("input[name='uploadid']").val();
+        data.names = $("input[name='names']").val();
+        data.mobile = $("input[name='mobile']").val();
+        data.certi_num = $("input[name='certi_num']").val();
+        data.status = $("input[name='status']").val();
+        data.total = $("input[name='total']").val();
+        data.return = $("input[name='return']").val();
+        data.delay = $("input[name='delay']").val();
+        data.pay_money = $("input[name='pay_money']").val();
+        data.store = $("input[name='store']").val();
+        data.product = $("input[name='product']").val();
+        data.car_plate = $("input[name='car_plate']").val();
+        data.contract_num = $("input[name='contract_num']").val();
+        data.is_save = 1;
+        top.jdbox.alert(2);
+        //var url = "{:U('/Member/uploadMember')}";
+        $.post("{:U('/Member/editUpload')}",data,function (F) {
+            top.jdbox.alert(F.status,F.info);
+            if (F.status) {
+               window.location.href = "{:U('/Member/uploadMember')}";
+            }
+        },'json')
+      }
+  })
+})
+ </script>
+ <include file="Public:footer" />

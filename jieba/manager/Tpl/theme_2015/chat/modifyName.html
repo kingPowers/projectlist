@@ -1,0 +1,46 @@
+<include file="Public:header" />
+
+<div id="chat_content">
+    <table class="table table-bordered table-hover definewidth m10">
+        <thead>
+        <tr>
+            <th>用户id</th>
+            <th>用户名</th>
+            <th>用户手机号</th>
+            <th>修改客服昵称</th>
+        </tr>
+        <foreach name="lists" item="vo">
+            <tr>
+                <td>
+                    <a href="javascript:void(0)" onclick="return detail('{$vo['id']}')">
+                        {$vo['id']}
+                    </a>
+                </td>
+                <td>{$vo['username']}</td>
+                <td>{$vo['mobile']}</td>
+                <td>
+                    <input type="text" value="{$vo['nickname']}" nid="{$vo['id']}" class="modifyName"/>
+                </td>
+            </tr>
+        </foreach>
+        </thead>
+    </table>
+</div>
+<script type="text/javascript" src="_STATIC_/2015/index/js/jquery-1.10.2.min.js"></script>
+<script>
+    $(".modifyName").change(function(){
+        var content = $(this).val();
+        var nid = $(this).attr('nid');
+        var data = {};
+        $(data).attr('content',content);
+        $(data).attr('id',nid);
+        $.post('/chat/modifyData.html',data,function(F){
+            F = eval(F);
+            console.log(F);
+            if(F.status==0){
+            }else{
+                alert(F.data);
+            }
+        },'json');
+    });
+</script>

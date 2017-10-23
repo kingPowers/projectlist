@@ -1,0 +1,97 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m10" action="{:U('Member/recintAplyList')}" method="get">
+    <select name="k" class="short"><foreach name="keys" item="v"><option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option></foreach></select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <select name="isstatus" class="short">
+        <option value=''>状态</option>
+        <foreach name="status" item="vo">
+            <option value='{$key}' <?php if($_GET['isstatus']!='' && $_GET['isstatus'] == $key): echo 'selected="selected"'; endif;?>>{$vo}</option>
+        </foreach>
+    </select>&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>用户ID</th>
+            <th>用户名称</th>
+            <th>手机号码</th>
+            <th>姓名</th>
+            <th>身份证号码</th>
+            <th>手持身份证</th>
+            <th>新绑定邀请码</th>
+            <th>申请之前的邀请码</th>
+            <th>申请时间</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['memberid']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']}（{$vo['mobile_location']}）</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['certiNumber']}</td>
+            <td>
+                <img src="_STATIC_/Upload/invite_code/s_{$vo['filename']}" class="imgBigCls" onmouseover="mouseFun('{$vo['filename']}')" onmouseout="mouseFunout()"/>
+                <div class="imgDiv" style="width:400px;height:400px;background:red;position:absolute;z-index:5;top:-10px;display:none;">
+                    <img src="" class="imgDivs" style="width:400px;height:400px;"/>
+                </div>
+            </td>
+            <td>{$vo['recint_code']}</td>
+            <td>{$vo['recint_code_befor']}</td>
+            <td>{$vo['time']}</td>
+            <td>
+                <if condition="$vo['status'] eq 1">
+                    未审核
+                <elseif condition="$vo['status'] eq 3"/>
+                    通过
+                <else/>
+                    拒绝
+                </if>
+            </td>
+            <td>
+                <select name="change_status" class="short" nid="{$vo['id']}">
+                    <option value=''>状态</option>
+                    <foreach name="status" item="value">
+                        <option value='{$key}' <?php if($vo['status']!='' && $vo['status'] == $key): echo 'selected="selected"'; endif;?>>{$value}</option>
+                    </foreach>
+                </select>&nbsp;&nbsp;
+            </td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+{$page}
+<script language="javascript">
+    $(function(){
+        $("select[name='change_status']").change(function(){
+            var data = {};
+            $(data).attr('id',$(this).attr('nid'));
+            $(data).attr('status',$(this).val());
+            $.post('/Member/changeRecintStatus.html',data,function(F){
+                if(F.status==0){
+                    return top.jdbox.alert(F.status,F.info);
+                }else{
+                    return top.jdbox.alert(F.status,F.data);
+                }
+            },'json');
+        });
+    })
+    function mouseFun(id){
+        $(".imgDiv").css("display","block");
+        $(".imgDivs").attr("src","_STATIC_/Upload/invite_code/"+id);
+    };
+    function mouseFunout(){
+        $(".imgDiv").css("display","none");
+    };
+</script>
+<include file="Public:footer" />

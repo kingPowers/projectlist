@@ -1,0 +1,44 @@
+@charset "utf-8";
+.maxDiv{width:100%;height:auto; bgcolor:#5495e6}
+.headers{width:100%;height:6.8%;position:relative;left:0%;top:0%;overflow: hidden;background-color:#5495e6;}
+
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+
+.fhwz{position:absolute;left:8.5%;top:30%;color:white; font-family:宋体;line-height:100%;}
+.zxwx{position:absolute;left:41.3%;top:30%;color:white; font-family:宋体;line-height:100%;}
+
+.centerDiv{width:100%; height:63%; position:relative;top:0%;left:0%; overflow: hidden;background-color:#efefef}
+
+.center1{width:100%; height:3.1%;  overflow: hidden;background-color:#efefef}
+
+.center2{width:100%;  height:63%;  overflow: hidden;background-color:#FFF; position:relative;left:0%;top:0%;}
+
+.user{width:100%;  height:25%;  overflow: hidden;background-color:#FFF; position:absolute;left:0%;top:0%;}
+.phone{position:absolute; left:3.2%; top:32%; color:#4c4c4c; font-family:宋体;line-height:100%;}
+.rightImg{width:3.1%; height:27%; position:absolute;left:94.8%;top:34%;}
+.solidImg{width:96.8%; height:1%; position:absolute;left:3.2%;top:95%;}
+
+.mobile{width:100%;  height:25%;  overflow: hidden;background-color:#FFF; position:absolute;left:0%;top:25%;}
+.phone2{position:absolute; left:3.2%; top:32%; color:#4c4c4c; font-family:宋体;line-height:100%;}
+.right2Img{width:3.1%; height:27%; position:absolute;left:94.8%;top:34%;}
+.solid2Img{width:96.8%; height:1%; position:absolute;left:3.2%;top:93%;}
+
+.pwd{width:100%;  height:25%;  overflow: hidden;background-color:#FFF; position:absolute;left:0%;top:50%;}
+.phone3{position:absolute; left:3.2%; top:32%; color:#4c4c4c; font-family:宋体;line-height:100%;}
+.right3Img{width:3.1%; height:27%; position:absolute;left:94.8%;top:34%;}
+.solid3Img{width:96.8%; height:1%; position:absolute;left:3.2%;top:95%;}
+
+
+.confirm{width:100%;  height:25%;  overflow: hidden;background-color:#FFF; position:absolute;left:0%;top:74.2%;}
+.phone4{position:absolute; left:3.2%; top:32%; color:#4c4c4c; font-family:宋体;line-height:100%;}
+.right4Img{width:3.1%; height:27%; position:absolute;left:94.8%;top:34%;}
+
+
+
+
+
+
+.center3{width:100%; height:34%;position:relative;left:0%;top:0%;}
+.exitImg{width:96.8%; height:38.1%; position:absolute;left:1.6%;top:58%;}
+
+

@@ -1,0 +1,46 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+<form id='cateForm' class="definewidth m20">
+    <table class="table table-bordered table-hover m10">
+        <tr>
+            <td class="tableleft">经销商名称</td>
+            <td><input type="text" name="name" value=""/></td>
+        </tr>
+        <tr>
+            <td class="tableleft">排序</td>
+            <td><input type="text" name="sort" value=""/></td>
+        </tr>
+        <tr>
+            <td class="tableleft"></td>
+            <td><button class="btn btn-primary" type="button"> 保存 </button>
+                <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/public.js"></script>
+<script language="javascript">
+
+    $('button#backid').click(function(){
+        window.location.href= "{:U('Dealer/index')}";
+    })
+    $('button.btn-primary').click(function(){
+        var data={};
+        $(data).attr('name',$("input[name='name']").val());
+        $(data).attr('sort',$("input[name='sort']").val());
+        if(!$(data).attr('name')){
+            return top.jdbox.alert(0,'请输入经销商名称');
+        }
+        //top.jdbox.alert(2);
+        //console.log(data);
+        $.post('/Dealer/add_dealer',{'data':data},function(results){
+            if(!results.status){
+                top.jdbox.alert(0,results.info);
+                return;
+            }
+            top.jdbox.alert(1,'操作成功');
+            window.location.href = '/Dealer/index';
+        },'json');
+    });
+</script>
+<include file="Public:footer" />

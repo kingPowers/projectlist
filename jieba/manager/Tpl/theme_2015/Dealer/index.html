@@ -1,0 +1,46 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script>
+<form class="form-inline definewidth m20"  action="{:U('Dealer/index')}" method="get">
+    <span>经销商名称：</span>
+    <input type="text" name="name"   value="{$_GET['name']}">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success" id="addDealer">经销商添加</button>
+</form>
+<form id="userForm" class="definewidth m20">
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>经销商名称</th>
+        <th>排序</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <foreach name="list" item="vo" key="k" class="short">
+        <tr>
+            <td>{$k+1}</td>
+            <td>{$vo['name']}</td>
+            <td>{$vo['sort']}</td>
+            <td><select name="status" nid="{$vo['id']}" class="short">
+                    <option value="1"<eq name="vo.status" value="1">selected="selected"</eq>>启用</option>
+                    <option value="2"<eq name="vo.status" value="2">selected="selected"</eq>>禁用</option>
+            </select></td>
+            <td><a href="{:U('Dealer/edit_dealer',array('id'=>$vo['id']))}"> 修改 </a></td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+</form>
+{$page}
+<script language="javascript">
+    $(function() {
+        $('#addDealer').click(function() {
+            window.location.href = "{:U('Dealer/add_dealer')}";
+        });
+    })
+</script>
+
+<include file="Public:footer" />

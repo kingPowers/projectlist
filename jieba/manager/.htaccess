@@ -1,0 +1,6 @@
+RewriteEngine on 
+RewriteRule http-bind/ http://182.50.8.80:7070/http-bind/ [P]
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+

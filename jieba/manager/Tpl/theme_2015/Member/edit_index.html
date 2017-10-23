@@ -1,0 +1,45 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form id='memberForm' class="definewidth m20">
+  <input type="hidden" name="memberid" value="{$info.memberid}">
+  <input type="hidden" name="reCer" value="{$info.certiNumber}">
+  <table class="table table-bordered table-hover m10">
+    <tr>
+      <td width="10%" class="tableleft">真实姓名</td>
+      <td><input type="text" name="names" jschecktitle="真实姓名" jscheckrule="null=0" value="{$info.names}"></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">身份证号</td>
+      <td><input type="text" name="certiNumber" jschecktitle="身份证号" jscheckrule="null=0" value="{$info.certiNumber}"></td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button"> 保存 </button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+ </form>
+ <include file="Public:footer" />
+ <script type="text/javascript">
+  $(function(){
+  	$('button.btn-primary').click(function(){
+  		var P = check_form('#memberForm');
+  		if(P){
+  			var data={};
+  			$(data).attr('names',$("input[name='names']").val());
+  			$(data).attr('certiNumber',$("input[name='certiNumber']").val());
+  			$(data).attr('memberid',$("input[name='memberid']").val());
+  			$(data).attr('reCer',$("input[name='reCer']").val());
+  			$.post('/Member/edit_index.html',data,function(F){
+				top.jdbox.alert(F.status,F.info);
+				if(F.status){
+					window.location.href="/Member/index.html";
+				}
+			},'json');
+  		}
+  	});
+  	$('button#backid').click(function(){
+		window.location.href= "{:U('Member/index')}";
+	})
+  })
+ </script>

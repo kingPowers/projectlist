@@ -1,0 +1,30 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>员工姓名</th>
+            <th>员工电话</th>
+            <th>员工门店</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['names']}</td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+{$page}   
+<script>
+    $(function(){
+        $('#download_data').click(function(){
+            $(this).attr('href',"/Member/export_index_list.html?k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&is_cernum="+$('#is_cernum').val()+"&is_cint="+$('#is_cint').val());
+        })
+    })
+</script>
+<include file="Public:footer" />

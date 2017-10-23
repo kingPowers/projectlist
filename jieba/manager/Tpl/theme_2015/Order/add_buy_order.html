@@ -1,0 +1,106 @@
+<include file="Public:header" />
+<style>
+	#content{width:520px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+	table.table input.middle{float:left;width:180px;}
+	table.table input.short{float:left;width:60px;}
+	table.table a.small,table.table .modify_bank_btn{padding:1px 12px;margin-left:5px;}
+</style>
+<div><span>新增买车贷订单</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td>申请人姓名</td>
+			<td class="value"><input type="text" value="" class="middle" name="names"/></td>
+		</tr>
+		<tr>
+			<td>申请人电话</td>
+			<td class="value"><input type="text" value="" class="middle" name="mobile"/></td>
+		</tr>
+		<tr>
+			<td>贷款城市</td>
+			<td class="value"><input type="text" value="" class="middle" name="city"/></td>
+		</tr>
+		<tr>
+			<td>经销商</td>
+			<td class="value">
+				<select name='dealer'>
+					<foreach name="dealer" item="vo">
+						<option value='{$vo.name}'>{$vo.name}</option>
+					</foreach>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>车商报价</td>
+			<td class="value"><input type="text" value="" class="middle" name="loanmoney"/>元</td>
+		</tr>
+		<tr>
+			<td>车辆品牌</td>
+			<td class="value"><input type="text" value="" class="middle" name="car_brand"/></td>
+		</tr>
+		<tr>
+			<td>车辆型号</td>
+			<td class="value"><input type="text" value="" class="middle" name="car_class"/></td>
+		</tr>
+		<tr>
+			<td>借款期限</td>
+			<td class="value">
+				<input name='loanmonth' checked='checked' type="radio" value='12'/>12个月
+				<input name='loanmonth' type="radio" value='18'/>18个月
+				<input name='loanmonth' type="radio" value='24'/>24个月
+			</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2">
+				<a href="javascript:void(0);" class="btn" onclick="add_buy_order();">提交</a>
+				<a href="javascript:void(0);" class="btn" onclick="return top.jdbox.close();">关闭</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script language="javascript">
+
+function add_buy_order(){
+	var data = {};
+	var input_name = {
+		'names':'申请人姓名',
+		'mobile':'申请人电话',
+		'city':'借款城市',
+		'loanmoney':'车商报价',
+		'car_brand':'车辆品牌',
+		'car_class':'车辆型号'
+	};
+	$.each(input_name,function(i,val){
+		$(data).attr(i,$('input[name="'+i+'"]').val());
+		if($(data).attr(i)=='' || undefined==$(data).attr(i)){
+			alert(val+"不能为空");
+			return false;
+		}
+	});
+	$(data).attr('dealer',$('select[name="dealer"]').find("option:selected").val());
+	$(data).attr('loanmonth',$('input[name="loanmonth"]:checked').val());
+	$.ajax({
+		'type':'post',
+		'dataType':'json',
+		'url':"/Order/add_buy_order",
+		"data":{'data':data},
+		success:function(json){
+			if(json.status==1){
+				alert(json.info);
+				top.jdbox.close();
+				parent.window.reload();
+			}else{
+				alert(json.info);
+			}
+			
+		},
+		
+	});
+}
+
+
+</script>
+<include file="Public:footer" />

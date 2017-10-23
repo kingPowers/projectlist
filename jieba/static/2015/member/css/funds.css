@@ -1,0 +1,12 @@
+.account_r_padd{padding-left:32px;}
+.ba_b_t>li{font-weight:bold;color:#0f0e0e;width:99px;margin:0;}
+.fund_head{padding:20px 0;overflow:hidden;color:#868686;}
+.fund_title{height:22px;line-height:22px;}
+.fund_title>i{display:block;width:9px;height:22px;background:#c8c8c8;margin-right:12px;}
+.fund_h_r{padding-right:12px;}
+.fund_h_r>b{font-size:16px;margin-right:3px;color:#ea5413;}
+.fund_con{width:839px;border:1px #e0e0e0 solid;margin-bottom:12px;}
+.fund_con .fund_list{height:45px;line-height:45px;overflow:hidden;}
+.fund_con .fund_list~.fund_list{border-top:1px #e0e0e0 solid;}
+.fund_con .fund_list>span{display:block;float:left;width:392px;color:#868686;}
+.fund_con .fund_list>span .fund_list_l{display:block;float:left;width:130px;text-align:right;}

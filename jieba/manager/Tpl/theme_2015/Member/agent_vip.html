@@ -1,0 +1,84 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="{:U('Member/agent_vip')}" method="get">
+<select name="k" class="short" id="k">
+  <foreach name='keys' item='v'>
+     <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+  </foreach>
+</select>
+<input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">
+<span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button> 
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>经纪人ID</th>
+            <th>姓名</th>
+            <th>会员姓名</th>
+            <th>手机号码</th>
+            <th>身份证号</th>
+            <th>经纪人名片</th>
+            <th>申请时间</th>
+            <th>是否加V</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="lists" item="vo">
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['certiNumber']}</td>
+            <td>
+            	<img src='_STATIC_/Upload/agent/s_{$vo['pic_card2']}' style='max-width:30px;' class="imgBigCls" onmouseover="mouseFun(this)" onmouseout="mouseFunout()"/>
+							<div class="imgDiv" style="background:red;position:absolute;z-index:5;top:-10px;display:none;max-width:800px;">
+							<img src="_STATIC_/Upload/agent/m_{$vo['pic_card2']}" class="imgDivs" style="max-width:500px;"/>
+						</div>
+            </td>
+            <td>{$vo['vip_time']}</td>
+            <td>
+              <select name="vip" nid="{$vo['id']}" class="short">
+                <foreach name="vip" key="k" item="v">
+                    <option value="{$k}"<eq name="k" value="$vo['is_vip']">selected="selected"</eq>>{$v}</option>
+                </foreach>   
+              </select>
+            </td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+{$page}
+<script type="text/javascript">
+$(function(){
+	$("select[name='vip']").change(function(){
+		var data = {};
+		$(data).attr('id',$(this).attr('nid'));
+		$(data).attr('vip',$(this).val());
+		//alert(data.vip);
+		$.post('/Member/add_vip.html',data,function(F){
+            return top.jdbox.alert(F.status,F.info);
+		},'json');
+
+	})
+	
+})
+function mouseFun(_this){
+		var offset = $(_this).offset();
+		var left = offset.left-$(_this).next(".imgDiv").width()-50;
+		var top = offset.top-($(_this).next(".imgDiv").width()/2);//alert($(".imgDiv").width());
+		//alert(offset.left);
+        $(_this).next(".imgDiv").css({"display":"block","left":left,"top":top});
+        //$(".imgDivs").attr("src",imgName);
+    };
+    function mouseFunout(){
+        $(".imgDiv").css("display","none");
+    };
+
+</script>
+<include file="Public:footer" />

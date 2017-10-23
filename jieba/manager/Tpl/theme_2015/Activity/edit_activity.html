@@ -1,0 +1,41 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form id='editForm' class="definewidth m20">
+<table class="table table-bordered table-hover m10">
+    <tr>
+      <td width="10%" class="tableleft">门店</td>
+      <td><input type="text" name="store" id="{$store['id']}" jschecktitle="门店" jscheckrule="null=0" value="{$store['store']}"></td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button"> 保存 </button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+</table>
+</form>
+<script type="text/javascript">
+$(function(){
+	$('button.btn-primary').click(function(){
+		
+		var P = check_form('#editForm');
+		if(P){
+			//alert($("input[name='store']").val());
+			//alert($("input[name='store']").attr('id'));
+			var data={};
+			$(data).attr('store',$("input[name='store']").val());
+			$(data).attr('id',$("input[name='store']").attr('id'));
+			top.jdbox.alert(2);
+			$.post('/Activity/edit_activity.html',data,function(F){
+				top.jdbox.alert(F.status,F.info);
+				if(F.status){
+					window.location.href="/Activity/index.html";
+				}
+			},'json');
+		}
+	});
+	$('button#backid').click(function(){
+		window.location.href= "{:U('Activity/index')}";
+	})
+})
+</script>
+<include file="Public:footer" />

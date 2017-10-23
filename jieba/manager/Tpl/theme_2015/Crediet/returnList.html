@@ -1,0 +1,82 @@
+<include file="Public:header" />
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+
+<form class="form-inline definewidth m20" action="/Crediet/returnList/is_staff/{$_REQUEST['is_staff']}" method="get">
+    <select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>&nbsp;
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <select name="is_return" class="short" id="is_return">
+       <option value=''>全部</option>
+       <foreach name="is_return" item='vi'>
+          <option value='{$key}' <?php if($_GET['is_return']!='' && $_GET['is_return'] == $key): echo 'selected="selected"'; endif;?>>{$vi}</option>
+       </foreach>
+    </select>
+    <span>开始时间：</span>
+    <input type="text" name="starttime" id="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['starttime']}">&nbsp;&nbsp;
+    <span>结束时间：</span>
+    <input type="text" name="endtime" id="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{$_GET['endtime']}">&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+	<neq name="_SESSION['user']['groupid']" value='3'>
+		<a id="download_data" class="btn btn-primary">导出还款列表数据</a>
+		<a id="download_data1" class="btn btn-primary">导出打款列表数据</a>
+	</neq>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>门店</th>
+        <th>客户姓名</th>
+        <th>客户手机号码</th>
+        <th>借款金额</th>
+        <th>手续费</th>
+        <th>平台管理费</th>
+        <th>利息</th>
+        <th>到账金额</th>
+        <th>放款日期</th>
+        <th>还款金额</th>
+        <th>滞纳金</th>
+		<th>逾期天数</th>
+        <th>应还金额</th>
+        <th>来源</th>
+        <th>还款起始日期</th>
+        <th>还款截止日期</th>
+        <th>客户还款日期</th>
+    </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo">
+        <tr>
+            <td>{$vo['city']}</td>
+            <td>{$vo['names']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['loanmoney']}</td>
+            <td>{$vo['fee']}</td>
+            <td>{$vo['plat_fee']}</td>
+            <td>{$vo['ratemoney']}</td>
+            <td>{$vo['pay_money']}</td>
+            <td>{$vo['pay_time']}</td>
+            <td>{$vo['back_money']}</td>
+            <td>{$vo['late_fee']}</td>
+			<td>{$vo['late_days']}</td>
+            <td>{$vo['loanmoney']+$vo['late_fee']}</td>
+            <td><php>echo $resource[strtolower($vo['resource'])];</php></td>
+            <td>{$vo['pay_time']}</td>
+            <td>{$vo['back_time']}</td>
+            <td>{$vo['back_real_time']}</td>
+        </tr>
+    </foreach>
+    </tbody>
+</table>
+<div>{$page}</div>
+<include file="Public:footer" />
+<script>
+    $('#download_data').click(function(){
+        $(this).attr('href',"/Crediet/export_return_list.html?is_staff={$_REQUEST['is_staff']}&k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&type=0&is_return="+$('#is_return').val());
+    })
+    $('#download_data1').click(function(){
+        $(this).attr('href',"/Crediet/export_return_list.html?is_staff={$_REQUEST['is_staff']}&k="+$('#k').val()+"&v="+$('#v').val()+"&starttime="+$('#starttime').val()+"&endtime="+$('#endtime').val()+"&type=1");
+    })
+</script>

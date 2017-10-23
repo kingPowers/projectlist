@@ -1,0 +1,92 @@
+<include file="Public:header" />
+<style>
+	#content{width:450px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+</style>
+<div><span>举报订单处理</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td valign="middle" align="center">客户姓名</td>
+			<td class="value" align="center" valign="middle">{$order_info['names']}</td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center">手机号码</td>
+			<td class="value" valign="middle" align="center">{$order_info['mobile']}</td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center">经纪人姓名</td>
+			<td class="value" align="center" valign="middle">{$order_info['gold_names']}</td>
+		</tr>
+		<tr>
+			<td valign="middle" align="center">经纪人电话</td>
+			<td class="value" align="center" valign="middle">{$order_info['gold_mobile']}</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">合同编号</td>
+			<td class="value" valign="middle" align="center">{$order_info['contract_num']}</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">年龄</td>
+			<td class="value" valign="middle" align="center">{$order_info['age']}</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">地址</td>
+			<td class="value" valign="middle" align="center">{$order_info['province']}-{$order_info['city']}</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">职业</td>
+			<td class="value" valign="middle" align="center">{$order_info['jobs']}</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">车辆品牌型号</td>
+			<td class="value" valign="middle" align="center">{$order_info['brands']}</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">购车时间</td>
+			<td class="value" valign="middle" align="center"><php>echo date("Y年m月d日",strtotime($order_info['buy_time']));</php></td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">裸车价格</td>
+			<td class="value" valign="middle" align="center">{$order_info['car_price']}万元</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">行驶里程</td>
+			<td class="value" valign="middle" align="center">{$order_info['car_drive']}万里</td>
+		</tr>
+		<tr>
+		    <td valign="middle" align="center">是否全款</td>
+			<td class="value" valign="middle" align="center">
+			  <if condition="$order_info['is_fullmoney'] eq 1">
+			    全款
+			  <else/>
+			   按揭
+			  </if></td>
+		</tr>
+		<if condition="$order_info['is_fullmoney'] neq 1">
+		   <tr>
+		    <td valign="middle" align="center">抵押单位</td>
+			<td class="value" valign="middle" align="center">{$order_info['mort_company']}</td>
+		   </tr>
+		</if>
+		<tr>
+		    <td valign="middle" align="center">贷款金额</td>
+			<td class="value" valign="middle" align="center">{$order_info['loan_money']}万元</td>
+	   </tr>
+	   <tr>
+		    <td valign="middle" align="center">订单提交时间</td>
+			<td class="value" valign="middle" align="center">{$order_info['timeadd']}</td>
+	   </tr>
+	   <tr>
+		    <td valign="middle" align="center">订单备注</td>
+			<td class="value" valign="middle" align="center">{$order_info['remark']}</td>
+	   </tr>
+	   <tr>
+			<td valign="middle" align="center" colspan="2">
+			   <a href="javascript: top.jdbox.close();" class="btn">关闭</a>
+			</td>
+	   </tr>
+	</table>
+</div>
+<include file="Public:footer" />

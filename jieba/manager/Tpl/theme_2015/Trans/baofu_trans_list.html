@@ -1,0 +1,52 @@
+<include file="Public:header" />
+<style>
+font.normal{color:#666;}
+font.insn{color:#090;}
+font.status1{color:#E0A53E;}
+font.status2{color:#090;}
+font.status3{color:#f00;}
+a{color:#1d67a4;}
+</style>
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<form class="form-inline definewidth m20" action="{:U('Trans/index')}" method="get">  
+	<select name="k" class="short" id="k">
+        <foreach name="keys" item="v">
+            <option value='{$key}' <?php if($_GET['k']!='' && $_GET['k'] == $key): echo 'selected="selected"'; endif;?>>{$v}</option>
+        </foreach>
+    </select>:
+    <input type="text" name="v" id="v" class="abc input-default" placeholder="" value="{$_GET['v']}">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>
+    <button type="button" class="btn btn-primary" onclick="return detail('{$vo.id}');">添加转账</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>付款人姓名</th>
+            <th>收款人姓名</th>
+            <th>转账金额/元</th>
+            <th>创建时间</th>
+        </tr>
+    </thead>
+    <tbody>
+    <foreach name="list" item="vo" key="k">
+        <tr>
+            <td>{$vo.id}</td>
+            <td>{$vo.pay_names}</td>
+            <td>{$vo['collect_names']}</td>
+            <td>{$vo['money']}</td>
+            <td>{$vo['timeadd']}</td>
+        </tr>
+     </foreach>
+     </tbody>
+</table>
+{$page}
+<script language="javascript">
+//查看详情
+var detail = function()
+{
+    var url = "{:U('Trans/baofu_add_trans')}"; 
+    return top.jdbox.iframe(url);
+}
+</script>
+<include file="Public:footer" />

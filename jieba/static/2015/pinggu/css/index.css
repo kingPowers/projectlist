@@ -1,0 +1,50 @@
+body,div,img,input{margin:0 auto;padding: 0;}
+body{text-align: center;overflow-x: hidden;}
+input:focus {outline:none;}
+div:focus {outline:none;}
+input,div{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.outer{opacity: 0;}
+
+.headers{width:100%;height:auto;position:fixed;left:0;top:0;background-color:#5495e6;z-index: 10;}
+.headers .retrunImg{width:3.2%;height:47.13%;position:absolute;left:3.2%;}
+.headers .fhwz{width:auto;height:auto;position:absolute;left:8.4%;top:0%;color:white;}
+.headers .zxwx{width:auto;height:auto;position:absolute;left:41.3%;top:0%;color:white;}
+
+.noneDiv{width:100%;height:auto;position:relative;left:0;top:0;}
+
+.part1{width:100%;height:auto;position:relative;left:0;background:#fff;}
+.part1 .sp{width:100%;height:auto;text-align: left;position:relative;}
+.part1 .bt{width:30%;height:auto;position: absolute;left:4%;font-size: 900;color:#4c4c4c;}
+.part1 .ipt{width:50%;height:auto;position: absolute;right:10%;font-size: 900;border:0;text-align: right;color:#63abe8;background: url(0);white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.part1 .btKm{width:40%;height:auto;position: absolute;right:19.5%;font-size: 900;border:0;text-align: right;}
+.part1 .btKms{width:40%;height:20%;position: absolute;right:19.5%;font-size: 900;border:0;text-align: right;}
+.part1 .ipts{width:30%;height:auto;position: absolute;right:20%;font-size: 900;top:32%;text-align: right;color:#63abe8;background: url(0);white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.part1 .jw{width:15%;height:auto;position: absolute;right:4%;font-size: 900;}
+    /*white-space: nowrap;text-overflow: ellipsis;overflow: hidden;*/
+.part1 .righticonImg{width:2.13%;height:auto;position: absolute;right:3.935%;}
+
+.select{width:90%;height:auto;position:relative;left:0%;border:none; margin-top: 40px; height: 40px; line-height: 40px;}
+
+.part2{width:100%;height:auto;position:absolute;left:0;top:auto;background: #fff;display:none;overflow-x:hidden;overflow-y: visible;}
+.part2 .modelsDiv{width:100%;height:auto;text-align: left;position:relative;top: 0;left: 0;}
+.part2 .letter{width:100%;height:auto;position:relative;top: 0;left: 0;background: #efefef;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;}
+.part2 .letterValue{width:100%;height:auto;position:relative;top: 0;left: 0;border-bottom: 1px solid #ececec;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;}
+
+.part2_2{width:60%;height:auto;position:absolute;left:40%;top:auto;background: #fff;display: none;text-align: left;overflow-x:hidden;overflow-y: visible;box-shadow: -10px 0 40px #d7d7d7;}
+.part2_2 .letter3Level{width:100%;height:auto;position:relative;top: 0;left: 0;border-bottom: 1px solid #ececec;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;}
+
+.part2_3{width:100%;height:auto;position:absolute;left:0;top:auto;background: #efefef;display: none;text-align: left;overflow-x:hidden;overflow-y: visible;}
+.part2_3 .letter4{width:100%;height:auto;position:relative;top: 0;left: 0;background: #efefef;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;}
+.part2_3 .letter4Level{width:100%;height:auto;position:relative;top: 0;left: 0;border-bottom: 1px solid #ececec;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;background: #fff;}
+
+.part3{width:100%;height:auto;position:absolute;left:0;top:auto;background: #fff;display: none;overflow-x:hidden;overflow-y: visible;}
+.part3 .cityDiv{width:100%;height:auto;text-align: left;position:relative;top: 0;left: 0;}
+.part3 .letterCt{width:100%;height:auto;position:relative;top: 0;left: 0;background: #efefef;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;}
+.part3 .letterCtValue{width:100%;height:auto;position:relative;top: 0;left: 0;border-bottom: 1px solid #ececec;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;}
+
+.part3_2{width:60%;height:auto;position:absolute;left:40%;top:auto;background: #fff;display: none;text-align: left;overflow-x:hidden;overflow-y: visible;box-shadow: -10px 0 40px #d7d7d7;}
+.part3_2 .letterCt3Level{width:100%;height:auto;position:relative;top: 0;left: 0;border-bottom: 1px solid #ececec;padding-left: 3.2%;color: #4c4c4c;font-weight: 900;}
+
+.part4{width:auto;height:auto;position:fixed;right:0;top:auto;background:rgba(255,255,255,.5);display: none;overflow-x:hidden;}
+.part4_1{position:relative;left:0;top:0;color:#63abe8;}
+.part4_1 a{text-decoration:none;color:#63abe8;}

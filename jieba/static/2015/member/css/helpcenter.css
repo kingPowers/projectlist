@@ -1,0 +1,40 @@
+@charset "utf-8";
+.maxDiv{width:100%;height:auto; bgcolor:#5495e6;position:absolute;}
+.headers{width:100%;height:6.8%;position:relative;left:0%;top:0%;overflow: hidden;background-color:#5495e6;}
+
+.headers .retrunImg{width:3.2%;height:46.6%;position:absolute;left:3.2%;top:25%;}
+
+.fhwz{position:absolute;left:8.5%;top:30%;color:white; font-family:宋体;line-height:100%;}
+.zxwx{position:absolute;left:41.3%;top:30%;color:white; font-family:宋体;line-height:100%;}
+
+.centerDiv{width:100%; height:auto; position:relative;top:2%;left:0%; overflow: hidden;}
+.QDiv{width:100%;height:auto;position:relative;top:0%;left:0%;background-color:white;}
+.userQImg{width:5%;height:auto;position:absolute;top:31%;left:3.7%;}
+.userQwz{width:70%;height:auto;position:absolute;left:15.2%;top:0%;text-align:left;color:#4c4c4c;}
+.bottomImg{width:3.3%;height:auto;position:absolute;top:43%;left:93%;}
+
+
+.detailDiv{width:100%;height:auto;position:relative;top:0%;left:0%;display:none;background:#efefef; }
+.qstionDiv{width:100%;height:auto;position:relative;top:0%;left:0%;text-align:left;}
+.Qtitle{width:100%;height:auto;position:relative;top:0%;left:0%;font-weight:bold;margin-bottom:2%;margin-top:2%;}
+.Qcenter{width:100%;height:auto;position:relative;top:0%;left:0%;margin-bottom:4%;}
+
+.detail2Div{width:100%;height:auto;position:relative;top:0%;left:0%;display:none;background:#efefef;}
+.qstion2Div{width:100%;height:auto;position:relative;top:0%;left:0%;text-align:left;}
+.Q2title{width:100%;height:auto;position:relative;top:0%;left:0%;font-weight:bold;margin-bottom:2%;margin-top:2%;}
+.Q2center{width:100%;height:auto;position:relative;top:0%;left:0%;margin-bottom:4%;}
+
+.detail3Div{width:100%;height:auto;position:relative;top:0%;left:0%;display:none;background:#efefef;}
+.qstion3Div{width:100%;height:auto;position:relative;top:0%;left:0%;text-align:left;}
+.Q3title{width:100%;height:auto;position:relative;top:0%;left:0%;font-weight:bold;margin-bottom:2%;margin-top:2%;}
+.Q3center{width:100%;height:auto;position:relative;top:0%;left:0%;margin-bottom:4%;}
+
+.detail4Div{width:100%;height:auto;position:relative;top:0%;left:0%;display:none;background:#efefef;}
+.qstion4Div{width:100%;height:auto;position:relative;top:0%;left:0%;text-align:left;}
+.Q4title{width:100%;height:auto;position:relative;top:0%;left:0%;font-weight:bold;margin-bottom:2%;margin-top:2%;}
+.Q4center{width:100%;height:auto;position:relative;top:0%;left:0%;margin-bottom:4%;}
+
+.centerDiv p{margin-left:3%;width:93%;text-align:left;}
+
+
+
