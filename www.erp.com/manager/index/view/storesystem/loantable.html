@@ -1,0 +1,77 @@
+{include file="publics/header" /}
+<style type="text/css">
+a{width: 45px;height: 28px;display: inline-block;line-height: 28px;cursor: pointer;}
+</style>
+<form class="definewidth m20" id="editForm">
+  <table class="table table-bordered table-hover m10" style="width: 50%;margin: 0 auto;">
+    <tr>
+    <input type="hidden" name="loanid" value="{$info['loanid']}">
+      <td style="text-align: center;">基本信息</td>
+     <td style="text-align: center;"><a style="display: inline-block;" id='subTable' class="btn-success">提交</a></td>
+    </tr>
+    {foreach name="base_table" item="bv" key="bk"}
+    <tr>
+    	<td width="80%" class="tableleft"><input type="checkbox" readonly="" name="loanTable" {in name="bk" value="$material" }checked=""{/in}> {$bv.title}</td>
+      	<td class="tableright" style="text-align: center;">
+        {in name="info['process_status']" value="1,4"}<!-- 提交前可编辑可补充 -->
+        <a onclick="javascript:window.location.href='{$bv.url}{$info.loanid}'" class="btn-primary">编辑</a>
+        {else/}
+          {in name="info['process_status']" value='2,3,10,5'}<!-- 提交管理可补充 -->
+            {notin name="bk" value="$material"}<!-- 补充 -->
+            <a onclick="javascript:window.location.href='{$bv.url}{$info.loanid}'" class="btn-primary">补充</a>
+            {else/}
+            <a onclick="javascript:window.location.href='{$bv.url}{$info.loanid}&readonly=1'" class="btn-primary">查看</a>
+            {/notin}
+          {else/}<!-- 其他管理只允许查看 -->
+            <a onclick="javascript:window.location.href='{$bv.url}{$info.loanid}&readonly=1'" class="btn-primary">查看</a>
+          {/in}
+        {/in}
+        </td>
+    </tr>
+    {/foreach} 
+    <tr>
+      <td style="text-align: center;">车辆信息</td>
+     <td style="text-align: center;"></td>
+    </tr>
+    {foreach name="car_table" item="cv" key="ck"}
+    <tr>
+      <td width="80%" class="tableleft"><input type="checkbox" readonly="" name="loanTable" {in name="ck" value="$material" }checked=""{/in}> {$cv.title}</td>
+        <td class="tableright" style="text-align: center;">
+        {in name="info['process_status']" value="1,4"}<!-- 提交前可编辑可补充 -->
+        <a onclick="javascript:window.location.href='{$cv.url}{$info.loanid}'" class="btn-primary">编辑</a>
+        {else/}
+          {in name="info['process_status']" value='2'}<!-- 提交管理可补充 -->
+            {notin name="ck" value="$material"}<!-- 补充 -->
+            <a onclick="javascript:window.location.href='{$cv.url}{$info.loanid}'" class="btn-primary">补充</a>
+            {else/}
+            <a onclick="javascript:window.location.href='{$cv.url}{$info.loanid}&readonly=1'" class="btn-primary">查看</a>
+            {/notin}
+          {else/}<!-- 其他管理只允许查看 -->
+            <a onclick="javascript:window.location.href='{$cv.url}{$info.loanid}&readonly=1'" class="btn-primary">查看</a>
+          {/in}
+        {/in}
+        </td>
+    </tr>
+    {/foreach} 
+  </table>
+</form>
+<script type="text/javascript">
+$(function () {
+	$("#subTable").click(function () {
+		if (!confirm("您是否确定提交？")) return false;
+		var data = {};
+		var loanid = $("input[name='loanid']").val();
+		if (loanid == '')return top.jdbox.alert(0,"贷款订单ID错误,请刷新重试");
+		data.loanid = loanid;
+		top.jdbox.alert(2);
+		$.post("/Storesystem/submitTable.html",data,function (F) {
+			console.log(F);
+			top.jdbox.alert(F.status,F.info);
+			if (F.status) {
+				window.location.href = "/Storesystem/applyList.html";
+			}
+		},'json')
+	})
+})
+</script>
+{include file="publics/footer" /}

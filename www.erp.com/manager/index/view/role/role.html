@@ -1,0 +1,233 @@
+{include file="publics/header" /}
+<!--添加-->
+{if condition="!$idd"}
+<form id="roleForm" class="definewidth m20" method="post" action="">
+  <table class="table table-bordered table-hover definewidth m10">
+  <tr>
+      <td width="10%" class="tableleft">上级</td>
+      <td ><select name="pid" >
+      <option value="0">一级导航</option>
+      {foreach name="list" item="vo"}
+        <option value="{$vo['id']}">{$vo['title']}</option>
+      {/foreach}
+      </select></td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">角色名称</td> 
+      <td><input type="text" name="title" jschecktitle="角色名称" jscheckrule="null=0" value=""/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">状态</td>
+      <td><input type="radio" name="status" value="1" checked /> 启用
+      <input type="radio" name="status" value="0" /> 禁用 </td>
+    </tr>
+    <tr>
+      <td class="tableleft">权限{$rules}</td>
+      <td>
+      <ul class="auth_list">
+           {volist id="vo" name="res_add"}
+          <li>
+          	<label class='checkbox inline'><input type='checkbox' disabled="disabled" />{$vo.title}</label>
+            <ul>
+               <?php if(isset($vo['child'])){ ?>
+                    {volist name="vo['child']" id="v"}
+                    <li><label class='checkbox inline'><input type='checkbox' class='pq' name='node[]' value="{$v.id}"  >{$v.title}</label></li>
+                    {/volist}
+              <?php }?>
+            </ul>
+          </li>
+          {/volist} 
+      </ul>
+      </td>
+    </tr> 
+    <tr>
+      <td class="tableleft"></td>
+      <td><a class="btn btn-primary" id="bt_add">保存</a>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script>
+  $("body").on("change",'select',function(){
+    var pid=$(this).val();
+    var t=$(this);
+    var url = "{:url('Role/addrole')}";
+    var auth_str = '';
+    $.get(url,{'pid':pid},function (msg){
+      console.log(msg);
+    $.each(msg.rules,function(i,item){
+            auth_str += "<li><label class='checkbox inline'><input type='checkbox' disabled name='node[]' value='" + item.id + "'/>" + item.title +"</label></li><ul>";  
+            for (var key in item.child)
+          {
+            auth_str += "<li><label class='checkbox inline'><input type='checkbox'  name='node[]' value='" + item.child[key].id + "'/>" + item.child[key].title +"</label></li>";
+          } 
+          auth_str += "</ul></li>";
+      })
+      $(".auth_list").html('').append(auth_str);
+           if(msg.status==1){    
+             t.nextAll().remove();
+             t.after(msg.data);
+           }else{
+             t.nextAll().remove();
+           }
+      });
+  })
+
+  $("#bt_add").click(function () {
+      var url = "{:url('Role/addrole')}";
+      var title = $("input[name='title']").val();
+      var status = $("input[name='status']").val();
+      var pid=$("select[name='pid']").eq(-1).find("option:selected").val();
+       if(pid==-1){
+        var pid=$("select[name='pid']").eq(-2).find("option:selected").val();
+       }
+      var ch_rules =[];
+      $("input[type='checkbox']:checked").each(function(){
+          ch_rules.push($(this).val());
+      });
+      var ch_rules=ch_rules.toString();
+      if(title==''){
+          alert('请先填写角色名');
+          return false;
+      }
+      $.post(url,{'title':title,'status':status,'node':ch_rules,'pid':pid},function (msg) {
+            alert(msg.info);
+            window.location.href= "{:url('Role/index')}";
+      });
+  });
+  $("#backid").click(function () {
+      window.location.href= "{:url('Role/index')}";
+  });
+</script>
+
+{/if}
+<!--修改-->
+{if condition="$idd"}
+<form id="roleForm" class="definewidth m20" method="post" action="">
+  <table class="table table-bordered table-hover definewidth m10">
+
+
+    <tr>
+      <td width="10%" class="tableleft">上级</td>
+      <td >
+        <select name="pid"  disabled>
+          <option value="0">一级导航</option>
+          {foreach name="list" item="vo"}
+            <option {eq name='nowid' value="$vo['id']" } selected  {/eq} 
+                    {eq name='idd' value="$vo['id']" } disabled {/eq}
+                    value="{$vo['id']}">{$vo['title']}
+            </option>
+          {/foreach}
+        </select>
+      </td>
+    </tr>
+
+
+    <tr>
+      <td width="10%" class="tableleft">角色名称</td>
+      <td><input type="text" name="title" jschecktitle="角色名称" jscheckrule="null=0" value="{$row.title}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">状态</td>
+      <td><input type="radio" name="status" value="1" {if condition="$row['status']==1"} checked {/if} /> 启用
+        <input type="radio" name="status" value="0" {if condition="$row['status']==0"} checked {/if} /> 禁用 </td>
+    </tr>
+    <tr>
+      <td class="tableleft">权限</td>
+      <td>
+        <ul class="auth_list">
+          <li>
+            <ul>
+              <?php if($nowid==0) {?> 
+                {volist id="vo" name="res_edit"}
+                <li>
+                    <label class='checkbox inline'><input type='checkbox' disabled="disabled" />{$vo.title}</label>
+                    <ul>
+                        <?php if(isset($vo['child'])){?>
+                        {volist name="vo['child']" id="v"}
+                        <li><label class='checkbox inline'><input type='checkbox'  name='node[]' value="{$v.id}"   {in name="$v['id']" value="$row['rules']" }checked {/in} >{$v.title}</label></li>
+                        {/volist}
+                        <?php }?>
+                    </ul>
+                </li>
+                {/volist}
+          <?php }?>
+               <?php if($nowid!=0) {?>
+                {volist name="res" id="vo"}
+                <li>
+               
+                <label class='checkbox inline'><input type='checkbox' disabled="disabled" />{$vo.title}</label>
+                    <ul>
+                     <?php if(isset($vo['child'])){?>
+                        {volist name="vo['child']" id="v"}
+                        <li><label class='checkbox inline'><input type='checkbox'  name='node[]' value="{$v.id}"   {in name="$v['id']" value="$row['rules']" }checked {/in} >{$v.title}</label></li>
+                        {/volist}
+                        <?php }?>
+                         </ul>
+                </li>
+                {/volist}
+                <?php }?> 
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td><a class="btn btn-primary" id="bt_edit" >保存</a>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script>
+     $("body").on("change",'select',function(){
+      var pid=$(this).val();
+      var t=$(this);
+      var url = "{:url('Role/editrole')}";
+      var auth_str = '';
+      $.get(url,{'pid':pid},function (msg){
+       // alert(2);
+      $.each(msg.rules,function(i,item){
+        console.log(i,item);
+            auth_str += "<li><label class='checkbox inline'><input type='checkbox' disabled name='node[]' value='" + item.id + "'/>" + item.title +"</label></li><ul>";  
+            for (var key in item.child)
+          {
+            auth_str += "<li><label class='checkbox inline'><input type='checkbox'  name='node[]' value='" + item.child[key].id + "'/>" + item.child[key].title +"</label></li>";
+          } 
+          auth_str += "</ul></li>";
+      })
+      $(".auth_list").html('').append(auth_str);
+      });
+  })
+    $("#bt_edit").click(function () {
+        var url = "{:url('Role/editrole')}";
+        var title = $("input[name='title']").val();
+        var status = $("input[type='radio']:checked").val();
+        var pid = $("select").find("option:selected").val();
+        // alert(pid);
+        var id = {$idd};
+        var ch_rules =[];
+        $("input[type='checkbox']:checked").each(function(){
+            ch_rules.push($(this).val());
+        });
+        var ch_rules=ch_rules.toString();
+        if(title==''){
+            alert('请先填写角色名');
+            return false;
+        }
+        $.post(url,{'title':title,'status':status,'node':ch_rules,'id':id,'pid':pid},function (msg) {
+            var F = eval("(" + msg + ")");
+            alert(F.info);
+            if(F.status==1){
+                window.location.href= "{:url('Role/index')}";
+            }
+
+        });
+    });
+    $("#backid").click(function () {
+        window.location.href= "{:url('Role/index')}";
+    });
+</script>
+
+{/if}
+{include file="publics/footer" /}

@@ -1,0 +1,97 @@
+{include file='publics/header'}
+{php}$group='一级导航';{/php} 
+<form id='menuForm' class="definewidth m20" >
+  <table class="table table-bordered table-hover m10" >
+    <tr>
+      <td width="10%" class="tableleft">上级</td>
+      <td><select name="pid">
+      <option value="0">一级导航</option>
+      {foreach name="list" item="vo"}
+      {eq name="vo['id']" value="$pid"}
+      	{php}$group=$vo['title']{/php} 
+      	<option value="{$vo['id']}" selected="selected">{$vo['title']}</option>
+      {else/}
+        <option value="{$vo['id']}">{$vo['title']}</option>
+      {/eq}
+      {/foreach}
+      </select></td>
+    </tr>
+    <tr>
+      <td class="tableleft">名称</td>
+      <td><input type="text" name="title" jschecktitle="名称" jscheckrule="null=0" value="{$menu['title']}"/></td>
+      <input type="hidden" name="id"  value="{$menu['id']}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">分组</td>
+      <td><input type="text" name="group" disabled="disabled" value="{$group}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">Model</td>
+      <td><input type="text" name="module" jschecktitle="Model" jscheckrule="null=0" value="{$menu['module']}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">Action</td>
+      <td><input type="text" name="action" {empty name="menu['pid']"}disabled="disabled"{/empty} jschecktitle="Action" value="{$menu['action']}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">类型</td>
+      <td><input type="radio" name="type" value="1"  {eq name="menu['type']" value="1"}checked="checked"{/eq} />菜单
+        <input type="radio" name="type" value="2" {eq name="menu['type']" value="2"}checked="checked"{/eq} />功能 </td>
+    </tr>
+    <tr>
+      <td class="tableleft">状态</td>
+      <td><input type="radio" name="status" value="1" {eq name="menu['status']" value="1"}checked="checked"{/eq} />启用
+        <input type="radio" name="status" value="0" {eq name="menu['status']" value="0"}checked="checked"{/eq} />禁用</td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button"> 保存 </button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+$(function(){
+ id = "{$menu['id']}";
+	$('button.btn-primary').click(function(){ 
+		var P = check_form('#menuForm');
+		if(P){
+			var data={};
+			$(data).attr('id',id);
+			$(data).attr('pid',$("select[name='pid']").val());
+			$(data).attr('title',$("input[name='title']").val());
+			$(data).attr('module',$("input[name='module']").val());
+			$(data).attr('action',$("input[name='action']").val());
+			$(data).attr('type',$("input[name='type']:checked").val());
+			$(data).attr('status',$("input[name='status']:checked").val());
+			top.jdbox.alert(2);
+			$.post('/Menu/edit',data,function(F){
+				top.jdbox.alert(F.status,F.msg);
+				if(F.status){
+					window.location.reload();
+				}
+			},'json');
+		}
+	});
+	$("select[name='pid']").change(function(){
+		var self = $(this), parent = false;
+		$(this).find('option').each(function(){
+			if( self.val() == $(this).val() ){
+				$("input[name='group']").val( $(this).html() );
+				if(self.val()!=0){
+					parent = true;
+				}
+			}
+		});
+		if(parent){
+			$("input[name='action']").attr({disabled:false,jscheckrule:'null=0'});
+		}else{
+			$("input[name='action']").attr({disabled:true,jscheckrule:''});
+		}
+	});
+	$('button#backid').click(function(){
+		window.location.href= "{:url('Menu/index')}";
+	})
+})
+</script>    
+{include file='publics/footer'}

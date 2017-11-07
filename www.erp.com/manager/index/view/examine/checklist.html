@@ -1,0 +1,64 @@
+
+{include file='publics/header'}
+
+<form class="form-inline definewidth m20" action="/Examine/checkList.html" method="get">  
+    <a class="btn btn-primary" href="/BindThird/bindAccount">绑定银行卡</a>
+    <select name="k" class="short">
+      {foreach name="key" item='v' key='k'}
+        <option value="{$k}" {eq name="_GET['key']" value="$k" }selected="selected"{/eq}>{$v}</option>
+      {/foreach}
+    </select>
+    <input type="text" name="v" class="abc input-default" value="{:request()->get('v')}">&nbsp;&nbsp;
+    开始时间：
+    <input type="text" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{:request()->get('starttime')}">
+    结束时间：
+    <input type="text" name="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{:request()->get('endtime')}">
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; 
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+           {volist name="title" id="vo"}
+              <th>{$vo}</th>
+           {/volist}
+        </tr>
+    </thead>
+    <tbody>
+      {volist name="list" id="v"}
+      <tr>
+        {foreach name="title" item="tv" key="k"}
+          {if condition="$k eq 'operate'"}
+          <td>
+            {foreach name="v[$k]" item="ov" key="ok"}
+              <a onclick="operate('{$ok}',{$v['other']['id']});">{$ov}</a>
+            {/foreach}
+          </td>
+          {else /}
+            <td>{$v[$k]}</td>
+          {/if}  
+        {/foreach}
+      </tr>
+      {/volist}
+    </tbody>
+</table>
+<div>{$page}</div>
+<script type="text/javascript">
+var selectProduct = function (id)
+{
+	return top.jdbox.iframe("/Examine/selectProduct?loanid=" + id);
+}
+var downloadTemplate = function (id)
+{
+  window.location.href = "/Examine/downloadTemplate.html?loanid="+id;
+  // top.jdbox.alert(2,"正在下载...");
+  // $.post("{:url('/Examine/downloadTemplate')}",{"loanid":1,"is_template":1},function (F) {
+  //   console.log(F);
+  //     top.jdbox.alert(F.status,F.info);
+  // },'json')
+}
+var downloadContract = function (id)
+{
+  window.location.href = "/Examine/downloadcontract.html?loanid="+id;
+}
+</script>
+{include file='publics/footer'}

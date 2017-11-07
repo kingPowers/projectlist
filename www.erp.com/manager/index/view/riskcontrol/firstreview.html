@@ -1,0 +1,143 @@
+{include file='publics/header'}
+<style type="text/css">
+	#content{width:800px;padding:10px;font-size:12px;color:#000;}
+	.assessment_table table td{text-align: center;}
+</style>
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<div><span>评审表</span></div>
+<div id="content">
+	<div class="assessment_table">
+		<h1>评审表</h1>
+		<span>区域:{$info['name']}</span>
+		<form id="viewForm">
+		<input type="hidden" name="loanid" value="{$info['loanid']}">
+		<table cellpadding="0" cellspacing="0" border="1" width="798px">
+			<tr>
+				<th rowspan="3" width="20px">基本信息</th>
+				<td>借款人姓名</td>
+				<td>{$info['names']}</td>
+				<th colspan="2">借款金额/期数</th>
+				<td>{$info['money']}元/{$info['periodes']}</td>
+				<th>产品</th>
+				<td>{$info['product']}</td>		
+			</tr>
+			<tr>
+				<th>车型</th>
+				<th>评估价</th>
+				<th>抵押次数</th>
+				<th>过户次数</th>
+				<th>购买时间</th>
+				<th>公里数</th>
+				<th>备注</th>
+			</tr>
+			<tr>
+				<td>{$car_info.car_brand}</td>
+				<td>{$car_info.company_car_price}</td>
+				<td></td>
+				<td>{$car_info.other_attribute7}次</td>
+				<td>{$car_info.other_attribute5}</td>
+				<td>{$car_info.other_attribute9}</td>
+				<td>{$car_info.car_traffic19}</td>
+			</tr>
+			<tr>
+				<th>1</th>
+				<th>借款用途</th>
+				<td colspan="6"><textarea name='borrow_purpose'>{$review_info['borrow_purpose']}</textarea></td>
+			</tr>
+			<tr>
+				<th>2</th>
+				<th>个人征信及负债情况</th>
+				<td colspan="6"><textarea name='letter_liability'>{$review_info['letter_liability']}</textarea></td>
+			</tr>
+			<tr>
+				<th>3</th>
+				<th>工作情况及从业经验</th>
+				<td colspan="6"><textarea name='work_experience'>{$review_info['work_experience']}</textarea></td>
+			</tr>
+			<tr>
+				<th>4</th>
+				<th>家庭目前主要资产情况</th>
+				<td colspan="6"><textarea name='family_asset'>{$review_info['family_asset']}</textarea></td>
+			</tr>
+			<tr>
+				<th>5</th>
+				<th>还款能力及还款计划</th>
+				<td colspan="6"><textarea name='repayment_ability'>{$review_info['repayment_ability']}</textarea></td>
+			</tr>
+			<tr>
+				<th>6</th>
+				<th>其他还款来源</th>
+				<td colspan="6"><textarea name="other_income">{$review_info['other_income']}</textarea></td>
+			</tr>
+			<tr>
+				<th>7</th>
+				<th>备注</th>
+				<td colspan="6"><textarea name='remark'>{$review_info['remark']}</textarea></td>
+			</tr>
+			<tr>
+				<th colspan="2">需补充资料</th>
+				<td colspan="6"><textarea name='first_result'>{$review_info['first_result']}</textarea></td>
+			</tr>
+			<tr>
+				<th colspan="2">评审结果</th>
+				<td colspan="6">
+					<div style="float: left;"><select class="result" name="first_status" style="width: 80px;position: relative;top:5px;">
+						<option value="1" selected="">通过</option>
+						<option value="2">拒单</option>
+					</select></div>
+					<div class="review_money" style="float: left;">初审额度<input type="number" name="first_quota" value="{$review_info['first_quota']}">元</div>
+				</td>
+			</tr>
+		</table>
+		
+		<p style="text-align: center;margin-top: 20px;">
+			
+			<a style="margin-right: 20px;display: inline-block;width: 50px;height: 25px;line-height: 25px;cursor: pointer;" class="btn-primary" id="save">提交</a>
+			<button onclick="javascript:top.jdbox.close();"  class="btn-error" >关闭</button>
+		</p>
+		<form>
+	</div>
+</div>
+<script type="text/javascript">
+$(function () {
+	$(".result").change(function () {
+		var result = $(this).find("option:selected").val();
+		if (result == 1) {
+			$(".review_money").show();
+		} else {
+			$("input[name='first_quota']").val('');
+			$(".review_money").hide();
+		}
+	})
+	$("#save").click(function () {
+		if ($("select[name='operate']").val() == '') return alert('请选择初审结果');
+		if (!confirm("是否决定"+$("select[name='first_status']").find('option:selected').html()))return false;
+		var data = new FormData($('#viewForm')[0]);
+		data.append("is_save",1);
+		$.ajax({
+			url:"{:url('Riskcontrol/firstReview')}",
+			data:data,
+			dataType:'json',
+			type:'POST',
+			cache:false,
+			processData:false,
+			async:false,
+			contentType:false,
+			success:function (F) {
+				if (F.status) {
+					parent.window.reload();
+					top.jdbox.alert(F.status,F.info);
+				} else {	
+					alert(F.info)
+				}
+			},
+			error:function (F) {
+				console.log(F);
+				alert(F.responseText);
+			}
+		})
+	})
+})
+
+</script>
+{include file='publics/footer'}

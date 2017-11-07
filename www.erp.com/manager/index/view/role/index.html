@@ -1,0 +1,38 @@
+{include file="publics/header" /}
+<form class="form-inline definewidth m20">
+
+    <a href="{:url('Role/index')}">
+        <button type="submit" class="btn btn-primary">查询</button>
+    </a>&nbsp;&nbsp;
+    <a href="{:url('Role/addrole')}">
+        <button type="button" class="btn btn-success" id="addnew">新增角色</button>
+    </a>
+</form>
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+        <tr>
+            <th>角色ID</th>
+            <th>角色名称</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {volist name="res_role" id="vo"}
+        <tr>
+            <td>{$vo.id}</td>
+            <td>{$vo.title}</td>
+            <td>{if condition="$vo['status']==1"}启用{else if condition="$vo['status']==0"}禁用{/if}</td>
+            <td><a href="{:url('Role/editrole',array('id'=>$vo['id']))}">编辑</a></td>
+        </tr>
+        {/volist}
+     </tbody>
+ </table>
+<script language="javascript">
+$(function(){
+	$('#addnew').click(function(){
+		window.location.href="url";
+	});
+})
+</script>
+{include file="publics/footer" /}

@@ -1,0 +1,138 @@
+{include file="publics/header" /}
+
+<!-- 提交整个表单插件 ajaxSubmit -->
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+
+{notempty name="fordownload"}
+<div><span>话单</span></div> 
+{/notempty}   
+<!DOCTYPE html>
+<html>
+<head>
+ 
+</head>
+<body>
+<form id= "uploadForm">  
+{empty name="fordownload"}
+  <div class="ss" style="margin-left:50px;margin-top:30px;">
+      <p class="" style="color:#ff0000;font-size:20px;">{$name}</p>
+      <input type="hidden" name="field" value={$field}  />
+      <input type="hidden" name="lid" value={$loanid}  />
+      <p >上传excel文件： <input type="file" name="file[]"  multiple="multiple"  class="select-file" /></p>  
+      <input type="button" value="上传" class="doUpload" /> 
+
+   </div>
+ {/empty}
+   {notempty name="list"}
+                <table  border=1 style="margin-left:50px;margin-top:30px;width:500px;text-align: center">
+                    <th></th>
+                    <th>文件名</th>
+                    <th>上传时间</th>
+                    <th>操作</th>
+         {foreach name="list" item="vo"}
+                  <tr>
+                    <td><input type="checkbox" class="put" value="{$vo.title}"></td>
+                    <td><?php echo end(explode('/',$vo['title'])) ?></td>
+                     <td>{$vo.addtime|date='Y-m-d H:i:s',###}</td>
+                    <td>    
+                      {empty name="fordownload"}
+                        <a href="javascript:void(0);" onclick="return del('{$vo.title}');">删除</a>
+                      {/empty}
+                       <a href="_STATIC_/Upload/{$vo.title}">直接下载</a> 
+                     </td>
+                  </tr>
+         {/foreach}
+                </table>  
+       <div class="aa" style="margin-left:50px;margin-top:20px;">
+                <input type="checkbox" name="" value="" id="all_check" style="width:16px;vertical-align:top;height:16px;font-size: 14px">全选
+           <!--  <span style="background:black;border-radius:25px;color:white;width:20px;height:20px;font-size:16px;margin-left: 20px">+</span> -->
+            <p class="download btn-primary" style="margin-left:15px;display:inline-block; ">打包zip下载</p>
+      </div>
+    {/notempty}
+</form> 
+
+{empty name="fordownload"}
+<div style="width: 100%;"><button onclick="javascript:window.location.href='/Storesystem/loanTable.html?loanid={$_GET.loanid}&readonly=1'" style="margin: 0 40%;display: inline-block;" class="btn-primary" >返回</button></div>
+{/empty}   
+
+<script type="text/javascript">
+//上传文件
+
+$(".doUpload").click(function(){
+        var options = {
+                url:"{:url('/Image/addPhoto')}",
+                type: "post",
+                dataType: "json",
+                success: function(msg) {
+                 top.jdbox.alert(msg.status,msg.msg); 
+                 window.location.reload();
+                }
+            };
+            $("form").ajaxSubmit(options);
+})
+
+//删除文件
+var del = function(name)
+    {   
+        var data={};
+        var url = "{:url('image/delPhoto')}?loanid="+{$loanid};
+        data.field="{$field}";
+        data.loanid={$loanid};
+        data.name=name;
+         $.ajax({  
+          url:url,
+          type: 'POST',  
+          data: data,  
+          success: function (msg) {  
+           top.jdbox.alert(msg.status,msg.info); 
+           window.location.reload();
+          } 
+     });  
+  }
+//全选
+$("#all_check").click(function(){
+     if($(this).is(":checked")){
+        $(".put").attr("checked","checked");
+     }   
+});
+//下载文件
+$(".download").click(function(){
+   var num=$(".put:checked").length;
+   var ipts='';
+   if(num<1){
+      {notempty name="fordownload"} 
+        alert('请选择要打包下载的文件');
+      {else/}
+        top.jdbox.alert(0,'请选择要打包下载的文件');
+      {/notempty}
+    
+   }else{
+    for (var i=0;i<num;i++)
+    {
+       ipts+=$(".put:checked").eq(i).val()+',';
+    }
+    if (ipts.length > 0) {
+          ipts = ipts.substr(0,ipts.length - 1);
+      }
+    var data={};
+    var url = "{:url('image/downloads')}";
+    data.name=ipts;
+    // console.log(data);
+    $.ajax({  
+      url:url,
+      type: 'GET',  
+      data: data,  
+      success: function (msg) {  
+         if(msg.status==1){
+            window.open(msg.data);
+           }else{
+            alert(msg.info);
+           }
+      } 
+     });  
+   }  
+})
+</script>
+</body>
+</html>
+{include file="publics/footer" /}

@@ -1,0 +1,85 @@
+{include file="publics/header" /}
+<!-- <script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script> -->
+<form class="form-inline definewidth m20"  action="{:url('Store/index')}" method="get">
+    <span>门店名称：</span>
+    <input type="text" name="name" id="name_search" placeholder="请输入门店名称" value="{:request()->get('name')}">&nbsp;&nbsp;
+        <input type="hidden" name='status' value=''/>
+    <button type="submit" class="btn btn-primary" id="search">查询</button>&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;<a href="javascript:void(0)"><button type="button" class="btn btn-success" id="addDealer">门店添加</button></a>
+</form>
+<script>
+    //$("#search").click(function () {
+      //  window.location.href="{:url('Store/search')}";
+    //})
+</script>
+<input type="hidden" name="page" value="{$_GET['page']}">
+<form id="userForm" class="definewidth m20">
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+    <tr>
+        <th>门店id</th>
+        <th>门店名称</th>
+         <th>门店编码</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+        {volist name="list" id="vo"}
+        <tr>
+            <td>{$vo.id}</td>
+            <td>{$vo.name}</td>  
+            <td>{$vo.number}</td>
+            <td>
+                {if condition="$vo.status==1"}启用{else if condition="$vo.status==0"}禁用{/if}
+            </td>
+            <!-- <td><a href="{:url('Store/editstore',array('id'=>$vo['id']))}"> 修改 </a></td> -->
+             <td><a href="javascript:void(0)" onclick="return edit('{$vo.id}')"> 修改 </a></td>
+        </tr>
+        {/volist}
+    </tbody>
+</table>
+</form>
+{$page}
+<script language="javascript">
+ var page=$("input[name='page']").val();
+    if(!page){
+        page=1;
+    }
+    $(function() {
+        $('#addDealer').click(function() {
+            var url = "{:url('store/addStore')}?page="+page; 
+            window.location.href = url;
+        });
+    })
+    $(function(){
+        $("select[name='status']").change(function(){
+            var data = {};
+            $(data).attr('id',$(this).attr('nid'));
+            $(data).attr('status',$(this).val());
+            //console.log($(this).val(),$(this).attr('nid'));
+            $.post('/Index/storeAudo.html',data,function(F){
+                return top.jdbox.alert(F.status,F.info);
+            },'json');
+        });
+    })
+    $("#search").click(function () {
+        var name_search = $("#name_search").val();
+        if(name_search==''){
+            alert('请先输入要检索的门店名');
+            return false;
+        }
+
+    })
+var edit=function(id){
+    if(!id){
+       return  top.jdbox.alert(2,'id获取出错');
+    }
+   
+    var url = "{:url('store/editstore')}?page="+page+"&id="+id; 
+    window.location.href=url;
+}
+</script>
+
+{include file="publics/footer" /}

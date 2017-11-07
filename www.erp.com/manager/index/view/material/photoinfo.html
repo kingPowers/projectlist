@@ -1,0 +1,49 @@
+{include file="publics/header" /}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>图片</title>
+  <link href="_STATIC_/assets/fileupload/css/common.css" type="text/css" rel="stylesheet"/>
+  <link href="_STATIC_/assets/fileupload/css/index.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+  <div class="img-box full">
+    <section class=" img-section">
+      <p class="up-p"><span class="up-span" style="color:red;font-size:20px;">{$name}</span></p>
+      <div class="z_photo upimg-div clear" >
+    {notempty name="list"} 
+       {neq name="field" value="phone_bill"}
+           {foreach name="list" item="vo"}
+                    <img class="up-img" style="height: 100px; width: 100px;float: left;margin: 10px 5px;" type="loanContract_pic" src="_STATIC_/Upload/{$vo}" up_name="{$vo}" up_loanid={$loanid} up_field={$field} >
+           {/foreach}
+         {else/}
+                 <table  border=1 style="margin-left:50px;margin-top:30px;width:500px;text-align: center">
+                    <th style="width:20px;"></th>
+                    <th>文件名</th>
+                    <th>上传时间</th>
+                    <th>操作</th>
+                  {foreach name="list" item="vo"}
+                    <tr>
+                      <td><input type="checkbox" class="put" value="{$vo}"></td>
+                      <td><?php echo end(explode('/',$vo));?></td>
+                      <td><?php echo  date("Y-m-d H:i:s",end(explode('/',substr(end(explode('/',$vo)),0,10))));?></td>
+                      <td>    
+                       <!--  {empty name="fordownload"}
+                          <a href="javascript:void(0);" onclick="return del('{$vo}');">删除</a>
+                        {/empty} -->
+                         <a href="_STATIC_/Upload/{$vo}">直接下载</a> 
+                       </td>
+                    </tr>
+                 {/foreach}
+                </table>  
+      {/neq}
+    {/notempty}
+      </div>
+    </section>
+    <button onclick="javascript:window.location.href='/Storesystem/loanTable.html?loanid={$_GET.loanid}&readonly=1'" style="margin-bottom: 100px;" class="btn-error" >返回</button>
+  </div>
+</body>
+</html>
+{include file="publics/footer" /}

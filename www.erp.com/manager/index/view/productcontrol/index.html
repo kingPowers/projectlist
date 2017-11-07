@@ -1,0 +1,91 @@
+{include file="publics/header" /}
+<style type="text/css">
+.list-btn{width: 80px;height: 25px;line-height: 25px;border:1px solid #ccc;text-align: center;border-radius: 5px;letter-spacing: 5px;cursor: pointer;background: #f4f4f4;}
+.list-btn:hover{background: #ddd}
+.list{position: absolute;width:auto;padding:5px 7px;display: none;background: #f4f4f4;border:1px solid #ccc;border-radius: 5px;}
+.list ul{list-style: none;margin: 5px auto;}
+.list ul li{text-align: left;margin-bottom: 5px;}
+.list ul a{text-align: left;display: inline-block;height: 25px;}
+.list ul a:hover{background: #ddd;height: 25px;}
+</style>
+<script type="text/javascript">
+$(function () {
+  $(".list-btn").click(function () {
+    // var text = ($(this).html() == '查看')?'隐藏':'查看';
+    // $(this).html(text);
+    $(".list").stop().slideUp(10);
+    $(this).next(".list").stop().slideToggle();
+  })
+})
+</script>
+<form class="definewidth m20" id="editForm" style="margin-left: 20px;">  
+
+ <a href="">  
+        <button type="submit" class="btn btn-primary">查询</button>
+    </a>&nbsp;&nbsp;
+    <a href="{:url('Productcontrol/add')}">
+        <button type="button" class="btn btn-success" id="addproduct">新增产品</button>
+    </a>
+</form>
+<table class="table table-bordered table-hover definewidth m10" style="margin-bottom: 50px">
+    <thead>
+        <tr>
+           {volist name="title" id="vo"}
+              <th>{$vo}</th>
+           {/volist}
+        </tr>
+    </thead>
+    <tbody>
+      {volist name="list" id="v"}
+      <tr>
+        {foreach name="title" item="tv" key="k"}
+          {if condition="$k eq 'operate'"}
+          <td>
+            {foreach name="v[$k]" item="ov" key="ok"}
+              <a  href="javascript:void(0);" onclick="operate('{$ok}',{$v['id']});">{$ov}</a>
+               <!-- <a href="javascript:void(0);" onclick="return edit('{$v.id}');">{$ov}</a> -->
+               <!-- <a href="/Productcontrol/edit?id={$v['id']}">{$ov}</a> -->
+            {/foreach}
+          </td>
+          {else /}
+            <td>{$v[$k]}</td>
+          {/if}  
+        {/foreach}
+      </tr>
+      {/volist}
+    </tbody>
+</table>
+<script type="text/javascript">
+  $(function(){
+    $('#addproduct').click(function(){
+        window.location.href="url";
+    });
+})
+var operate =function(type,id){
+   if (type == '') return false;
+   if (id == '') return top.jdbox.alert(0,"产品ID不能为空");
+   var func = type + "(" + id +")";
+   eval(func);
+     //window.location.href="/Productcontrol/"+type+"?id="+id;
+}
+var edit = function(id)
+{
+  window.location.href="/Productcontrol/edit?id="+id;
+}
+var calculate= function(id)
+{
+  top.jdbox.iframe("/Productcontrol/calculate?id="+id);
+}
+  
+var addContract=function(id){
+    window.location.href="/Productcontrol/addContract?product_id="+id;
+}
+
+//点击查看
+$('.show_contract').click(function(){
+     var id=$(this).attr('value');
+     window.location.href="/Productcontrol/showContract?id="+id;
+     alert(id);
+});
+</script>
+{include file="publics/footer" /}

@@ -1,0 +1,156 @@
+{include file='publics/header'}
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<style>
+	#content{width:500px;padding:10px 0;padding-right:20px;font-size:12px;color:#000;}
+	input[type='number'] {position: relative;top:5px;}
+	/*table{margin: 0 auto;}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+	.search-div{border:1px solid #bbb;width: 207px;margin-top: 0px;position: absolute;top:32px;left: 8px;z-index: 100;background: #fff;border-radius: 2px;display:none;}
+	.search-div p{cursor: pointer;margin: 0 auto;padding: 5px 10px;}
+	.search-div p:hover{background: #ccc}
+	.close{display: inline-block;float: right;font-size: 5px;color: #666;padding-right: 10px;}*/
+</style>
+<div><span>报价</span></div>
+<div id="content">
+	<div class="interview_table" style="width: 700px;height:800px; ">
+	<form id="car_eval">
+	<input type="hidden" name="loanid" value="{$info['loanid']}">
+	<input type="hidden" name="id" value="{$eval_info['id']}">
+	<table style="margin: 0 auto;width: 650px;" cellpadding="0" cellspacing="0" border="1">
+		<tr>
+			<td colspan="3">
+				<h1>门店评估报告</h1>
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<div class="fl">评估时间:{empty name='eval_info.assessment_time'}{:date('Y-m-d')}{else/}{$eval_info['assessment_time']}{/empty}</div>
+				<div class="fr">区域:{$store['name']}</div>			
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车主信息</p>
+			</td>			
+		</tr>
+		<tr>
+			<td>车主姓名:{$info['names']}</td>
+			<td>身份证号:{$info['certi_number']}</td>
+			<td>联系电话:{$info['mobile']}</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车辆信息</p>
+			</td>			
+		</tr>
+		<tr>
+			<td>品牌型号:{$eval_info['car_brand']}</td>
+			<td>车牌号码:{$eval_info['car_number']}</td>
+			<td>VIN码:{$eval_info['car_vin']}</td>
+		</tr>
+		<tr>
+			<td>颜色:{$eval_info['car_color']}</td>
+			<td>燃油种类:{$eval_info['car_fuel']}</td>
+			<td>变速箱型式:{$eval_info['car_gearbox']}</td>
+		</tr>
+		<tr>
+			<td>排量:{$eval_info['other_attribute1']}</td>
+			<td>车身型式:
+				{$eval_info['other_attribute2']}门{$eval_info['other_attribute3']}座
+			</td>
+			<td>驱动型式:{$eval_info['other_attribute4']}</td>
+		</tr>
+		<tr>
+			<td>注册时间:{$eval_info['other_attribute5']}</td>
+			<td>制造日期:{$eval_info['other_attribute6']}</td>
+			<td>过户次数:{$eval_info['other_attribute7']}</td>
+		</tr>
+		<tr>
+			<td>使用性质：{$eval_info['other_attribute8']}</td>
+			<td>已使用里程:{$eval_info['other_attribute9']}</td>
+			<td>年审日期:{$eval_info['other_attribute10']}</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车况查定</p>
+			</td>			
+		</tr>
+		{foreach name="car_traffic" item="vo"}
+		<tr>
+			{foreach name="vo" item="cv" key="ck"}
+			<td>
+				{$cv['title']}：
+				<label>{$eval_info[$ck]}</label>
+			</td>
+			{/foreach}
+		</tr>
+		{/foreach}
+		<tr>
+			<td>
+				车险截至日期:{$eval_info['car_traffic13']}
+			</td>	
+			<td>
+				车辆违章:{$eval_info['car_traffic14']}个{$eval_info['car_traffic15']}分
+			</td>	
+			<td>
+				新车指导价:{$eval_info['car_traffic16']}
+			</td>		
+		</tr>
+		<tr>
+			<td>
+				发动机工况:{$eval_info['car_traffic17']}
+			</td>	
+			<td>
+				变速箱工况:{$eval_info['car_traffic18']}
+			</td>	
+			<td>
+				其他:{$eval_info['car_traffic19']}
+			</td>		
+		</tr>
+		<tr>
+			<td colspan="3">
+				门店评估师鉴定意见:
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>{$eval_info['car_appearance']}</p>
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				门店评估价格:{$eval_info['car_price']}
+				<div class="fr">门店评估师{$eval_info['appraiser']}</div>		
+			</td>			
+		</tr>	
+		<tr>
+			<td colspan="3">评估价格：<input type="number" step="0.01" name="quote_price" value="{$eval_info['company_car_price']}">元</td>
+		</tr>
+	</table>
+	</form>
+	<p style="text-align: center;margin-top: 20px;"><button style="margin-bottom: 100px;margin-right: 20px;" class="btn-primary" id="save">保存</button><button onclick="javascript:top.jdbox.close();" style="margin-bottom: 100px;" class="btn-error" >放弃</button></p>
+	<div style="margin-top:100px;"></div>
+</div>
+</div>
+<script type="text/javascript">
+$(function () {
+	$("#save").click(function () {
+		var loanid = $("input[name='loanid']").val();
+		if (loanid == '')return top.jdbox.alert(0,'订单ID错误');
+		var data = {};
+		data.loanid = loanid;
+		data.quote_price = $("input[name='quote_price']").val();
+		data.is_quote = 1;
+		$.post("{:url('/Riskcontrol/quoteInfo')}",data,function (F) {
+			if (F.status) {
+				parent.window.reload();
+				top.jdbox.alert(F.status,F.info);
+			} else {
+				alert(F.info);
+			}
+		},'json')
+	})
+})
+</script>
+{include file='publics/footer'}

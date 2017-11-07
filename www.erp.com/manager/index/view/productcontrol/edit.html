@@ -1,0 +1,145 @@
+{include file="publics/header" /}
+<!-- 提交整个表单插件 ajaxSubmit -->
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+<style type="text/css">
+.tableright{width: 200px;text-align: center;padding-left:100px; }
+.search-div{border:1px solid #bbb;width: 207px;margin-top: 0px;position: absolute;top:32px;left: 8px;z-index: 100;background: #fff;border-radius: 2px;display:none;}
+.search-div p{cursor: pointer;margin: 0 auto;padding: 5px 10px;}
+.search-div p:hover{background: #ccc}
+.close{display: inline-block;float: right;font-size: 5px;color: #666;padding-right: 10px;}
+label{display: inline-block;}
+</style>
+
+<form class="definewidth m20" id="editForm" style="margin-left: 20px">
+
+ 
+  <table class="table table-bordered table-hover m10">
+      <!--<tr>
+      <input type="hidden" class="need_search" name="productid" value="{$info['id']}">
+     <td class="tableleft" style="text-align: center;" colspan="4">选择合作公司
+      </td> 
+    </tr>-->
+     <tr>
+       <td class="tableleft">资金方：</td> 
+      <td class="tableright" colspan="3">
+        <select name="employer">
+          <option value="">--请选择资金方--</option>
+          {foreach name="channelList" item="vo" key="key"}
+          <option value="{$vo.title}" {eq name="res['employer']" value="$vo['title']"}selected=""{/eq}>{$vo.title}</option>
+          {/foreach}
+        </select>
+      </td>
+    </tr>
+    <tr>   
+      <td width="10%" class="tableleft">产品名称:</td>  
+      <td class="tableright" style="position: relative;"> 
+        <select name="name"   > 
+              <option value=''>-- 请选择产品名称--</option>
+             {foreach name="allProducts" item="vo"}
+                 <option value="{$vo.title}" {eq name="res['name']" value="$vo['title']" } selected="" {/eq} >{$vo.title}</option>
+             {/foreach}
+        </select>     
+       
+        <div class="search-div"></div>
+      </td>
+      <td width="10%" class="tableleft">期数</td>
+      <td class="tableright" style="position: relative;">
+        <input type="text" name="month"  cid="" value="{$res.month}">月
+      </td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">还款方式</td>
+      <td class="tableright" style="position: relative;">
+         {foreach name="repaymentList" key="k" item="vo"}
+             <label>
+               <input  style="display: inline-block;" type="radio" name="repayment_type" value="{$k}" {eq name="res['repayment_type']" value="$k"} checked="" {/eq} >{$vo}
+               </label>
+         {/foreach}
+      <!--  <label><input  style="display: inline-block;" type="radio" name="repayment_type" value="1" >等额本息</label>
+        <label><input  type="radio" name="repayment_type" value="2"  >付息还本</label> -->
+        <div class="search-div"></div>
+      </td>
+      <td width="10%" class="tableleft">年化利率</td>
+      <td align="center" class="tableright">
+           <input type="text" name="year_rate"  cid="" value="{$res.year_rate}">%
+      </td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">综合月利率:</td>
+      <td class="tableright">
+        <input type="text"   name="comp_month_rate" value="{$res.comp_month_rate}">%
+      </td>
+      <td width="10%" class="tableleft">代拉征信费用</td>
+      <td>
+        <input type="text"    name="insteadCredit" value="{$res.insteadCredit}">元
+      </td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">合同金额利率:</td>
+      <td class="tableright">
+        <input type="text"   name="contact_rate" value="{$res.contact_rate}">%
+      </td>
+      <td width="10%" class="tableleft">GPS流量费</td>
+      <td>
+        <input type="text"    name="gpsL" value="{$res.gpsL}">元/月
+      </td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">GPS设备费:</td>
+      <td class="tableright" >
+         <input type="text"    name="gpsS" value="{$res.gpsS}">元
+      <td width="10%" class="tableleft">GPS责任险:</td>
+      <td class="tableright">
+        <input type="text"   name="gpsZ" value="{$res.gpsZ}">
+      </td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">提前结清违约金费率:</td>
+      <td class="tableright">
+        <input type="text"   name="breach_rate" value="{$res.breach_rate}">%
+      </td>
+        <td>  <input type="hidden"   name="id" value="{$res.id}"></td>
+     <!--   <td width="10%" class="tableleft">是否启用:</td>
+      <td class="tableright" colspan="3">
+        <label><input style="display: inline-block;" type="radio" name="status" value="1"  >启用</label>
+        <label><input type="radio" name="status" value="0" >停用</label>
+      </td> -->
+    </tr>
+    
+    <tr>
+      <td width="10%" class="tableleft">是否启用:</td>
+      <td class="tableright" colspan="3">
+        <label><input style="display: inline-block;" type="radio" name="status" value="1" {eq name="res['status']" value="1"} checked="" {/eq} >启用</label>
+        <label><input type="radio" name="status" value="0" {eq name="res['status']" value="0"} checked="" {/eq} >停用</label>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;width: 50px">
+     
+          <a class="btn btn-success" id="sub">提交</a>
+      
+          <a class="btn btn-error" href="/Productcontrol/index" style="margin-left: 20px;">返回
+          </a> 
+      </td>  
+    </tr>
+  </table>
+</form>
+<script type="text/javascript">  
+$(function(){
+ 
+  $("#sub").click(function(){
+        var options = {
+                url:"{:url('Productcontrol/edit')}",
+                type: "post",
+                dataType: "json",
+                success: function(msg) {
+                 top.jdbox.alert(msg.status,msg.msg); 
+                 // window.location.reload();
+                }
+            };
+            $("form").ajaxSubmit(options);
+})
+ 
+})
+</script>
+{include file="publics/footer" /}

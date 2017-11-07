@@ -1,0 +1,4 @@
+[23-Oct-2017 15:00:02 PRC] PHP Fatal error:  Call to undefined method www\index\controller\Index::redirect() in E:\project\www.erp.com\www\index\controller\Index.php on line 8
+[24-Oct-2017 17:15:45 PRC] PHP Fatal error:  Class 'www\index\controller\TCPDF' not found in E:\project\www.erp.com\www\index\controller\Index.php on line 22
+[25-Oct-2017 09:34:00 Asia/Shanghai] PHP Notice:  Constant UPLOAD_PATH already defined in E:\project\www.erp.com\public\config.inc.php on line 5
+[25-Oct-2017 09:34:01 Asia/Shanghai] PHP Notice:  Constant UPLOAD_PATH already defined in E:\project\www.erp.com\public\config.inc.php on line 5

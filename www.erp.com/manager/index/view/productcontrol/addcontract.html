@@ -1,0 +1,78 @@
+{include file="publics/header" /}
+<style type="text/css">
+    input[type='text']{width:300px;}
+    textarea{width:700px;height:80px;}
+    #content{height:500px;}
+</style>
+<form id='newsForm' class="definewidth m20" method="post" action='addcontract'>
+
+<table class="table table-bordered table-hover m10">
+    <tr>
+        <td class="tableleft">合同名称</td>
+        <td><input type="text" name="name" value=""/></td>
+         <input type="hidden" name="product_id" value="{$_GET['product_id']}"/>
+    </tr>
+    <tr>
+        <td class="tableleft">内容</td>
+        <td><textarea name="content" id="content" style="width:845px;"></textarea></td>
+    </tr>
+     <tr>
+        <td class="tableleft">变量替换<br>
+             <span style="color:red;">(有技术人员操作)</span>
+         </td>
+        <td> <textarea name='variable_replace' style="width:845px;min-height: 200px;"></textarea>
+            </td>
+    </tr>
+     <tr>
+        <td class="tableleft">附件</td>
+        <td><input type="file" name="contact_file" value=""/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button class="btn btn-primary" type="button"> 保存 </button>
+            <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+</table>
+</form>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/public.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<!--编辑器-->
+<link rel="stylesheet" href="_STATIC_/2015/js/editor/themes/default/default.css" />
+<link rel="stylesheet" href="_STATIC_/2015/js/editor/plugins/code/prettify.css" />
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/kindeditor.js"></script>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/plugins/code/prettify.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+<script language="javascript">
+    var editor;
+    KindEditor.ready(function(K) {
+        var options = {
+            // uploadJson : OS+'/Public/imageUpload.html',
+            allowFileManager : false
+        };
+        editor = K.create('#content', options);
+    });
+   //提交
+    $(".btn-primary").click(function(){
+        var _this = this;
+        $("textarea[name='content']").val(encodeURIComponent(editor.html()));
+        var options = {
+            url:$(_this).parents("form").attr('action'),
+            type: "post",
+            dataType: "json",
+        success: function(o) {
+            top.jdbox.alert(o.status,o.info); 
+            if(o.status==1){
+                location.href="{:url('index');}";
+            }else{
+                
+            }
+        }
+    };
+    $(_this).parents("form").ajaxSubmit(options);
+  });
+    
+</script>
+{include file="publics/footer" /}

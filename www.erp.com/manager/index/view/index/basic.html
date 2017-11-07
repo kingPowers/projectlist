@@ -1,0 +1,76 @@
+<include file="Public:header" />
+<table class="table table-bordered table-hover definewidth m10">
+    <tr>
+        <td class="theader">标题</td>
+        <td>
+            <input type="text" name="title" class="lang" value="{$system['title']}"/>  网站默认标题
+        </td>
+    </tr>
+    <tr>
+        <td class="theader">关键字</td>
+        <td>
+            <input type="text" name="keywords" class="lang" value="{$system['keywords']}"/>  网站默认关键字
+        </td>
+    </tr>
+    <tr>
+        <td class="theader">描述</td>
+        <td>
+            <textarea name="description" style="width: 400px;">{$system['description']}</textarea> 网站默认描述
+        </td>
+    </tr>
+    <tr>
+        <td class="theader">积分比例</td>
+        <td>
+            <input type="text" name="proportion" style="width: 50px;" value="{$system['proportion']}"/>  投资金额 * 积分比例 = 用户获取积分
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align:center;">
+            <button type="button" id="button" class="btn btn-success">提交</button>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+    $(function(){
+        $('#button').click(function(){
+            var data = {};
+            var title = $("input[name='title']").val();
+            if(!title){
+
+            }
+            $(data).attr('title', title);
+
+            var keywords = $("input[name='keywords']").val();
+            if(!keywords){
+
+            }
+            $(data).attr('keywords', keywords);
+
+            var description = $("textarea[name='description']").val();
+            if(!description){
+
+            }
+            $(data).attr('description', description);
+
+
+
+            var proportion = parseFloat($("input[name='proportion']").val());
+            if(!proportion){
+                return top.jdbox.alert(0, '积分比例不能为空');
+            }
+            $(data).attr('proportion', proportion);
+
+            $.post("/Index/basicsubmit", data, function(result) {
+                top.jdbox.alert(result.status, result.info);
+                if (result.status) {
+                    window.location.reload();
+                }
+            }, 'json')
+
+        })
+    })
+
+
+</script>
+<include file="Public:footer" />

@@ -1,0 +1,63 @@
+{include file='publics/header'}
+
+<form class="form-inline definewidth m20" action="/Storesystem/storeReviewList.html" method="get">  
+    <button type="button" class="btn btn-success" onclick="javascript:window.location.href='/Storesystem/applyTable.html'">新增订单</button>
+    <button type="button" class="btn btn-success">还款计划</button>
+    <button type="button" class="btn btn-success">征信系统</button>
+    <select name="k" class="short">
+      {foreach name="key" item='v' key='k'}
+        <option value="{$k}" {eq name="_GET['key']" value="$k" }selected="selected"{/eq}>{$v}</option>
+      {/foreach}
+    </select>
+    <input type="text" name="v" class="abc input-default" value="{:request()->get('v')}">&nbsp;&nbsp;
+    开始时间：
+    <input type="text" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{:request()->get('starttime')}">
+    结束时间：
+    <input type="text" name="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{:request()->get('endtime')}">
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; 
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+           {volist name="title" id="vo"}
+              <th>{$vo}</th>
+           {/volist}
+        </tr>
+    </thead>
+    <tbody>
+      {volist name="list" id="v"}
+      <tr>
+        {foreach name="title" item="tv" key="k"}
+          {if condition="$k eq 'operate'"}
+          <td>
+            {foreach name="v[$k]" item="ov" key="ok"}
+              <a onclick="operate('{$ok}',{$v['other']['id']});">{$ov}</a>
+            {/foreach}
+          </td>
+          {else /}
+            <td>{$v[$k]}</td>
+          {/if}  
+        {/foreach}
+      </tr>
+      {/volist}
+    </tbody>
+</table>
+<div>{$page}</div>
+<script type="text/javascript">
+var refuse = function (id)
+{
+  if (!confirm("是否确定拒单"))return false;
+  top.jdbox.alert(2);
+  $.post("{:url('/Storesystem/refuse')}",{"is_refuse":1,"loanid":id,"remark":"门店复议拒单"},function (F) {
+      top.jdbox.alert(F.status,F.info);
+      if (F.status) {
+        window.location.reload();
+      }
+  },'json')
+}
+var repeatInfo = function (id)
+{
+  return top.jdbox.iframe("/Storesystem/reviewInfo.html?loanid="+id+"&is_repeat=1");
+}
+</script>
+{include file='publics/footer'}

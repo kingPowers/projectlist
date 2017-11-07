@@ -1,0 +1,34 @@
+{include file='publics/header'}
+<style>
+	#content{width:500px;padding:10px 0;padding-right:20px;font-size:12px;color:#000;margin: 20px 20px}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+	.search-div{border:1px solid #bbb;width: 207px;margin-top: 0px;position: absolute;top:32px;left: 8px;z-index: 100;background: #fff;border-radius: 2px;display:none;}
+	.search-div p{cursor: pointer;margin: 0 auto;padding: 5px 10px;}
+	.search-div p:hover{background: #ccc}
+	.close{display: inline-block;float: right;font-size: 5px;color: #666;padding-right: 10px;}
+	select{width: 150px;}
+	button{margin-left: 50px;}
+</style>
+<div><span>贷款分单</span></div>
+<div id="content">
+<div>隶属系统：
+	<select name="system">
+		<option value="0">--请选择隶属系统--</option>
+		{foreach name="sysytem" item="vo"}
+		<option value="{$vo}">{$vo}</option>
+		{/foreach}
+	</select>
+	风控专员：
+	<select name="risk_man">
+		<option value="0">--请选择风控专员--</option>
+		{foreach name='risklist' item="vo"}
+		<option value="{$vo}">{$vo}</option>
+		{/foreach}
+	</select>
+</div>
+<div style="margin:50px 20%">
+<button class="btn btn-success">确认分单</button><button class="btn btn-primary">暂不分单</button>
+</div>
+</div> 
+{include file='publics/footer'}

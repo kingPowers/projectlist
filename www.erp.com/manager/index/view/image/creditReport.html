@@ -1,0 +1,81 @@
+{include file="publics/header" /}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>上传图片插件</title>
+  <link href="_STATIC_/assets/fileupload/css/common.css" type="text/css" rel="stylesheet"/>
+  <link href="_STATIC_/assets/fileupload/css/index.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+
+    <p id="player3">
+    <a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</p>
+    <script type="text/javascript">
+    var s1 = new SWFObject("flvplayer.swf","single","300","170","7");
+    s1.addParam("allowfullscreen","true");
+    s1.addVariable("file","videos/ld.Flv");//这边是视频在本地的路径
+    s1.addVariable("image","videos/ld.jpg");//这边是你的视频的截图
+    s1.addVariable("width","300");
+    s1.addVariable("height","170");
+    s1.write("player3");
+    </script>
+    
+<form action="" method="post" enctype="multipart/form-data">
+  <div class="img-box full">
+    <section class=" img-section">
+      <p class="up-p">作品图片：<span class="up-span">最多可以上传5张图片，马上上传</span></p>
+      <div class="z_photo upimg-div clear" >
+    {notempty name="credit"}
+         {foreach name="credit" item="vo"}
+                  <section class="up-section fl ml"><span class="up-span"></span>
+                  <img class="close-upimg" src="_STATIC_/assets/fileupload/img/a7.png">
+                  <img class="up-img" type="loanContract_pic" src="_STATIC_/Upload/{$vo.credit_report}" up_name="{$vo.credit_report}"  up_id="{$vo.id}" ><p class="img-name-p"></p>
+                  <input id="taglocation" name="taglocation" value="" type="hidden">
+                  <input id="tags" name="tags" value="" type="hidden">
+                  <input type="text" style="display:none;" name="undefined" value="undefined"></section>
+         {/foreach}
+    {/notempty}
+        <section class="z_file fl">
+          <img src="_STATIC_/assets/fileupload/img/a11.png" class="add-img">
+          <input type="file" name="file[]" id="file"  class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+        </section>
+      </div>
+    </section>
+  </div>
+</form>
+<aside class="mask works-mask">
+  <div class="mask-content">
+    <p class="del-p ">您确定要删除作品图片吗？</p>
+    <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+  </div>
+</aside>
+
+<script src="_STATIC_/assets/fileupload/js/jquery.js"></script>
+<!--<script src="js/imgUp.js"></script>-->
+<script src="_STATIC_/assets/fileupload/js/imgPlugin.js"></script>
+<script type="text/javascript">
+    $(function(){
+        // var value = $("input[name='file']").attr("addid");
+        var imgpath = "{_STATIC_}"+'/Upload/';
+        //alert(imgpath);
+        $("#file").takungaeImgup({  
+            formData: {
+               "path": imgpath,
+               "field":'credit_report',
+               "lid":{$loanid},
+            },
+            url:"{:url('/Image/addPhoto')}",
+            success: function(data) {
+               // alert(1);
+            },
+            error: function(err) {
+                alert(err);
+            }
+        });
+    })
+</script>
+</body>
+</html>
+{include file="publics/footer" /}

@@ -1,0 +1,57 @@
+{include file="publics/header" /}
+<style type="text/css">
+    input[type='text']{width:300px;}
+    textarea{width:700px;height:80px;}
+    #content{height:500px;}
+    .contact-common{width:auto;height: auto;padding:20px 40px;}
+    .contact-view{}
+    .contact-empty{width:auto;height: 200px;}
+    .download-contact{margin-left:20px;}
+    .contact-file{float: right;padding-right: 400px;}
+</style>
+<div class="contact-common">
+    <div class="contact-view">{$contactOne.content}</div>  
+    <div class="contact-file">下载附件：<a href="viewcontact?type=download&fileName={$contactOne.contact_file}">{$contactOne.contact_file}</a><a class='download-contact' href="editcontract?id={$contactOne.id}">修改</a></div>
+    <div class="contact-empty"></div>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/public.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/wdate/WdatePicker.js"></script>
+<!--编辑器-->
+<link rel="stylesheet" href="_STATIC_/2015/js/editor/themes/default/default.css" />
+<link rel="stylesheet" href="_STATIC_/2015/js/editor/plugins/code/prettify.css" />
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/kindeditor.js"></script>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/lang/zh_CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/editor/plugins/code/prettify.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+<script language="javascript">
+    var editor;
+    KindEditor.ready(function(K) {
+        var options = {
+            // uploadJson : OS+'/Public/imageUpload.html',
+            allowFileManager : false
+        };
+        editor = K.create('#content', options);
+    });
+   //提交
+    $(".btn-primary").click(function(){
+        var _this = this;
+        $("textarea[name='content']").val(encodeURIComponent(editor.html()));
+        var options = {
+            url:$(_this).parents("form").attr('action'),
+            type: "post",
+            dataType: "json",
+        success: function(o) {
+            top.jdbox.alert(o.status,o.info); 
+            if(o.status==1){
+                location.href="{:url('index');}";
+            }else{
+                
+            }
+        }
+    };
+    $(_this).parents("form").ajaxSubmit(options);
+  });
+    
+</script>
+{include file="publics/footer" /}

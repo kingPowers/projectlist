@@ -1,0 +1,52 @@
+{include file="publics/header" /}
+
+<form class="form-inline definewidth m20" action="index.html" method="get">    
+    用户名称：
+    <input type="text" name="username" id="username"class="abc input-default" placeholder="" value="{:request()->get('username')}">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增用户</button>
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>用户ID</th>
+            <th>用户名称</th>
+            <th>用户角色</th>
+            <th>手机号码</th>
+            <th>最后登录时间</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="vo"}
+        <tr>
+            <td>{$vo['id']}</td>
+            <td>{$vo['username']}</td>
+            <td>{$vo['title']}</td>
+            <td>{$vo['mobile']}</td>
+            <td>{$vo['timeupdate']}</td>
+            <td><a href="/user/edit?id={$vo['id']}">编辑</a>
+               <a href="javascript:void(0);" onclick="return detail('{$vo.id}');">用户门店关联</a>
+                <a href="/User/recordList.html?uid={$vo.id}" >用户操作记录</a> 
+            </td>
+        </tr>
+     {/volist}
+     </tbody>
+</table>
+<div>{$page}</div>
+<script language="javascript"> 
+$(function(){
+	$('#addnew').click(function(){
+		window.location.href="{:url('User/add')}";
+	}); 
+}) 
+var detail = function(uid)
+    {
+        var url = "{:url('Userstore/add')}?uid="; 
+        if(!uid)
+        {
+            return top.jdbox.alert(0,'获取ID错误');
+        }
+        return top.jdbox.iframe(url+uid);
+    }
+</script>
+{include file="publics/footer"/}

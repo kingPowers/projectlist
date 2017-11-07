@@ -1,0 +1,122 @@
+{include file="publics/header" /}
+<!--修改-->
+{if condition="$id"}
+<!-- <script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script> -->
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+<form id='cateForm' class="definewidth m20" method="post">
+    <table class="table table-bordered table-hover m10">
+
+        <tr>
+            <td class="tableleft">门店名称</td>
+            <td><input type="text" name="name" value="{$row.name}"  jschecktitle="门店名" jscheckrule="null=0" /></td>
+        </tr>
+         <tr>
+            <td class="tableleft">门店编码</td>
+            <td><input type="text" name="number" value="{$row.number}"  jschecktitle="门店名" jscheckrule="null=0" /></td>
+        </tr>
+        <tr>
+            <td class="tableleft">状态</td>
+            <td><select name="status" class='delear_status'>
+                <option value='1' {if condition="$row.status==1"} selected{/if} >启用</option>
+                <option value="2" {if condition="$row.status==2"} selected{/if}  >禁用</option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <td class="tableleft"></td>
+            <td>
+             <a class="btn btn-primary" id="bt_edit"> 保存 </a>
+             <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+        </tr>
+    </table>
+</form>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/public.js"></script>
+<script>
+      var page="{$_GET['page']}";
+      if(!page){
+        page=1;
+      }
+      var url = "{:url('store/index')}?page="+page; 
+    $("#bt_edit").click(function () {
+        var name = $("input[name='name']").val();
+        var number = $("input[name='number']").val();
+        var status = $("select[name='status']").find("option:selected").val();
+        var id = {$row.id};
+        if(name!=''){
+            $.post("{:url('Store/editstore')}",{"name":name,"status":status,"id":id,"number":number},function (msg) {
+                alert(msg.info);
+                if (msg.status == 1) {
+                    window.location.href = url;
+                }
+            },'json')
+        }
+    });
+    //返回列表
+    $("#backid").click(function () {
+        // var page={$_GET['page']};
+        // var url = "{:url('store/index')}?page="+page; 
+        window.location.href=url;
+    });
+</script>
+{/if}
+<!--添加-->
+{if condition="$id==''"}
+<!-- <script type="text/javascript" src="_STATIC_/2015/js/jquery-connect.js"></script> -->
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.form.js"></script>
+    <table class="table table-bordered table-hover m10">
+
+        <tr>
+            <td class="tableleft">门店名称</td>
+            <td><input type="text" name="name" /></td>
+        </tr>
+         <tr>
+            <td class="tableleft">门店编码</td>
+            <td><input type="text" name="number" /></td>
+        </tr>
+        <tr>
+            <td class="tableleft">状态</td>
+            <td><select name="status" class='delear_status'>
+                <option value='1' selected >启用</option>
+                <option value="2"   >禁用</option>
+            </select></td>
+        </tr>
+ 
+        <tr>
+            <td class="tableleft"></td>
+            <td>
+                <a id="bt_add" class="btn btn-primary"> 保存 </a>
+                <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+        </tr>
+    </table>
+<script type="text/javascript" charset="utf-8" src="_STATIC_/2015/js/public.js"></script>
+<script>
+    var page="{$_GET['page']}";
+    if(!page){
+        page=1;
+    }
+    var url = "{:url('store/index')}?page="+page; 
+    $("#bt_add").click(function () {
+        var name = $("input[name='name']").val();
+         var number = $("input[name='number']").val();
+        var status = $("select[name='status']").find("option:selected").val();
+        if(name!=''){
+            $.post("{:url('Store/addstore')}",{"name":name,"status":status,"number":number},function (msg) {
+                console.log(msg);
+                var F = eval("(" + msg + ")");
+                //alert(F.info);
+                if (F.status == 1) {
+                    top.jdbox.alert(F.status,F.info);
+                    window.location.href = url;
+                }else{
+                    top.jdbox.alert(F.status,F.info);
+                }
+           },'json')
+        }
+    });
+    //返回列表
+    $("#backid").click(function () {
+        window.location.href=url;
+    });
+</script>
+{/if}
+{include file="publics/footer" /}

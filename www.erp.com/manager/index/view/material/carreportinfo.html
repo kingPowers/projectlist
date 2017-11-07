@@ -1,0 +1,150 @@
+{include file='publics/header'}
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+input[type='text'] {position: relative;top:5px;}
+input[type='radio'] {position: relative;top:-5px;}
+</style>
+<div class="interview_table">
+	<input type="hidden" name="loanid" value="{$info['loanid']}">
+	<input type="hidden" name="id" value="{$eval_info['id']}">
+	<table width="1100px" cellpadding="0" cellspacing="0" border="1">
+		<tr>
+			<td colspan="3">
+				<h1>二手车评估报告(17版)</h1>
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<div class="fl">评估时间:{$eval_info['assessment_time']}</div>
+				<div class="fr">区域:{$store['name']}</div>			
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车主信息</p>
+			</td>			
+		</tr>
+		<tr>
+			<td>车主姓名:{$info['names']}</td>
+			<td>身份证号:{$info['certi_number']}</td>
+			<td>联系电话:{$info['mobile']}</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车辆信息</p>
+			</td>			
+		</tr>
+		<tr>
+			<td>品牌型号:{$eval_info['car_brand']}</td>
+			<td>车牌号码:{$eval_info['car_number']}</td>
+			<td>VIN码:{$eval_info['car_vin']}</td>
+		</tr>
+		<tr>
+			<td>颜色:{$eval_info['car_color']}</td>
+			<td>燃油种类:{$eval_info['car_fuel']}</td>
+			<td>变速箱型式:{$eval_info['car_gearbox']}</td>
+		</tr>
+		<tr>
+			<td>排量:{$eval_info['other_attribute1']}</td>
+			<td>车身型式:
+				{$eval_info['other_attribute2']}门
+				{$eval_info['other_attribute3']}座
+			</td>
+			<td>驱动型式:{$eval_info['other_attribute4']}</td>
+		</tr>
+		<tr>
+			<td>注册时间:{$eval_info['other_attribute5']}</td>
+			<td>制造日期:{$eval_info['other_attribute6']}</td>
+			<td>过户次数:{$eval_info['other_attribute7']}</td>
+		</tr>
+		<tr>
+			<td>使用性质:{$eval_info['other_attribute8']}</td>
+			<td>已使用里程:{$eval_info['other_attribute9']}</td>
+			<td>年审日期:{$eval_info['other_attribute10']}</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车况查定</p>
+			</td>			
+		</tr>
+		{foreach name="car_traffic" item="vo"}
+		<tr>
+			{foreach name="vo" item="cv" key="ck"}
+			<td>
+				{$cv['title']}:{$eval_info[$ck]}
+			</td>
+			{/foreach}
+		</tr>
+		{/foreach}
+		<tr>
+			<td>
+				车险截至日期:{$eval_info['car_traffic13']}
+			</td>	
+			<td>
+				车辆违章:
+				{$eval_info['car_traffic14']}个
+				{$eval_info['car_traffic15']}分
+			</td>	
+			<td>
+				新车指导价:{$eval_info['car_traffic16']}
+			</td>		
+		</tr>
+		<tr>
+			<td>
+				发动机工况:{$eval_info['car_traffic17']}
+			</td>	
+			<td>
+				变速箱工况:{$eval_info['car_traffic18']}
+			</td>	
+			<td>
+				其他:{$eval_info['car_traffic19']}
+			</td>		
+		</tr>
+		<tr>
+			<td colspan="3">
+				现场评估师鉴定意见(本表未尽事宜，由评估师补充说明):
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+			{$eval_info['car_appearance']}
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				门店评估价格:{$eval_info['car_price']}
+				<div class="fr">评估师:{$eval_info['appraiser']}</div>		
+			</td>			
+		</tr>
+		{notempty name="eval_info['company_car_price']"}
+		<tr>
+			<td colspan="3">
+				总部评估价:{$eval_info['company_car_price']}	
+				<div class="fr">评估师:{$eval_info['company_appraiser']}</div>		
+			</td>			
+		</tr>
+		{/notempty}
+		{notempty name="review_info['first_quota']"}
+		<tr>
+			<td colspan="4">
+				初审额度:{$review_info['first_quota']}		
+			</td>			
+		</tr>
+		{/notempty}
+		{notempty name="review_info['first_quota']"}
+		<tr>
+			<td colspan="4">
+				终审额度:{$review_info['first_quota']}		
+			</td>			
+		</tr>
+		{/notempty}
+		{notempty name="review_info['repeate_quota']"}
+		<tr>
+			<td colspan="4">
+				复议额度:{$review_info['repeate_quota']}		
+			</td>			
+		</tr>
+		{/notempty}
+	</table>
+</div>
+{include file='publics/footer'}

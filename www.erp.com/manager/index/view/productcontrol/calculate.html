@@ -1,0 +1,131 @@
+{include file='publics/header'}
+<style type="text/css">
+	#content{width:900px;padding:10px;font-size:11px;color:#000;max-height: 500px;overflow-y: scroll;}
+	.info-div{width: 90%;margin: 10px auto;height: 220px;}
+	.info-div div{float: left;}
+	table{width: 100%;}
+	.info-div div table td{border:1px solid #333;text-align: center;height: 35px;line-height: 35px;font-size: 12px;font-weight: bold;}
+	.tableleft{background: #ccc;width: 50%;}
+	.tableright{background: #eee;width: 50%;}
+	.info-top{width: 31%;height: 50px;margin: 5px 5px;}
+	.calculate{width: 90%;height: 50px;line-height: 50px;margin: 10px 5%;background: #ccc;font-size: 20px;font-weight: bold;letter-spacing: 5px;}
+	.receive,.account{display: block;width: 90%;height: 50px;line-height: 50px;margin: 10px 5%;background: #eee;font-size: 15px;font-weight: bold;text-align: center;}
+	.list-div{width: 90%;margin: 10px auto;border:2px solid black;height: auto;}
+	.list-div table th{font-weight: bold;}
+	.list-div table td{height: 30px;line-height: 30px;text-align: center;margin-bottom: 100px;}
+	.title{max-width: 200px;height: 35px;line-height: 35px;border: 2px solid black;background: #ccc;margin: 10px auto;text-align: center;font-weight: bold;font-size: 15px;}
+</style>
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<div><span>智信创富计算器</span></div>
+<div id="content">
+	<form method="post" action="/Productcontrol/calculate">
+	<input type="hidden" name="productName" value="{$productInfo['name']}">
+	<input type="hidden" name="id" value="{$productInfo['id']}">
+	<div class="title">{$productInfo['name']}</div>
+	<div class="info-div">	
+		<div class="info-top">
+			<table>
+				<tr>
+					<td class="tableleft">借款金额</td>
+					<td><input type="number" name="money" style="width: 80%;position: relative;top: 5px;" value="{$_POST['money']}"></td>
+				</tr>
+				<tr>
+					<td class="tableleft">借款期限</td>
+					<td class="tableright">{$productInfo['month']}</td>
+				</tr>
+				<tr>
+					<td class="tableleft">综合费率（月）</td>
+					<td class="tableright">{$productInfo['comp_month_rate']}%</td>
+				</tr>
+				<tr>
+					<td class="tableleft">利息（月）</td>
+					<td class="tableright">{notempty name='monthRate'}{$monthRate}%{/notempty}</td>
+				</tr>
+			</table>
+			<button class="calculate">立即计算</button>
+		</div>
+		<div class="info-top">
+			<table>
+				<tr>
+					<td class="tableleft">起息日期</td>
+					<td class="tableright">{$startTime['startTime']}</td>
+				</tr>
+				<tr>
+					<td class="tableleft">起始日期</td>
+					<td class="tableright">{$startTime['startTime']}</td>
+				</tr>
+				<tr>
+					<td class="tableleft">结束日期</td>
+					<td class="tableright">{$endTime}</td>
+				</tr>
+				<tr>
+					<td class="tableleft">合同金额</td>
+					<td class="tableright">{$contactMoney}</td>
+				</tr>
+				
+			</table>
+			<p class="receive">应收金额：{notempty name='repaymentMoney'}￥<font>{$repaymentMoney}</font>{/notempty}</p>
+		</div>
+		<div class="info-top">
+			<table>
+				<tr>
+					<td class="tableleft">GPS流量费（月）</td>
+					<td class="tableright">￥{$productInfo['gpsL']}</td>
+				</tr>
+				<tr>
+					<td class="tableleft">GPS设备费用</td>
+					<td class="tableright">￥{$productInfo['gpsS']}</td>
+				</tr>
+				<tr>
+					<td class="tableleft">GPS责任险</td>
+					<td class="tableright">￥{$productInfo['gpsZ']}</td>
+				</tr>
+				<tr>
+					<td class="tableleft">代拉征信费</td>
+					<td class="tableright">￥{$productInfo['insteadCredit']}</td>
+				</tr>
+			</table>
+			<p class="account">到账金额：{notempty name='arrivalMoney'}￥<font>{$arrivalMoney}</font>{/notempty}</p>
+		</div>
+	</div>
+	{notempty name="list"}
+	<div class="list-div">
+		<table>
+			<tr>
+				<th>期数</th>
+				<th>付款日期</th>
+				<th>期初本金余额</th>
+				<th>月还本金</th>
+				<th>月还利息</th>
+				<th>服务费</th>
+				<th>GPS流量费</th>
+				<th>还款金额</th>
+				<th>违约金</th>
+				<th>期末本金余额</th>
+			</tr>
+			{foreach name="list" item="vo"}
+			<tr>
+				<td>{$vo['periode']}</td>
+				<td>{$vo['payTime']}</td>
+				<td>￥{$vo['beginMoney']}</td>
+				<td>￥{$vo['monthMoney']}</td>
+				<td>￥{$vo['rateMoney']}</td>
+				<td>￥{$vo['serviceMoney']}</td>
+				<td>￥{$vo['GPSL']}</td>
+				<td>￥{$vo['preRepaymentMoney']}</td>
+				<td>￥{$vo['earlySettle']['breachMoney']}</td>
+				<td>￥{$vo['residueMoney']}</td>
+			</tr>
+			{/foreach}
+		</table>
+		<div style="width: 100%;border-top: 2px solid black;margin-top: 20px;">
+			<p style="padding-left: 10px;">注：1、提前结清收清剩余服务费以及剩余GPS流量费</p>
+			<P style="padding-left: 10px;">2、提前结清违约金按照剩余本金的{$productInfo['breach_rate']}%收取</P>
+		</div>
+	</div>
+	{/notempty}
+	</form>
+</div>
+<script type="text/javascript">
+</script>
+{include file='publics/footer'}

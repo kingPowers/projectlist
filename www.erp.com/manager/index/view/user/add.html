@@ -1,0 +1,87 @@
+{include file="publics/header" /}
+<form id="userForm" class="definewidth m20">
+  <table class="table table-bordered table-hover definewidth m10">
+    <tr>
+      <td width="10%" class="tableleft">登录名</td>
+      <td><input type="text" name="username"  jschecktitle="登录名" jscheckrule="null=0" value="{$data['username']}"/></td>
+    </tr>
+     <tr>
+      <td width="10%" class="tableleft">身份证</td>  
+      <td><input type="text" name="certi_number"  distinguish="base" value="{$data['certi_number']}"/> </td>
+    </tr>
+    <tr>
+      <td width="10%" class="tableleft">真实姓名</td>
+      <td><input type="text" name="names"  jschecktitle="真实姓名" jscheckrule="null=0" value="{$data['names']}"/></td>
+    </tr>
+    <tr>
+      <td class="tableleft">密码</td>
+      <td>
+          <input type="password" name="password"  />
+      {notempty  name='data.id'}
+            <font color="#FF0000">留空不修改密码</font>
+      {/notempty}
+      </td>
+    </tr>
+    <tr>
+      <td class="tableleft">手机号</td>
+      <td><input type="text" name="mobile" value="{$data['mobile']}"  jschecktitle="手机号" jscheckrule="null=0;regexp=^1[3|4|5|8][0-9]{9}$" /></td>
+    </tr>
+    <tr>
+      <td class="tableleft">状态</td>
+      <td><input type="radio" name="status" value="1" {eq name="data['status']" value="1"}checked="checked"{/eq}/>启用
+        <input type="radio" name="status" value="0" {eq name="data['status']" value="0"}checked="checked"{/eq}/>禁用 </td>
+    </tr>
+    <tr>
+      <td class="tableleft">角色</td>
+      <td>
+          <select name="groupid">
+            {volist name='roleList' id='vo'}
+              <option value="{$vo.id}"  {eq name="vo['id']" value="$data['groupid']"}selected="selected"{/eq} >{$vo['title']}</option>
+            {/volist}
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <td class="tableleft"></td>
+      <td><button class="btn btn-primary" type="button">保存</button>
+        <button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td>
+    </tr>
+  </table>
+</form>
+<script language="javascript">
+$(function(){
+        var id = '{$data.id}',form_url = "/User/add";
+	$('button.btn-primary').click(function(){
+		var P = check_form('#userForm');
+		if(P){
+			var data={};
+                        $(data).attr('sub','1');
+			if(id!=''){
+
+                            $(data).attr('id',id);
+                            form_url = "/User/edit";
+                        }
+			$(data).attr('username',$("input[name='username']").val());
+            $(data).attr('names',$("input[name='names']").val());
+			$(data).attr('password',$("input[name='password']").val());
+      $(data).attr('certi_number',$("input[name='certi_number']").val());
+			$(data).attr('mobile',$("input[name='mobile']").val());
+			$(data).attr('type',$("input[name='type']:checked").val());
+                        if($("select[name='groupid']").val()!=null){
+                            $(data).attr('groupid',$("select[name='groupid']").val());
+                        }
+			$(data).attr('status',$("input[name='status']:checked").val());
+			$.post(form_url,data,function(F){
+				alert(F.msg);
+				if(F.code){
+					window.location.href= "{:url('User/index')}"
+				}
+			},'json');
+		}
+	});
+	$('button#backid').click(function(){
+		window.location.href= "{:url('User/index')}";
+	})
+})
+</script>
+{include file="publics/footer" /}

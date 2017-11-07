@@ -1,0 +1,157 @@
+{include file='publics/header'}
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+input[type='text'] {position: relative;top:5px;}
+input[type='radio'] {position: relative;top:-5px;}
+</style>
+<div class="interview_table">
+	<form id="car_eval">
+	<input type="hidden" name="loanid" value="{$info['loanid']}">
+	<input type="hidden" name="id" value="{$eval_info['id']}">
+	<table width="1100px" cellpadding="0" cellspacing="0" border="1">
+		<tr>
+			<td colspan="3">
+				<h1>二手车评估报告(17版)</h1>
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<div class="fl">评估时间:{empty name='eval_info.assessment_time'}{:date('Y-m-d')}{else/}{$eval_info['assessment_time']}{/empty}</div>
+				<div class="fr">区域:{$store['name']}</div>			
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车主信息</p>
+			</td>			
+		</tr>
+		<tr>
+			<td>车主姓名:{$info['names']}</td>
+			<td>身份证号:{$info['certi_number']}</td>
+			<td>联系电话:{$info['mobile']}</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车辆信息</p>
+			</td>			
+		</tr>
+		<tr>
+			<td>品牌型号:<input type="text" name="car_brand" value="{$eval_info['car_brand']}"></td>
+			<td>车牌号码:<input type="text" name="car_number" value="{$eval_info['car_number']}"></td>
+			<td>VIN码:<input type="text"  name="car_vin" value="{$eval_info['car_vin']}"></td>
+		</tr>
+		<tr>
+			<td>颜色:<input type="text"  name="car_color" value="{$eval_info['car_color']}"></td>
+			<td>燃油种类:<input type="text"  name="car_fuel" value="{$eval_info['car_fuel']}"></td>
+			<td>变速箱型式:<input type="text"  name="car_gearbox" value="{$eval_info['car_gearbox']}"></td>
+		</tr>
+		<tr>
+			<td>排量:<input type="text" name="other_attribute1" value="{$eval_info['other_attribute1']}"></td>
+			<td>车身型式:
+				<input type="text"  name="other_attribute2" value="{$eval_info['other_attribute2']}" class="half_inp">门
+				<input type="text" name="other_attribute3" value="{$eval_info['other_attribute3']}" class="half_inp">座
+			</td>
+			<td>驱动型式:<input type="text"  name="other_attribute4" value="{$eval_info['other_attribute4']}"></td>
+		</tr>
+		<tr>
+			<td>注册时间:<input type="text" name="other_attribute5" value="{$eval_info['other_attribute5']}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"></td>
+			<td>制造日期:<input type="text" name="other_attribute6" value="{$eval_info['other_attribute6']}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"></td>
+			<td>过户次数:<input type="text" name="other_attribute7" value="{$eval_info['other_attribute7']}"></td>
+		</tr>
+		<tr>
+			<td>使用性质:<input type="text" name="other_attribute8" value="{$eval_info['other_attribute8']}"></td>
+			<td>已使用里程:<input type="text" name="other_attribute9" value="{$eval_info['other_attribute9']}">里</td>
+			<td>年审日期:<input type="text" name="other_attribute10" value="{$eval_info['other_attribute10']}" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});"></td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<p>车况查定</p>
+			</td>			
+		</tr>
+		{foreach name="car_traffic" item="vo"}
+		<tr>
+			{foreach name="vo" item="cv" key="ck"}
+			<td>
+				{$cv['title']}
+				<label><input type="radio" name="{$ck}" value="{$cv['sure']}" {eq name="eval_info[$ck]" value="$cv['sure']"}checked=""{/eq}>{$cv['sure']}</label>
+				<label><input type="radio" name="{$ck}" value="{$cv['deny']}" {eq name="eval_info[$ck]" value="$cv['deny']"}checked=""{/eq}>{$cv['deny']}</label>
+			</td>
+			{/foreach}
+		</tr>
+		{/foreach}
+		<tr>
+			<td>
+				车险截至日期:<input type="text" name="car_traffic13" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});" value="{$eval_info['car_traffic13']}">
+			</td>	
+			<td>
+				车辆违章:
+				<input type="text" name="car_traffic14" value="{$eval_info['car_traffic14']}">个
+				<input type="text" name="car_traffic15" value="{$eval_info['car_traffic15']}" class="half_inp">分
+			</td>	
+			<td>
+				新车指导价:<input type="text" name="car_traffic16" value="{$eval_info['car_traffic16']}">
+			</td>		
+		</tr>
+		<tr>
+			<td>
+				发动机工况:<input type="text" name="car_traffic17" value="{$eval_info['car_traffic17']}">
+			</td>	
+			<td>
+				变速箱工况:<input type="text" name="car_traffic18" value="{$eval_info['car_traffic18']}">
+			</td>	
+			<td>
+				其他:<input type="text" name="car_traffic19" value="{$eval_info['car_traffic19']}">
+			</td>		
+		</tr>
+		<tr>
+			<td colspan="3">
+				现场评估师鉴定意见(本表未尽事宜，由评估师补充说明):
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				<textarea style="margin: 10px 15px;width: 95%;" name="car_appearance" rows="5">{$eval_info['car_appearance']}</textarea>
+			</td>			
+		</tr>
+		<tr>
+			<td colspan="3">
+				评估价格:<input type="text" name="car_price" value="{$eval_info['car_price']}">
+				<div class="fr">评估师:{empty name="eval_info['appraiser']"}{$Think.session.user.names}{else/}{$eval_info['appraiser']}{/empty}</div>		
+			</td>			
+		</tr>	
+	</table>
+	</form>
+	<p style="text-align: center;"><button style="margin-bottom: 100px;margin-right: 20px;" class="btn-primary" id="save">保存</button><button onclick="javascript:window.location.href='/Storesystem/applyList.html'" style="margin-bottom: 100px;" class="btn-error" >放弃</button></p>
+	<div style="margin-top:100px;"></div>
+</div>
+<script type="text/javascript">
+$(function () {
+	$("#save").click(function () {
+		var loanid = $("input[name='loanid']").val();
+		if (loanid == '') return top.jdbox.alert(0,"订单ID不能为空");
+		var eval_data = new FormData($("#car_eval")[0]);
+		top.jdbox.alert(2);
+		$.ajax({
+			url:"{:url('/Storesystem/carevalTable')}",
+			data:eval_data,
+			type:"POST",
+			contentType:false,
+			processData:false,
+			async:false,
+			cache:false,
+			success:function (F) {
+				console.log(F);
+				top.jdbox.alert(F.status,F.info);
+				if (F.status) {
+					window.location.href = "/Storesystem/loanTable.html?loanid=" + loanid;
+				}
+			},
+			error:function (F) {
+				console.log(F);
+				top.jdbox.alert(0,F.responseText);
+			}
+		}) 
+	})
+})
+</script>
+{include file='publics/footer'}

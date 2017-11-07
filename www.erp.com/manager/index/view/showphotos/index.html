@@ -1,0 +1,195 @@
+<!-- {include file="publics/header" /} -->
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="_STATIC_/assets/viewer/css/normalize.css" />
+	<link rel="stylesheet" href="_STATIC_/assets/viewer/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="_STATIC_/assets/viewer/dist/viewer.css">
+	<link rel="stylesheet" href="_STATIC_/assets/viewer/css/main.css">
+
+	<link href="_STATIC_/2015/manager/Public/Css/style.css" rel="stylesheet" type="text/css" />
+	<script language="javascript">var OS = "_OS_", Public = "_STATIC_/2015/manager/Public/", STATIC = '_STATIC_/2015/', APP = '__APP__',STA = '_STATIC_';</script> 
+	<script type="text/javascript" src="_STATIC_/wdate/WdatePicker.js"></script> 
+	<script type="text/javascript" src="_STATIC_/2015/js/jquery.min.js"></script>
+	<script type="text/javascript" src="_STATIC_/2015/manager/Public/Js/bootstrap.js"></script> 
+	<script type="text/javascript" src="_STATIC_/2015/manager/Public/Js/ckform.js"></script>
+	<script type="text/javascript" src="_STATIC_/2015/js/jquery.box.js"></script>
+
+
+	<style type="text/css"> 
+		input[type=checkbox]{margin-left: -130px;margin-top:110px;}	
+        .put{ position:absolute;width:22px;height:22px;} 
+	</style> 
+</head>
+<body>
+	<div class="htmleaf-container" style="margin-top:30px;">
+		<div class="container">
+		    <div class="row">
+		      <div class="col-sm-12 col-md-2 " style="margin-bottom:50px">
+				{empty name="_GET['read_car']"}
+		        <div class="docs-toggles">
+		          <div class="btn-group btn-group-justified" data-toggle="buttons" role="group">
+		            <label class="btn btn-primary man">
+		             人员信息
+		            </label>
+		          </div>
+		          <div class=" man_child" id="options" aria-labelledby="toggle-options">
+		          {foreach name='base_table' key="k"  item='vo'}
+		            <ul class="list-group">
+		              <li class="list-group-item">
+                       {empty name='vo.url'}
+			                <label class="checkbox-inline add_photo"   field={$vo.field} 
+			                 {eq name="vo['field']" value="$field"}
+			                   style="color:blue;"
+			                 {/eq} {notin value="$material" name="k"  } style="color:red"{/notin}>
+					         {$vo.title}
+			                </label>
+		                {else/}
+			                 <label class="checkbox-inline add_photo"   url={$vo.url} >             
+					         {$vo.title}
+			                </label>   
+                       {/empty}
+		              </li>
+		            </ul>
+		           {/foreach} 
+		          </div>
+		        </div>
+				{/empty}
+		          {empty name="_GET['read_member']"}
+		          <div class="docs-toggles">
+		          <div class="btn-group btn-group-justified" data-toggle="buttons" role="group">
+		            <label class="btn btn-primary car ">
+		             车辆信息
+		            </label>
+		          </div>
+		          <div class="  car_child" id="options" aria-labelledby="toggle-options">
+		          {foreach name='car_table' key="k" item='vo'}
+		            <ul class="list-group">
+		              <li class="list-group-item">
+		                {empty name='vo.url'}
+			                <label class="checkbox-inline add_photo"   field={$vo.field}
+
+			                 {eq name="vo['field']" value="$field"}
+			                   style="color:blue;"
+			                 {/eq} {notin value="$material" name="k"  } style="color:red"{/notin} >
+					         {$vo.title}
+			                </label>
+		                {else/}
+			                 <label class="checkbox-inline add_photo"   url={$vo.url} >             
+					         {$vo.title}
+			                </label>   
+                       {/empty}
+		              </li> 
+		            </ul>
+		           {/foreach} 
+		          </div>
+		        </div>
+		        {/empty}
+		      </div>
+             
+		      <div class="col-sm-8 col-md-9">
+		        {notempty name='photos'}
+			      <input type="checkbox" name="" value="" id="all_check" style="width:20px;height:20px;vertical-align: middle;margin-left: 0px !important;margin-top:0px !important; "><span style="vertical-align:middle;">全选</span>
+			     <!--  <span style="background:black;border-radius:25px;color:white;width:20px;height:20px;font-size:16px;margin-left: 20px">+</span> -->
+			      <button class="download btn-primary" style="margin-left:15px;">下载</button>
+                {/notempty}
+		        <div class="docs-galley" style="margin-top:15px;">
+		          <ul class="docs-pictures clearfix">
+		          {notempty name='photos'}
+			          {foreach name='photos' item='vo'}
+			            <li><img data-original="_STATIC_/Upload/{$vo}" src="_STATIC_/Upload/{$vo}" class="image" style="width:130px;height:130px;">
+			            	<input type="checkbox" value="{$vo}" class="put">
+			            </li>  
+			          {/foreach}  
+		          {/notempty}
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+	</div>
+	<!-- Scripts -->
+	  <script src="_STATIC_/assets/viewer/assets/js/jquery.min.js"></script>
+	  <script src="_STATIC_/assets/viewer/assets/js/bootstrap.min.js"></script>
+	  <script src="_STATIC_/assets/viewer/dist/viewer.js"></script>
+	  <script src="_STATIC_/assets/viewer/assets/js/main.js"></script>
+</body>
+</html>
+<script language="javascript"> 
+$(function(){
+//全选
+$("#all_check").click(function(){
+     if($(this).prop("checked")){
+          $(".put ").prop("checked","checked");
+       }else{
+          $(".put").removeAttr("checked","checked");
+       } 
+});
+//下载
+$(".download").click(function(){
+   var num=$(".put:checked").length;
+   var ipts='';
+   if(num<1){
+    top.jdbox.alert(0,'请选择要打包下载的文件');
+     //window.location.reload();
+   }else{
+    for (var i=0;i<num;i++)
+    {
+       ipts+=$(".put:checked").eq(i).val()+',';
+    }
+    if (ipts.length > 0) {
+		ipts = ipts.substr(0,ipts.length - 1);
+        //console.log(ipts);
+	}
+    var data={};
+    var url = "{:url('image/downloads')}";
+    data.name=ipts;
+    $.ajax({  
+      url:url,
+      type: 'GET',  
+      data: data,  
+      success: function (msg) { 
+           if(msg.status==1){
+             window.open(msg.data);
+           }else{
+           top.jdbox.alert(msg.status,msg.info); 
+          }
+      } 
+     });  
+   }
+      
+})
+$(".man").click(function(){
+    var t=$(".man_child").css('display');
+    if(t=='block'){
+     $(".man_child").hide();	
+    }else{
+     $(".man_child").show();	
+    }
+});
+$(".car").click(function(){
+    var t=$(".car_child").css('display');
+    if(t=='block'){
+     $(".car_child").hide();	
+    }else{
+     $(".car_child").show();	
+    }
+});
+//刷新页面和弹窗
+$(".add_photo").click(function(){
+	var field=$(this).attr('field');
+	var loanid={$loanid};
+	if(field==undefined){
+	var url=$(this).attr('url');
+	top.jdbox.iframe(url+loanid);
+	}else{
+    window.location.href ="/Showphotos/index.html?field="+field+
+	   	"&loanid="+loanid;		
+	}
+});
+})
+</script>
+<!-- {include file="publics/footer" /} -->

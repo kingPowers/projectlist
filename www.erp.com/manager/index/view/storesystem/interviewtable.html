@@ -1,0 +1,91 @@
+{include file="publics/header" /}
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+button{margin: 20px 50px;}
+</style>
+<div class="interview_table" style="margin-bottom: 50px">
+	<h1>营业部审批表</h1>
+	<form id="interviewForm">
+        <input type="hidden" name="loanid" value="{$info['loanid']}">
+	<table width="1100px" cellpadding="0" cellspacing="0" border="1">
+		<tr>
+			<td class="tl"><font>借款人姓名:</font>{$info['names']}</td>
+			<td>区域:{$store['name']}</td>
+		</tr>
+		<!-- <tr>
+			<td colspan="2"><font>资料查核(以下内容按实际情况勾选)</font></td>			
+		</tr>
+		<tr>
+			<td colspan="2">
+				<font>必要资料:</font>
+				<label><input type="checkbox" name="">客户个人信息表</label>
+				<label><input type="checkbox" name="">客户本人近照、身份证、还款卡</label>
+				<label><input type="checkbox" name="">车辆行驶证、机动车登记证书、交强商业险保单</label>
+				<label><input type="checkbox" name="">车辆照片、车辆评估表</label>
+				<label><input type="checkbox" name="">车辆出险、违章记录</label>
+				<font>可选资料:</font>
+				<label><input type="checkbox" name="">个人征信报告</label>
+				<label><input type="checkbox" name="">结婚证、户口薄</label>
+				<label><input type="checkbox" name="">房产证(产调、租赁合同、水电费单据)</label>
+				<label><input type="checkbox" name="">网查资料(法院相关信息)</label>
+				<font>个人客户:</font>
+				<label><input type="checkbox" name="">个人流水</label>
+				<label><input type="checkbox" name="">工作证明(劳动合同、工牌或工作证)</label>
+				<font>法人客户:</font>
+				<label><input type="checkbox" name="">对公流水</label>
+				<label><input type="checkbox" name="">企业证照(经年检的营业执照、验资报告、章程、股份协议)</label>
+				<label><input type="checkbox" name="">经营场地租赁合同及水电煤账单或发票</label>
+				<label><input type="checkbox" name="">企业购销合同</label>	
+			</td>	
+		</tr> -->
+		<tr>
+			<td colspan="2">
+				<p style="text-align: left;"><font>初审意见:</font></p>
+				<p style="text-align: left;"><label>1.借款人借款详细用途：<textarea rows="5" cols="50" name="borrow_purpose">{$reviewData.borrow_purpose}</textarea></label></p>
+				<p style="text-align: left;"><label>2.还款能力:<textarea rows="5" cols="50" name="repayment_ability">{$reviewData.repayment_ability}</textarea></label></p>
+				<p style="text-align: left;"><label>3.还款计划:<textarea rows="5" cols="50" name="repayment_plan">{$reviewData.repayment_plan}</textarea></label></p>
+				<p style="text-align: left;"><label>4.家庭情况:<textarea rows="5" cols="50" name="family_asset">{$reviewData.family_asset}</textarea></label></p>
+			</td>	
+		</tr>
+		<tr>
+			<td class="tl" colspan="2"><font>面审:</font>
+			<p style="text-align: left;"><textarea rows="5" name="trial_result" style="width:90%">{$reviewData.trial_result}</textarea></p></td>
+		</tr>
+	</table>
+	</form>
+	{empty name="_GET['readonly']"}
+	<div style="text-align: center;"><button id="save" class="btn btn-success">保存</button><button class="btn btn-primary" onclick="javascript:window.location.href='/Storesystem/loanTable.html?loanid={$info.loanid}'">取消</button></div>
+	{/empty}
+</div>
+<script type="text/javascript">
+$(function () {
+	$("#save").click(function () {
+		var loanid = $("input[name='loanid']").val();
+		if (loanid == '')return top.jdbox.alert(0,"订单ID错误，请刷新重试");
+		var data = new FormData($("#interviewForm")[0]);
+		console.log(data);
+		top.jdbox.alert(2);
+		$.ajax({
+			url:"{:url('/Storesystem/interviewTable')}",
+			data:data,
+			type:'POST',
+			dataType:'json',
+			cache:false,
+			processData:false,
+			contentType:false,
+			async:false,
+			success:function (F) {
+				console.log(F);
+				top.jdbox.alert(F.status,F.info);
+				if (F.status) {
+					window.location.href = "/Storesystem/loanTable.html?loanid="+loanid;
+				}
+			},
+			error:function (F) {
+				top.jdbox.alert(0,F.responseText);
+			}
+		})
+	})
+})
+</script>
+{include file="publics/footer" /}

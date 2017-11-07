@@ -1,0 +1,108 @@
+{include file='publics/header'}
+<style>
+	#content{width:500px;padding:10px 0;padding-right:20px;font-size:12px;color:#000;}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+	.search-div{border:1px solid #bbb;width: 207px;margin-top: 0px;position: absolute;top:32px;left: 8px;z-index: 100;background: #fff;border-radius: 2px;display:none;}
+	.search-div p{cursor: pointer;margin: 0 auto;padding: 5px 10px;}
+	.search-div p:hover{background: #ccc}
+	.close{display: inline-block;float: right;font-size: 5px;color: #666;padding-right: 10px;}
+</style>
+<div><span>信用评估表</span></div>
+<div id="content">
+	<input type="hidden" name="loanid" value="{$info['loanid']}">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td class="tableleft">产品：</td>
+			<td style="position: relative;">
+				<select name="product">
+					{foreach name="product" item="vo"}
+					<option value="{$vo}">{$vo}</option>
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="tableleft">期数：</td>
+			<td style="position: relative;">
+				<select name="periodes">
+					{foreach name="periodes" item="vo"}
+					<option value="{$vo}">{$vo}</option>
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="tableleft">批贷额度：</td>
+			<td><input type="text" name="award_limit"></td>
+		</tr>
+		<tr>
+			<td class="tableleft">信用状况描述：</td>
+			<td><textarea></textarea></td>
+		</tr>
+		<tr>
+			<td class="tableleft">决策结果：</td>
+			<td style="position: relative;">
+				<select name="result" class="short">
+					{foreach name="result" item="vo"}
+					<option value="{$vo}">{$vo}</option>
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="tableleft">{empty name="_GET['final']"}反馈门店意见：{else/}初审意见：<br/>经手人：{/empty}</td>
+			<td><textarea></textarea></td>
+		</tr>
+		{notempty name="_GET['final']"}
+		<tr>
+			<td class="tableleft">终审意见：<br/>经手人：</td>
+			<td><textarea name="final_remark"></textarea></td>
+		</tr>
+		{/notempty}
+		<tr>
+			{empty name="_GET['final']"}
+			<td colspan="2" style="text-align: center;"><a style="margin: 0 20px;" id="sub" class="btn btn-primary">保存</a><a class="btn btn-primary">返回</a></td>
+			{else/}
+			<td colspan="2" style="text-align: center;"><a style="margin: 0 20px;" id="pass" class="btn btn-primary">通过</a><a style="margin: 0 20px;" id="refuse" class="btn btn-primary">拒单</a><a style="margin: 0 20px;" class="btn btn-primary">返回</a></td>
+			{/empty}
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$("#pass").click(function () {
+		if (!confirm("是否确认终审通过"))return false;
+		var loanid = $("input[name='loanid']").val();
+		var data = {};
+		data.loanid = loanid;
+		data.final_remark = $("textarea[name='final_remark']").html();
+		data.is_pass = 1;
+		$.post("{:url('/Riskcontrol/finalOperate')}",data,function (F) {
+			if (F.status) {
+				parent.window.reload();
+				top.jdbox.alert(F.status,F.info);
+			} else {
+				alert(F.info);
+			}
+		},'json')
+	})
+	$("#refuse").click(function () {
+		if (!confirm("是否确认拒单"))return false;
+		var loanid = $("input[name='loanid']").val();
+		var data = {};
+		data.loanid = loanid;
+		data.final_remark = $("textarea[name='final_remark']").html();
+		data.is_refuse = 1;
+		$.post("{:url('/Riskcontrol/finalOperate')}",data,function (F) {
+			if (F.status) {
+				parent.window.reload();
+				top.jdbox.alert(F.status,F.info);
+			} else {
+				alert(F.info);
+			}
+		},'json')
+	})
+})
+</script>
+{include file='publics/footer'}

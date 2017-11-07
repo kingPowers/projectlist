@@ -1,0 +1,35 @@
+{include file="publics/header" /}
+
+<form class="form-inline definewidth m20" action="recordList.html" method="get">    
+    开始时间：
+    <input type="text" name="starttime" class="abc input-default" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});" value="{:request()->get('starttime')}">&nbsp;&nbsp;
+    结束时间：
+    <input type="text" name="endtime" class="abc input-default" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'});" value="{:request()->get('endtime')}">&nbsp;&nbsp;
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp;
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>用户名</th>
+            <th>操作</th>
+            <th>操作类型</th>
+            <th>IP地址</th>
+            <th>状态</th>
+            <th>创建时间</th>
+        </tr>
+    </thead>
+    <tbody>
+    {volist name="list" id="vo"}
+        <tr>
+            <td>{$vo['username']}</td>
+            <td>{$vo['remark']}</td>
+            <td>{$vo['type']}</td>
+            <td>{$vo['ip']}</td>
+            <td>{$vo['status_name']}</td>
+            <td>{$vo['timeadd']}</td>
+        </tr>
+     {/volist}
+     </tbody>
+</table>
+<div>{$page}</div>
+{include file="publics/footer"/}

@@ -1,0 +1,94 @@
+{include file='publics/header'}
+<form class="form-inline definewidth m20">
+    <button type="button" class="btn btn-success" id="addnew">新增菜单</button>
+    <button type="button" class="btn btn-sort">保存排序</button>
+</form>
+
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+            <th>菜单标题</th>
+            <th>分组</th>
+            <th>MODEL</th>
+            <th>ACTION</th>
+            <th>状态</th>
+            <th>管理操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {foreach name="list" item="vo"}
+	    <tr forpid="pid_{$vo['id']}" class="parent">
+			<td><a>{$vo['title']}</a></td>
+            <td>{$vo['title']}</td>
+            <td>{$vo['name']}</td>
+            <td>--</td>
+            <td>{$vo['status']}</td>
+            <td>
+            	<a href="{:url('Menu/edit',array('id'=>$vo['id']))}">编辑</a>
+            </td>
+        </tr>
+{notempty name="vo['child']"}
+        {foreach name="vo['child']" item="v"}    
+        <tr id="id_{$v['id']}" pid="pid_{$vo['id']}">
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;{$v['title']}</td>
+            <td>{$vo['title']}</td>
+         {foreach name="v['name']|explode='-',###" item="vn"}
+            <td>{$vn}</td>
+         {/foreach}
+            <td>{$v['status']}</td>
+            <td>
+            	<a href="{:url('Menu/edit',array('id'=>$v['id']))}">编辑</a>
+                <a href="javascript:void(0);" class="removeT">上移</a>
+                <a href="javascript:void(0);" class="removeB">下移</a> 
+            </td>
+        </tr>
+        {/foreach}
+{/notempty}
+     {/foreach}
+     </tbody>
+</table>
+<form class="form-inline definewidth"></from>
+<script language="javascript">
+$(function(){
+	$('#addnew').click(function(){
+		window.location.href="{:url('Menu/add')}";
+	});
+	$('a.removeT').live('click',function(){
+		var currentTr = $(this).parent().parent();
+		var beforeTr = currentTr.prev();
+		if( typeof beforeTr.attr('pid')  == 'undefined'){
+			return top.jdbox.alert(0,'该项已成为第一项');
+		}
+		var html = "<tr id='" + currentTr.attr('id') + "' pid='" + currentTr.attr('pid') + "'>";
+		html += currentTr.html() + "</tr>"; 
+		beforeTr.before(html);
+		currentTr.slideUp().remove();
+	});
+	$('a.removeB').live('click',function(){
+		var currentTr = $(this).parent().parent();
+		var afterTr = currentTr.next();
+		if( typeof afterTr.attr('pid') == 'undefined' ){
+			return  top.jdbox.alert(0,'该项已成为第一项');
+		}
+		var html = "<tr id='" + currentTr.attr('id') + "' pid='" + currentTr.attr('pid') + "'>";
+		html += currentTr.html() + "</tr>"; 
+		afterTr.after(html);
+		currentTr.slideUp().remove(); 
+	});
+	$('button.btn-sort').click(function(){
+		var sortData = [];
+		$('table.table tbody tr.parent').each(function(){
+			var pid = $(this).attr('forpid'); 
+			$("table.table tbody tr[pid='"+pid+"']").each(function(i,n){
+				var st = $(this).attr('id').replace('id_','') + ':' + (i+1);
+				sortData.push(st);
+			});
+		});
+		top.jdbox.alert(2);
+		$.post("{:url('Menu/sort')}",{'string':sortData.join('|')},function(F){
+			top.jdbox.alert(F.status,F.msg);
+		},'json');
+	})
+})
+</script>
+{include file="publics/footer" /}

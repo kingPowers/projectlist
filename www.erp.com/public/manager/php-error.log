@@ -1,0 +1,249 @@
+[01-Sep-2017 15:46:00 Asia/Shanghai] PHP Warning:  include_once(E:\project\www.erp.com\public\manager/../config.inc.php): failed to open stream: No such file or directory in E:\project\www.erp.com\public\manager\index.php on line 15
+[01-Sep-2017 15:46:00 Asia/Shanghai] PHP Warning:  include_once(): Failed opening 'E:\project\www.erp.com\public\manager/../config.inc.php' for inclusion (include_path='.;C:\php\pear') in E:\project\www.erp.com\public\manager\index.php on line 15
+[01-Sep-2017 15:46:00 Asia/Shanghai] PHP Warning:  include_once(E:\project\www.erp.com\public\manager/../config.inc.php): failed to open stream: No such file or directory in E:\project\www.erp.com\public\manager\index.php on line 15
+[01-Sep-2017 15:46:00 Asia/Shanghai] PHP Warning:  include_once(): Failed opening 'E:\project\www.erp.com\public\manager/../config.inc.php' for inclusion (include_path='.;C:\php\pear') in E:\project\www.erp.com\public\manager\index.php on line 15
+[01-Sep-2017 16:11:00 PRC] PHP Fatal error:  Class 'manager\index\controller\Common' not found in E:\project\www.erp.com\manager\index\controller\Index.php on line 6
+[01-Sep-2017 16:17:48 PRC] PHP Parse error:  syntax error, unexpected 'Public' (T_PUBLIC), expecting identifier (T_STRING) in E:\project\www.erp.com\manager\index\controller\Public.php on line 8
+[01-Sep-2017 16:22:24 PRC] PHP Fatal error:  Call to undefined function U() in E:\project\www.erp.com\runtime\temp\41bd42ab525d681d19087c5d35d2b865.php on line 59
+[01-Sep-2017 16:22:42 PRC] PHP Fatal error:  Call to undefined function U() in E:\project\www.erp.com\runtime\temp\41bd42ab525d681d19087c5d35d2b865.php on line 59
+[01-Sep-2017 16:51:50 PRC] PHP Fatal error:  Call to a member function module() on a non-object in E:\project\www.erp.com\manager\index\controller\Common.php on line 16
+[01-Sep-2017 16:54:03 PRC] PHP Parse error:  syntax error, unexpected '$controller' (T_VARIABLE) in E:\project\www.erp.com\manager\index\controller\Common.php on line 17
+[01-Sep-2017 16:54:14 PRC] PHP Fatal error:  Call to a member function module() on a non-object in E:\project\www.erp.com\manager\index\controller\Common.php on line 16
+[01-Sep-2017 17:02:38 PRC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in E:\project\www.erp.com\manager\index\ORG\Util\Auth.php on line 76
+[01-Sep-2017 17:03:10 PRC] PHP Fatal error:  Call to undefined function manager\index\ORG\Util\C() in E:\project\www.erp.com\manager\index\ORG\Util\Auth.php on line 12
+[04-Sep-2017 15:50:16 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 15:50:34 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 15:57:59 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 15:58:00 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 15:58:00 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 15:58:00 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 16:04:01 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 16:15:16 PRC] PHP Fatal error:  Class 'manager\Index\controller\CommonAction' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 15
+[04-Sep-2017 16:15:40 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\M() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 21
+[04-Sep-2017 16:22:06 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:22:07 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:22:07 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:22:08 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:23:35 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:23:35 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:23:35 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:23:36 PRC] PHP Fatal error:  Class 'manager\Index\controller\Db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 26
+[04-Sep-2017 16:26:04 PRC] PHP Parse error:  syntax error, unexpected 'class' (T_CLASS), expecting ',' or ';' in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 16
+[04-Sep-2017 16:26:21 PRC] PHP Fatal error:  Class 'think\db' not found in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 27
+[04-Sep-2017 16:57:23 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\957bda8e0e20bdd010832de541a85026.php on line 32
+[04-Sep-2017 17:23:43 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\957bda8e0e20bdd010832de541a85026.php on line 57
+[04-Sep-2017 17:23:48 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\957bda8e0e20bdd010832de541a85026.php on line 57
+[04-Sep-2017 17:23:48 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\957bda8e0e20bdd010832de541a85026.php on line 57
+[04-Sep-2017 17:23:48 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\957bda8e0e20bdd010832de541a85026.php on line 57
+[04-Sep-2017 17:24:15 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\957bda8e0e20bdd010832de541a85026.php on line 57
+[04-Sep-2017 17:53:28 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 116
+[04-Sep-2017 17:53:37 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 114
+[04-Sep-2017 17:53:38 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 114
+[04-Sep-2017 17:53:38 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 114
+[04-Sep-2017 17:53:38 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 114
+[04-Sep-2017 17:53:38 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 114
+[04-Sep-2017 17:54:40 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 113
+[05-Sep-2017 08:49:08 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\957bda8e0e20bdd010832de541a85026.php on line 46
+[05-Sep-2017 08:49:43 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_get() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 39
+[05-Sep-2017 08:53:38 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_get() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 39
+[05-Sep-2017 08:56:32 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_get() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 39
+[05-Sep-2017 09:00:38 PRC] PHP Fatal error:  Call to a member function where() on a non-object in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 41
+[05-Sep-2017 09:00:41 PRC] PHP Fatal error:  Call to a member function where() on a non-object in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 41
+[05-Sep-2017 11:01:20 PRC] PHP Fatal error:  Call to undefined function U() in E:\phpStudy\WWW\erp\runtime\temp\5df9ed6ef48663241617a875e60454bd.php on line 93
+[05-Sep-2017 16:14:41 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 63
+[05-Sep-2017 16:18:02 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 63
+[05-Sep-2017 16:18:08 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 63
+[05-Sep-2017 16:24:05 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 63
+[05-Sep-2017 16:25:33 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 64
+[05-Sep-2017 16:27:00 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 71
+[05-Sep-2017 16:30:37 PRC] PHP Fatal error:  Function name must be a string in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 71
+[05-Sep-2017 16:31:14 PRC] PHP Fatal error:  Call to a member function add() on a non-object in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 82
+[05-Sep-2017 16:38:17 PRC] PHP Fatal error:  Call to a member function add() on a non-object in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 82
+[05-Sep-2017 16:40:46 PRC] PHP Fatal error:  Call to a member function add() on a non-object in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 82
+[05-Sep-2017 16:50:05 PRC] PHP Fatal error:  Call to a member function add() on a non-object in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 82
+[05-Sep-2017 16:50:36 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 107
+[05-Sep-2017 17:31:18 Asia/Shanghai] PHP Warning:  include_once(E:\phpStudy\WWW\erp\public\manager/../config.inc.php): failed to open stream: No such file or directory in E:\phpStudy\WWW\erp\public\manager\index.php on line 15
+[05-Sep-2017 17:31:18 Asia/Shanghai] PHP Warning:  include_once(): Failed opening 'E:\phpStudy\WWW\erp\public\manager/../config.inc.php' for inclusion (include_path='.;C:\php\pear') in E:\phpStudy\WWW\erp\public\manager\index.php on line 15
+[05-Sep-2017 17:31:18 Asia/Shanghai] PHP Warning:  require(E:\phpStudy\WWW\erp\public\manager/../../thinkphp/start.php): failed to open stream: No such file or directory in E:\phpStudy\WWW\erp\public\manager\index.php on line 19
+[05-Sep-2017 17:31:18 Asia/Shanghai] PHP Fatal error:  require(): Failed opening required 'E:\phpStudy\WWW\erp\public\manager/../../thinkphp/start.php' (include_path='.;C:\php\pear') in E:\phpStudy\WWW\erp\public\manager\index.php on line 19
+[05-Sep-2017 17:31:28 Asia/Shanghai] PHP Warning:  require(E:\phpStudy\WWW\erp\vendor/topthink/think-helper/src/helper.php): failed to open stream: No such file or directory in E:\phpStudy\WWW\erp\thinkphp\library\think\Loader.php on line 564
+[05-Sep-2017 17:31:28 Asia/Shanghai] PHP Fatal error:  require(): Failed opening required 'E:\phpStudy\WWW\erp\vendor/topthink/think-helper/src/helper.php' (include_path='.;C:\php\pear') in E:\phpStudy\WWW\erp\thinkphp\library\think\Loader.php on line 564
+[05-Sep-2017 17:31:38 Asia/Shanghai] PHP Warning:  require(E:\phpStudy\WWW\erp\vendor/topthink/think-migration/src/config.php): failed to open stream: No such file or directory in E:\phpStudy\WWW\erp\thinkphp\library\think\Loader.php on line 564
+[05-Sep-2017 17:31:38 Asia/Shanghai] PHP Fatal error:  require(): Failed opening required 'E:\phpStudy\WWW\erp\vendor/topthink/think-migration/src/config.php' (include_path='.;C:\php\pear') in E:\phpStudy\WWW\erp\thinkphp\library\think\Loader.php on line 564
+[05-Sep-2017 18:01:49 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 123
+[05-Sep-2017 18:19:11 PRC] PHP Fatal error:  Call to undefined function manager\Index\controller\F() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 107
+[06-Sep-2017 08:58:31 PRC] PHP Parse error:  syntax error, unexpected ';' in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 85
+[06-Sep-2017 08:58:36 PRC] PHP Parse error:  syntax error, unexpected ';' in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 85
+[06-Sep-2017 10:10:02 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::getLastSql() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 93
+[06-Sep-2017 10:11:52 PRC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 91
+[06-Sep-2017 10:28:03 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:30:18 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:30:26 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:31:57 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:32:11 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:34:37 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:34:37 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:34:44 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:35:36 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:36:10 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 10:36:25 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 11:27:11 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 11:27:29 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 11:46:28 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 11:47:35 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 11:47:46 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 13:32:27 PRC] PHP Parse error:  syntax error, unexpected '=' in E:\project\erp\runtime\temp\06ae2ad2fbeef2e0933af608b8cef3a0.php on line 109
+[06-Sep-2017 13:32:54 PRC] PHP Parse error:  syntax error, unexpected '=' in E:\project\erp\runtime\temp\06ae2ad2fbeef2e0933af608b8cef3a0.php on line 109
+[06-Sep-2017 13:32:56 PRC] PHP Parse error:  syntax error, unexpected '=' in E:\project\erp\runtime\temp\06ae2ad2fbeef2e0933af608b8cef3a0.php on line 109
+[06-Sep-2017 13:33:09 PRC] PHP Parse error:  syntax error, unexpected '=' in E:\project\erp\runtime\temp\06ae2ad2fbeef2e0933af608b8cef3a0.php on line 109
+[06-Sep-2017 13:33:11 PRC] PHP Parse error:  syntax error, unexpected '=' in E:\project\erp\runtime\temp\06ae2ad2fbeef2e0933af608b8cef3a0.php on line 109
+[06-Sep-2017 13:47:33 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\project\erp\manager\index\controller\Menu.php on line 103
+[06-Sep-2017 15:35:44 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 101
+[06-Sep-2017 15:35:45 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 101
+[06-Sep-2017 15:35:46 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 101
+[06-Sep-2017 15:35:46 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 101
+[06-Sep-2017 15:45:47 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 118
+[06-Sep-2017 15:46:24 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:04:56 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:05:32 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:06 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:07 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:07 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:08 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:08 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:08 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:08 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:09 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:09 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:09 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:12 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:49 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:06:59 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:11:53 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:22 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:22 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:23 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:23 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:23 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:23 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:23 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:23 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:23 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:24 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:24 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:24 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:24 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:24 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:25 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:25 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:25 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:25 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:25 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:25 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:26 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:26 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:26 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:26 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:26 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:12:32 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:14:22 PRC] PHP Fatal error:  Call to undefined method manager\Index\controller\Menu::_post() in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 16:16:57 PRC] PHP Fatal error:  Function name must be a string in E:\phpStudy\WWW\erp\manager\index\controller\Menu.php on line 119
+[06-Sep-2017 17:33:46 PRC] PHP Fatal error:  Call to undefined function U() in E:\project\erp\runtime\temp\15f3e5eff81a3223f285c7403235000f.php on line 4
+[06-Sep-2017 17:33:53 PRC] PHP Fatal error:  Call to undefined function U() in E:\project\erp\runtime\temp\15f3e5eff81a3223f285c7403235000f.php on line 4
+<<<<<<< .mine
+[07-Sep-2017 14:34:59 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Storesystem::view() in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 16
+[07-Sep-2017 14:35:00 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Storesystem::view() in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 16
+[07-Sep-2017 14:36:15 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Storesystem::view() in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 16
+=======
+[07-Sep-2017 14:29:21 PRC] PHP Parse error:  syntax error, unexpected ',' in E:\project\erp\manager\index\controller\Store.php on line 76
+[07-Sep-2017 15:35:06 PRC] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in E:\project\erp\runtime\temp\15f3e5eff81a3223f285c7403235000f.php on line 23
+[07-Sep-2017 15:35:11 PRC] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in E:\project\erp\runtime\temp\15f3e5eff81a3223f285c7403235000f.php on line 23
+[07-Sep-2017 15:45:28 PRC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in E:\project\erp\manager\index\controller\Store.php on line 92
+[07-Sep-2017 16:01:19 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\erp\manager\index\controller\Store.php on line 23
+[07-Sep-2017 16:01:19 PRC] PHP Parse error:  syntax error, unexpected ')' in E:\project\erp\manager\index\controller\Store.php on line 23
+[07-Sep-2017 16:07:19 PRC] PHP Parse error:  syntax error, unexpected '%' in E:\project\erp\manager\index\controller\Store.php on line 23
+[07-Sep-2017 16:07:47 PRC] PHP Parse error:  syntax error, unexpected '.' in E:\project\erp\manager\index\controller\Store.php on line 23
+[07-Sep-2017 16:41:05 PRC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in E:\project\erp\manager\index\controller\Store.php on line 22
+[07-Sep-2017 16:44:52 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Store::get() in E:\project\erp\manager\index\controller\Store.php on line 67
+>>>>>>> .r102
+[07-Sep-2017 17:29:25 PRC] PHP Parse error:  syntax error, unexpected 'function' (T_FUNCTION), expecting variable (T_VARIABLE) in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 21
+[08-Sep-2017 17:41:54 PRC] PHP Fatal error:  Call to undefined function manager\index\model\Lender() in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 43
+[08-Sep-2017 17:43:01 PRC] PHP Fatal error:  Call to undefined function manager\index\model\Lender() in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 43
+[08-Sep-2017 17:52:49 PRC] PHP Fatal error:  Using $this when not in object context in E:\project\www.erp.com\manager\index\model\UserStore.php on line 16
+[11-Sep-2017 09:06:33 PRC] PHP Fatal error:  Call to a member function join() on a non-object in E:\project\www.erp.com\manager\index\model\UserStore.php on line 16
+[11-Sep-2017 09:07:03 PRC] PHP Fatal error:  Call to a member function join() on a non-object in E:\project\www.erp.com\manager\index\model\UserStore.php on line 16
+[11-Sep-2017 09:11:01 PRC] PHP Fatal error:  Call to a member function join() on a non-object in E:\project\www.erp.com\manager\index\model\UserStore.php on line 16
+[11-Sep-2017 09:20:45 PRC] PHP Fatal error:  Call to a member function join() on a non-object in E:\project\www.erp.com\manager\index\model\UserStore.php on line 16
+[11-Sep-2017 09:22:06 PRC] PHP Fatal error:  Call to a member function join() on a non-object in E:\project\www.erp.com\manager\index\model\UserStore.php on line 16
+[11-Sep-2017 09:40:29 PRC] PHP Fatal error:  Cannot use object of type think\db\Query as array in E:\project\www.erp.com\manager\index\model\Loan.php on line 33
+[11-Sep-2017 09:42:56 PRC] PHP Fatal error:  Class 'manager\index\model\Db' not found in E:\project\www.erp.com\manager\index\model\UserStore.php on line 18
+[11-Sep-2017 10:37:07 PRC] PHP Fatal error:  Call to a member function toArray() on a non-object in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 30
+[11-Sep-2017 10:39:50 PRC] PHP Fatal error:  Class 'manager\index\controller\loan' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 29
+[11-Sep-2017 10:51:35 PRC] PHP Fatal error:  Call to a member function toArray() on a non-object in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 32
+[11-Sep-2017 14:23:07 PRC] PHP Fatal error:  Out of memory (allocated -1469841408) (tried to allocate 130968 bytes) in E:\project\www.erp.com\thinkphp\library\think\Config.php on line 52
+[11-Sep-2017 15:03:22 PRC] PHP Fatal error:  Call to undefined function manager\index\controller\dum() in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 33
+[11-Sep-2017 16:22:36 PRC] PHP Fatal error:  Class 'manager\indexs\model\Loan' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 51
+[12-Sep-2017 15:27:44 PRC] PHP Fatal error:  Call to a member function get() on a non-object in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 48
+[13-Sep-2017 13:41:11 PRC] PHP Fatal error:  Call to a member function operateList() on a non-object in E:\project\www.erp.com\manager\index\controller\User.php on line 16
+[13-Sep-2017 13:42:23 PRC] PHP Fatal error:  Call to a member function operateList() on a non-object in E:\project\www.erp.com\manager\index\controller\User.php on line 16
+[13-Sep-2017 14:27:50 PRC] PHP Fatal error:  Call to a member function toArray() on a non-object in E:\project\www.erp.com\manager\index\model\UserOperate.php on line 38
+[13-Sep-2017 14:41:57 PRC] PHP Fatal error:  Class 'manager\index\model\CarReport' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 179
+[13-Sep-2017 14:43:51 PRC] PHP Fatal error:  Class 'manager\index\model\CarReport' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 179
+[13-Sep-2017 16:27:53 PRC] PHP Fatal error:  Class 'manager\index\controller\Lender' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 100
+[13-Sep-2017 16:29:43 PRC] PHP Fatal error:  Class 'manager\index\controller\Lender' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 100
+[13-Sep-2017 16:30:34 PRC] PHP Fatal error:  Class 'manager\index\controller\Lender' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 100
+[13-Sep-2017 16:31:23 PRC] PHP Fatal error:  Class 'manager\index\controller\Lender' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 100
+[13-Sep-2017 16:32:29 PRC] PHP Fatal error:  Class 'manager\index\model\lender' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 101
+[14-Sep-2017 11:17:54 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Storesystem::view() in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 97
+[14-Sep-2017 16:02:49 Asia/Shanghai] PHP Fatal error:  Call to undefined function request() in E:\project\www.erp.com\manager\config.php on line 241
+[18-Sep-2017 10:54:34 PRC] PHP Fatal error:  Call to private method manager\index\controller\Common::getTitle() from context 'manager\index\controller\Storesystem' in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 95
+[18-Sep-2017 11:08:23 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Riskcontrol::loan() in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 38
+[19-Sep-2017 16:28:12 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\User::getUid() in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 31
+[19-Sep-2017 16:28:42 PRC] PHP Fatal error:  Class 'manager\index\controller\UserStore' not found in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 33
+[19-Sep-2017 16:28:43 PRC] PHP Fatal error:  Class 'manager\index\controller\UserStore' not found in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 33
+[21-Sep-2017 09:14:56 Asia/Shanghai] PHP Notice:  Constant DS already defined in E:\project\www.erp.com\thinkphp\base.php on line 16
+[21-Sep-2017 09:14:58 Asia/Shanghai] PHP Notice:  Constant DS already defined in E:\project\www.erp.com\thinkphp\base.php on line 16
+[21-Sep-2017 09:34:29 Asia/Shanghai] PHP Parse error:  syntax error, unexpected end of file in E:\project\www.erp.com\public\config.inc.php on line 3
+[22-Sep-2017 11:10:44 Asia/Shanghai] PHP Parse error:  syntax error, unexpected ';' in E:\project\www.erp.com\thinkphp\library\think\Validate.php on line 388
+[25-Sep-2017 13:47:44 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Common::operateRecord() in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 90
+[25-Sep-2017 13:47:46 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Common::operateRecord() in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 90
+[25-Sep-2017 13:48:34 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Common::operateRecord() in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 90
+[25-Sep-2017 13:49:23 PRC] PHP Fatal error:  Class 'manger\index\model\Common' not found in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 90
+[25-Sep-2017 13:49:36 PRC] PHP Fatal error:  Class 'manger\index\model\Common' not found in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 90
+[25-Sep-2017 14:10:25 PRC] PHP Fatal error:  Class 'manger\index\model\Common' not found in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 54
+[26-Sep-2017 15:47:29 PRC] PHP Fatal error:  Class 'manager\index\controller\Order' not found in E:\project\www.erp.com\manager\index\controller\Riskcontrol.php on line 128
+[27-Sep-2017 15:16:19 PRC] PHP Fatal error:  Call to a member function getdata() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 55
+[27-Sep-2017 15:21:05 PRC] PHP Fatal error:  Call to a member function getdata() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 55
+[27-Sep-2017 15:23:54 PRC] PHP Fatal error:  Call to a member function getData() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 55
+[27-Sep-2017 15:47:37 PRC] PHP Fatal error:  Call to a member function getData() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 55
+[27-Sep-2017 15:48:30 PRC] PHP Fatal error:  Call to a member function getData() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 55
+[27-Sep-2017 15:48:32 PRC] PHP Fatal error:  Call to a member function getData() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 55
+[27-Sep-2017 15:48:51 PRC] PHP Fatal error:  Call to a member function getdata() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 55
+[27-Sep-2017 16:10:17 PRC] PHP Fatal error:  Call to a member function getdata() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 45
+[27-Sep-2017 16:10:21 PRC] PHP Fatal error:  Call to a member function getdata() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 45
+[27-Sep-2017 16:10:51 PRC] PHP Fatal error:  Call to a member function getdata() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 45
+[27-Sep-2017 16:11:39 PRC] PHP Fatal error:  Call to a member function getdata() on a non-object in E:\project\www.erp.com\manager\index\controller\Showphotos.php on line 45
+[28-Sep-2017 15:54:43 PRC] PHP Fatal error:  Out of memory (allocated -213647360) (tried to allocate 64 bytes) in E:\project\www.erp.com\manager\index\controller\Role.php on line 27
+[28-Sep-2017 15:56:27 PRC] PHP Fatal error:  Call to undefined function manager\index\controller\conut() in E:\project\www.erp.com\manager\index\controller\Role.php on line 28
+[28-Sep-2017 15:57:50 PRC] PHP Fatal error:  Out of memory (allocated 192151552) (tried to allocate 64 bytes) in E:\project\www.erp.com\manager\index\controller\Role.php on line 29
+[29-Sep-2017 09:48:44 PRC] PHP Fatal error:  Class 'manager\index\controller\UserSearch' not found in E:\project\www.erp.com\manager\index\controller\Common.php on line 54
+[29-Sep-2017 10:06:42 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\User::userGradeList() in E:\project\www.erp.com\manager\index\controller\User.php on line 15
+[29-Sep-2017 10:06:43 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\User::userGradeList() in E:\project\www.erp.com\manager\index\controller\User.php on line 15
+[18-Oct-2017 16:19:10 PRC] PHP Fatal error:  Call to a member function fetch() on a non-object in E:\project\www.erp.com\manager\index\controller\Index.php on line 14
+[20-Oct-2017 14:36:27 PRC] PHP Fatal error:  Class 'manager\index\controller\LoanReview' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 300
+[20-Oct-2017 14:36:46 PRC] PHP Fatal error:  Class 'manager\index\controller\LoanReview' not found in E:\project\www.erp.com\manager\index\controller\Storesystem.php on line 300
+[25-Oct-2017 14:25:31 PRC] PHP Fatal error:  Call to a member function getProductOne() on a non-object in E:\project\www.erp.com\manager\index\controller\Productcontrol.php on line 108
+[25-Oct-2017 15:44:34 PRC] PHP Fatal error:  Call to a member function post() on a non-object in E:\project\www.erp.com\runtime\temp\80141c2ace7c19623c9437c82ea7832c.php on line 63
+[25-Oct-2017 15:58:44 PRC] PHP Fatal error:  Class '智车宝-1712' not found in E:\project\www.erp.com\manager\index\model\ProductManager.php on line 43
+[25-Oct-2017 15:59:15 PRC] PHP Fatal error:  Class 'product1712' not found in E:\project\www.erp.com\manager\index\model\ProductManager.php on line 43
+[25-Oct-2017 16:00:30 PRC] PHP Fatal error:  Class 'Product1712' not found in E:\project\www.erp.com\manager\index\model\ProductManager.php on line 44
+[25-Oct-2017 16:55:11 PRC] PHP Fatal error:  Cannot instantiate abstract class manager\index\model\Product in E:\project\www.erp.com\manager\index\controller\Productcontrol.php on line 116
+[30-Oct-2017 15:48:53 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Examine::getParams() in E:\project\www.erp.com\manager\index\controller\Examine.php on line 28
+[30-Oct-2017 15:48:54 PRC] PHP Fatal error:  Call to undefined method manager\index\controller\Examine::getParams() in E:\project\www.erp.com\manager\index\controller\Examine.php on line 28
+[30-Oct-2017 16:51:27 PRC] PHP Fatal error:  Class 'manager\index\controller\Order' not found in E:\project\www.erp.com\manager\index\controller\Examine.php on line 41
+[30-Oct-2017 16:51:48 PRC] PHP Fatal error:  Class 'manager\index\controller\Order' not found in E:\project\www.erp.com\manager\index\controller\Examine.php on line 41
+[31-Oct-2017 14:24:31 PRC] PHP Fatal error:  Class 'manager\index\controller\manager\index\model\FuyouBank' not found in E:\project\www.erp.com\manager\index\controller\Bindthird.php on line 39
+[31-Oct-2017 15:30:44 PRC] PHP Fatal error:  Call to undefined function manager\index\model\isMobile() in E:\project\www.erp.com\manager\index\model\Fuyou.php on line 143
+[31-Oct-2017 15:31:29 PRC] PHP Fatal error:  Call to undefined function manager\index\model\isMobile() in E:\project\www.erp.com\manager\index\model\Fuyou.php on line 143
+[31-Oct-2017 16:07:42 PRC] PHP Fatal error:  Call to undefined function manager\index\model\isBankNo() in E:\project\www.erp.com\manager\index\model\Fuyou.php on line 188
+[31-Oct-2017 16:08:18 PRC] PHP Fatal error:  Call to undefined function manager\index\model\isBankNo() in E:\project\www.erp.com\manager\index\model\Fuyou.php on line 188

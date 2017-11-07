@@ -1,0 +1,180 @@
+{include file='publics/header'}
+<style type="text/css">
+.main-content{margin-top: 20px;}
+.list-div{width: 80%;}
+.third-list{list-style: none;height: 35px;margin-bottom: 0px;margin-left: 20px;padding-left: 0px;}
+.third-list li{float: left;width: 150px;height: 35px;line-height: 35px;border: 1px solid #ccc;text-align: center;margin-left: 0px;border-radius: 5px;font-size: 15px;cursor: pointer;}
+.form-div{width: 90%;height: auto;border:1px solid #ccc;border-radius: 5px;margin-left: 20px;}
+.check{background: #414DA7;cursor: pointer;color: #fff;}
+.bind-div{width: 100%;padding-left: 0px;}
+.bind-div table{margin-left: 10px;width: 1100px;}
+.table tr td{line-height: 35px;}
+.table tr .tableleft{text-align: center;width: 200px;}
+.table tr .tableright{width: 400px;}
+.table tr td span{margin-left: 10px;width: 200px;}
+.bind-div{display: none;}
+</style>
+<script type="text/javascript">
+$(function () {
+	$(".third-list li").click(function () {
+		var _this = $(this);
+		$(".third-list li").removeClass("check");
+		_this.addClass("check");
+		var name = _this.attr("name");
+		$(".bind-div").hide();
+		$("div[name='" + name +"']").show();
+	})
+	$("select[name='province']").change(function () {
+		var province_code = $(this).find("option:selected").val();
+		if (province_code == 0)return false;
+		$.post("/Bindthird/bindAccount",{'province_code':province_code,"change_pro":1},function (F) {
+			var citys = F.data;
+			var opStr = '';
+
+			$("select[name='city_id']").removeAttr("disabled").html("<option value='0'>--请选择开户行区县--</option>")
+			$.each(citys,function (index,item) {
+				opStr += "<option value='" + item.city_code + "'>" + item.city + "</option>";
+			})
+			$("select[name='city_id']").append(opStr);
+		},'json')
+	})
+})
+</script>
+<div class="main-content">
+	<div class="list-div">
+		<ul class="third-list">
+			<li class="check" name="fuyou">绑定富有</li>
+			<li name="baofu">绑定宝付</li>
+		</ul>
+	</div>
+	<div class="form-div">
+		<div class="bind-div" name='fuyou' style="display: inline-block;">
+			<form id="fuyou" method="post" action="/Bindthird/bindFuyou">
+			<table class="table table-bordered table-hover m10">
+				<tr>
+					<td class="tableleft">用户姓名</td>
+					<td class="tableright"><input type="text" name="names"><span>*与银行卡户名一致</span></td>
+					<td class="tableleft">证件类型</td>
+					<td class="tableright">身份证</td>					
+				</tr>
+				<tr>
+					<td class="tableleft">身份证号码</td>
+					<td class="tableright"><input type="text" name="certiNumber"><span>*与银行卡预留身份证一致</span></td>
+					<td class="tableleft">手机号码</td>
+					<td class="tableright"><input type="text" name="mobile"><span>*</span></td>
+				</tr>
+				<tr>
+					<td class="tableleft">邮箱地址</td>
+					<td class="tableright" colspan="3"><input type="text" name="email"><span></span></td>
+				</tr>
+				<tr>
+					<td class="tableleft">开户行省市</td>
+					<td class="tableright">
+						<select name="province">
+							<option value="0">--请选择开户行省市--</option>
+							{foreach name="province" item="vo"}
+							<option value="{$vo['province_code']}">{$vo['province']}</option>
+							{/foreach}
+						</select>
+						<span>*</span>
+					</td>
+					<td class="tableleft">开户行区县</td>
+					<td class="tableright">
+						<select name="city_id" disabled="">
+							<option value="0">--请选择开户行区县--</option>
+						</select>
+						<span>*</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="tableleft">开户行行别</td>
+					<td class="tableright">
+						<select name="bank_code">
+							<option value="0">--请选择开户行行别--</option>
+							{foreach name="banks" item="vo"}
+							<option value="{$vo['bank_code']}">{$vo['bank_name']}</option>
+							{/foreach}
+						</select>
+						<span>*</span>
+					</td>
+					<td class="tableleft">开户行名称</td>
+					<td class="tableright"><input type="text" name="bank_nm"><span>*</span></td>
+				</tr>
+				<tr>
+					<td class="tableleft">银行卡号</td>
+					<td class="tableright" colspan="3"><input type="text" name="capAcntNo"><span>*</span></td>	
+					
+				</tr>
+				<tr>
+					<td class="tableleft">提现密码</td>
+					<td class="tableright"><input type="password" name="password"><span></span></td>
+					<td class="tableleft">登录密码</td>
+					<td class="tableright"><input type="password" name="lpassword"><span></span></td>
+				</tr>
+				<tr>
+					<td class="tableleft">备注</td>
+					<td colspan="3" class="tableright"><textarea name="rem" style="width: 80%;" rows="3"></textarea></td>
+				</tr> 
+			</table>
+			</form>
+			<p style="text-align: center;"><button style="margin-bottom: 20px;margin-right: 20px;" class="btn-primary save">保存</button><button onclick="javascript:window.location.href='/Examine/checkList.html'" style="margin-bottom: 20px;" class="btn-error" >放弃</button></p>
+		</div>
+		<div class="bind-div" name="baofu" style="height: 500px;">
+			绑定宝付页面
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function () {
+	$(".save").click(function () {
+		var input = $("#fuyou").find("input");
+		var select = $("#fuyou").find("select");
+		var send = true;
+		var err = "";
+		input.push.apply(input,select);
+		input.each(function (i,e) {
+			var _this = $(this);
+			var sapn = _this.next("span");
+			var sapnText = sapn.html();
+			if (sapnText.indexOf("*") != -1) {
+				if (_this.val() == '' || (_this.find("option:selected").val() == 0)) {
+					if (_this.context.tagName == "INPUT") {
+						err = "*不能为空";
+					} else if (_this.context.tagName == "SELECT") {
+						err = "*请选择";
+					}
+					sapn.html("<font style='color:red;'>" + err + "</font>");
+					send = false;
+					return false;
+				} else {
+					sapn.html("<font style='color:green;'>*✔</font>");
+				}
+			}
+		})
+		if (false == send) return false;
+		top.jdbox.alert(2,"正在绑定。。。");
+			var data = new FormData($("#fuyou")[0]);
+			data.append("is_fuyou",1);
+			$.ajax({
+				url:"{:url('Bindthird/bindFuyou')}",
+				data:data,
+				type:"POST",
+				async:false,
+				cache:false,
+				contentType:false,
+				processData:false,
+				success:function (F) {
+					if (!F.status && F.status != 0) F = eval("(" + F + ")");
+					top.jdbox.alert(F.status,F.info);
+					if (F.status) {
+						window.location.href = "/Examine/checkList";
+					}
+				},
+				error:function (response) {
+					top.jdbox.alert(response.responseText);
+				}
+			})
+	})
+})
+</script>
+{include file='publics/footer'}

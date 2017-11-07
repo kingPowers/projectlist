@@ -1,0 +1,60 @@
+{include file='publics/header'}
+<style type="text/css">
+	#content{width:800px;padding:10px;font-size:12px;color:#000;}
+	.assessment_table table td{text-align: center;}
+</style>
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<div><span>产品选择</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+	<!-- 	<tr>
+			<td class="tableleft">资方</td>
+			<td style="position: relative;">
+				<select name="product">
+					{foreach name="product" item="vo"}
+					<option value="{$vo}">{$vo}</option>
+					{/foreach}
+				</select>
+			</td>
+			<td class="tableleft">期数</td>
+			<td>
+				<select>
+				</select>
+			</td>
+		</tr> -->
+		<input type="hidden" name="loanid" value="{$_GET['loanid']}">
+		<tr>
+			<td class="tableleft">产品</td>
+			<td colspan="3">
+				<select name="product">
+					{foreach name="list" item="vo"}
+					<option value="{$vo['id']}" {eq name="store_pro" value="$vo['id']" }selected=""{/eq}>{$vo['name']}</option>
+					{/foreach}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<a id="ensure" style="display: inline-block;margin-left: 40%;margin-right: 20px;" class="btn btn-success">确认</a>
+				<a style="display: inline-block;" class="btn btn-primary">取消</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$("#ensure").click(function () {
+		var loanid = $("input[name='loanid']").val();
+		var productid = $("select[name='product']").find("option:selected").val();
+		$.post("{:url('/Examine/selectProduct')}",{'loanid':loanid,"productid":productid,'is_selected':1},function (F) {
+			if (F.status == 1) {
+				parent.window.reload();
+				top.jdbox.alert(F.status,F.info);
+			} else {
+				alert(F.info);
+			}
+		})
+	})
+})
+</script>
+{include file='publics/footer'}

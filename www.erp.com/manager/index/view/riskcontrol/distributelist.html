@@ -1,0 +1,64 @@
+{include file='publics/header'}
+
+<form class="form-inline definewidth m20" action="distributeList.html" method="get">  
+    <select name="k" class="short">
+      {foreach name="key" item='v' key='k'}
+        <option value="{$k}" {eq name="_GET['key']" value="$k" }selected="selected"{/eq}>{$v}</option>
+      {/foreach}
+    </select>
+    <input type="text" name="v" class="abc input-default" value="{:request()->get('v')}">&nbsp;&nbsp;
+    开始时间：
+    <input type="text" name="starttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{:request()->get('starttime')}">
+    结束时间：
+    <input type="text" name="endtime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" value="{:request()->get('endtime')}">
+    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; 
+</form>
+<table class="table table-bordered table-hover definewidth m10">
+    <thead>
+        <tr>
+           {volist name="title" id="vo"}
+              <th>{$vo}</th>
+           {/volist}
+        </tr>
+    </thead>
+    <tbody>
+      {volist name="list" id="v"}
+      <tr>
+        {foreach name="title" item="tv" key="k"}
+          {if condition="$k eq 'operate'"}
+          <td>
+            {foreach name="v[$k]" item="ov" key="ok"}
+              <a onclick="operate('{$ok}',{$v['other']['id']});">{$ov}</a>
+            {/foreach}
+          </td>
+          {else /}
+            <td>{$v[$k]}</td>
+          {/if}  
+        {/foreach}
+      </tr>
+      {/volist}
+    </tbody>
+</table>
+<div>{$page}</div>
+<script type="text/javascript">
+// var distributeOrder = function (id)
+// {
+// 	return top.jdbox.iframe("/Riskcontrol/distributeOrder.html?loanid=" + id);
+// }
+var robOrder = function (id)
+{
+  if (!confirm("是否确定抢单"))return false;
+  top.jdbox.alert(2);
+  $.post("{:url('/Riskcontrol/distributeList')}",{'is_rob':1,'loanid':id},function (F) {
+    top.jdbox.alert(F.status,F.info);
+    if (F.status) {
+      window.location.reload();
+    }
+  },'json')
+}
+var edit = function (id)
+{
+  window.location.href = "/Showphotos/index.html?loanid="+id;
+}
+</script>
+{include file='publics/footer'}

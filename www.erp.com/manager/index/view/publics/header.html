@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>内页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="_STATIC_/2015/manager/Public/Css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="_STATIC_/2015/manager/Public/Css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+<link href="_STATIC_/2015/manager/Public/Css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="_STATIC_/2015/manager/Public/Css/page.css">
+<script language="javascript">var OS = "_OS_", Public = "_STATIC_/2015/manager/Public/", STATIC = '_STATIC_/2015/', APP = '__APP__',STA = '_STATIC_';</script>
+<script type="text/javascript" src="_STATIC_/wdate/WdatePicker.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.min.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/manager/Public/Js/bootstrap.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/manager/Public/Js/ckform.js"></script>
+<script type="text/javascript" src="_STATIC_/2015/js/jquery.box.js"></script>
+<style>
+/*分页样式*/  
+.pagination{text-align:center;margin-top:20px;margin-bottom: 20px;}  
+.pagination li{margin:0px 10px; border:1px solid #e6e6e6;padding: 3px 8px;display: inline-block;}  
+.pagination .active{background-color: #46A3FF;color: #fff;}  
+.pagination .disabled{color:#aaa;} 
+</style>
+</head>
+<body>
+<script type="text/javascript">
+var operate = function (type,id)
+{
+  if (type == '') return false;
+  if (id == '') return top.jdbox.alert(0,"订单ID不能为空");
+  var fun = type + "(" + id + ")";
+  eval(fun);
+}
+var edit = function (id)
+{
+  window.location.href = "/Storesystem/loanTable.html?loanid=" + id;
+}
+</script>

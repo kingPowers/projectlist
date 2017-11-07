@@ -1,0 +1,95 @@
+{include file="publics/header" /}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link href="_STATIC_/assets/fileupload/css/common.css" type="text/css" rel="stylesheet"/>
+  <link href="_STATIC_/assets/fileupload/css/index.css" type="text/css" rel="stylesheet"/>
+
+    <link rel="stylesheet" type="text/css" href="_STATIC_/assets/viewer/css/normalize.css" />
+    <!--<link rel="stylesheet" type="text/css" href="_STATIC_/assets/viewer/css/default.css">-->
+    <link rel="stylesheet" href="_STATIC_/assets/viewer/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="_STATIC_/assets/viewer/dist/viewer.css">
+    <link rel="stylesheet" href="_STATIC_/assets/viewer/css/main.css">
+    <script src="_STATIC_/assets/fileupload/js/imgPlugin.js"></script>
+
+</head>
+<script type="text/javascript">
+ var returnUrl = function ()
+  {
+    var returnUrl = "{$_GET['returnurl']}";
+    if (returnUrl == '') {
+      window.location.href='/Storesystem/loanTable.html?loanid={$_GET.loanid}&readonly=1';
+    } else {
+      window.location.href = "{php}echo urldecode($_GET['returnurl']){/php}";
+    }
+  }
+</script>
+<body>
+<form action="" method="post" enctype="multipart/form-data">
+  <div class="img-box full">
+    <section class=" img-section">
+      <p class="up-p"><span class="up-span" style="color:#ff0000;font-size:20px;">{$name}</span></p>
+      <div class="z_photo upimg-div clear" >
+    {notempty name="list"}
+         {foreach name="list" item="vo"}
+                  <section class="up-section fl loading"><span class="up-span1" ></span>
+                  <img class="close-upimg" src="_STATIC_/assets/fileupload/img/a7.png">
+                  <li class="docs-pictures clearfix">
+                  <img class="up-img" style="height: 100px; width: 100px;" type="loanContract_pic" src="_STATIC_/Upload/{$vo}" up_name="{$vo}" up_loanid={$loanid} up_field={$field} ><p class="img-name-p"></p>
+                  </li>
+                  <input id="taglocation" name="taglocation" value="" type="hidden">
+                  <input id="tags" name="tags" value="" type="hidden">
+                  <input type="text" style="display:none;" name="undefined" value="undefined"></section>
+         {/foreach}
+    {/notempty}
+        <section class="z_file fl">
+          <img src="_STATIC_/assets/fileupload/img/a11.png" class="add-img">
+          <input type="file" name="file[]" id="file"  class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />
+        </section>
+      </div>
+    </section>
+
+  </div>
+</form> 
+
+
+<div style="width: 100%;"><button onclick="returnUrl();" style="margin: 0 40%;display: inline-block;" class="btn-primary" >返回</button></div>
+<aside class="mask works-mask">
+  <div class="mask-content">
+    <p class="del-p ">您确定要删除作品图片吗？</p>
+    <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+  </div>
+</aside>
+
+<script src="_STATIC_/assets/fileupload/js/jquery.js"></script>
+<script src="_STATIC_/assets/fileupload/js/imgPlugin.js"></script>
+
+<!-- Scripts -->
+<script src="_STATIC_/assets/viewer/dist/viewer.js"></script>
+<!-- <script src="_STATIC_/assets/viewer/assets/js/bootstrap.min.js"></script> -->
+<script src="_STATIC_/assets/viewer/dist/viewer.js"></script>
+<script src="_STATIC_/assets/viewer/assets/js/main.js"></script>
+<!--<script src="_STATIC_/assets/viewer/assets/js/main.js"></script>-->
+<script type="text/javascript">
+ 
+    $(function(){
+      
+        $("#file").takungaeImgup({  
+            formData: {
+               "field":"{$field}",
+               "lid":{$loanid},
+            },
+            url:"{:url('/Image/addPhoto')}",
+            success: function(data) {
+            },
+            error: function(err) {
+                alert(err);
+            }
+        });
+    })
+</script>
+</body>
+</html>
+{include file="publics/footer" /}

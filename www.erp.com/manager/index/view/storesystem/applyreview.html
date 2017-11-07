@@ -1,0 +1,43 @@
+{include file='publics/header'}
+<style>
+	#content{width:500px;padding:10px 0;padding-right:20px;font-size:12px;color:#000;}
+	table.table td{color:#666;height: 100%; margin: 20%,auto;}
+	table.table td.value{color:#0081A1;}
+	.search-div{border:1px solid #bbb;width: 207px;margin-top: 0px;position: absolute;top:32px;left: 8px;z-index: 100;background: #fff;border-radius: 2px;display:none;}
+	.search-div p{cursor: pointer;margin: 0 auto;padding: 5px 10px;}
+	.search-div p:hover{background: #ccc}
+	.close{display: inline-block;float: right;font-size: 5px;color: #666;padding-right: 10px;}
+</style>
+<div><span>申请复议：</span></div>
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td class="tableleft">复议内容</td>
+			<td>
+				<textarea name="review_info" cols="50"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="text-align: center;"><a style="margin: 0 20px;" id="sub" loanid="{:request()->get('loanid')}" class="btn btn-primary">提交</a><a class="btn btn-primary" onclick="javascript:top.jdbox.close();">返回</a></td>
+		</tr>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$("#sub").click(function () {
+		if (!confirm("是否确认申请复议"))return false;
+		var loanid = $(this).attr("loanid");
+		if (loanid == '') return alert("订单id错误");
+		var review_info = $("textarea[name='review_info']").val();
+		$.post("{:url('/Storesystem/applyReview')}",{'is_apply':1,"loanid":loanid,"review_info":review_info},function (F) {
+			if (F.status) {
+				parent.window.reload();
+				top.jdbox.alert(F.status,F.info);
+			} else {
+				alert(F.info);
+			}
+		},'json')
+	})
+})
+</script>
+{include file='publics/footer'}

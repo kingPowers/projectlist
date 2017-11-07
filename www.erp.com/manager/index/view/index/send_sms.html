@@ -1,0 +1,16 @@
+<include file="Public:header" />
+<textarea id="content" cols="30" rows="10"></textarea>
+<button type="button" class="btn btn-success" id="send-sms" style="margin:50px">全站发短信</button>
+<p></p>
+<div id="message"></div>
+<script>
+
+$(function(){
+	$('#send-sms').click(function(){
+		$.post('/Index/send_sms_submit',{type:'all',content:$('#content').val()},function(result){
+			$('#message').html(result);
+		});
+	})
+})
+</script>
+<include file="Public:footer" />

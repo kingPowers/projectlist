@@ -1,0 +1,205 @@
+{include file='publics/header'}
+<link href="_STATIC_/2015/manager/Public/Css/table.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+input[type='text'],select {position: relative;top:5px;}
+input[type='radio'] {position: relative;top:-5px;}
+option{text-align: center;}
+.dis-input{display: none;}
+.out-input{display: inline-block;float: left;}
+.has-connect{color: red;display: inline-block;width:20px;cursor: pointer;font-size: 20px;}
+.search-div{display: none;z-index: 200;border:1px solid #ccc;position: absolute;right: 50%;background: #fff;border-radius: 5px;color: #999;font-size: 12px;text-align: left;}
+.search-div p{padding: 0 10px;text-indent: 1px;}
+td{position: relative;padding-left: 20px;height: 30px;line-height: 30px;}
+</style>
+<div><span>申请表</span></div>
+<div id="content" style="margin-left: 50px;">
+<input type="hidden" name="loanid" value="{$info['loanid']}">
+<h1>客户个人信息表</h1>
+<span>门店：<font class="">{$store['name']}</font></span>
+	<table width="1100px" cellpadding="0" cellspacing="0" border="1">
+		<tr>
+			<td><font>借款详细用途</font></td>
+			<td colspan="4">{$info['purpose']}</td>
+			<td><font>产品</font></td>
+			<td colspan="2">{$info['product']}	
+			</td>			
+		</tr>
+		<tr>
+			<td>借款金额</td>
+			<td colspan="3">人民币(大写)：{$info['money']}元</td>
+			<td>期限</td>
+			<td colspan="4">{$info['periodes']}
+			</td>		
+		</tr>
+		<tr>
+			<td colspan="8"><font>借款人详细信息</font></td>			
+		</tr>
+		<tr>
+			<td>借款人姓名</td>
+			<td>{$info['names']}
+			</td>
+			<td>借款人性别</td>
+			<td>{$info['sex']}
+			<td>借款人年龄</td>
+			<td>{$info['age']}岁</td>
+			<td>移动电话</td>
+			<td>{$info['mobile']}</td>					
+		</tr>
+		<tr>
+			<td>婚姻状况</td>
+			<td colspan="3">{$info['marriage_status']}
+			</td>
+			<td>借款人身份证</td>
+			<td colspan="3">{$info['certi_number']}</td>						
+		</tr>
+		<tr>
+			<td>借款人学历</td>
+			<td colspan="4">{$info['education']}
+			</td>
+			<td>借款人微信号</td>
+			<td colspan="2">{$info['weixin']}</td>						
+		</tr>
+		<tr>
+			<td>户籍详细地址</td>
+			<td colspan="7">
+				{$info['koseki_address']}
+			</td>									
+		</tr>
+		<tr>
+			<td>居住地地址</td>
+			<td colspan="7">
+				{$info['live_address']}
+			</td>									
+		</tr>
+		<tr>
+			<td colspan="1">
+				借款人居住本地:
+			</td>
+			<td colspan="7">{$info['live_info2']}年份</td>						
+		</tr>
+		<tr>
+			<td colspan ="1">房产类别</td>
+			<td colspan ="7">{$info['house']}
+				<section id="hire_money" style="width: 550px;" {eq name="info['house']" value="租用房"}calss="out-input" {else/}class="dis-input"{/eq}>
+					每月租金{$info['house1']}元
+				</section>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="8"><font>借款人职业信息</font></td>			
+		</tr>
+		<tr>
+			<td>单位性质</td>
+			<td colspan="2">{$info['career_info1']}
+			</td>										
+			<td>工作单位</td>
+			<td colspan="4">	
+				{$info['career_info2']}			
+			</td>
+		</tr>
+		<tr>
+			<td>所属行业</td>
+			<td>	
+				{$info['career_info3']}		
+			</td>										
+			<td>职位</td>
+			<td colspan="2">	
+				{$info['career_info4']}			
+			</td>
+			<td>工作时间</td>
+			<td colspan="2">
+					{$info['career_info5']}
+			</td>
+		</tr>
+		<tr>
+			<td>单位地址</td>
+			<td colspan="5">
+				{$info['career_info6']}
+			</td>
+			<td>单位电话</td>
+			<td>
+				{$info['career_info7']}
+			</td>									
+		</tr>
+		<tr>
+			<td>每月基本薪资</td>
+			<td colspan="3">
+				<label>月收入约:{$info['career_info8']}元</label>
+			</td>
+			<td colspan="2">
+				<label>其他收入约:{$info['career_info9']}元</label>
+			</td>	
+			<td colspan="2">
+				<label>每月总收入:{$info['career_info10']}元</label>
+			</td>								
+		</tr>
+		<tr>
+			<td colspan="8"><font>联系人信息</font></td>			
+		</tr>
+		<tr class="marry_info">
+			<td>配偶/未婚</td>
+			<td>{$info['contact_info1']}</td>
+			<td>关系</td>
+			<td>{$info['contact_info2']}</td>	
+			<td>联系电话</td>
+			<td colspan="3"><font>{$info['contact_info3']}</font>{notempty name="info['contact_info3']"}<div class="has-connect">!<div class="search-div"></div></div>{/notempty}</td>			
+		</tr>
+		<tr>
+			<td>直系亲属</td>
+			<td>{$info['contact_info4']}</td>
+			<td>关系</td>
+			<td>{$info['contact_info5']}</td>	
+			<td>联系电话</td>
+			<td colspan="3"><font>{$info['contact_info6']}</font>{notempty name="info['contact_info6']"}<div class="has-connect">!<div class="search-div"></div></div>{/notempty}</td>			
+		</tr>
+		<tr>
+			<td>其他联系人</td>
+			<td>{$info['contact_info7']}</td>
+			<td>关系</td>
+			<td>{$info['contact_info8']}</td>	
+			<td>联系电话</td>
+			<td colspan="3"><font>{$info['contact_info9']}</font>{notempty name="info['contact_info9']"}<div class="has-connect">!<div class="search-div"></div></div>{/notempty}</td>			
+		</tr>
+		<tr>
+			<td colspan="1">家人是否知晓借款:		
+			</td>	
+			<td colspan="7">{$info['contact_info10']}</td>
+		</tr>
+		<tr>
+			<td colspan="1">客户来源：</td>
+			<td colspan="3">{$info['lender_source']}</td>
+			<td colspan="1">客户类型：</td>
+			<td colspan="3">{$info['contact_info11']}</td>
+		</tr>
+	</table>
+	<p class="bot_div">
+		<label style="float: right;">经办客户经理:{$info['sales_man']}</label>
+	</p>
+	<div style="margin-top:100px;"></div>
+</div>
+<script type="text/javascript">
+$(function () {
+	$(".has-connect").hover(function () {
+		var value = $(this).prev("font").html();
+		$(".search-div").html('').hide();
+		if (value == '')return false;
+		var search = $(this).find(".search-div");
+		search.html('');
+		$.post("{:url('/Storesystem/applyTable')}",{"value":value,"type":'mobile','is_search':3},function (F) {
+			var data = F.data;
+			if (data != '') {
+				var str = '<p>相关订单：</p>';
+				$.each(data,function(i,item){
+					str += "<p><a>"+item.timeadd+"</a></p>";
+				});
+				search.append(str);
+			} else {
+				search.html("未查到相关订单");
+			}
+			search.show();
+		},'json')	
+	},function () {
+		$(this).find(".search-div").html('').hide();
+	})
+})
+</script>

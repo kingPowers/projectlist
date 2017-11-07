@@ -1,0 +1,62 @@
+{include file='publics/header'}
+<style>
+	#content{width:450px;padding:10px 0;padding-right:20px;font-size:12px;color:#ccc;} 
+	table.table td{color:#666;}
+	table.table td.value{color:#0081A1;}
+</style>
+<div><span>门店信息</span></div> 
+<div id="content">
+	<table class="table table-bordered table-hover definewidth m10">
+		<tr>
+			<td>用户名</td>
+			<td class="value">{$user['username']}</td>
+		</tr>
+		 {for start="0" end="$row"}
+			<tr>
+			{for start="0" end="$perline" name='j'}
+			  {if condition="($i*$perline+$j < $number) "}
+		          <td class="value"><input type="checkbox" name="storeid" 
+			          {notempty name="userstore"}
+				          {in name="store[$i*$perline+$j]['id']" value="$userstore"}
+				           checked
+				          {/in}
+			         {/notempty}
+			          value="{$store[$i*$perline+$j]['id']}"/>{$store[$i*$perline+$j]['name']}
+		          </td>
+	          {/if}
+	         {/for}
+			</tr>	 
+        {/for} 
+	
+		<tr>
+			<td colspan="2">
+				<a href="javascript:void(0);" class="btn" >提交</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script language="javascript"> 
+$(function(){
+$(".btn").click(function(){
+	var uid = "{$user['id']}";
+	var chk_storeid_value =[]; 
+	$('input[name="storeid"]:checked').each(function(){ 
+	chk_storeid_value.push($(this).val()); 
+	}); 
+	chk_storeid_value=chk_storeid_value.toString();
+	var data= {};
+	data.uid = uid;
+    data.chk_storeid_value = chk_storeid_value;
+	$.ajax({
+	   type: "POST",
+	   url: "{:url('Userstore/add')}", 
+	   data: data,
+	   success: function(msg){
+	   top.jdbox.alert(msg.status,msg.msg);
+	   }
+	});
+
+});
+})
+</script>
+{include file="publics/footer" /}
